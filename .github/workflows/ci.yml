@@ -37,4 +37,4 @@ jobs:
       #     BASE_BRANCH: master # 要部署的文件夹所在的分支.
       #     BRANCH: gh-pages # 部署到的分支
       #     FOLDER: docs/.vuepress/dist # 要部署的文件夹.
-      #     BUILD_SCRIPT: npm install && npm run build && cd docs/.vuepress/dist && echo 'wu529778790.com' > CNAME && cd - # 部署前要执行的命令（记得cd进入某个目录后，后面要cd -退回开始的目录）
+      #     BUILD_SCRIPT: npm install && npm run build && cd docs/.vuepress/dist && echo 'blog.shenzjd.com' > CNAME && cd - # 部署前要执行的命令（记得cd进入某个目录后，后面要cd -退回开始的目录）
