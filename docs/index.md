@@ -82,8 +82,8 @@ barShow: false
 
 ## :email: 联系
 
-- **WeChat or QQ**: <a href="tencent://message/?uin=894072666&Site=&Menu=yesUrl" class='qq'>894072666</a>
-- **Email**: <a href="mailto:894072666@qq.com">894072666@qq.com</a>
+- **WeChat or QQ**: <a href="tencent://message/?uin=529778790&Site=&Menu=yesUrl" class='qq'>529778790</a>
+- **Email**: <a href="mailto:529778790@qq.com">529778790@qq.com</a>
 - **GitHub**: <https://github.com/wu529778790>
 
 </br>  -->

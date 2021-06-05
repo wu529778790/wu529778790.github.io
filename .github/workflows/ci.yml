@@ -1,7 +1,5 @@
 name: CI
 
-#on: [push]
-
 # 在master分支发生push事件时触发。
 on:
   push:
