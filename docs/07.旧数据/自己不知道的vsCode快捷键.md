@@ -2,18 +2,18 @@
 title: 自己不知道的vsCode快捷键
 date: 2021-06-05 16:36:59
 permalink: /pages/6855fc/
-categories: 
+categories:
   - 旧数据
-tags: 
+tags:
   - null
-author: 
+author:
   name: 神族九帝
   link: https://github.com/wu529778790
 ---
 
 给 WebStorm 相比，vsCode 快捷键是比较少的，记录下自己不熟悉的，或者说不常用的
 
-<!--more-->
+<!-- more -->
 
 ## 全局搜索
 
