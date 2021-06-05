@@ -22,9 +22,9 @@ module.exports = {
   // categoryText: '随笔', // 碎片化文章（_posts文件夹的文章）预设生成的分类值，默认'随笔'
 
   // bodyBgImg: [
-  //   'https://cdn.jsdelivr.net/gh/wu529778790/image_store/blog/20200507175828.jpeg',
-  //   'https://cdn.jsdelivr.net/gh/wu529778790/image_store/blog/20200507175845.jpeg',
-  //   'https://cdn.jsdelivr.net/gh/wu529778790/image_store/blog/20200507175846.jpeg'
+  //   'https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200507175828.jpeg',
+  //   'https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200507175845.jpeg',
+  //   'https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200507175846.jpeg'
   // ], // body背景大图，默认无。 单张图片 String || 多张图片 Array, 多张图片时每隔15秒换一张。
   // bodyBgImgOpacity: 0.5, // body背景图透明度，选值 0 ~ 1.0, 默认0.5
 
@@ -48,7 +48,7 @@ module.exports = {
   author: {
     // 文章默认的作者信息，可在md文件中单独配置此信息 String | {name: String, link: String}
     name: 'wu529778790', // 必需
-    link: 'https://github.com/wu529778790', // 可选的
+    link: 'https://shenzjd.com', // 可选的
   },
   blogger: {
     // 博主信息，显示在首页侧边栏

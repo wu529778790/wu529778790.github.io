@@ -2,10 +2,13 @@
 title: ajax前后端交互教程
 date: 2021-06-05 16:06:21
 permalink: /pages/ac9563/
-categories:
+categories: 
   - 旧数据
-tags:
-  - 
+tags: 
+  - null
+author: 
+  name: 神族九帝
+  link: https://github.com/wu529778790
 ---
 title: ajax前后端交互教程
 date: 2016-09-21 15:52:06

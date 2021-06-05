@@ -2,10 +2,13 @@
 title: ES6常用基础集合
 date: 2021-06-05 16:06:21
 permalink: /pages/48ca67/
-categories:
+categories: 
   - 旧数据
-tags:
-  - 
+tags: 
+  - null
+author: 
+  name: 神族九帝
+  link: https://github.com/wu529778790
 ---
 title: ES6常用基础集合
 date: 2017-04-21 09:42:19

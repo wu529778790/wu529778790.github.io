@@ -2,10 +2,13 @@
 title: angularjs
 date: 2021-06-05 16:06:21
 permalink: /pages/ca2653/
-categories:
+categories: 
   - 旧数据
-tags:
-  - 
+tags: 
+  - null
+author: 
+  name: 神族九帝
+  link: https://github.com/wu529778790
 ---
 title: angularjs
 date: 2016-03-06 18:22:39

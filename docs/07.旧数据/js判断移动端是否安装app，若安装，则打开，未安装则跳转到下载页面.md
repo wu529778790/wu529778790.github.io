@@ -2,10 +2,13 @@
 title: js判断移动端是否安装app，若安装，则打开，未安装则跳转到下载页面
 date: 2021-06-05 16:06:21
 permalink: /pages/1bf7e8/
-categories:
+categories: 
   - 旧数据
-tags:
-  - 
+tags: 
+  - null
+author: 
+  name: 神族九帝
+  link: https://github.com/wu529778790
 ---
 title: js判断移动端是否安装app，若安装，则打开，未安装则跳转到下载页面
 date: 2017-04-19 17:29:48

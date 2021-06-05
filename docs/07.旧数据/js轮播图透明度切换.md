@@ -2,10 +2,13 @@
 title: js轮播图透明度切换
 date: 2021-06-05 16:06:21
 permalink: /pages/e90101/
-categories:
+categories: 
   - 旧数据
-tags:
-  - 
+tags: 
+  - null
+author: 
+  name: 神族九帝
+  link: https://github.com/wu529778790
 ---
 title: js轮播图透明度切换
 date: 2016-04-25 10:22:16

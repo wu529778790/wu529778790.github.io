@@ -2,10 +2,13 @@
 title: MarkDown语法小记
 date: 2021-06-05 16:06:21
 permalink: /pages/e0d008/
-categories:
+categories: 
   - 旧数据
-tags:
-  - 
+tags: 
+  - null
+author: 
+  name: 神族九帝
+  link: https://github.com/wu529778790
 ---
 title: MarkDown语法小记
 date: 2015-07-14 19:53:22

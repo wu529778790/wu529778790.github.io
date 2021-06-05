@@ -2,10 +2,13 @@
 title: 5分钟掌握JavaScript实用窍门
 date: 2021-06-05 16:06:21
 permalink: /pages/9067d8/
-categories:
+categories: 
   - 旧数据
-tags:
-  - 
+tags: 
+  - null
+author: 
+  name: 神族九帝
+  link: https://github.com/wu529778790
 ---
 
 # 删除数组尾部元素

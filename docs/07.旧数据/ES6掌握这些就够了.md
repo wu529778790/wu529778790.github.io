@@ -2,10 +2,13 @@
 title: ES6掌握这些就够了
 date: 2021-06-05 16:06:21
 permalink: /pages/d62082/
-categories:
+categories: 
   - 旧数据
-tags:
-  - 
+tags: 
+  - null
+author: 
+  name: 神族九帝
+  link: https://github.com/wu529778790
 ---
 title: ES6掌握这些就够了
 date: 2017-06-21 21:02:58

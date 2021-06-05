@@ -2,10 +2,13 @@
 title: javascript中的this
 date: 2021-06-05 16:06:21
 permalink: /pages/fee2ac/
-categories:
+categories: 
   - 旧数据
-tags:
-  - 
+tags: 
+  - null
+author: 
+  name: 神族九帝
+  link: https://github.com/wu529778790
 ---
 title: javascript中的this
 date: 2017-04-23 16:09:09

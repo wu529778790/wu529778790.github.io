@@ -2,10 +2,13 @@
 title: vue中axios的封装和API接口的管理
 date: 2021-06-05 16:06:21
 permalink: /pages/94d41f/
-categories:
+categories: 
   - 旧数据
-tags:
-  - 
+tags: 
+  - null
+author: 
+  name: 神族九帝
+  link: https://github.com/wu529778790
 ---
 title: axios
 date: 2017-11-13 18:19:55
