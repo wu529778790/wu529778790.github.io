@@ -1,11 +1,5 @@
 // 插件配置
 module.exports = [
-  // 本地插件
-  // [require('./plugins/love-me'), { // 鼠标点击爱心特效
-  //   color: '#11a8cd', // 爱心颜色，默认随机色
-  //   excludeClassName: 'theme-vdoing-content' // 要排除元素的class, 默认空''
-  // }],
-
   'vuepress-plugin-baidu-autopush', // 百度自动推送
 
   // 可以添加第三方搜索链接的搜索框（原官方搜索框的参数仍可用）
@@ -14,6 +8,10 @@ module.exports = [
     {
       thirdparty: [
         // 可选，默认 []
+        {
+          title: '在Bing中搜索',
+          frontUrl: 'https://cn.bing.com/search?q=',
+        },
         {
           title: '在MDN中搜索',
           frontUrl: 'https://developer.mozilla.org/zh-CN/search?q=', // 搜索链接的前面部分
@@ -28,12 +26,8 @@ module.exports = [
           frontUrl: 'https://cn.vuejs.org/v2/api/#',
         },
         {
-          title: '在Bing中搜索',
-          frontUrl: 'https://cn.bing.com/search?q=',
-        },
-        {
           title: '通过百度搜索本站的',
-          frontUrl: 'https://www.baidu.com/s?wd=site%3Awu529778790.com%20',
+          frontUrl: 'https://www.baidu.com/s?ie=UTF-8&wd=site%3Ablog.shenzjd.com',
         },
       ],
     },
