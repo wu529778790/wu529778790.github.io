@@ -26,9 +26,9 @@ git add -A
 git commit -m "${msg}"
 git push -f $githubUrl master:gh-pages # 推送到github gh-pages分支
 
-# deploy to coding pages
-# echo 'www.wu529778790.com\nwu529778790.com' > CNAME  # 自定义域名
-# echo 'google.com, pub-7828333725993554, DIRECT, f08c47fec0942fa0' > ads.txt # 谷歌广告相关文件
+# # deploy to coding pages
+# echo 'blog.shenzjd.com' > CNAME  # 自定义域名
+# # echo 'google.com, pub-7828333725993554, DIRECT, f08c47fec0942fa0' > ads.txt # 谷歌广告相关文件
 
 # if [ -z "$CODING_TOKEN" ]; then  # -z 字符串 长度为0则为true；$CODING_TOKEN来自于github仓库`Settings/Secrets`设置的私密环境变量
 #   codingUrl=git@e.coding.net:xgy/xgy.git
