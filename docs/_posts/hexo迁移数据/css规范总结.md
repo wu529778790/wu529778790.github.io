@@ -2,11 +2,11 @@
 title: css规范总结
 date: 2021-06-05 16:06:21
 permalink: /pages/13dbe4/
-categories: 
+categories:
   - hexo迁移数据
-tags: 
+tags:
   - null
-author: 
+author:
   name: 神族九帝
   link: https://github.com/wu529778790
 sidebar: auto
@@ -115,26 +115,48 @@ sidebar: auto
 
 ### 最佳选择器写法（模块）
 
-    /* 这是某个模块 */
-    .m-nav{}/* 模块容器 */
-    .m-nav li,.m-nav a{}/* 先共性  优化组合 */
-    .m-nav li{}/* 后个性  语义化标签选择器 */
-    .m-nav a{}/* 后个性中的共性 按结构顺序 */
-    .m-nav a.a1{}/* 后个性中的个性 */
-    .m-nav a.a2{}/* 后个性中的个性 */
-    .m-nav .z-crt a{}/* 交互状态变化 */
-    .m-nav .z-crt a.a1{}
-    .m-nav .z-crt a.a2{}
-    .m-nav .btn{}/* 典型后代选择器 */
-    .m-nav .btn-1{}/* 典型后代选择器扩展 */
-    .m-nav .btn-dis{}/* 典型后代选择器扩展（状态） */
-    .m-nav .btn.z-dis{}/* 作用同上，请二选一（如果可以不兼容IE6时使用） */
-    .m-nav .m-sch{}/* 控制内部其他模块位置 */
-    .m-nav .u-sel{}/* 控制内部其他元件位置 */
-    .m-nav-1{}/* 模块扩展 */
-    .m-nav-1 li{}
-    .m-nav-dis{}/* 模块扩展（状态） */
-    .m-nav.z-dis{}/* 作用同上，请二选一（如果可以不兼容IE6时使用） */
+```css
+/* 这是某个模块 */
+.m-nav {
+} /* 模块容器 */
+.m-nav li,
+.m-nav a {
+} /* 先共性  优化组合 */
+.m-nav li {
+} /* 后个性  语义化标签选择器 */
+.m-nav a {
+} /* 后个性中的共性 按结构顺序 */
+.m-nav a.a1 {
+} /* 后个性中的个性 */
+.m-nav a.a2 {
+} /* 后个性中的个性 */
+.m-nav .z-crt a {
+} /* 交互状态变化 */
+.m-nav .z-crt a.a1 {
+}
+.m-nav .z-crt a.a2 {
+}
+.m-nav .btn {
+} /* 典型后代选择器 */
+.m-nav .btn-1 {
+} /* 典型后代选择器扩展 */
+.m-nav .btn-dis {
+} /* 典型后代选择器扩展（状态） */
+.m-nav .btn.z-dis {
+} /* 作用同上，请二选一（如果可以不兼容IE6时使用） */
+.m-nav .m-sch {
+} /* 控制内部其他模块位置 */
+.m-nav .u-sel {
+} /* 控制内部其他元件位置 */
+.m-nav-1 {
+} /* 模块扩展 */
+.m-nav-1 li {
+}
+.m-nav-dis {
+} /* 模块扩展（状态） */
+.m-nav.z-dis {
+} /* 作用同上，请二选一（如果可以不兼容IE6时使用） */
+```
 
 ### 统一语义理解和命名
 
