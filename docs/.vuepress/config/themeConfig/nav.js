@@ -2,16 +2,18 @@
 module.exports = [
   { text: '首页', link: '/' },
   {
-    text: '前端',
-    link: '/web/', //目录页链接，主题新增的配置项，有二级导航时，可以点击一级导航跳到目录页
+    text: '面试题',
+    link: '/interview/', //目录页链接，主题新增的配置项，有二级导航时，可以点击一级导航跳到目录页
     items: [
       // 说明：以下所有link的值只是在相应md文件定义的永久链接（不是什么特殊生成的编码）。另外，注意结尾是有斜杠的
       {
-        text: '前端文章',
+        // text: '前端文章',
         items: [
+          { text: 'HTML', link: '/pages/8309a5b876fc95e3/' },
+          { text: 'CSS', link: '/pages/0a83b083bdf257cb/' },
           { text: 'JavaScript', link: '/pages/2f4905/' },
           { text: 'Vue', link: '/pages/5d463fbdb172d43b/' },
-          { text: '面试题', link: '/pages/05fe26/' },
+          { text: '面试真题', link: '/pages/05fe26/' },
         ],
       },
       // {
@@ -45,8 +47,6 @@ module.exports = [
   //   text: '页面',
   //   link: '/ui/',
   //   items: [
-  //     { text: 'HTML', link: '/pages/8309a5b876fc95e3/' },
-  //     { text: 'CSS', link: '/pages/0a83b083bdf257cb/' },
   //   ],
   // },
   {
