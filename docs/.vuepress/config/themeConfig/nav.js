@@ -9,8 +9,9 @@ module.exports = [
       {
         text: '前端文章',
         items: [
-          { text: 'JavaScript', link: '/pages/8143cc480faf9a11/' },
+          { text: 'JavaScript', link: '/pages/2f4905/' },
           { text: 'Vue', link: '/pages/5d463fbdb172d43b/' },
+          { text: '面试题', link: '/pages/05fe26/' },
         ],
       },
       // {
