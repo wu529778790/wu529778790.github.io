@@ -2,6 +2,10 @@
 module.exports = [
   { text: "首页", link: "/" },
   {
+    text: "学习笔记",
+    link: "/pages/f344d070a1031ef7/",
+  },
+  {
     text: "面试题",
     link: "/interview/", //目录页链接，主题新增的配置项，有二级导航时，可以点击一级导航跳到目录页
     items: [
@@ -18,19 +22,14 @@ module.exports = [
       },
     ],
   },
-  {
-    text: "学习笔记",
-    link: "/pages/f344d070a1031ef7/",
-  },
-  {
-    text: "索引",
-    link: "/archives/",
-    items: [
-      { text: "分类", link: "/categories/" },
-      { text: "标签", link: "/tags/" },
-      { text: "归档", link: "/archives/" },
-    ],
-  },
+  // {
+  //   text: "索引",
+  //   link: "/archives/",
+  //   items: [
+  //     { text: "分类", link: "/categories/" },
+  //     // { text: "标签", link: "/tags/" },
+  //   ],
+  // },
   {
     text: "收藏夹",
     link: "/pages/beb6c0bd8a66cea6/",
@@ -44,6 +43,7 @@ module.exports = [
     text: "更多",
     link: "/more/",
     items: [
+      { text: "归档", link: "/archives/" },
       { text: "友情链接", link: "/friends/" },
       { text: "关于", link: "/about/" },
     ],
