@@ -151,5 +151,32 @@ module.exports = [
         max: 10  // 纵向偏移量最大值
       }
     }
+  }],
+  ['@vuepress-reco/vuepress-plugin-bulletin-popover', {
+    width: '300px', // 默认 260px
+    title: '消息提示',
+    body: [
+      {
+        type: 'title',
+        content: '欢迎加入微信交流群 🎉🎉🎉',
+        style: 'text-aligin: center;'
+      },
+      {
+        type: 'image',
+        src: 'https://cdn.jsdelivr.net/gh/wu529778790/image/blog/微信图片_20210607142705.jpg'
+      }
+    ],
+    footer: [
+      {
+        type: 'button',
+        text: '打赏',
+        link: '/donate'
+      },
+      {
+        type: 'button',
+        text: '打赏',
+        link: '/donate'
+      }
+    ]
   }]
 ]

@@ -13,6 +13,7 @@
   "license": "MIT",
   "devDependencies": {
     "@ikangxu/vuepress-plugin-mouse-effects": "^0.0.3",
+    "@vuepress-reco/vuepress-plugin-bulletin-popover": "^1.5.7",
     "@vuepress-reco/vuepress-plugin-kan-ban-niang": "^1.0.5",
     "dayjs": "^1.9.7",
     "inquirer": "^7.1.0",
