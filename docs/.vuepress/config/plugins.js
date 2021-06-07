@@ -166,17 +166,17 @@ module.exports = [
         src: 'https://cdn.jsdelivr.net/gh/wu529778790/image/blog/微信图片_20210607142705.jpg'
       }
     ],
-    footer: [
-      {
-        type: 'button',
-        text: '打赏',
-        link: '/donate'
-      },
-      {
-        type: 'button',
-        text: '打赏',
-        link: '/donate'
-      }
-    ]
+    // footer: [
+    //   {
+    //     type: 'button',
+    //     text: '打赏',
+    //     link: '/donate'
+    //   },
+    //   {
+    //     type: 'button',
+    //     text: '打赏',
+    //     link: '/donate'
+    //   }
+    // ]
   }]
 ]
