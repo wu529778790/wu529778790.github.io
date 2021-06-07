@@ -13,49 +13,50 @@ module.exports = [
           { text: 'Vue', link: '/pages/5d463fbdb172d43b/' },
         ],
       },
-      {
-        text: '学习笔记',
-        items: [
-          { text: '《JavaScript教程》笔记', link: '/note/javascript/' },
-          { text: '《JavaScript高级程序设计》笔记', link: '/note/js/' },
-          { text: '《ES6 教程》笔记', link: '/note/es6/' },
-          { text: '《Vue》笔记', link: '/note/vue/' },
-          {
-            text: '《TypeScript 从零实现 axios》',
-            link: '/note/typescript-axios/',
-          },
-          {
-            text: '《Git》学习笔记',
-            link: '/note/git/',
-          },
-          {
-            text: 'TypeScript笔记',
-            link: '/pages/51afd6/',
-          },
-          {
-            text: 'JS设计模式总结笔记',
-            link: '/pages/4643cd/',
-          },
-        ],
-      },
+      // {
+      //   text: '学习笔记',
+      //   items: [
+      //     { text: '《JavaScript教程》笔记', link: '/note/javascript/' },
+      //     { text: '《JavaScript高级程序设计》笔记', link: '/note/js/' },
+      //     { text: '《ES6 教程》笔记', link: '/note/es6/' },
+      //     { text: '《Vue》笔记', link: '/note/vue/' },
+      //     {
+      //       text: '《TypeScript 从零实现 axios》',
+      //       link: '/note/typescript-axios/',
+      //     },
+      //     {
+      //       text: '《Git》学习笔记',
+      //       link: '/note/git/',
+      //     },
+      //     {
+      //       text: 'TypeScript笔记',
+      //       link: '/pages/51afd6/',
+      //     },
+      //     {
+      //       text: 'JS设计模式总结笔记',
+      //       link: '/pages/4643cd/',
+      //     },
+      //   ],
+      // },
     ],
   },
+  // {
+  //   text: '页面',
+  //   link: '/ui/',
+  //   items: [
+  //     { text: 'HTML', link: '/pages/8309a5b876fc95e3/' },
+  //     { text: 'CSS', link: '/pages/0a83b083bdf257cb/' },
+  //   ],
+  // },
   {
-    text: '页面',
-    link: '/ui/',
+    text: '索引',
+    link: '/archives/',
     items: [
-      { text: 'HTML', link: '/pages/8309a5b876fc95e3/' },
-      { text: 'CSS', link: '/pages/0a83b083bdf257cb/' },
+      { text: '分类', link: '/categories/' },
+      { text: '标签', link: '/tags/' },
+      { text: '归档', link: '/archives/' },
     ],
   },
-  {
-    text: '更多',
-    link: '/more/',
-    items: [
-      { text: '友情链接', link: '/friends/' },
-    ],
-  },
-  { text: '关于', link: '/about/' },
   {
     text: '收藏',
     link: '/pages/beb6c0bd8a66cea6/',
@@ -66,12 +67,11 @@ module.exports = [
     ],
   },
   {
-    text: '索引',
-    link: '/archives/',
+    text: '更多',
+    link: '/more/',
     items: [
-      { text: '分类', link: '/categories/' },
-      { text: '标签', link: '/tags/' },
-      { text: '归档', link: '/archives/' },
+      { text: '友情链接', link: '/friends/' },
+      { text: '关于', link: '/about/' },
     ],
   },
 ]
