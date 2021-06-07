@@ -13,37 +13,14 @@ module.exports = [
           { text: "CSS", link: "/pages/04403ba7faf73/" },
           { text: "JavaScript", link: "/pages/6c3a148245a27/" },
           { text: "Vue", link: "/pages/80abaefc76973/" },
-          { text: "面试真题", link: "/pages/0d28ab62c07b1/" },
-          { text: "学习笔记", link: "/note/javascript/" },
+          { text: "面试真题", link: "/pages/0d28ab62c07b1/" }
         ],
       },
     ],
   },
   {
     text: "学习笔记",
-    link: "/note/javascript/",
-    items: [
-      { text: "《JavaScript教程》笔记", link: "/note/javascript/" },
-      { text: "《JavaScript高级程序设计》笔记", link: "/note/js/" },
-      { text: "《ES6 教程》笔记", link: "/note/es6/" },
-      { text: "《Vue》笔记", link: "/note/vue/" },
-      {
-        text: "《TypeScript 从零实现 axios》",
-        link: "/note/typescript-axios/",
-      },
-      {
-        text: "《Git》学习笔记",
-        link: "/note/git/",
-      },
-      {
-        text: "TypeScript笔记",
-        link: "/pages/51afd6/",
-      },
-      {
-        text: "JS设计模式总结笔记",
-        link: "/pages/4643cd/",
-      },
-    ],
+    link: "/pages/f344d070a1031ef7",
   },
   {
     text: "索引",
