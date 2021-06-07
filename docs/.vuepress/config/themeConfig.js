@@ -14,8 +14,6 @@ module.exports = {
   editLinks: true, // 启用编辑
   editLinkText: '编辑',
 
-  //*** 以下配置是Vdoing主题改动和新增的配置 ***//
-
   // category: false, // 是否打开分类功能，默认true。 如打开，会做的事情有：1. 自动生成的frontmatter包含分类字段 2.页面中显示与分类相关的信息和模块 3.自动生成分类页面（在@pages文件夹）。如关闭，则反之。
   // tag: false, // 是否打开标签功能，默认true。 如打开，会做的事情有：1. 自动生成的frontmatter包含标签字段 2.页面中显示与标签相关的信息和模块 3.自动生成标签页面（在@pages文件夹）。如关闭，则反之。
   // archive: false, // 是否打开归档功能，默认true。 如打开，会做的事情有：1.自动生成归档页面（在@pages文件夹）。如关闭，则反之。
@@ -53,8 +51,7 @@ module.exports = {
   blogger: {
     // 博主信息，显示在首页侧边栏
     avatar: '/img/logo.png',
-    name: '神族九帝',
-    slogan: '小小前端',
+    name: '神族九帝,永不言弃',
   },
   social: {
     // 社交图标，显示于博主信息栏和页脚栏
@@ -80,7 +77,7 @@ module.exports = {
   footer: {
     createYear: 2015, // 博客创建年份
     copyrightInfo:
-      '神族九帝 | <a href="https://blog.shenzjd.com" target="_blank">MIT License</a>',
+      '神族九帝',
   },
   htmlModules // 插入hmtl(广告)模块
 }

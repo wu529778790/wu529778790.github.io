@@ -3,7 +3,6 @@ const plugins = require("./config/plugins.js");
 const themeConfig = require("./config/themeConfig.js");
 
 module.exports = {
-  // theme: "vdoing", // 使用npm包主题
   theme: require.resolve('./theme'), // 使用本地主题
   title: "神族九帝's blog",
   description:

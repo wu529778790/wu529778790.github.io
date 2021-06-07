@@ -6,18 +6,18 @@
 
 <script>
 export default {
-  name: 'CodeBlock',
+  name: "CodeBlock",
   props: {
     title: {
       type: String,
-      required: true
+      required: true,
     },
     active: {
       type: Boolean,
-      default: false
-    }
-  }
-}
+      default: false,
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -31,7 +31,7 @@ export default {
   background-color: orange;
 }
 @media (max-width: 419px) {
-  .theme-code-group div[class*='language-'] {
+  .theme-code-group div[class*="language-"] {
     margin: 0;
   }
 }
