@@ -563,7 +563,7 @@ export default {
       }
 
       .pagination {
-        margin-bottom: 4rem;
+        margin-bottom: 0rem;
       }
 
       .theme-vdoing-content {

@@ -84,6 +84,7 @@ export default {
       font-size: 1.3rem;
       display: block;
       margin-bottom: 6px;
+      text-align: center;
     }
 
     .slogan {
