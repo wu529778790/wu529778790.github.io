@@ -3,7 +3,7 @@ title: jquery知识点归纳-dom篇
 date: 2021-06-05 16:06:21
 permalink: /pages/2ebd55/
 categories: 
-  - 旧数据
+  - hexo迁移数据
 tags: 
   - null
 author: 

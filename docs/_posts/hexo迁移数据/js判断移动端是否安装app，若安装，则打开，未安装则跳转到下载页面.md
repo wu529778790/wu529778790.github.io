@@ -3,7 +3,7 @@ title: js判断移动端是否安装app，若安装，则打开，未安装则�
 date: 2021-06-05 16:06:21
 permalink: /pages/1bf7e8/
 categories: 
-  - 旧数据
+  - hexo迁移数据
 tags: 
   - null
 author: 

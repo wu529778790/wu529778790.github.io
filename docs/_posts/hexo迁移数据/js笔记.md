@@ -3,7 +3,7 @@ title: js笔记
 date: 2021-06-05 16:06:21
 permalink: /pages/243981/
 categories: 
-  - 旧数据
+  - hexo迁移数据
 tags: 
   - null
 author: 

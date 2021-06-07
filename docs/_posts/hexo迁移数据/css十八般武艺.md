@@ -3,7 +3,7 @@ title: css十八般武艺
 date: 2021-06-05 16:06:21
 permalink: /pages/b47a5b/
 categories: 
-  - 旧数据
+  - hexo迁移数据
 tags: 
   - null
 author: 

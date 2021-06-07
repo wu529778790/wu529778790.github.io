@@ -3,7 +3,7 @@ title: JavaScript闭包面试题
 date: 2021-06-05 16:06:21
 permalink: /pages/f066ae/
 categories: 
-  - 旧数据
+  - hexo迁移数据
 tags: 
   - null
 author: 

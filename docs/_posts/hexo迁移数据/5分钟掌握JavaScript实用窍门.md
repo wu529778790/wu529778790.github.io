@@ -3,7 +3,7 @@ title: 5分钟掌握JavaScript实用窍门
 date: 2021-06-05 16:06:21
 permalink: /pages/9067d8/
 categories: 
-  - 旧数据
+  - hexo迁移数据
 tags: 
   - null
 author: 

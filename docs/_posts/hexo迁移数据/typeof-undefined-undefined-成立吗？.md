@@ -3,7 +3,7 @@ title: typeof-undefined-undefined-成立吗？
 date: 2021-06-05 16:06:21
 permalink: /pages/6c2d26/
 categories: 
-  - 旧数据
+  - hexo迁移数据
 tags: 
   - null
 author: 
