@@ -129,29 +129,29 @@ module.exports = [
   // 为博客文章自动随机添加名人名言或其他，可自定义样式和内容
   ["vuepress-plugin-boxx"],
   // 鼠标点击
-  ['@ikangxu/vuepress-plugin-mouse-effects', {
-    type: 'click-word', // 暂时只内置了一个特效   内置的特效有 particle|click-word
-    words: ["富强", "民主", "文明", "和谐", "自由", "平等", "公正" ,"法治", "爱国", "敬业", "诚信", "友善"], // click-word效果需要用到的文字提示
-    style: {
-      // cursor: '', // 支持自定义cursor，没有则为默认样式
-      // borderRadius: '50%', // 形状 particle效果需要用到
-      zIndex: 2,
-      colors: ["#FF0000", "#FF7D00", "#FFFF00", "#00FF00", "#00FFFF", "#0000FF", "#FF00FF"], // 颜色
-      fontSize: 14, // click-word效果需要用到的文字显示大小
-      r: {
-        min: 5, // 半径最小值
-        max: 15 // 半径最大值
-      },
-      dx: {
-        min: -10, // 横向偏移量最小值
-        max: 10 // 横向偏移量最大值
-      },
-      dy: {
-        min: -10, // 纵向偏移量最小值
-        max: 10  // 纵向偏移量最大值
-      }
-    }
-  }],
+  // ['@ikangxu/vuepress-plugin-mouse-effects', {
+  //   type: 'click-word', // 暂时只内置了一个特效   内置的特效有 particle|click-word
+  //   words: ["富强", "民主", "文明", "和谐", "自由", "平等", "公正" ,"法治", "爱国", "敬业", "诚信", "友善"], // click-word效果需要用到的文字提示
+  //   style: {
+  //     // cursor: '', // 支持自定义cursor，没有则为默认样式
+  //     // borderRadius: '50%', // 形状 particle效果需要用到
+  //     zIndex: 2,
+  //     colors: ["#FF0000", "#FF7D00", "#FFFF00", "#00FF00", "#00FFFF", "#0000FF", "#FF00FF"], // 颜色
+  //     fontSize: 14, // click-word效果需要用到的文字显示大小
+  //     r: {
+  //       min: 5, // 半径最小值
+  //       max: 15 // 半径最大值
+  //     },
+  //     dx: {
+  //       min: -10, // 横向偏移量最小值
+  //       max: 10 // 横向偏移量最大值
+  //     },
+  //     dy: {
+  //       min: -10, // 纵向偏移量最小值
+  //       max: 10  // 纵向偏移量最大值
+  //     }
+  //   }
+  // }],
   ['@vuepress-reco/vuepress-plugin-bulletin-popover', {
     width: '300px', // 默认 260px
     title: '消息提示',
