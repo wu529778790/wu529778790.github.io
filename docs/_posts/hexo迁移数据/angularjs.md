@@ -10,6 +10,8 @@ author:
   permalink: null
   categories: null
 sidebar: auto
+tags: 
+  - 
 ---
 title: angularjs
 date: 2016-03-06 18:22:39

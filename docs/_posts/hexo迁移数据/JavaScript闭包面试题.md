@@ -10,6 +10,8 @@ author:
   permalink: null
   categories: null
 sidebar: auto
+tags: 
+  - 
 ---
 title: JavaScript闭包面试题
 date: 2017-04-18 10:52:22

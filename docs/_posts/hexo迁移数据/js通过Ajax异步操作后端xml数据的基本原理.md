@@ -10,6 +10,8 @@ author:
   permalink: null
   categories: null
 sidebar: auto
+tags: 
+  - 
 ---
 title: js通过Ajax异步操作后端xml数据的基本原理
 date: 2016-05-30 12:20:31

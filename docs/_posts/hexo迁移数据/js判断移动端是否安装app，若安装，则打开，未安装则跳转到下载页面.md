@@ -10,6 +10,8 @@ author:
   permalink: null
   categories: null
 sidebar: auto
+tags: 
+  - 
 ---
 title: js判断移动端是否安装app，若安装，则打开，未安装则跳转到下载页面
 date: 2017-04-19 17:29:48

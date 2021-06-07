@@ -10,6 +10,8 @@ author:
   permalink: null
   categories: null
 sidebar: auto
+tags: 
+  - 
 ---
 title: typeof和instanceof
 date: 2017-04-11 15:41:31
