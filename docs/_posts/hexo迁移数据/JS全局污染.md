@@ -4,12 +4,12 @@ date: 2021-06-05 16:06:21
 permalink: /pages/901047/
 categories: 
   - hexo迁移数据
-tags: 
-  - null
 author: 
   name: 神族九帝
   link: https://github.com/wu529778790
 sidebar: auto
+tags: 
+  - 
 ---
 title: JS全局污染
 date: 2016-02-16 11:37:45

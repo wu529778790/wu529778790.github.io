@@ -1,7 +1,5 @@
 ---
 title: Markdown编辑器使用手册
-tags: 
-  - markdown
 date: 2019-01-15 10:22:14
 categories: 教程
 permalink: /pages/8e0c1c/
@@ -9,6 +7,8 @@ author:
   name: 神族九帝
   link: https://github.com/wu529778790
 sidebar: auto
+tags: 
+  - 
 ---
 
 markdown编辑器使用手册，来源于掘金

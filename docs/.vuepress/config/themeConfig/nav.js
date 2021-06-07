@@ -14,6 +14,7 @@ module.exports = [
           { text: 'JavaScript', link: '/pages/2f4905/' },
           { text: 'Vue', link: '/pages/5d463fbdb172d43b/' },
           { text: '面试真题', link: '/pages/05fe26/' },
+          { text: '学习笔记', link: '/note/javascript/' },
         ],
       },
       // {

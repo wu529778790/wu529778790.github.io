@@ -4,12 +4,12 @@ date: 2021-06-05 16:06:21
 permalink: /pages/959eb0/
 categories: 
   - hexo迁移数据
-tags: 
-  - null
 author: 
   name: 神族九帝
   link: https://github.com/wu529778790
 sidebar: auto
+tags: 
+  - 
 ---
 title: JavaScript初级试题
 date: 2017-04-10 10:27:55

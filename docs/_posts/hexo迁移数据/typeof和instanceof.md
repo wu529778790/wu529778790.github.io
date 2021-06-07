@@ -4,12 +4,12 @@ date: 2021-06-05 16:06:21
 permalink: /pages/363d89/
 categories: 
   - hexo迁移数据
-tags: 
-  - null
 author: 
   name: 神族九帝
   link: https://github.com/wu529778790
 sidebar: auto
+tags: 
+  - 
 ---
 title: typeof和instanceof
 date: 2017-04-11 15:41:31
