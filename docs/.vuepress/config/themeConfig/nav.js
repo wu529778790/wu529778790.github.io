@@ -20,7 +20,7 @@ module.exports = [
   },
   {
     text: "学习笔记",
-    link: "/pages/f344d070a1031ef7",
+    link: "/pages/f344d070a1031ef7/",
   },
   {
     text: "索引",
@@ -32,7 +32,7 @@ module.exports = [
     ],
   },
   {
-    text: "收藏",
+    text: "收藏夹",
     link: "/pages/beb6c0bd8a66cea6/",
     items: [
       { text: "网站", link: "/pages/beb6c0bd8a66cea6/" },
