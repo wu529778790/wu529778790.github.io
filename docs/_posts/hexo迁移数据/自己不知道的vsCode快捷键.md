@@ -7,9 +7,9 @@ categories:
 author: 
   name: 神族九帝
   link: https://github.com/wu529778790
+  permalink: null
+  categories: null
 sidebar: auto
-tags: 
-  - 
 ---
 
 给 WebStorm 相比，vsCode 快捷键是比较少的，记录下自己不熟悉的，或者说不常用的

@@ -7,9 +7,9 @@ categories:
 author: 
   name: 神族九帝
   link: https://github.com/wu529778790
+  permalink: null
+  categories: null
 sidebar: auto
-tags: 
-  - 
 ---
 title: ES6掌握这些就够了
 date: 2017-06-21 21:02:58

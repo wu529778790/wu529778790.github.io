@@ -7,9 +7,9 @@ categories:
 author: 
   name: 神族九帝
   link: https://github.com/wu529778790
+  permalink: null
+  categories: null
 sidebar: auto
-tags: 
-  - 
 ---
 title: JavaScript初级试题
 date: 2017-04-10 10:27:55

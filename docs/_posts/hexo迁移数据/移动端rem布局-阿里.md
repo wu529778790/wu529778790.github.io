@@ -7,9 +7,9 @@ categories:
 author: 
   name: 神族九帝
   link: https://github.com/wu529778790
+  permalink: null
+  categories: null
 sidebar: auto
-tags: 
-  - 
 ---
 title: 移动端rem布局(阿里)
 date: 2017-05-07 17:42:14

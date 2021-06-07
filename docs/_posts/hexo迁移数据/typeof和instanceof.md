@@ -7,9 +7,9 @@ categories:
 author: 
   name: 神族九帝
   link: https://github.com/wu529778790
+  permalink: null
+  categories: null
 sidebar: auto
-tags: 
-  - 
 ---
 title: typeof和instanceof
 date: 2017-04-11 15:41:31

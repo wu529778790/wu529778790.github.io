@@ -9,10 +9,10 @@ module.exports = [
       {
         // text: '前端文章',
         items: [
-          { text: 'HTML', link: '/pages/8309a5b876fc95e3/' },
-          { text: 'CSS', link: '/pages/0a83b083bdf257cb/' },
+          { text: 'HTML', link: '/pages/1.113e8ee6e7987/' },
+          { text: 'CSS', link: '/pages/0.8d5fe2ded26da/' },
           { text: 'JavaScript', link: '/pages/2f4905/' },
-          { text: 'Vue', link: '/pages/5d463fbdb172d43b/' },
+          { text: 'Vue', link: '/pages/c80d2751cf1f4268' },
           { text: '面试真题', link: '/pages/05fe26/' },
           { text: '学习笔记', link: '/note/javascript/' },
         ],

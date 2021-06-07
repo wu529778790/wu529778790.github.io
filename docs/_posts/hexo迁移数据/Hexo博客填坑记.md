@@ -6,9 +6,9 @@ permalink: /pages/d1795f/
 author: 
   name: 神族九帝
   link: https://github.com/wu529778790
+  permalink: null
+  categories: null
 sidebar: auto
-tags: 
-  - 
 ---
 >　　博客搭建的流程这里就不多说了，都是各种填坑吧，网上的教程数不胜数，但是都是千篇一律，这里主要写下我自己的填坑过程吧。  
 ps：本人不是文科生，也不是什么作家，写作水平有限，就是简单的当个日记，记录下曾经填过的坑！
