@@ -175,14 +175,14 @@ module.exports = [
       },
     },
   ],
-  // [
-  //   "@vuepress/pwa",
-  //   {
-  //     serviceWorker: true, //如果设置为 true，
-  //     //VuePress 将自动生成并注册一个 Service Worker (opens new window)，用于缓存页面的内容以供离线使用（仅会在生产环境中启用）
-  //     updatePopup: true,
-  //   },
-  // ],
+  [
+    "@vuepress/pwa",
+    {
+      serviceWorker: true, //如果设置为 true，
+      //VuePress 将自动生成并注册一个 Service Worker (opens new window)，用于缓存页面的内容以供离线使用（仅会在生产环境中启用）
+      updatePopup: true,
+    },
+  ],
   // [
   //   '@vuepress/plugin-pwa-popup',
   //   {
