@@ -58,33 +58,56 @@ module.exports = (options, ctx) => {
       return rec(firstChild);
     }
   };
-  let zeroCatalogue = []
+  let zeroCatalogue = [];
   Object.entries(sidebarData).map(([key, value]) => {
-      const text = key.replace(/\/|\.|\d/ig, '')
-      if (!['目录页', 'catalogue'].includes(text)) {
-          nav.push({
-              text,
-              link: zeroCatalogue.find(item => item[1] === text)?.[2] || null,
-              items: value.map(child => {
-                  if (Object.prototype.toString.call(child) === '[object Object]') {
-                      return {
-                          text: child.title,
-                          link: rec(child)
-                      }
-                  } else {
-                      return {
-                          text: child[1],
-                          link: child[2]
-                      }
-                  }
-              })
-          })
-      } else if (text === '目录页') {
-          zeroCatalogue = value
+    const text = key.replace(/\/|\.|\d/gi, "");
+    if (!["目录页", "catalogue"].includes(text)) {
+      if (nav.find((n) => n.text === text)) {
+        nav[nav.findIndex((n) => n.text === text)] = {
+          text,
+          link: zeroCatalogue.find((item) => item[1] === text)?.[2] || null,
+          items: [
+            ...value.map((child) => {
+              if (Object.prototype.toString.call(child) === "[object Object]") {
+                return {
+                  text: child.title,
+                  link: rec(child),
+                };
+              } else {
+                return {
+                  text: child[1],
+                  link: child[2],
+                };
+              }
+            }),
+            ...nav[nav.findIndex((n) => n.text === text)].items,
+          ],
+        };
+      } else {
+        nav.push({
+          text,
+          link: zeroCatalogue.find((item) => item[1] === text)?.[2] || null,
+          items: value.map((child) => {
+            if (Object.prototype.toString.call(child) === "[object Object]") {
+              return {
+                text: child.title,
+                link: rec(child),
+              };
+            } else {
+              return {
+                text: child[1],
+                link: child[2],
+              };
+            }
+          }),
+        });
       }
-  })
+    } else if (text === "目录页") {
+      zeroCatalogue = value;
+    }
+  });
   log(chalk.blue("tip ") + chalk.green("add nav data. 导航栏数据成功生成。"));
-  themeConfig.nav = nav;
+  themeConfig.nav = [{ text: "首页", link: "/" }, ...nav];
 
   // 分类页
   if (themeConfig.category !== false) {
