@@ -15,6 +15,7 @@
     "@ikangxu/vuepress-plugin-mouse-effects": "^0.0.3",
     "@vuepress-reco/vuepress-plugin-bulletin-popover": "^1.5.7",
     "@vuepress-reco/vuepress-plugin-kan-ban-niang": "^1.0.5",
+    "@vuepress/plugin-pwa-popup": "^2.0.0-alpha.8",
     "dayjs": "^1.9.7",
     "inquirer": "^7.1.0",
     "json2yaml": "^1.1.0",

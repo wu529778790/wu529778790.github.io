@@ -183,6 +183,17 @@ module.exports = [
       updatePopup: true,
     },
   ],
+  [
+    '@vuepress/plugin-pwa-popup',
+    {
+      locales: {
+        '/zh/': {
+          message: '发现新内容可用',
+          buttonText: '刷新',
+        },
+      },
+    },
+  ],
   // 鼠标点击
   // ['@ikangxu/vuepress-plugin-mouse-effects', {
   //   type: 'click-word', // 暂时只内置了一个特效   内置的特效有 particle|click-word
