@@ -12,10 +12,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@ikangxu/vuepress-plugin-mouse-effects": "^0.0.3",
-    "@vuepress-reco/vuepress-plugin-bulletin-popover": "^1.5.7",
     "@vuepress-reco/vuepress-plugin-kan-ban-niang": "^1.0.5",
-    "@vuepress/plugin-pwa-popup": "^2.0.0-alpha.8",
     "dayjs": "^1.9.7",
     "inquirer": "^7.1.0",
     "json2yaml": "^1.1.0",
@@ -29,7 +26,6 @@
     "vuepress-plugin-one-click-copy": "^1.0.2",
     "vuepress-plugin-thirdparty-search": "^1.0.2",
     "vuepress-plugin-zooming": "^1.1.7",
-    "vuepress-theme-vdoing": "^1.8.3",
     "yamljs": "^0.3.0"
   },
   "dependencies": {
