@@ -51,37 +51,39 @@ module.exports = (options, ctx) => {
 
   // 递归遍历children
   const rec = (object) => {
-    return object.children.map((child) => {
-      if (Object.prototype.toString.call(child) === "[object Array]") {
-        return child[2];
-      } else {
-        return rec(child);
-      }
-    })[0];
-  };
-  Object.entries(sidebarData).map(([key, value]) => {
-    const text = key.replace(/\/|\.|\d/gi, "");
-    if (!["目录页", "catalogue"].includes(text)) {
-      nav.push({
-        text,
-        items: value.map((child) => {
-          if (Object.prototype.toString.call(child) === "[object Object]") {
-            return {
-              text: child.title,
-              link: rec(child),
-            };
-          } else {
-            return {
-              text: child[1],
-              link: child[2],
-            };
-          }
-        }),
-      });
+    const firstChild = object.children[0];
+    if (Object.prototype.toString.call(firstChild) === "[object Array]") {
+      return firstChild[2];
+    } else {
+      return rec(firstChild);
     }
-  });
+  };
+  let zeroCatalogue = []
+  Object.entries(sidebarData).map(([key, value]) => {
+      const text = key.replace(/\/|\.|\d/ig, '')
+      if (!['目录页', 'catalogue'].includes(text)) {
+          nav.push({
+              text,
+              link: zeroCatalogue.find(item => item[1] === text)?.[2] || null,
+              items: value.map(child => {
+                  if (Object.prototype.toString.call(child) === '[object Object]') {
+                      return {
+                          text: child.title,
+                          link: rec(child)
+                      }
+                  } else {
+                      return {
+                          text: child[1],
+                          link: child[2]
+                      }
+                  }
+              })
+          })
+      } else if (text === '目录页') {
+          zeroCatalogue = value
+      }
+  })
   log(chalk.blue("tip ") + chalk.green("add nav data. 导航栏数据成功生成。"));
-  log(nav);
   themeConfig.nav = nav;
 
   // 分类页
