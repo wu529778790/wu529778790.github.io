@@ -171,7 +171,7 @@ module.exports = [
         // 开启迷你模式
         mini: true,
         // 自动播放
-        autoplay: true,
+        autoplay: false,
       },
     },
   ],
