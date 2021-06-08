@@ -1,7 +1,7 @@
 <template>
   <aside class="blogger-wrapper card-box">
     <div class="avatar">
-      <img :src="blogger.avatar" alt="头像" title="我好看吗" />
+      <img :src="blogger.avatar" alt="头像" title="神族九帝" />
     </div>
     <div class="icons" v-if="social && social.icons && social.icons.length">
       <a

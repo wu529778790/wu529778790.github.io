@@ -46,4 +46,18 @@ module.exports = [
   //     // { text: "友链", link: "/friends/" },
   //   ],
   // },
+  {
+    text: "购物",
+    items: [
+      {
+        text: "疯抢榜",
+        link: "https://taobao.shenzjd.com/index.php?r=p",
+      },
+      {
+        text: "优惠券",
+        link: "http://quan.shenzjd.com/",
+      }
+
+    ]
+  }
 ];
