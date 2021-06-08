@@ -108,7 +108,6 @@ export default {
           "未获取到目录数据，请查看front matter中设置的path是否正确。"
         );
       }
-      console.log(catalogueList)
       return catalogueList;
     },
     type(o) {
