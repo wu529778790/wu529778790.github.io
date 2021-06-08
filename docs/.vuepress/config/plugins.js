@@ -1,50 +1,54 @@
 // 插件配置
 module.exports = [
-  'vuepress-plugin-baidu-autopush', // 百度自动推送
+  "vuepress-plugin-baidu-autopush", // 百度自动推送
 
   // 可以添加第三方搜索链接的搜索框（原官方搜索框的参数仍可用）
   [
-    'thirdparty-search',
+    "thirdparty-search",
     {
       thirdparty: [
         // 可选，默认 []
         {
-          title: '在Bing中搜索',
-          frontUrl: 'https://cn.bing.com/search?q=',
+          title: "在Bing中搜索",
+          frontUrl: "https://cn.bing.com/search?q=",
         },
         {
-          title: '在MDN中搜索',
-          frontUrl: 'https://developer.mozilla.org/zh-CN/search?q=', // 搜索链接的前面部分
-          behindUrl: '', // 搜索链接的后面部分，可选，默认 ''
+          title: "在MDN中搜索",
+          frontUrl: "https://developer.mozilla.org/zh-CN/search?q=", // 搜索链接的前面部分
+          behindUrl: "", // 搜索链接的后面部分，可选，默认 ''
         },
         {
-          title: '在Runoob中搜索',
-          frontUrl: 'https://www.runoob.com/?s=',
+          title: "在Runoob中搜索",
+          frontUrl: "https://www.runoob.com/?s=",
         },
         {
-          title: '在Vue API中搜索',
-          frontUrl: 'https://cn.vuejs.org/v2/api/#',
+          title: "在Vue API中搜索",
+          frontUrl: "https://cn.vuejs.org/v2/api/#",
         },
         {
-          title: '通过百度搜索本站的',
-          frontUrl: 'https://www.baidu.com/s?ie=UTF-8&wd=site%3Ablog.shenzjd.com',
+          title: "通过百度搜索本站的",
+          frontUrl:
+            "https://www.baidu.com/s?ie=UTF-8&wd=site%3Ablog.shenzjd.com",
         },
       ],
     },
   ],
 
   [
-    'one-click-copy',
+    "one-click-copy",
     {
       // 代码块复制按钮
-      copySelector: ['div[class*="language-"] pre', 'div[class*="aside-code"] aside'], // String or Array
-      copyMessage: '复制成功', // default is 'Copy successfully and then paste it for use.'
+      copySelector: [
+        'div[class*="language-"] pre',
+        'div[class*="aside-code"] aside',
+      ], // String or Array
+      copyMessage: "复制成功", // default is 'Copy successfully and then paste it for use.'
       duration: 1000, // prompt message display time.
       showInMobile: false, // whether to display on the mobile side, default: false.
     },
   ],
   [
-    'demo-block',
+    "demo-block",
     {
       // demo演示模块 https://github.com/xiguaxigua/vuepress-plugin-demo-block
       settings: {
@@ -58,76 +62,119 @@ module.exports = [
     },
   ],
   [
-    'vuepress-plugin-zooming', // 放大图片
+    "vuepress-plugin-zooming", // 放大图片
     {
-      selector: '.theme-vdoing-content img:not(.no-zoom)', // 排除class是no-zoom的图片
+      selector: ".theme-vdoing-content img:not(.no-zoom)", // 排除class是no-zoom的图片
       options: {
-        bgColor: 'rgba(0,0,0,0.6)',
+        bgColor: "rgba(0,0,0,0.6)",
       },
     },
   ],
   [
-    'vuepress-plugin-baidu-tongji', // 百度统计
+    "vuepress-plugin-baidu-tongji", // 百度统计
     {
-      hm: '8ec38a366284caaba41f3ead2b7c93f3',
+      hm: "8ec38a366284caaba41f3ead2b7c93f3",
     },
   ],
   [
-    'vuepress-plugin-comment', // 评论
+    "vuepress-plugin-comment", // 评论
     {
-      choosen: 'gitalk',
+      choosen: "gitalk",
       options: {
-        clientID: 'd1ed030f2a671802799f',
-        clientSecret: '3a73125f3fd398cc6c27ed999b490af67343e970',
-        repo: 'wu529778790.github.io', // GitHub 仓库
-        owner: 'wu529778790', // GitHub仓库所有者
-        admin: ['wu529778790'], // 对仓库有写权限的人
+        clientID: "d1ed030f2a671802799f",
+        clientSecret: "3a73125f3fd398cc6c27ed999b490af67343e970",
+        repo: "wu529778790.github.io", // GitHub 仓库
+        owner: "wu529778790", // GitHub仓库所有者
+        admin: ["wu529778790"], // 对仓库有写权限的人
         // distractionFreeMode: true,
-        pagerDirection: 'last', // 'first'正序 | 'last'倒序
-        id: '<%- (frontmatter.permalink || frontmatter.to.path).slice(-16) %>', //  页面的唯一标识,长度不能超过50
-        title: '「评论」<%- frontmatter.title %>', // GitHub issue 的标题
-        labels: ['Gitalk', 'Comment'], // GitHub issue 的标签
+        pagerDirection: "last", // 'first'正序 | 'last'倒序
+        id: "<%- (frontmatter.permalink || frontmatter.to.path).slice(-16) %>", //  页面的唯一标识,长度不能超过50
+        title: "「评论」<%- frontmatter.title %>", // GitHub issue 的标题
+        labels: ["Gitalk", "Comment"], // GitHub issue 的标签
         body:
-          '页面：<%- window.location.origin + (frontmatter.to.path || window.location.pathname) %>', // GitHub issue 的内容
+          "页面：<%- window.location.origin + (frontmatter.to.path || window.location.pathname) %>", // GitHub issue 的内容
       },
     },
   ],
   [
-    '@vuepress/last-updated', // "上次更新"时间格式
+    "@vuepress/last-updated", // "上次更新"时间格式
     {
       transformer: (timestamp, lang) => {
-        const dayjs = require('dayjs') // https://day.js.org/
-        return dayjs(timestamp).format('YYYY/MM/DD, HH:mm:ss')
+        const dayjs = require("dayjs"); // https://day.js.org/
+        return dayjs(timestamp).format("YYYY/MM/DD, HH:mm:ss");
       },
     },
   ],
   //一个基于 html5 canvas 绘制的网页背景效果
-  ['nest',{
-    color: '0,0,0', // color of lines, default: '0,0,0'; RGB values: (R,G,B).(note: use ',' to separate.)
-    pointColor: '0,0,0', // color of points, default: '0,0,0'; RGB values: (R,G,B).(note: use ',' to separate.)
-    opacity: 0.5, // the opacity of line (0~1), default: 0.5.
-    count: 99, // the number of lines, default: 99.
-    zIndex: -1, // z-index property of the background, default: -1.
-    showInMobile: false // whether to display on the mobile side, default: false.
-  }],
+  [
+    "nest",
+    {
+      color: "0,0,0", // color of lines, default: '0,0,0'; RGB values: (R,G,B).(note: use ',' to separate.)
+      pointColor: "0,0,0", // color of points, default: '0,0,0'; RGB values: (R,G,B).(note: use ',' to separate.)
+      opacity: 0.5, // the opacity of line (0~1), default: 0.5.
+      count: 99, // the number of lines, default: 99.
+      zIndex: -1, // z-index property of the background, default: -1.
+      showInMobile: false, // whether to display on the mobile side, default: false.
+    },
+  ],
   [
     //看板娘
     "@vuepress-reco/vuepress-plugin-kan-ban-niang",
     {
-      theme: ['blackCat', 'whiteCat', 'haru1', 'haru2', 'haruto', 'koharu', 'izumi', 'shizuku', 'wanko', 'miku', 'z16'],
+      theme: [
+        "blackCat",
+        "whiteCat",
+        "haru1",
+        "haru2",
+        "haruto",
+        "koharu",
+        "izumi",
+        "shizuku",
+        "wanko",
+        "miku",
+        "z16",
+      ],
       clean: false,
       messages: {
-        welcome: '欢迎光临神族九帝博客',
-        home: '心里的花，我想要带你回家。',
-        theme: '好吧，希望你能喜欢我的其他小伙伴。',
-        close: '再见哦'
+        welcome: "欢迎光临神族九帝博客",
+        home: "心里的花，我想要带你回家。",
+        theme: "好吧，希望你能喜欢我的其他小伙伴。",
+        close: "再见哦",
       },
       width: 240,
-      height: 352
-    }
+      height: 352,
+    },
   ],
   // 为博客文章自动随机添加名人名言或其他，可自定义样式和内容
   ["vuepress-plugin-boxx"],
+  [
+    "meting",
+    {
+      meting: {
+        // 歌单地址-> 如果输入可忽略server|type|mid
+        // 但是不知道为什么不写上这三个会报错, 所以我都写上了
+        auto: "https://music.163.com/#/song?id=514053886",
+        // 当前服务为netease -> 网易
+        server: "netease",
+        // 类型为歌单
+        type: "song",
+        // 歌单id
+        mid: "514053886",
+      },
+      aplayer: {
+        // 歌单为随机
+        // order: "random",
+        // 0为不显示歌词
+        // lrcType: 0,
+        // 音量
+        // volume: 0.15,
+        // 开启迷你模式
+        mini: true,
+        // 自动播放
+        autoplay: true,
+      },
+    },
+  ],
   // 鼠标点击
   // ['@ikangxu/vuepress-plugin-mouse-effects', {
   //   type: 'click-word', // 暂时只内置了一个特效   内置的特效有 particle|click-word
@@ -179,4 +226,4 @@ module.exports = [
   //   //   }
   //   // ]
   // }]
-]
+];
