@@ -13,9 +13,27 @@ module.exports = [
   ["meta", { name: "baidu-site-verification", content: "code-yywEP2q5jK" }], // 百度统计的站长验证
   ["meta", { name: "theme-color", content: "#11a8cd" }], // 移动浏览器主题颜色
   // PWA start
+  [
+    "link",
+    {
+      rel: "icon",
+      type: "image/png",
+      sizes: "16x16",
+      href: `/images/icons/favicon-16x16.png`,
+    },
+  ],
+  [
+    "link",
+    {
+      rel: "icon",
+      type: "image/png",
+      sizes: "32x32",
+      href: `/images/icons/favicon-32x32.png`,
+    },
+  ],
   ["link", { rel: "manifest", href: "/manifest.webmanifest" }],
-  ["meta", { name: "application-name", content: "神族九帝" }],
-  ["meta", { name: "apple-mobile-web-app-title", content: "神族九帝" }],
+  ["meta", { name: "application-name", content: "VuePress" }],
+  ["meta", { name: "apple-mobile-web-app-title", content: "VuePress" }],
   ["meta", { name: "apple-mobile-web-app-status-bar-style", content: "black" }],
   [
     "link",
@@ -29,8 +47,9 @@ module.exports = [
       color: "#3eaf7c",
     },
   ],
-  // ["meta", { name: "msapplication-TileColor", content: "#3eaf7c" }],
-  // ["meta", { name: "theme-color", content: "#3eaf7c" }],
+  ["meta", { name: "msapplication-TileColor", content: "#3eaf7c" }],
+  ["meta", { name: "theme-color", content: "#3eaf7c" }],
+
   // ['link', { rel: 'icon', href: '/logo.png' }],
   // ['link', { rel: 'manifest', href: '/manifest.json' }],
   // ['meta', { name: 'theme-color', content: '#3eaf7c' }],
