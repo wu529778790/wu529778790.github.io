@@ -39,13 +39,13 @@ module.exports = [
   //     { text: "Vue", link: "/pages/12df8ace52d493f6/" },
   //   ],
   // },
+  { text: "关于", link: "/about/" },
+  { text: "归档", link: "/archives/" },
   // {
   //   text: "更多",
   //   link: "/more/",
   //   items: [
-  //     { text: "归档", link: "/archives/" },
-  //     { text: "友链", link: "/friends/" },
-  //     { text: "关于", link: "/about/" },
+  //     // { text: "友链", link: "/friends/" },
   //   ],
   // },
 ];
