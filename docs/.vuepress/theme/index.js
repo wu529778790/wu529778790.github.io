@@ -51,6 +51,9 @@ module.exports = (options, ctx) => {
 
   // 递归遍历children
   const rec = (object) => {
+    // if(!Object.getOwnPropertyNames(object).includes('children')){
+    //   log(chalk.red(`存在空文件夹${object.title}`))
+    // }
     const firstChild = object.children[0];
     if (Object.prototype.toString.call(firstChild) === "[object Array]") {
       return firstChild[2];
