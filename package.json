@@ -1,6 +1,14 @@
 {
   "name": "blog.shenzjd.com",
   "version": "1.0.0",
+  "homepage": "https://github.com/wu529778790/wu529778790.github.io",
+  "bugs": {
+    "url": "https://github.com/wu529778790/wu529778790.github.io/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wu529778790/wu529778790.github.io.git"
+  },
   "scripts": {
     "dev": "vuepress dev docs",
     "build": "vuepress build docs",
@@ -10,7 +18,6 @@
     "publish": "cd ./theme-vdoing && npm publish && cd ../ && npm run updateTheme",
     "updateTheme": "npm uninstall vuepress-theme-vdoing && rm -rf node_modules && npm i && npm i vuepress-theme-vdoing -D"
   },
-  "license": "MIT",
   "devDependencies": {
     "@better-scroll/core": "^2.3.1",
     "@better-scroll/slide": "^2.3.1",
