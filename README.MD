@@ -15,3 +15,7 @@
 
 - permalink 要改成 hash 生成
 - 导航栏增加排序（可以和自定义导航栏混入）
+
+![vuepress-architecture-overview](https://cdn.jsdelivr.net/gh/wu529778790/image/blog/vuepress-architecture-overview.png)
+
+![vuepress-core-process](https://cdn.jsdelivr.net/gh/wu529778790/image/blog/vuepress-core-process.png)
