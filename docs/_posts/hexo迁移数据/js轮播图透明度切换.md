@@ -1,6 +1,6 @@
 ---
 title: js轮播图透明度切换
-date: 2021-06-05 16:06:21
+date: 2017-06-06 16:06:21
 permalink: /pages/e90101/
 categories: 
   - hexo迁移数据

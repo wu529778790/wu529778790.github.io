@@ -1,23 +1,17 @@
 ---
 title: 淘宝、网易移动端px转rem
-date: 2021-06-05 16:06:21
+date: 2017-06-06 16:06:21
 permalink: /pages/7d84a3/
-categories: 
+categories:
   - hexo迁移数据
-author: 
+author:
   name: 神族九帝
   link: https://github.com/wu529778790
   permalink: null
   categories: null
 sidebar: auto
-tags: 
-  - 
----
-title: px 转 rem
-date: 2017-08-11 20:26:28
-categories:
-tags: 响应式
-
+tags:
+  -
 ---
 
 # 网易转换 rem 分析

@@ -1,30 +1,24 @@
 ---
 title: stylus中文文档
-date: 2021-06-05 16:06:21
+date: 2017-06-06 16:06:21
 permalink: /pages/ec0fac/
-categories: 
+categories:
   - hexo迁移数据
-author: 
+author:
   name: 神族九帝
   link: https://github.com/wu529778790
   permalink: null
   categories: null
 sidebar: auto
-tags: 
-  - 
----
-title: stylus中文文档
-date: 2017-04-20 09:52:55
-categories:
-tags: js
+tags:
+  -
 ---
 
-
-Stylus - 富有表现力的、动态的、健壮的CSS
+Stylus - 富有表现力的、动态的、健壮的 CSS
 
 <!--more-->
 
-## 常见的css
+## 常见的 css
 
     body {
       font: 12px Helvetica, Arial, sans-serif;
@@ -39,7 +33,7 @@ Stylus - 富有表现力的、动态的、健壮的CSS
 
     body
       font: 12px Helvetica, Arial, sans-serif;
-      
+
     a.button
       -webkit-border-radius: 5px;
       -moz-border-radius: 5px;
@@ -49,18 +43,17 @@ Stylus - 富有表现力的、动态的、健壮的CSS
 
     body
       font: 12px Helvetica, Arial, sans-serif
-      
+
     a.button
       -webkit-border-radius: 5px
       -moz-border-radius: 5px
       border-radius: 5px
 
-
 ## 冒号去掉
 
     body
       font 12px Helvetica, Arial, sans-serif
-      
+
     a.button
       -webkit-border-radius 5px
       -moz-border-radius 5px
@@ -72,10 +65,10 @@ Stylus - 富有表现力的、动态的、健壮的CSS
       -webkit-border-radius arguments
       -moz-border-radius arguments
       border-radius arguments
-      
+
     body
       font 12px Helvetica, Arial, sans-serif
-      
+
     a.button
       border-radius(5px)
 
@@ -85,10 +78,10 @@ Stylus - 富有表现力的、动态的、健壮的CSS
       -webkit-border-radius arguments
       -moz-border-radius arguments
       border-radius arguments
-      
+
     body
       font 12px Helvetica, Arial, sans-serif
-      
+
     a.button
       border-radius 5px
 
@@ -98,7 +91,7 @@ Stylus - 富有表现力的、动态的、健壮的CSS
 
     body
       font 12px Helvetica, Arial, sans-serif
-      
+
     a.button
       border-radius 5px
 
@@ -107,7 +100,7 @@ Stylus - 富有表现力的、动态的、健壮的CSS
     sum(nums...)
       sum = 0
       sum += n for n in nums
-      
+
     sum(1 2 3 4)
     // => 10
 
@@ -120,11 +113,11 @@ Stylus - 富有表现力的、动态的、健壮的CSS
       font: 14px/1.4 fonts;
     }
 
-## Stylus获取、安装
+## Stylus 获取、安装
 
     $ npm install stylus
 
-## Stylus的特征
+## Stylus 的特征
 
     冒号可选
     分号可选
@@ -154,4 +147,4 @@ Stylus - 富有表现力的、动态的、健壮的CSS
     TextMate捆绑
     以及其他更多
 
-更多信息github：https://github.com/stylus/stylus
+更多信息 github：https://github.com/stylus/stylus

@@ -1,38 +1,32 @@
 ---
 title: 前端程序员经常忽略的一道js面试题
-date: 2021-06-05 16:06:21
+date: 2017-06-06 16:06:21
 permalink: /pages/e14f75/
-categories: 
+categories:
   - hexo迁移数据
-author: 
+author:
   name: 神族九帝
   link: https://github.com/wu529778790
   permalink: null
   categories: null
 sidebar: auto
-tags: 
-  - 
+tags:
+  -
 ---
-title: 前端程序员经常忽略的一道js面试题
-date: 2017-04-12 11:02:24
-categories:
-tags: 面试
----
-
 
 在网上看的这道面试题很经典，就转载过来记录一下，顺便加深自己的印象
 
 <!--more-->
 
 function Foo() {
-    getName = function () { alert (1); };
-    return this;
+getName = function () { alert (1); };
+return this;
 }
 Foo.getName = function () { alert (2);};
 Foo.prototype.getName = function () { alert (3);};
 var getName = function () { alert (4);};
 function getName() { alert (5);}
- 
+
 //请写出以下输出结果：
 Foo.getName();
 getName();
@@ -42,11 +36,10 @@ new Foo.getName();
 new Foo().getName();
 new new Foo().getName();
 
-
-
     这几道题经常碰见，但是没有好好研究过，今天看了一下，考查的内容确实很多，基本看出了js的综合能力，包含了变量定义提升，this指针指向，运算符优先级，原型，继承，全局变量污染，对象属性以及原型属性优先级等知识。
 
 ## 第一问
+
     先看此题的上半部分说了什么，首先是自定义了一个叫Foo的函数，之后为Foo创建了一个getName的静态属性储存了一个匿名函数，之后为Foo的原型对象新创建了一个叫getName的匿名函数。之后又通过函数变量表达式创建了一个getName的函数，最后再声明一个getName函数。
 
     第一问的Foo.getName自然是访问Foo函数上储存的静态属性，答案自然是2，这个很简单，没什么说的，但是我们来复习下基础知识
@@ -71,7 +64,9 @@ new new Foo().getName();
         * 调用公有方法，公有属性，我们必须先实例化对象，也就是用new操作符实例化对象，就可构造函数实例化对象的方法和属性，并且公有方法是不能调用私有方法和静态属性的
         * 静态方法和静态属性就是我们无需实例化就可以调用
         * 而对象的私有方法和属性，外部是不可以访问的
+
 ## 第二问
+
     直接调用getName函数，就是访问当前尚文作用域内的叫getName的函数，所以这里应该直接把关注点放在4和5上，跟123都没什么关系。此处有两个坑，一是变量生命提升，而是函数表达式和函数声明的区别。
     此处可以参考https://github.com/Wscats/Good-text-Share/issues/73
 
@@ -115,7 +110,7 @@ new new Foo().getName();
                 console.log('oaoafly');
             }
             getName()//wscat 这里就执行了函数表达式的值
-        
+
         所以可以分解为这两个简单的问题来看清楚区别的本质
 
             var getName ;
@@ -137,13 +132,15 @@ new new Foo().getName();
         总结：
             #### js中函数声明和函数表达式是存在区别的，函数声明在js解析时进行函数提升，因此在同一个作用域内，不管函数声明在哪定义，该函数都可以进行调用，而函数表达式的值是在js运行时确定，并且在表达式赋值完成后，该函数才能调用。
             所以第二问的答案就是4，5的函数生命被4的函数表达式覆盖了
+
 ## 第三问
+
     Foo().getName();先执行了Foo函数，然后再调用Foo函数的返回值对象的getName属性函数
     Foo函数的第一句getName = function (){alert(1)}是一句函数赋值语句，注意他没有var声明，所以先向当前Foo函数作用域内寻找getName变量，没有的话，在想当前函数作用域上层，即外层作用域内寻找是否含有getNAme变量，找到了，也就是第二问种的alert(4)函数,将此变量的值赋值为function(){alert(1)}
     此处实际上是将外层作用域内的getName函数修改了。
 
     注意：此处若依然没有找到会一直向上查找到window对象，若window对象中也没有getName属性，就在window对象中创建一个getName变量。
-    
+
     之后Foo函数的返回值是this，简单的讲，this的指向室友所在函数的调用方式决定的，而此处的直接调用方式，this指向window对象。所以Foo函数返回的是window对象，相当于执行window.getname(),而window种的getName已经被修改为alert(1),所以最终会输出1
 
         var name = 'wscat';//全局变量
@@ -168,7 +165,7 @@ new new Foo().getName();
         window.Foo().getName()
 
 ## 第四问
-    
+
     直接调用getName函数，相当于window.getName(),因为这个变量已经被Foo函数执行时修改了，所以结果与第三问相同，为1，也就是说Foo执行后把全局的getName函数给重写了一次，所以结果就是Foo()执行重写的拿个getName函数。
 
 ## 第五问
@@ -177,7 +174,7 @@ new new Foo().getName();
     js运算符的优先级问题，可以参考https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Operator_Precedence
 
     这道题首先看优先级的第18和第17都出现关于new的优先级，new(带参数列表)比new(无参数列表)高，跟成员访问同级
-    
+
     new Foo.getName();的优先级是这样的
     相当于是：
         new (Foo.getName)();
@@ -187,6 +184,7 @@ new new Foo().getName();
     所以这里实际上将getName函数作为了构造函数来执行，所以是2
 
 ## 第六问
+
     这一题比上一题的区别就在Foo那里多了一个括号，这个有括号跟没括号在我们上疑问中就看出来优先级是有区别的
 
         (new Foo()).getName()
@@ -242,20 +240,21 @@ new new Foo().getName();
 
     new new Foo().getName(); 同样是运算符优先级问题
 
-    实际上问的是 
+    实际上问的是
 
         new ((new Foo()).getName)()
         new有参数列表(18)->new有参数列表(18)
     先初始化Foo的实例化对象，然后将原型上的getName函数作为构造函数再次new
+
 ##答案
-        function Foo() {
-            getName = function () { alert (1); };
-            return this;
-        }
-        Foo.getName = function () { alert (2);};
-        Foo.prototype.getName = function () { alert (3);};
-        var getName = function () { alert (4);};
-        function getName() { alert (5);}
+function Foo() {
+getName = function () { alert (1); };
+return this;
+}
+Foo.getName = function () { alert (2);};
+Foo.prototype.getName = function () { alert (3);};
+var getName = function () { alert (4);};
+function getName() { alert (5);}
 
         //答案：
         Foo.getName();//2
@@ -267,6 +266,7 @@ new new Foo().getName();
         new new Foo().getName();//3
 
 ## 后续
+
     难度加大，在Foo函数里面加多一个公有方法getName
 
                 function Foo() {
@@ -304,7 +304,5 @@ new new Foo().getName();
                         //多了一问
                 new Foo().getName().getName(); //3 1
                 new new Foo().getName(); //3
-
-
 
 转载自https://github.com/Wscats/Good-text-Share/issues/85

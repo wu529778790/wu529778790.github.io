@@ -3,17 +3,17 @@ title: Markdown编辑器使用手册
 date: 2019-01-15 10:22:14
 categories: 教程
 permalink: /pages/8e0c1c/
-author: 
+author:
   name: 神族九帝
   link: https://github.com/wu529778790
   permalink: null
   categories: null
 sidebar: auto
-tags: 
-  - 
+tags:
+  -
 ---
 
-markdown编辑器使用手册，来源于掘金
+markdown 编辑器使用手册，来源于掘金
 
 <!-- more -->
 
@@ -27,14 +27,14 @@ markdown编辑器使用手册，来源于掘金
 
 支持的快捷键有：
 
-* 加粗： `Ctrl/Cmd + B`
-* 标题： `Ctrl/Cmd + H`
-* 插入链接： `Ctrl/Cmd + K`
-* 插入代码： `Ctrl/Cmd + Shift + C`
-* 行内代码： `Ctrl/Cmd + Shift + K`
-* 插入图片： `Ctrl/Cmd + Shift + I`
-* 无序列表： `Ctrl/Cmd + Shift + L`
-* 撤销： `Ctrl/Cmd + Z`
+- 加粗： `Ctrl/Cmd + B`
+- 标题： `Ctrl/Cmd + H`
+- 插入链接： `Ctrl/Cmd + K`
+- 插入代码： `Ctrl/Cmd + Shift + C`
+- 行内代码： `Ctrl/Cmd + Shift + K`
+- 插入图片： `Ctrl/Cmd + Shift + I`
+- 无序列表： `Ctrl/Cmd + Shift + L`
+- 撤销： `Ctrl/Cmd + Z`
 
 ### 常用语法
 
@@ -43,10 +43,15 @@ markdown编辑器使用手册，来源于掘金
 > 语法格式：** '#'+'空格'+'文本' **
 
 # 一级标题
+
 ## 二级标题
+
 ### 三级标题
+
 #### 四级标题
+
 ##### 五级标题
+
 ###### 六级标题
 
 #### 列表
@@ -80,10 +85,9 @@ markdown编辑器使用手册，来源于掘金
 
 > 语法：** '>'+'空格'+'文本' **
 
-
 例如：
 
-> Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，然后转换成格式丰富的HTML页面。
+> Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，然后转换成格式丰富的 HTML 页面。
 
 #### 代码
 
@@ -97,7 +101,7 @@ markdown编辑器使用手册，来源于掘金
 
 例如：
 
-``` python
+```python
 def bubbleSort(alist):
  for passnum in range(len(alist)-1,0,-1):
  #print alist,passnum
@@ -111,24 +115,22 @@ def bubbleSort(alist):
 
 #### 表格
 
-**Markdown　Extra**　表格语法：
+**Markdown 　 Extra**　表格语法：
 
-项目 | 价格
--------- | ---
-iPhone | $560
-iPad | $780
-iMac | $1000
+| 项目   | 价格   |
+| ------ | ------ |
+| iPhone | \$560  |
+| iPad   | \$780  |
+| iMac   | \$1000 |
 
 可以使用冒号来定义对齐方式：
 
-| 项目 | 价格 | 数量 |
-| :-------- | --------:| :--: |
-| iPhone | 6000 元 | 5 |
-| iPad | 3800 元 | 12 |
-| iMac | 10000 元 | 234 |
-
+| 项目   |     价格 | 数量 |
+| :----- | -------: | :--: |
+| iPhone |  6000 元 |  5   |
+| iPad   |  3800 元 |  12  |
+| iMac   | 10000 元 | 234  |
 
 #### 结语
 
-以上是最常见的 Markdown 的语法和格式，如果你还希望深入的学习 Markdown，可以参考这里[Markdown语法](https://www.appinn.com/markdown/)，非常感谢使用** 掘金－Markdown 编辑器**,希望为您提供舒适的写作体验。
-
+以上是最常见的 Markdown 的语法和格式，如果你还希望深入的学习 Markdown，可以参考这里[Markdown 语法](https://www.appinn.com/markdown/)，非常感谢使用** 掘金－Markdown 编辑器**,希望为您提供舒适的写作体验。
