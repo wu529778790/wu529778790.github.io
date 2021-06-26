@@ -106,45 +106,45 @@ module.exports = [
     },
   ],
   //一个基于 html5 canvas 绘制的网页背景效果
-  [
-    "nest",
-    {
-      color: "0,0,0", // color of lines, default: '0,0,0'; RGB values: (R,G,B).(note: use ',' to separate.)
-      pointColor: "0,0,0", // color of points, default: '0,0,0'; RGB values: (R,G,B).(note: use ',' to separate.)
-      opacity: 0.5, // the opacity of line (0~1), default: 0.5.
-      count: 99, // the number of lines, default: 99.
-      zIndex: -1, // z-index property of the background, default: -1.
-      showInMobile: false, // whether to display on the mobile side, default: false.
-    },
-  ],
-  [
-    //看板娘
-    "@vuepress-reco/vuepress-plugin-kan-ban-niang",
-    {
-      theme: [
-        "blackCat",
-        "whiteCat",
-        "haru1",
-        "haru2",
-        "haruto",
-        "koharu",
-        "izumi",
-        "shizuku",
-        "wanko",
-        "miku",
-        "z16",
-      ],
-      clean: false,
-      messages: {
-        welcome: "欢迎光临神族九帝博客",
-        home: "心里的花，我想要带你回家。",
-        theme: "好吧，希望你能喜欢我的其他小伙伴。",
-        close: "再见哦",
-      },
-      width: 240,
-      height: 352,
-    },
-  ],
+  // [
+  //   "nest",
+  //   {
+  //     color: "0,0,0", // color of lines, default: '0,0,0'; RGB values: (R,G,B).(note: use ',' to separate.)
+  //     pointColor: "0,0,0", // color of points, default: '0,0,0'; RGB values: (R,G,B).(note: use ',' to separate.)
+  //     opacity: 0.5, // the opacity of line (0~1), default: 0.5.
+  //     count: 99, // the number of lines, default: 99.
+  //     zIndex: -1, // z-index property of the background, default: -1.
+  //     showInMobile: false, // whether to display on the mobile side, default: false.
+  //   },
+  // ],
+  // [
+  //   //看板娘
+  //   "@vuepress-reco/vuepress-plugin-kan-ban-niang",
+  //   {
+  //     theme: [
+  //       "blackCat",
+  //       "whiteCat",
+  //       "haru1",
+  //       "haru2",
+  //       "haruto",
+  //       "koharu",
+  //       "izumi",
+  //       "shizuku",
+  //       "wanko",
+  //       "miku",
+  //       "z16",
+  //     ],
+  //     clean: false,
+  //     messages: {
+  //       welcome: "欢迎光临神族九帝博客",
+  //       home: "心里的花，我想要带你回家。",
+  //       theme: "好吧，希望你能喜欢我的其他小伙伴。",
+  //       close: "再见哦",
+  //     },
+  //     width: 240,
+  //     height: 352,
+  //   },
+  // ],
   // 为博客文章自动随机添加名人名言或其他，可自定义样式和内容
   ["vuepress-plugin-boxx"],
   [
