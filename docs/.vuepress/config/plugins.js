@@ -146,7 +146,7 @@ module.exports = [
   //   },
   // ],
   // 为博客文章自动随机添加名人名言或其他，可自定义样式和内容
-  ["vuepress-plugin-boxx"],
+  // ["vuepress-plugin-boxx"],
   [
     "meting",
     {
