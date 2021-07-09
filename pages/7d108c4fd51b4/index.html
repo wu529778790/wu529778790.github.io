@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>webpack的异步加载原理及分包策略 | 神族九帝&#39;s blog</title>
+    <meta name="generator" content="VuePress 1.8.0">
+    <link rel="icon" href="/img/favicon.ico">
+    <meta name="description" content="web前端技术博客,简洁至上,专注web前端学习与总结。JavaScript,js,ES6,TypeScript,vue,css3,html5,Node,git,github等技术文章。">
+    <meta name="keywords" content="前端博客,个人技术博客,前端,前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github,markdown">
+    <meta name="baidu-site-verification" content="code-yywEP2q5jK">
+    <meta name="theme-color" content="#11a8cd">
+    <link rel="preload" href="/assets/css/0.styles.cfb06f8e.css" as="style"><link rel="preload" href="/assets/js/app.66ab9d5c.js" as="script"><link rel="preload" href="/assets/js/2.b4fcb84b.js" as="script"><link rel="preload" href="/assets/js/3.f517613b.js" as="script"><link rel="preload" href="/assets/js/51.bcb71929.js" as="script"><link rel="prefetch" href="/assets/js/10.8a9be1d7.js"><link rel="prefetch" href="/assets/js/100.0c252a26.js"><link rel="prefetch" href="/assets/js/101.35b54497.js"><link rel="prefetch" href="/assets/js/102.93c31b38.js"><link rel="prefetch" href="/assets/js/103.602a3742.js"><link rel="prefetch" href="/assets/js/104.260cc9e6.js"><link rel="prefetch" href="/assets/js/105.8b10c5ce.js"><link rel="prefetch" href="/assets/js/106.f2e3bc8d.js"><link rel="prefetch" href="/assets/js/107.c5183454.js"><link rel="prefetch" href="/assets/js/108.a05fb809.js"><link rel="prefetch" href="/assets/js/11.b23cca53.js"><link rel="prefetch" href="/assets/js/12.7e60e23e.js"><link rel="prefetch" href="/assets/js/13.740264ef.js"><link rel="prefetch" href="/assets/js/14.2ecfa9b2.js"><link rel="prefetch" href="/assets/js/15.c01fcb19.js"><link rel="prefetch" href="/assets/js/16.59e7d3a5.js"><link rel="prefetch" href="/assets/js/17.79f59520.js"><link rel="prefetch" href="/assets/js/18.4e176365.js"><link rel="prefetch" href="/assets/js/19.0b06fda8.js"><link rel="prefetch" href="/assets/js/20.daebd525.js"><link rel="prefetch" href="/assets/js/21.2f2e0760.js"><link rel="prefetch" href="/assets/js/22.d23e4aad.js"><link rel="prefetch" href="/assets/js/23.86dc91bf.js"><link rel="prefetch" href="/assets/js/24.a3b99291.js"><link rel="prefetch" href="/assets/js/25.4924c628.js"><link rel="prefetch" href="/assets/js/26.dc0ce3cb.js"><link rel="prefetch" href="/assets/js/27.9f515866.js"><link rel="prefetch" href="/assets/js/28.1863560d.js"><link rel="prefetch" href="/assets/js/29.e872f931.js"><link rel="prefetch" href="/assets/js/30.148104c7.js"><link rel="prefetch" href="/assets/js/31.e74d4d4f.js"><link rel="prefetch" href="/assets/js/32.658d1bdd.js"><link rel="prefetch" href="/assets/js/33.5975ff52.js"><link rel="prefetch" href="/assets/js/34.25befd96.js"><link rel="prefetch" href="/assets/js/35.ba2ae64b.js"><link rel="prefetch" href="/assets/js/36.f2b2459b.js"><link rel="prefetch" href="/assets/js/37.1f482764.js"><link rel="prefetch" href="/assets/js/38.d5242c84.js"><link rel="prefetch" href="/assets/js/39.3e987965.js"><link rel="prefetch" href="/assets/js/4.091364ff.js"><link rel="prefetch" href="/assets/js/40.16d71380.js"><link rel="prefetch" href="/assets/js/41.ed19cfd2.js"><link rel="prefetch" href="/assets/js/42.251caf1f.js"><link rel="prefetch" href="/assets/js/43.89840bbe.js"><link rel="prefetch" href="/assets/js/44.245017a1.js"><link rel="prefetch" href="/assets/js/45.e16df273.js"><link rel="prefetch" href="/assets/js/46.2801ec1f.js"><link rel="prefetch" href="/assets/js/47.29a15463.js"><link rel="prefetch" href="/assets/js/48.2300f029.js"><link rel="prefetch" href="/assets/js/49.398e4ffd.js"><link rel="prefetch" href="/assets/js/5.d17e9687.js"><link rel="prefetch" href="/assets/js/50.079d0777.js"><link rel="prefetch" href="/assets/js/52.d4a8982b.js"><link rel="prefetch" href="/assets/js/53.d645cf94.js"><link rel="prefetch" href="/assets/js/54.d0fcf6b3.js"><link rel="prefetch" href="/assets/js/55.95ca788f.js"><link rel="prefetch" href="/assets/js/56.e93e8261.js"><link rel="prefetch" href="/assets/js/57.15dcbf2e.js"><link rel="prefetch" href="/assets/js/58.9427b756.js"><link rel="prefetch" href="/assets/js/59.fab79c9f.js"><link rel="prefetch" href="/assets/js/6.74b4024a.js"><link rel="prefetch" href="/assets/js/60.ab96f885.js"><link rel="prefetch" href="/assets/js/61.309e87f2.js"><link rel="prefetch" href="/assets/js/62.05e0359d.js"><link rel="prefetch" href="/assets/js/63.b1b3ec2b.js"><link rel="prefetch" href="/assets/js/64.b99c5f44.js"><link rel="prefetch" href="/assets/js/65.6a35eb4b.js"><link rel="prefetch" href="/assets/js/66.229b3f92.js"><link rel="prefetch" href="/assets/js/67.7ea1b92a.js"><link rel="prefetch" href="/assets/js/68.85ce7112.js"><link rel="prefetch" href="/assets/js/69.e4b90de3.js"><link rel="prefetch" href="/assets/js/7.29540a45.js"><link rel="prefetch" href="/assets/js/70.fe1f037b.js"><link rel="prefetch" href="/assets/js/71.e9731b39.js"><link rel="prefetch" href="/assets/js/72.02324a05.js"><link rel="prefetch" href="/assets/js/73.5d91d4d3.js"><link rel="prefetch" href="/assets/js/74.060c415e.js"><link rel="prefetch" href="/assets/js/75.17da80aa.js"><link rel="prefetch" href="/assets/js/76.a407f7a7.js"><link rel="prefetch" href="/assets/js/77.8fd07583.js"><link rel="prefetch" href="/assets/js/78.a5a61986.js"><link rel="prefetch" href="/assets/js/79.0953502d.js"><link rel="prefetch" href="/assets/js/8.24abe712.js"><link rel="prefetch" href="/assets/js/80.d50398b0.js"><link rel="prefetch" href="/assets/js/81.6c79ca6d.js"><link rel="prefetch" href="/assets/js/82.3935fb3b.js"><link rel="prefetch" href="/assets/js/83.4f7d204a.js"><link rel="prefetch" href="/assets/js/84.e0436562.js"><link rel="prefetch" href="/assets/js/85.844f57fd.js"><link rel="prefetch" href="/assets/js/86.0c441761.js"><link rel="prefetch" href="/assets/js/87.2b6af469.js"><link rel="prefetch" href="/assets/js/88.1fa5d39b.js"><link rel="prefetch" href="/assets/js/89.24e66bcd.js"><link rel="prefetch" href="/assets/js/9.4b8de6f2.js"><link rel="prefetch" href="/assets/js/90.225514cd.js"><link rel="prefetch" href="/assets/js/91.ce26bc9f.js"><link rel="prefetch" href="/assets/js/92.8ec0411c.js"><link rel="prefetch" href="/assets/js/93.456a4e6f.js"><link rel="prefetch" href="/assets/js/94.265bdc72.js"><link rel="prefetch" href="/assets/js/95.7b334af3.js"><link rel="prefetch" href="/assets/js/96.a3983521.js"><link rel="prefetch" href="/assets/js/97.bb06d39d.js"><link rel="prefetch" href="/assets/js/98.b00fcede.js"><link rel="prefetch" href="/assets/js/99.e007bc50.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.cfb06f8e.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/logo.png" alt="神族九帝's blog" class="logo"> <span class="site-name can-hide">神族九帝's blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="购物" class="dropdown-title"><!----> <span class="title" style="display:;">购物</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://taobao.shenzjd.com/index.php?r=p" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  疯抢榜
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="http://quan.shenzjd.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  优惠券
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="面试题" class="dropdown-title"><a href="/interview" class="link-title">面试题</a> <span class="title" style="display:none;">面试题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/3cd9c5f306d2c/" class="nav-link">HTML</a></li><li class="dropdown-item"><!----> <a href="/pages/04403ba7faf73/" class="nav-link">CSS</a></li><li class="dropdown-item"><!----> <a href="/pages/15beed3c2f8d4/" class="nav-link">JavaScript</a></li><li class="dropdown-item"><!----> <a href="/pages/62502f3dd8041/" class="nav-link">浏览器</a></li><li class="dropdown-item"><!----> <a href="/pages/7860f2c6dd001/" class="nav-link">Vue</a></li><li class="dropdown-item"><!----> <a href="/pages/b9014c6cc5abc/" class="nav-link">Webpack</a></li><li class="dropdown-item"><!----> <a href="/pages/c13db8d1206f3/" class="nav-link">Http</a></li><li class="dropdown-item"><!----> <a href="/pages/7afade1b51631/" class="nav-link">前端优化</a></li><li class="dropdown-item"><!----> <a href="/pages/26971593e5552/" class="nav-link">项目</a></li><li class="dropdown-item"><!----> <a href="/pages/0d28ab62c07b1/" class="nav-link">面试真题</a></li><li class="dropdown-item"><!----> <a href="/pages/4ed5b5720962c/" class="nav-link">算法</a></li><li class="dropdown-item"><!----> <a href="/pages/96c5de658a426/" class="nav-link">精选文章</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="学习笔记" class="dropdown-title"><a href="/note" class="link-title">学习笔记</a> <span class="title" style="display:none;">学习笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/de5e42d9aade5/" class="nav-link">vue2源码学习</a></li><li class="dropdown-item"><!----> <a href="/pages/654a66a46648a/" class="nav-link">大数据渲染table</a></li><li class="dropdown-item"><!----> <a href="/pages/1b26a2a3224ed/" class="nav-link">vue3源码学习</a></li><li class="dropdown-item"><!----> <a href="/pages/df8208be80149/" class="nav-link">npm发包</a></li><li class="dropdown-item"><!----> <a href="/pages/d9a9bfeb8770b/" class="nav-link">JS设计模式总结笔记</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="收藏夹" class="dropdown-title"><!----> <span class="title" style="display:;">收藏夹</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/beb6c0bd8a66cea6/" class="nav-link">网站</a></li><li class="dropdown-item"><!----> <a href="/pages/eee83a9211a70f9d/" class="nav-link">资源</a></li><li class="dropdown-item"><!----> <a href="/pages/12df8ace52d493f6/" class="nav-link">Vue资源</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多" class="dropdown-title"><!----> <span class="title" style="display:;">更多</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/friends/" class="nav-link">友情链接</a></li><li class="dropdown-item"><!----> <a href="/pages/f9ef4c6a6f4e/" class="nav-link">导航</a></li></ul></div></div> <a href="https://github.com/wu529778790/wu529778790.github.io" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="/img/logo.png"> <div class="blogger-info"><h3>神族九帝,永不言弃</h3> <span></span></div></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="购物" class="dropdown-title"><!----> <span class="title" style="display:;">购物</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://taobao.shenzjd.com/index.php?r=p" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  疯抢榜
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="http://quan.shenzjd.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  优惠券
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="面试题" class="dropdown-title"><a href="/interview" class="link-title">面试题</a> <span class="title" style="display:none;">面试题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/3cd9c5f306d2c/" class="nav-link">HTML</a></li><li class="dropdown-item"><!----> <a href="/pages/04403ba7faf73/" class="nav-link">CSS</a></li><li class="dropdown-item"><!----> <a href="/pages/15beed3c2f8d4/" class="nav-link">JavaScript</a></li><li class="dropdown-item"><!----> <a href="/pages/62502f3dd8041/" class="nav-link">浏览器</a></li><li class="dropdown-item"><!----> <a href="/pages/7860f2c6dd001/" class="nav-link">Vue</a></li><li class="dropdown-item"><!----> <a href="/pages/b9014c6cc5abc/" class="nav-link">Webpack</a></li><li class="dropdown-item"><!----> <a href="/pages/c13db8d1206f3/" class="nav-link">Http</a></li><li class="dropdown-item"><!----> <a href="/pages/7afade1b51631/" class="nav-link">前端优化</a></li><li class="dropdown-item"><!----> <a href="/pages/26971593e5552/" class="nav-link">项目</a></li><li class="dropdown-item"><!----> <a href="/pages/0d28ab62c07b1/" class="nav-link">面试真题</a></li><li class="dropdown-item"><!----> <a href="/pages/4ed5b5720962c/" class="nav-link">算法</a></li><li class="dropdown-item"><!----> <a href="/pages/96c5de658a426/" class="nav-link">精选文章</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="学习笔记" class="dropdown-title"><a href="/note" class="link-title">学习笔记</a> <span class="title" style="display:none;">学习笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/de5e42d9aade5/" class="nav-link">vue2源码学习</a></li><li class="dropdown-item"><!----> <a href="/pages/654a66a46648a/" class="nav-link">大数据渲染table</a></li><li class="dropdown-item"><!----> <a href="/pages/1b26a2a3224ed/" class="nav-link">vue3源码学习</a></li><li class="dropdown-item"><!----> <a href="/pages/df8208be80149/" class="nav-link">npm发包</a></li><li class="dropdown-item"><!----> <a href="/pages/d9a9bfeb8770b/" class="nav-link">JS设计模式总结笔记</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="收藏夹" class="dropdown-title"><!----> <span class="title" style="display:;">收藏夹</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/beb6c0bd8a66cea6/" class="nav-link">网站</a></li><li class="dropdown-item"><!----> <a href="/pages/eee83a9211a70f9d/" class="nav-link">资源</a></li><li class="dropdown-item"><!----> <a href="/pages/12df8ace52d493f6/" class="nav-link">Vue资源</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多" class="dropdown-title"><!----> <span class="title" style="display:;">更多</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/friends/" class="nav-link">友情链接</a></li><li class="dropdown-item"><!----> <a href="/pages/f9ef4c6a6f4e/" class="nav-link">导航</a></li></ul></div></div> <a href="https://github.com/wu529778790/wu529778790.github.io" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>HTML</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CSS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JavaScript</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>浏览器</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Webpack</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Http</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>前端优化</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pages/7afade1b51631/" class="sidebar-link">你知道的前端优化手段</a></li><li><a href="/pages/7bbc163ab4d18/" class="sidebar-link">前端性能优化总结</a></li><li><a href="/pages/7d108c4fd51b4/" aria-current="page" class="active sidebar-link">webpack的异步加载原理及分包策略</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/pages/7d108c4fd51b4/#webpack-异步加载原理" class="sidebar-link">webpack 异步加载原理</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/pages/7d108c4fd51b4/#举个例子" class="sidebar-link">举个例子</a></li><li class="sidebar-sub-header"><a href="/pages/7d108c4fd51b4/#require-ensure-异步加载" class="sidebar-link">require.ensure 异步加载</a></li><li class="sidebar-sub-header"><a href="/pages/7d108c4fd51b4/#import-按需加载" class="sidebar-link">import() 按需加载</a></li></ul></li><li class="sidebar-sub-header"><a href="/pages/7d108c4fd51b4/#路由懒加载" class="sidebar-link">路由懒加载</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/pages/7d108c4fd51b4/#vue-异步组件" class="sidebar-link">vue 异步组件</a></li><li class="sidebar-sub-header"><a href="/pages/7d108c4fd51b4/#require-ensure" class="sidebar-link">require.ensure</a></li><li class="sidebar-sub-header"><a href="/pages/7d108c4fd51b4/#es6-的-import" class="sidebar-link">ES6 的 import()</a></li></ul></li><li class="sidebar-sub-header"><a href="/pages/7d108c4fd51b4/#webpack-分包策略" class="sidebar-link">webpack 分包策略</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/pages/7d108c4fd51b4/#commonschunkplugin" class="sidebar-link">CommonsChunkPlugin</a></li><li class="sidebar-sub-header"><a href="/pages/7d108c4fd51b4/#optimization-splitchunks" class="sidebar-link">optimization.splitChunks</a></li><li class="sidebar-sub-header"><a href="/pages/7d108c4fd51b4/#应用实例" class="sidebar-link">应用实例</a></li></ul></li><li class="sidebar-sub-header"><a href="/pages/7d108c4fd51b4/#推荐文章" class="sidebar-link">推荐文章</a></li></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>项目</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>面试真题</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>算法</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>精选文章</span> <span class="arrow right"></span></p> <!----></section></li></ul> <div class="sidebar-slot sidebar-slot-bottom"><!-- 正方形 -->
+      <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-7828333725993554"
+          data-ad-slot="3508773082"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script></div></aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-071ed482><div class="articleInfo" data-v-071ed482><ul class="breadcrumbs" data-v-071ed482><li data-v-071ed482><a href="/" title="首页" class="iconfont icon-home router-link-active" data-v-071ed482></a></li> <li data-v-071ed482><a href="/interview" title="面试题-目录页" data-v-071ed482>面试题</a></li> <li data-v-071ed482><a href="/interview/#前端优化" title="面试题#前端优化" data-v-071ed482>前端优化</a></li> <!----></ul> <div class="info" data-v-071ed482><div title="作者" class="author iconfont icon-touxiang" data-v-071ed482><a href="https://shenzjd.com" target="_blank" title="作者" class="beLink" data-v-071ed482>wu529778790</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-071ed482><a href="javascript:;" data-v-071ed482>2021-06-09</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABGpJREFUSA3tVVtoXFUU3fvOI53UlmCaKIFmwEhsE7QK0ipFEdHEKpXaZGrp15SINsXUWvBDpBgQRKi0+KKoFeJHfZA+ED9KKoIU2gYD9UejTW4rVIzm0VSTziPzuNu1z507dibTTjL4U/DAzLn3nL3X2o91ziX6f9wMFdh6Jvbm9nNSV0msViVO6tN1Rm7NMu2OpeJ9lWBUTDxrJbYTS0hInuwciu9eLHlFxCLCZEk3MegsJmZ5K/JD6t7FkFdEvGUo1g7qJoG3MHImqRIn8/nzY1K9UPKKiJmtnUqHVE3Gbuay6vJE/N2FEmuxFjW2nUuE0yQXRRxLiTUAzs36zhZvOXJPdX850EVnnLZkB8prodQoM5JGj7Xk2mvC7JB8tG04Ef5PiXtG0UtxupRQSfTnBoCy554x18yJHI6I+G5Eru4LHmPJZEQsrvPUbMiA8G/WgMK7w7I+ez7++o2ANfbrjvaOl1tFMs+htG3IrZH9/hDX1Pr8Tc0UvH8tcX29KzAgIGcEkINyW5BF9x891hw6VYqgJHEk0huccS7vh3C6gTiODL+26huuBtbct8eZnqLML8PkxGYpuPZBqtqwkSjgc4mB5gbgig5i+y0UDK35LMxXisn9xQtK+nd26gTIHsHe/oblK/b29fUmN/8Y+9jAQrnBp56m1LcDlDp9irKTExSKduXJVWSqdBMA08pEJnEIOB3FPPMybu/oeV8zFeYN3xx576Q6RH+VmplE4ncQV5v+5rzSoyOU7PuEAg8g803PwBJ0CExno/jcMbN8tONYeOmHiuUNryvm3fRUy4tMPVLdAGkUhNWuggGrJcXPv+ouCjz0MKUHz1J2/E8IC9nqTabcxgaBYM0hPhD5Y65FsbxRQKxCQrDjDctW7PUM3HuZunFyifSAqEfuzCp48Il24luWUWZoyJCaPR82jE0+kFA643wRFVni4RYSq3ohJO2pZ7B5dO4xkDWbEpossJPLSrPjYID8rS2UHTlvyNxqIGsg674XJJ7vnh5L7PNwC4hh2sjCI96mzszOTpxLF0T7l88Yz7lAuK6OnL8gXLOnTvpzSb22YG8W7us3jSebFHeeqnXRG1vt+MoUM84LQIBmMsCTAcOauTh0T0l0neQK7m2bLMt2mGxU3HYssS0J2cdv5wljlPsrIuZLAG/2DOZIXgCYT8uMGZN+e2kSirfxZOPCsC0f24nTZzspnVn9VePS1Z5vubmAGGXG8ZFno9Hel0yfA5ZPhF7Dh972BQJ2qCpgH67lmWtBYbvk6sz02wjky2vXyz0XErP/kFB619js1BtwfOV4OPRqOQBjy3Qbk18vigUPPSD5ceHnwck7W9bhAqZdd7SuG7w4/P2F/GaJh8c7e9qgow+Q7cGBo+98WsLkuktFqiZabtXuQTu/Y5ETbR0v7tNSFnvrmu6pjdoan2KjMu8q/Hmj1EfCO2ZGfEIbIXKUlw8qaX9/b2oeSJmFksSeT/Fn0V3nSypChh4Gjh74ybO9aeZ/AN2dwciu2/MhAAAAAElFTkSuQmCC">
+          webpack的异步加载原理及分包策略
+        </h1> <div class="page-slot page-slot-top"><!-- 固定100% * 90px可显示，max-height:90px未见显示-->
+     <ins class="adsbygoogle"
+          style="display:inline-block;width:100%;max-height:90px"
+          data-ad-client="ca-pub-7828333725993554"
+          data-ad-slot="6625304284"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script></div> <div class="theme-vdoing-content content__default"><h2 id="webpack-异步加载原理"><a href="#webpack-异步加载原理" class="header-anchor">#</a> webpack 异步加载原理</h2> <p><code>webpack ensure</code> 有人称它为异步加载，也有人称为代码切割，他其实就是将 js 模块给独立导出一个.js 文件，然后使用这个模块的时候，再创建一个 <code>script</code> 对象，加入到 <code>document.head</code> 对象中，浏览器会自动帮我们发起请求，去请求这个 js 文件，然后写个回调函数，让请求到的 js 文件做一些业务操作。</p> <h3 id="举个例子"><a href="#举个例子" class="header-anchor">#</a> 举个例子</h3> <p>需求：<code>main.js</code> 依赖两个 js 文件：<code>A.js</code> 是点击 aBtn 按钮后，才执行的逻辑，<code>B.js</code> 是点击 bBtn 按钮后，才执行的逻辑。</p> <p><code>webpack.config.js</code>，我们先来写一下 <code>webpack</code> 打包的配置的代码</p> <div class="language- extra-class"><pre class="language-text"><code>const path = require('path') // 路径处理模块
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin') // 引入CleanWebpackPlugin插件
+
+module.exports = {
+  entry: {
+    index: path.join(__dirname, '/src/main.js'),
+  },
+  output: {
+    path: path.join(__dirname, '/dist'),
+    filename: 'index.js',
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, '/index.html'),
+    }),
+    new CleanWebpackPlugin(), // 所要清理的文件夹名称
+  ],
+}
+</code></pre></div><p><code>index.html</code> 代码如下</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+    &lt;title&gt;webpack&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id=&quot;app&quot;&gt;
+      &lt;button id=&quot;aBtn&quot;&gt;按钮A&lt;/button&gt;
+      &lt;button id=&quot;bBtn&quot;&gt;按钮B&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div><p>入口文件 <code>main.js</code> 如下</p> <div class="language- extra-class"><pre class="language-text"><code>import A from './A'
+import B from './B'
+
+document.getElementById('aBtn').onclick = function () {
+  alert(A)
+}
+
+document.getElementById('bBtn').onclick = function () {
+  alert(B)
+}
+</code></pre></div><p><code>A.js</code> 和 <code>B.js</code> 的代码分别如下</p> <div class="language- extra-class"><pre class="language-text"><code>// A.js
+const A = 'hello A'
+module.exports = A
+
+// B.js
+const B = 'hello B'
+module.exports = B
+</code></pre></div><p>此时，我们对项目进行 <code>npm run build</code>， 打包出来的只有两个文件</p> <ul><li>index.html</li> <li>index.js</li></ul> <p>由此可见，此时 <code>webpack</code> 把 <code>main.js</code> 依赖的两个文件都同时打包到同一个 js 文件，并在 index.html 中引入。但是 <code>A.js</code> 和 <code>B.js</code> 都是点击相应按钮才会执行的逻辑，如果用户并没有点击相应按钮，而且这两个文件又是比较大的话，这样是不是就导致首页默认加载的 js 文件太大，从而导致首页渲染较慢呢？那么有能否实现当用户点击按钮的时候再加载相应的依赖文件呢？</p> <p><code>webpack.ensure</code> 就解决了这个问题。</p> <h3 id="require-ensure-异步加载"><a href="#require-ensure-异步加载" class="header-anchor">#</a> require.ensure 异步加载</h3> <p>下面我们将 <code>main.js</code> 改成异步加载的方式</p> <div class="language- extra-class"><pre class="language-text"><code>document.getElementById('aBtn').onclick = function () {
+  //异步加载A
+  require.ensure([], function () {
+    let A = require('./A.js')
+    alert(A)
+  })
+}
+
+document.getElementById('bBtn').onclick = function () {
+  //异步加载b
+  require.ensure([], function () {
+    let B = require('./B.js')
+    alert(B)
+  })
+}
+</code></pre></div><p>此时，我们再进行一下打包，发现多了 <code>1.index.js</code> 和 <code>2.index.js</code> 两个文件。而我们打开页面时只引入了 <code>index.js</code> 一个文件，当点击按钮 A 的时候才引入 <code>1.index.js</code> 文件，点击按钮 B 的时候才引入 <code>2.index.js</code> 文件。这样就满足了我们按需加载的需求。</p> <p><code>require.ensure</code> 这个函数是一个代码分离的分割线，表示回调里面的 <code>require</code> 是我们想要进行分割出去的，即 <code>require('./A.js')</code>，把 A.js 分割出去，形成一个 <code>webpack</code> 打包的单独 js 文件。它的语法如下</p> <div class="language- extra-class"><pre class="language-text"><code>require.ensure(dependencies: String[], callback: function(require), chunkName: String)
+</code></pre></div><p>我们打开 <code>1.index.js</code> 文件，发现它的代码如下</p> <div class="language- extra-class"><pre class="language-text"><code>;(window.webpackJsonp = window.webpackJsonp || []).push([
+  [1],
+  [
+    ,
+    function (o, n) {
+      o.exports = 'hello A'
+    },
+  ],
+])
+</code></pre></div><p>由上面的代码可以看出：</p> <ol><li>异步加载的代码，会保存在一个全局的 <code>webpackJsonp</code> 中。</li> <li><code>webpackJsonp.push</code> 的的值，两个参数分别为异步加载的文件中存放的需要安装的模块对应的 id 和异步加载的文件中存放的需要安装的模块列表。</li> <li>在满足某种情况下，会执行具体模块中的代码。</li></ol> <h3 id="import-按需加载"><a href="#import-按需加载" class="header-anchor">#</a> import() 按需加载</h3> <p>webpack4 官方文档提供了模块按需切割加载，配合 es6 的按需加载 <code>import()</code> 方法，可以做到减少首页包体积，加快首页的请求速度，只有其他模块，只有当需要的时候才会加载对应 js。</p> <p><code>import()</code>的语法十分简单。该函数只接受一个参数，就是引用包的地址，并且使用了 <code>promise</code> 式的回调，获取加载的包。在代码中所有被 <code>import()</code>的模块，都将打成一个单独的包，放在 <code>chunk</code> 存储的目录下。在浏览器运行到这一行代码时，就会自动请求这个资源，实现异步加载。</p> <p>下面我们将上述代码改成 <code>import()</code>方式。</p> <div class="language- extra-class"><pre class="language-text"><code>document.getElementById('aBtn').onclick = function () {
+  //异步加载A
+  import('./A').then((data) =&gt; {
+    alert(data.A)
+  })
+}
+
+document.getElementById('bBtn').onclick = function () {
+  //异步加载b
+  import('./B').then((data) =&gt; {
+    alert(data.B)
+  })
+}
+</code></pre></div><p>此时打包出来的文件和 <code>webpack.ensure</code> 方法是一样的。</p> <h2 id="路由懒加载"><a href="#路由懒加载" class="header-anchor">#</a> 路由懒加载</h2> <p>为什么需要懒加载？</p> <p>像 vue 这种单页面应用，如果没有路由懒加载，运用 webpack 打包后的文件将会很大，造成进入首页时，需要加载的内容过多，出现较长时间的白屏，运用路由懒加载则可以将页面进行划分，需要的时候才加载页面，可以有效的分担首页所承担的加载压力，减少首页加载用时。</p> <p>vue 路由懒加载有以下三种方式</p> <ul><li>vue 异步组件</li> <li>ES6 的 <code>import()</code></li> <li>webpack 的 <code>require.ensure()</code></li></ul> <h3 id="vue-异步组件"><a href="#vue-异步组件" class="header-anchor">#</a> vue 异步组件</h3> <p>这种方法主要是使用了 <code>resolve</code> 的异步机制，用 <code>require</code> 代替了 <code>import</code> 实现按需加载</p> <div class="language- extra-class"><pre class="language-text"><code>export default new Router({
+  routes: [
+    {
+      path: '/home',',
+      component: (resolve) =&gt; require(['@/components/home'], resolve),
+    },
+    {
+      path: '/about',',
+      component: (resolve) =&gt; require(['@/components/about'], resolve),
+    },
+  ],
+})
+</code></pre></div><h3 id="require-ensure"><a href="#require-ensure" class="header-anchor">#</a> require.ensure</h3> <p>这种模式可以通过参数中的 <code>webpackChunkName</code> 将 js 分开打包。</p> <div class="language- extra-class"><pre class="language-text"><code>export default new Router({
+  routes: [
+    {
+      path: '/home',
+      component: (resolve) =&gt; require.ensure([], () =&gt; resolve(require('@/components/home')), 'home'),
+    },
+    {
+      path: '/about',
+      component: (resolve) =&gt; require.ensure([], () =&gt; resolve(require('@/components/about')), 'about'),
+    },
+  ],
+})
+</code></pre></div><h3 id="es6-的-import"><a href="#es6-的-import" class="header-anchor">#</a> ES6 的 import()</h3> <p><code>vue-router</code> 在官网提供了一种方法，可以理解也是为通过 <code>Promise</code> 的 <code>resolve</code> 机制。因为 <code>Promise</code> 函数返回的 <code>Promise</code> 为 <code>resolve</code> 组件本身，而我们又可以使用 <code>import</code> 来导入组件。</p> <div class="language- extra-class"><pre class="language-text"><code>export default new Router({
+  routes: [
+    {
+      path: '/home',
+      component: () =&gt; import('@/components/home'),
+    },
+    {
+      path: '/about',
+      component: () =&gt; import('@/components/home'),
+    },
+  ],
+})
+</code></pre></div><h2 id="webpack-分包策略"><a href="#webpack-分包策略" class="header-anchor">#</a> webpack 分包策略</h2> <p>在 webpack 打包过程中，经常出现 <code>vendor.js</code>， <code>app.js</code> 单个文件较大的情况，这偏偏又是网页最先加载的文件，这就会使得加载时间过长，从而使得白屏时间过长，影响用户体验。所以我们需要有合理的分包策略。</p> <h3 id="commonschunkplugin"><a href="#commonschunkplugin" class="header-anchor">#</a> CommonsChunkPlugin</h3> <p>在 Webapck4.x 版本之前，我们都是使用 <code>CommonsChunkPlugin</code> 去做分离</p> <div class="language- extra-class"><pre class="language-text"><code>plugins: [
+  new webpack.optimize.CommonsChunkPlugin({
+    name: 'vendor',
+    minChunks: function (module, count) {
+      return (
+        module.resource &amp;&amp;
+        /\.js$/.test(module.resource) &amp;&amp;
+        module.resource.indexOf(path.join(__dirname, './node_modules')) === 0
+      )
+    },
+  }),
+  new webpack.optimize.CommonsChunkPlugin({
+    name: 'common',
+    chunks: 'initial',
+    minChunks: 2,
+  }),
+]
+</code></pre></div><p>我们把以下文件单独抽离出来打包</p> <ul><li><code>node_modules</code> 文件夹下的，模块</li> <li>被 3 个 入口 <code>chunk</code> 共享的模块</li></ul> <h3 id="optimization-splitchunks"><a href="#optimization-splitchunks" class="header-anchor">#</a> optimization.splitChunks</h3> <p>webpack 4 最大的改动就是废除了 <code>CommonsChunkPlugin</code> 引入了 <code>optimization.splitChunks</code>。如果你的 <code>mode</code> 是 <code>production</code>，那么 webpack4 就会自动开启 <code>Code Splitting</code>。</p> <p>它内置的代码分割策略是这样的：</p> <ul><li>新的 chunk 是否被共享或者是来自 <code>node_modules</code> 的模块</li> <li>新的 chunk 体积在压缩之前是否大于 30kb</li> <li>按需加载 chunk 的并发请求数量小于等于 5 个</li> <li>页面初始加载时的并发请求数量小于等于 3 个</li></ul> <p>虽然在 webpack4 会自动开启 <code>Code Splitting</code>，但是随着项目工程的最大，这往往不能满足我们的需求，我们需要再进行个性化的优化。</p> <h3 id="应用实例"><a href="#应用实例" class="header-anchor">#</a> 应用实例</h3> <p>我们先找到一个优化空间较大的项目来进行操作。这是一个后台管理系统项目，大部分内容由 3-4 个前端开发，平时开发周期较短，且大部分人没有优化意识，只是写好业务代码完成需求，日子一长，造成打包出来的文件较大，大大影响性能。</p> <p>我们先用 <code>webpack-bundle-analyzer</code> 分析打包后的模块依赖及文件大小，确定优化的方向在哪。</p> <p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/fc64cbf79557428496a368685ff42de9~tplv-k3u1fbpfcp-watermark.image" alt=""></p> <p>然后我们再看下打包出来的 js 文件</p> <p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/82059f53060248ecabaa870e0d9c70c1~tplv-k3u1fbpfcp-watermark.image" alt=""></p> <p>看到这两张图的时候，我内心是崩溃的，槽点如下</p> <ul><li>打包后生成多个将近 1M 的 js 文件，其中不乏 <code>vendor.js</code> 首页必须加载的大文件</li> <li><code>xlsx.js</code> 这样的插件没必要使用，导出 excel 更好的方法应该是后端返回文件流格式给前端处理</li> <li><code>echart</code> 和 <code>iview</code> 文件太大，应该使用 cdn 引入的方法</li></ul> <p>吐槽完之后我们就要开始做正事了。正是因为有这么多槽点，我们才更好用来验证我们优化方法的可行性。</p> <h4 id="抽离-echart-和-iview"><a href="#抽离-echart-和-iview" class="header-anchor">#</a> 抽离 echart 和 iview</h4> <p>由上面分析可知，<code>echart</code> 和 <code>iview</code> 文件太大，此时我们就用到 webpack4 的 <code>optimization.splitChunks</code> 进行代码分割了，把他们单独抽离打包成文件。(为了更好地呈现优化效果，我们先把 xlsx.js 去掉)</p> <p><code>vue.config.js</code> 修改如下：</p> <div class="language- extra-class"><pre class="language-text"><code>chainWebpack: config =&gt; {
+    config.optimization.splitChunks({
+      chunks: 'all',
+      cacheGroups: {
+        vendors: {
+          name: 'chunk-vendors',
+          test: /[\\/]node_modules[\\/]/,
+          priority: 10,
+          chunks: 'initial'
+        },
+        iview: {
+          name: 'chunk-iview',
+          priority: 20,
+          test: /[\\/]node_modules[\\/]_?iview(.*)/
+        },
+        echarts: {
+          name: 'chunk-echarts',
+          priority: 20,
+          test: /[\\/]node_modules[\\/]_?echarts(.*)/
+        },
+        commons: {
+          name: 'chunk-commons',
+          minChunks: 2,
+          priority: 5,
+          chunks: 'initial',
+          reuseExistingChunk: true
+        }
+      }
+    })
+  },
+</code></pre></div><p>此时我们再用 <code>webpack-bundle-analyzer</code> 分析一下</p> <p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/155bab2a58c74f0db92d04385e62f21d~tplv-k3u1fbpfcp-watermark.image" alt=""></p> <p>打包出来的 js 文件</p> <p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ef0679845a51459e983f24a4a6ee83e2~tplv-k3u1fbpfcp-watermark.image" alt=""></p> <p>从这里可以看出我们已经成功把 <code>echart</code> 和 <code>iview</code> 单独抽离出来了，同时 <code>vendor.js</code> 也相应地减小了体积。此外，我们还可以继续抽离其他更多的第三方模块。</p> <h4 id="cdn-方式"><a href="#cdn-方式" class="header-anchor">#</a> CDN 方式</h4> <p>虽然第三方模块是单独抽离出来了，但是在首页或者相应路由加载时还是要加载这样一个几百 kb 的文件，还是不利于性能优化的。这时，我们可以用 CDN 的方式引入这样插件或者 UI 组件库。</p> <ol><li>在 <code>index.html</code> 引入相应 cdn 链接</li></ol> <div class="language- extra-class"><pre class="language-text"><code>&lt;head&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.bootcdn.net/ajax/libs/iview/3.5.4/styles/iview.css&quot; /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
+  &lt;script src=&quot;https://cdn.bootcss.com/vue/2.6.8/vue.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://cdn.bootcdn.net/ajax/libs/iview/3.5.4/iview.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://cdn.bootcdn.net/ajax/libs/xlsx/0.16.8/xlsx.mini.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://cdn.bootcdn.net/ajax/libs/xlsx/0.16.8/cpexcel.min.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+</code></pre></div><ol start="2"><li><code>vue.config.js</code> 配置 <code>externals</code></li></ol> <div class="language- extra-class"><pre class="language-text"><code>configureWebpack: (config) =&gt; {
+  config.externals = {
+    vue: 'Vue',
+    xlsx: 'XLSX',
+    iview: 'iView',
+    iView: 'ViewUI',
+  }
+}
+</code></pre></div><ol start="3"><li>删除之前的引入方式并卸载相应 npm 依赖包</li></ol> <div class="language- extra-class"><pre class="language-text"><code>npm uninstall vue iview echarts xlsx --save
+</code></pre></div><p>此时我们在来看一下打包后的情况</p> <p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e8553fb4e38745148177d780d77b90e4~tplv-k3u1fbpfcp-watermark.image" alt=""></p> <p>打包出来的 js 文件</p> <p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a4bb3f312dd04ff6addf74455607be15~tplv-k3u1fbpfcp-watermark.image" alt=""></p> <p>well done ! 这时基本没有打包出大文件了，首页加载需要的 <code>vendor.js</code> 也只有几十 kb，而且我们还可以进一步优化，就是把 vue 全家桶的一些模块再通过 cdn 的方法引入，比如 <code>vue-router</code>，<code>vuex</code>，<code>axios</code> 等。这时页面特别是首页加载的性能就得到大大地优化了。</p> <h2 id="推荐文章"><a href="#推荐文章" class="header-anchor">#</a> 推荐文章</h2> <p><a href="https://juejin.im/post/6866964944634511368" target="_blank" rel="noopener noreferrer">谈谈数据状态管理和实现一个简易版 vuex<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><a href="https://juejin.im/post/6844904193589772301" target="_blank" rel="noopener noreferrer">总结 18 个 webpack 插件，总会有你想要的！<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><a href="https://juejin.im/post/6844904152389124103#heading-19" target="_blank" rel="noopener noreferrer">搭建一个 vue-cli4+webpack 移动端框架（开箱即用）<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><a href="https://juejin.im/post/6844904168868544525" target="_blank" rel="noopener noreferrer">从零构建到优化一个类似 vue-cli 的脚手架<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><a href="https://juejin.im/post/6844903991655022600" target="_blank" rel="noopener noreferrer">封装一个 toast 和 dialog 组件并发布到 npm<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><a href="https://juejin.im/post/6844904005286494215" target="_blank" rel="noopener noreferrer">从零开始构建一个 webpack 项目<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><a href="https://juejin.im/post/6844904004825120782" target="_blank" rel="noopener noreferrer">总结几个 webpack 打包优化的方法<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><a href="https://juejin.im/post/6844904094692278286" target="_blank" rel="noopener noreferrer">总结 vue 知识体系之高级应用篇<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><a href="https://juejin.im/post/6844904080960126989" target="_blank" rel="noopener noreferrer">总结 vue 知识体系之实用技巧<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><a href="https://juejin.im/post/6844904079164964871" target="_blank" rel="noopener noreferrer">总结 vue 知识体系之基础入门篇<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><a href="https://juejin.im/post/6844904066301050893" target="_blank" rel="noopener noreferrer">总结移动端 H5 开发常用技巧（干货满满哦！）<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p>本文转自 <a href="https://juejin.cn/post/6895546761255845901" target="_blank" rel="noopener noreferrer">https://juejin.cn/post/6895546761255845901<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>，如有侵权，请联系删除。</p></div></div> <div class="page-slot page-slot-bottom"><!-- 横向自适应 -->
+      <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-7828333725993554"
+          data-ad-slot="6620245489"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script></div> <div class="page-edit"><div class="edit-link"><a href="https://github.com/wu529778790/wu529778790.github.io/edit/master/docs/01.面试题/43.前端优化/03.webpack的异步加载原理及分包策略.md" target="_blank" rel="noopener noreferrer">编辑</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2021/06/09, 21:16:10</span></div></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a href="/pages/7bbc163ab4d18/" class="page-nav-centre page-nav-centre-prev"><div class="tooltip">前端性能优化总结</div></a> <a href="/pages/26971593e5552/" class="page-nav-centre page-nav-centre-next"><div class="tooltip">微前端</div></a></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/pages/7bbc163ab4d18/" class="prev">前端性能优化总结</a></span> <span class="next"><a href="/pages/26971593e5552/">微前端</a>→
+      </span></p></div></div></div> <div class="article-list"><div class="article-title"><a href="/archives/" class="iconfont icon-bi">最近更新</a></div> <div class="article-wrapper"><dl><dd>01</dd> <dt><a href="/pages/b95d4f4164dbd/"><div>前端项目负责人最基础的需要会哪些</div></a> <span>06-24</span></dt></dl><dl><dd>02</dd> <dt><a href="/pages/a7133b8247d7b/"><div>前端项目负责人需要具有的能力</div></a> <span>06-24</span></dt></dl><dl><dd>03</dd> <dt><a href="/pages/f9ef4c6a6f4e/"><div>导航</div></a> <span>06-24</span></dt></dl> <dl><dd></dd> <dt><a href="/archives/" class="more">更多文章&gt;</a></dt></dl></div></div></main></div> <div class="footer"><div class="icons"><a href="mailto:529778790@qq.com" title="发邮件" target="_blank" class="iconfont icon-youjian"></a><a href="https://github.com/wu529778790" title="GitHub" target="_blank" class="iconfont icon-github"></a><a href="https://shenzjd.com/shenzjd/music/" title="听音乐" target="_blank" class="iconfont icon-erji"></a></div> 
+  Power by
+  <a href="https://vuepress.vuejs.org/zh/" target="_blank" title="vuepress">vuepress</a> 
+    | Copyright © 2015-2021
+    <span>神族九帝</span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <!----> <!----> <div class="custom-html-window custom-html-window-rb" style="display:;"><div class="custom-wrapper"><i class="close-but">×</i> <div><!-- 固定160*160px -->
+      <ins class="adsbygoogle"
+          style="display:inline-block;max-width:160px;max-height:160px"
+          data-ad-client="ca-pub-7828333725993554"
+          data-ad-slot="8377369658"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+      </div></div></div></div><div class="global-ui"><div></div><APlayer audio="" fixed="true" mini="true" theme="#b7daff" loop="loop" order="list" preload="auto" volume="0.7" mutex="true" lrc-type="0" list-max-height="250" storage-name="vuepress-plugin-meting" id="aplayer-fixed"></APlayer></div></div>
+    <script src="/assets/js/app.66ab9d5c.js" defer></script><script src="/assets/js/2.b4fcb84b.js" defer></script><script src="/assets/js/3.f517613b.js" defer></script><script src="/assets/js/51.bcb71929.js" defer></script>
+  </body>
+</html>

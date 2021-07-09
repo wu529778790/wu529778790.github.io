@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>移动端rem布局-阿里 | 神族九帝&#39;s blog</title>
+    <meta name="generator" content="VuePress 1.8.0">
+    <link rel="icon" href="/img/favicon.ico">
+    <meta name="description" content="web前端技术博客,简洁至上,专注web前端学习与总结。JavaScript,js,ES6,TypeScript,vue,css3,html5,Node,git,github等技术文章。">
+    <meta name="keywords" content="前端博客,个人技术博客,前端,前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github,markdown">
+    <meta name="baidu-site-verification" content="code-yywEP2q5jK">
+    <meta name="theme-color" content="#11a8cd">
+    <link rel="preload" href="/assets/css/0.styles.cfb06f8e.css" as="style"><link rel="preload" href="/assets/js/app.66ab9d5c.js" as="script"><link rel="preload" href="/assets/js/2.b4fcb84b.js" as="script"><link rel="preload" href="/assets/js/3.f517613b.js" as="script"><link rel="preload" href="/assets/js/103.602a3742.js" as="script"><link rel="prefetch" href="/assets/js/10.8a9be1d7.js"><link rel="prefetch" href="/assets/js/100.0c252a26.js"><link rel="prefetch" href="/assets/js/101.35b54497.js"><link rel="prefetch" href="/assets/js/102.93c31b38.js"><link rel="prefetch" href="/assets/js/104.260cc9e6.js"><link rel="prefetch" href="/assets/js/105.8b10c5ce.js"><link rel="prefetch" href="/assets/js/106.f2e3bc8d.js"><link rel="prefetch" href="/assets/js/107.c5183454.js"><link rel="prefetch" href="/assets/js/108.a05fb809.js"><link rel="prefetch" href="/assets/js/11.b23cca53.js"><link rel="prefetch" href="/assets/js/12.7e60e23e.js"><link rel="prefetch" href="/assets/js/13.740264ef.js"><link rel="prefetch" href="/assets/js/14.2ecfa9b2.js"><link rel="prefetch" href="/assets/js/15.c01fcb19.js"><link rel="prefetch" href="/assets/js/16.59e7d3a5.js"><link rel="prefetch" href="/assets/js/17.79f59520.js"><link rel="prefetch" href="/assets/js/18.4e176365.js"><link rel="prefetch" href="/assets/js/19.0b06fda8.js"><link rel="prefetch" href="/assets/js/20.daebd525.js"><link rel="prefetch" href="/assets/js/21.2f2e0760.js"><link rel="prefetch" href="/assets/js/22.d23e4aad.js"><link rel="prefetch" href="/assets/js/23.86dc91bf.js"><link rel="prefetch" href="/assets/js/24.a3b99291.js"><link rel="prefetch" href="/assets/js/25.4924c628.js"><link rel="prefetch" href="/assets/js/26.dc0ce3cb.js"><link rel="prefetch" href="/assets/js/27.9f515866.js"><link rel="prefetch" href="/assets/js/28.1863560d.js"><link rel="prefetch" href="/assets/js/29.e872f931.js"><link rel="prefetch" href="/assets/js/30.148104c7.js"><link rel="prefetch" href="/assets/js/31.e74d4d4f.js"><link rel="prefetch" href="/assets/js/32.658d1bdd.js"><link rel="prefetch" href="/assets/js/33.5975ff52.js"><link rel="prefetch" href="/assets/js/34.25befd96.js"><link rel="prefetch" href="/assets/js/35.ba2ae64b.js"><link rel="prefetch" href="/assets/js/36.f2b2459b.js"><link rel="prefetch" href="/assets/js/37.1f482764.js"><link rel="prefetch" href="/assets/js/38.d5242c84.js"><link rel="prefetch" href="/assets/js/39.3e987965.js"><link rel="prefetch" href="/assets/js/4.091364ff.js"><link rel="prefetch" href="/assets/js/40.16d71380.js"><link rel="prefetch" href="/assets/js/41.ed19cfd2.js"><link rel="prefetch" href="/assets/js/42.251caf1f.js"><link rel="prefetch" href="/assets/js/43.89840bbe.js"><link rel="prefetch" href="/assets/js/44.245017a1.js"><link rel="prefetch" href="/assets/js/45.e16df273.js"><link rel="prefetch" href="/assets/js/46.2801ec1f.js"><link rel="prefetch" href="/assets/js/47.29a15463.js"><link rel="prefetch" href="/assets/js/48.2300f029.js"><link rel="prefetch" href="/assets/js/49.398e4ffd.js"><link rel="prefetch" href="/assets/js/5.d17e9687.js"><link rel="prefetch" href="/assets/js/50.079d0777.js"><link rel="prefetch" href="/assets/js/51.bcb71929.js"><link rel="prefetch" href="/assets/js/52.d4a8982b.js"><link rel="prefetch" href="/assets/js/53.d645cf94.js"><link rel="prefetch" href="/assets/js/54.d0fcf6b3.js"><link rel="prefetch" href="/assets/js/55.95ca788f.js"><link rel="prefetch" href="/assets/js/56.e93e8261.js"><link rel="prefetch" href="/assets/js/57.15dcbf2e.js"><link rel="prefetch" href="/assets/js/58.9427b756.js"><link rel="prefetch" href="/assets/js/59.fab79c9f.js"><link rel="prefetch" href="/assets/js/6.74b4024a.js"><link rel="prefetch" href="/assets/js/60.ab96f885.js"><link rel="prefetch" href="/assets/js/61.309e87f2.js"><link rel="prefetch" href="/assets/js/62.05e0359d.js"><link rel="prefetch" href="/assets/js/63.b1b3ec2b.js"><link rel="prefetch" href="/assets/js/64.b99c5f44.js"><link rel="prefetch" href="/assets/js/65.6a35eb4b.js"><link rel="prefetch" href="/assets/js/66.229b3f92.js"><link rel="prefetch" href="/assets/js/67.7ea1b92a.js"><link rel="prefetch" href="/assets/js/68.85ce7112.js"><link rel="prefetch" href="/assets/js/69.e4b90de3.js"><link rel="prefetch" href="/assets/js/7.29540a45.js"><link rel="prefetch" href="/assets/js/70.fe1f037b.js"><link rel="prefetch" href="/assets/js/71.e9731b39.js"><link rel="prefetch" href="/assets/js/72.02324a05.js"><link rel="prefetch" href="/assets/js/73.5d91d4d3.js"><link rel="prefetch" href="/assets/js/74.060c415e.js"><link rel="prefetch" href="/assets/js/75.17da80aa.js"><link rel="prefetch" href="/assets/js/76.a407f7a7.js"><link rel="prefetch" href="/assets/js/77.8fd07583.js"><link rel="prefetch" href="/assets/js/78.a5a61986.js"><link rel="prefetch" href="/assets/js/79.0953502d.js"><link rel="prefetch" href="/assets/js/8.24abe712.js"><link rel="prefetch" href="/assets/js/80.d50398b0.js"><link rel="prefetch" href="/assets/js/81.6c79ca6d.js"><link rel="prefetch" href="/assets/js/82.3935fb3b.js"><link rel="prefetch" href="/assets/js/83.4f7d204a.js"><link rel="prefetch" href="/assets/js/84.e0436562.js"><link rel="prefetch" href="/assets/js/85.844f57fd.js"><link rel="prefetch" href="/assets/js/86.0c441761.js"><link rel="prefetch" href="/assets/js/87.2b6af469.js"><link rel="prefetch" href="/assets/js/88.1fa5d39b.js"><link rel="prefetch" href="/assets/js/89.24e66bcd.js"><link rel="prefetch" href="/assets/js/9.4b8de6f2.js"><link rel="prefetch" href="/assets/js/90.225514cd.js"><link rel="prefetch" href="/assets/js/91.ce26bc9f.js"><link rel="prefetch" href="/assets/js/92.8ec0411c.js"><link rel="prefetch" href="/assets/js/93.456a4e6f.js"><link rel="prefetch" href="/assets/js/94.265bdc72.js"><link rel="prefetch" href="/assets/js/95.7b334af3.js"><link rel="prefetch" href="/assets/js/96.a3983521.js"><link rel="prefetch" href="/assets/js/97.bb06d39d.js"><link rel="prefetch" href="/assets/js/98.b00fcede.js"><link rel="prefetch" href="/assets/js/99.e007bc50.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.cfb06f8e.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/logo.png" alt="神族九帝's blog" class="logo"> <span class="site-name can-hide">神族九帝's blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="购物" class="dropdown-title"><!----> <span class="title" style="display:;">购物</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://taobao.shenzjd.com/index.php?r=p" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  疯抢榜
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="http://quan.shenzjd.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  优惠券
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="面试题" class="dropdown-title"><a href="/interview" class="link-title">面试题</a> <span class="title" style="display:none;">面试题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/3cd9c5f306d2c/" class="nav-link">HTML</a></li><li class="dropdown-item"><!----> <a href="/pages/04403ba7faf73/" class="nav-link">CSS</a></li><li class="dropdown-item"><!----> <a href="/pages/15beed3c2f8d4/" class="nav-link">JavaScript</a></li><li class="dropdown-item"><!----> <a href="/pages/62502f3dd8041/" class="nav-link">浏览器</a></li><li class="dropdown-item"><!----> <a href="/pages/7860f2c6dd001/" class="nav-link">Vue</a></li><li class="dropdown-item"><!----> <a href="/pages/b9014c6cc5abc/" class="nav-link">Webpack</a></li><li class="dropdown-item"><!----> <a href="/pages/c13db8d1206f3/" class="nav-link">Http</a></li><li class="dropdown-item"><!----> <a href="/pages/7afade1b51631/" class="nav-link">前端优化</a></li><li class="dropdown-item"><!----> <a href="/pages/26971593e5552/" class="nav-link">项目</a></li><li class="dropdown-item"><!----> <a href="/pages/0d28ab62c07b1/" class="nav-link">面试真题</a></li><li class="dropdown-item"><!----> <a href="/pages/4ed5b5720962c/" class="nav-link">算法</a></li><li class="dropdown-item"><!----> <a href="/pages/96c5de658a426/" class="nav-link">精选文章</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="学习笔记" class="dropdown-title"><a href="/note" class="link-title">学习笔记</a> <span class="title" style="display:none;">学习笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/de5e42d9aade5/" class="nav-link">vue2源码学习</a></li><li class="dropdown-item"><!----> <a href="/pages/654a66a46648a/" class="nav-link">大数据渲染table</a></li><li class="dropdown-item"><!----> <a href="/pages/1b26a2a3224ed/" class="nav-link">vue3源码学习</a></li><li class="dropdown-item"><!----> <a href="/pages/df8208be80149/" class="nav-link">npm发包</a></li><li class="dropdown-item"><!----> <a href="/pages/d9a9bfeb8770b/" class="nav-link">JS设计模式总结笔记</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="收藏夹" class="dropdown-title"><!----> <span class="title" style="display:;">收藏夹</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/beb6c0bd8a66cea6/" class="nav-link">网站</a></li><li class="dropdown-item"><!----> <a href="/pages/eee83a9211a70f9d/" class="nav-link">资源</a></li><li class="dropdown-item"><!----> <a href="/pages/12df8ace52d493f6/" class="nav-link">Vue资源</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多" class="dropdown-title"><!----> <span class="title" style="display:;">更多</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/friends/" class="nav-link">友情链接</a></li><li class="dropdown-item"><!----> <a href="/pages/f9ef4c6a6f4e/" class="nav-link">导航</a></li></ul></div></div> <a href="https://github.com/wu529778790/wu529778790.github.io" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="/img/logo.png"> <div class="blogger-info"><h3>神族九帝,永不言弃</h3> <span></span></div></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="购物" class="dropdown-title"><!----> <span class="title" style="display:;">购物</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://taobao.shenzjd.com/index.php?r=p" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  疯抢榜
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="http://quan.shenzjd.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  优惠券
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="面试题" class="dropdown-title"><a href="/interview" class="link-title">面试题</a> <span class="title" style="display:none;">面试题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/3cd9c5f306d2c/" class="nav-link">HTML</a></li><li class="dropdown-item"><!----> <a href="/pages/04403ba7faf73/" class="nav-link">CSS</a></li><li class="dropdown-item"><!----> <a href="/pages/15beed3c2f8d4/" class="nav-link">JavaScript</a></li><li class="dropdown-item"><!----> <a href="/pages/62502f3dd8041/" class="nav-link">浏览器</a></li><li class="dropdown-item"><!----> <a href="/pages/7860f2c6dd001/" class="nav-link">Vue</a></li><li class="dropdown-item"><!----> <a href="/pages/b9014c6cc5abc/" class="nav-link">Webpack</a></li><li class="dropdown-item"><!----> <a href="/pages/c13db8d1206f3/" class="nav-link">Http</a></li><li class="dropdown-item"><!----> <a href="/pages/7afade1b51631/" class="nav-link">前端优化</a></li><li class="dropdown-item"><!----> <a href="/pages/26971593e5552/" class="nav-link">项目</a></li><li class="dropdown-item"><!----> <a href="/pages/0d28ab62c07b1/" class="nav-link">面试真题</a></li><li class="dropdown-item"><!----> <a href="/pages/4ed5b5720962c/" class="nav-link">算法</a></li><li class="dropdown-item"><!----> <a href="/pages/96c5de658a426/" class="nav-link">精选文章</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="学习笔记" class="dropdown-title"><a href="/note" class="link-title">学习笔记</a> <span class="title" style="display:none;">学习笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/de5e42d9aade5/" class="nav-link">vue2源码学习</a></li><li class="dropdown-item"><!----> <a href="/pages/654a66a46648a/" class="nav-link">大数据渲染table</a></li><li class="dropdown-item"><!----> <a href="/pages/1b26a2a3224ed/" class="nav-link">vue3源码学习</a></li><li class="dropdown-item"><!----> <a href="/pages/df8208be80149/" class="nav-link">npm发包</a></li><li class="dropdown-item"><!----> <a href="/pages/d9a9bfeb8770b/" class="nav-link">JS设计模式总结笔记</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="收藏夹" class="dropdown-title"><!----> <span class="title" style="display:;">收藏夹</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/beb6c0bd8a66cea6/" class="nav-link">网站</a></li><li class="dropdown-item"><!----> <a href="/pages/eee83a9211a70f9d/" class="nav-link">资源</a></li><li class="dropdown-item"><!----> <a href="/pages/12df8ace52d493f6/" class="nav-link">Vue资源</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多" class="dropdown-title"><!----> <span class="title" style="display:;">更多</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/friends/" class="nav-link">友情链接</a></li><li class="dropdown-item"><!----> <a href="/pages/f9ef4c6a6f4e/" class="nav-link">导航</a></li></ul></div></div> <a href="https://github.com/wu529778790/wu529778790.github.io" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>移动端rem布局-阿里</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pages/de97d6/#代码原理" class="sidebar-link">代码原理</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/pages/de97d6/#有何优势" class="sidebar-link">有何优势</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/pages/de97d6/#如何使用" class="sidebar-link">如何使用</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/pages/de97d6/#常见问题说明" class="sidebar-link">常见问题说明</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> <div class="sidebar-slot sidebar-slot-bottom"><!-- 正方形 -->
+      <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-7828333725993554"
+          data-ad-slot="3508773082"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script></div></aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-071ed482><div class="articleInfo" data-v-071ed482><!----> <div class="info" data-v-071ed482><div title="作者" class="author iconfont icon-touxiang" data-v-071ed482><a href="https://github.com/wu529778790" target="_blank" title="作者" class="beLink" data-v-071ed482>神族九帝</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-071ed482><a href="javascript:;" data-v-071ed482>2017-06-06</a></div> <div title="分类" class="date iconfont icon-wenjian" data-v-071ed482><a href="/categories/?category=hexo%E8%BF%81%E7%A7%BB%E6%95%B0%E6%8D%AE" data-v-071ed482>hexo迁移数据 </a></div></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABKFJREFUSA3tVl1oFVcQnrMbrak3QUgkya1akpJYcrUtIqW1JvFBE9LiQ5v6JmJpolbMg32rVrhgoYK0QiMY6i9Y6EMaW5D+xFJaTYItIuK2Kr3+BJNwkxBj05sQY3b3nM6cs2dv9t7NT/vQJw/sndk5M/PNzJkzewGerP+pAmy+ON8lLzUJgA8ZYxYIYZmGYRnctDaWvJJAmTtfP1pvXsBCCPP8QFcCaRkZYACgDZFO4stNIcBCajEOlmmC9XpJ9bAGCaPaPmzPl32dvLSVu3BWCTQs0XQQ6g0DYgwLIoAZbBCdW/i+781o1VVlm/410mw4h06Y7bIPHNyWDyL4FHkX03Q8SrzNhZTZriieckWt7cL6MM85YcLpsi/7O9/iXFT6MswI0DmmpkSaJ0qLxFIm3+i1THHB3zmBH3PYx9CcykcLOeQVVa7QtdxTgQgEleX2AjHYfwA+2ddV77ruGoJUbhGDI09YSNXyMpUt5ylOzxgbUmtOp7NmbNt8v3arjTBfYELmLUV+M+nSawNNAUqpT3ClJWg5I3BLT+cGW/DXNGCa6tx1aakCGEigArTn4TDIPdrXXYKCZNrHLMCOEPvHBlLQ99s9eHB7EB6NTki73CVPQ2F5MSx/uRQixfmq7rK0wYD8w8E905bnPDfwoWs/rfv93NWN/ZfvwsLIU7A09gxECyISeGJkHAau98L97tuw7NXnoPyNF8FcYGLGKsOs0mN3OEyec9esGW/ZEl945dTP34wlR2FZVQWU1q0Cw8Tr7p+hgLLNL0FPxx/Q35mA8aEUrH6nCgwEl0tn7wUiZYJnNRh6DK4UH/k0lfyrsBKdPVv/AriGIQcEDQZ65LBAGe2Rzui9Ybjz7XUppz1/uKBbyVPGkN3ZAeC6hr0x7Nr38N5+EqkoOm17xpoqR9ohQF55ERSvr4Dkr3chNfC3DMzGJlNBElW8w9nsGQvhNGIzDkXzCg8cLK951xHsFBlTJspJNi3ZFIMF2AeDV3q8DNOB+YHi6QTrChDIWDBRi5U5f+ZMfJLu3ccrqxtdxk4SKH336LFxSmkqefwU5T8fhdSdQf9IVKD6aNiwI/hnmcAZ91isYMJIaCUCx9W098+LgruikeTqzqqxKPUwqJyCPJiyemVVZBOijDGjD38Os0jOiSPL1z3SPjXNANbiNPXAdzTfukjjuknNBbyz3nwgTd3AVFqUJ5hpHlq9MveLnWwttUfoygBmvVjuikxND3znrhsELnZk7k+OjIGxeNEkomyLVta0xxn+HZhjBc4YZ/AFjHjz9u3xRZl2BN4aq9nFwWh16IrQ1aHHEd3j1+4/dB9OtH4e29A2H1DyHQRmOSfQZ1Fy7MHBTGB6J/Djq6p3OxyO2cB+4Car7v/o3GXgfAkj23+x9ID1Teoamo/SXcbvSf2PX7Vc8DdCmE1vN9di+32P9/5YR3vLnhCVGUWBjEkr3yh4H8v9CzmsbdhzOKzsJKM90iFdaTMjRPhGVsakRvOaRidljo6H6G7j+ctrJpsP+4COhDIl0La2+FS4+5mlocBaXY5QnGZysIBYoeSsl5qQzrSj/cgNrfuEzlWBfwA+EjrZyWUvpAAAAABJRU5ErkJggg==">
+          移动端rem布局-阿里
+        </h1> <div class="page-slot page-slot-top"><!-- 固定100% * 90px可显示，max-height:90px未见显示-->
+     <ins class="adsbygoogle"
+          style="display:inline-block;width:100%;max-height:90px"
+          data-ad-client="ca-pub-7828333725993554"
+          data-ad-slot="6625304284"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script></div> <div class="theme-vdoing-content content__default"><p>一直在用阿里的 flexible 布局，但是从来没总结过，今天看到一篇总结的不错就搬过来记录下。</p> <p>使用起来很简单，把下面的 js 直接引入就好了<br>
+https://github.com/amfe/lib-flexible</p> <h2 id="代码原理"><a href="#代码原理" class="header-anchor">#</a> 代码原理</h2> <p>这是阿里团队的高清方案布局，所谓高清方案就是根据设备屏幕的 DPR（设备像素比，又称 DPPX，比如 dpr=2 时，表示一个 css 像素由四个物理像素点组成。）<br>
+动态设置 html 的 font-size，同时根据设备的 DPR 调整页面的缩放值，进而达到效果。</p> <h2 id="有何优势"><a href="#有何优势" class="header-anchor">#</a> 有何优势</h2> <p>引用简单，布局简单<br>
+根据设备屏幕的 DPR，自动设置最合适的高清缩放。<br>
+保证了不同设备下的视觉体验的一致性。<br>
+有效解决移动端真实 1px 问题（这里的 1px 时设备屏幕下的物理像素）</p> <h2 id="如何使用"><a href="#如何使用" class="header-anchor">#</a> 如何使用</h2> <p>重要的事情说三遍！
+绝不是每个地方都要用 rem，rem 只适用于固定尺寸！
+绝不是每个地方都要用 rem，rem 只适用于固定尺寸！
+绝不是每个地方都要用 rem，rem 只适用于固定尺寸！</p> <p>在相当数量的布局情境中（比如底部导航元素平分屏幕宽，大尺寸元素），你必须使用百分比或者 flex 才能完美布局！</p> <p>此方案也是默认 1rem = 100px，所以你布局的时候，完全可以按照设计师给你的效果图写各种尺寸啦。
+比如你在效果图上量取的某个按钮元素长 55px, 宽 37px ，那你直接可以这样写样式：</p> <div class="language- extra-class"><pre><code>.myBtn {
+   width: 0.55rem;
+   height: 0.37rem;
+}
+</code></pre></div><h2 id="常见问题说明"><a href="#常见问题说明" class="header-anchor">#</a> 常见问题说明</h2> <ol><li>为啥手机网页效果图宽度是要 640 或者 750 的，我非得弄个 666 的不行咩？<br>
+答：老实说当然可以，不过为了规范，640 或者 750 是相对合适的。
+拿 Iphone 5s 举例，它的 css 像素宽度是 320px，由于它的 dpr=2，所以它的物理像素宽度为 320 × 2 = 640px，这也就是为什么，你在 5s 上截了一张图，在电脑上打开，它的原始宽度是 640px 的原因。
+那 iphone 6 的截图宽度呢？ 375 × 2 = 750
+那 iphone 6 sp 的截图宽度呢？ 414 × 3 = 1242
+以此类推，你现在能明白效果图为什么一般是 640 ，750 甚至是 1242 的原因了么？（真没有歧视安卓机的意思。。。）</li> <li>宽度用 rem 写的情况下， 在 iphone6 上没问题， 在 iphone5 上会有横向滚动条，何解？<br>
+答：假设你的效果图宽度是 750，在这个效果图上可能有一个宽度为 7rem（高清方案默认 1rem = 100px）的元素。我们知道，高清方案的特点就是几乎完美还原效果图，也就是说，你写了一个宽度为 7rem 的元素，那么在目前主流移动设备上都是 7rem。然而，iphone 5 的宽度为 640，也就是 6.4rem。于是横向滚动条不可避免的出现了。
+怎么办呢？ 这是我目前推荐的比较安全的方式：如果元素的宽度超过效果图宽度的一半（效果图宽为 640 或 750），果断使用百分比宽度，或者 flex 布局。就像把等屏宽的图片宽度设为 100%一样。</li> <li>不是 1rem = 100px 吗，为什么我的代码写了一个宽度为 3rem 的元素，在电脑端的谷歌浏览器上宽度只有 150px?<br>
+答：先说高清方案代码，再次强调咱们的高清方案代码是根据设备的 dpr 动态设置 html 的 font-size，
+如果 dpr=1(如电脑端），则 html 的 font-size 为 50px，此时 1rem = 50px
+如果 dpr=2(如 iphone 5 和 6），则 html 的 font-size 为 100px，此时 1rem = 100px
+如果 dpr=3(如 iphone 6 sp），则 html 的 font-size 为 150px，此时 1rem = 150px
+如果 dpr 为其他值，即便不是整数，如 3.4 , 也是一样直接将 dpr 乘以 50 。<br>
+再来说说效果图，一般来讲，我们的效果图宽度要么是 640，要么是 750，无论哪一个，它们对应设备的 dpr=2，此时，1 rem = 50 × 2 = 100px。这也就是为什么高清方案默认 1rem = 100px。而将 1rem 默认 100px 也是好处多多，可以帮你快速换算单位，比如在 750 宽度下的效果图，某元素宽度为 53px，那么 css 宽度直接设为 53/100=0.53rem 了。<br>
+然而极少情况下，有设计师将效果图宽定为 1242px，因为他手里只有一个 iphone 6 sp (dpr = 3)，设计完效果图刚好可以在他的 iphone 6 sp 里查看调整。一切完毕之后，他将这个效果图交给你来切图。由于这个效果图对应设备的 dpr=3，也就是 1rem = 50 × 3 = 150px。所以如果你量取了一个宽度为 90px 的元素，它的 css 宽度应该为 90/150=0.6rem。由于咱们的高清方案默认 1rem=100px，为了还原效果图，你需要这样换算。当然，一个技巧就是你可以直接修改咱们的高清方案的默认设置。在代码的最后 你会看到 flex(100, 1) ，将其修改成 flex(66.66667, 1)就不用那么麻烦的换算了，此时那个 90px 的直接写成 0.9rem 就可以了。</li> <li>高清方案在微信上，有时候字体会不受控制变的很大，怎么办？<br>
+https://github.com/ant-design/ant-design-mobile/issues/732</li></ol> <p>问题原因：<br>
+在 X5 新内核 Blink 中，在排版页面的时候，会主动对字体进行放大，会检测页面中的主字体，当某一块字体在
+我们的判定规则中，认为字号较小，并且是页面中的主要字体，就会采取主动放大的操作。然而这不是我们想要的，可以采取给最大高度解决</p> <p>后续：经过项目实践，还是决定给 max-height 一个具体数值比较好，之前给的是 100% ，但有自身的局限性，比如 antd 的轮播组件在 max-height:100% 的情况下就不能正常显示。</p> <ol start="5"><li>我在底部导航用的 flex 感觉更合适一些，请问这样子混着用可以吗？<br>
+咱们的 rem 适合写固定尺寸。其余的根据需要换成 flex 或者百分比。源码示例中就有这三种的综合运用。</li> <li>在高清方案下，一个标准的，较为理想的宽度为 640 的页面效果图应该是怎样的？</li></ol> <p><img src="http://cdn.attach.qdfuns.com/notes/pics/201705/05/165046bsdbcb1frrhfnbpp.png" alt="参考布局"></p> <ol start="7"><li><p>源码：<br>
+'use strict';</p> <p>/**</p> <ul><li>@param {Number} [baseFontSize = 100] - 基础 fontSize, 默认 100px;</li> <li>@param {Number} [fontscale = 1] - 有的业务希望能放大一定比例的字体;
+*/
+const win = window;
+export default win.flex = (baseFontSize, fontscale) =&gt; {
+const _baseFontSize = baseFontSize || 100;
+const _fontscale = fontscale || 1;</li></ul> <p>const doc = win.document;
+const ua = navigator.userAgent;
+const matches = ua.match(/Android[\S\s]+AppleWebkit/(\d{3})/i);
+const UCversion = ua.match(/U3/((\d+|.){5,})/i);
+const isUCHd = UCversion &amp;&amp; parseInt(UCversion[1].split('.').join(''), 10) &gt;= 80;
+const isIos = navigator.appVersion.match(/(iphone|ipad|ipod)/gi);
+let dpr = win.devicePixelRatio || 1;
+if (!isIos &amp;&amp; !(matches &amp;&amp; matches[1] &gt; 534) &amp;&amp; !isUCHd) {
+// 如果非 iOS, 非 Android4.3 以上, 非 UC 内核, 就不执行高清, dpr 设为 1;
+dpr = 1;
+}
+const scale = 1 / dpr;</p> <p>let metaEl = doc.querySelector('meta[name=&quot;viewport&quot;]');
+if (!metaEl) {
+metaEl = doc.createElement('meta');
+metaEl.setAttribute('name', 'viewport');
+doc.head.appendChild(metaEl);
+}
+metaEl.setAttribute('content', <code>width=device-width,user-scalable=no,initial-scale=${scale},maximum-scale=${scale},minimum-scale=${scale}</code>);
+doc.documentElement.style.fontSize = <code>${_baseFontSize / 2 * dpr * _fontscale}px</code>;
+};</p></li></ol> <p>demo：</p> <div class="language- extra-class"><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+
+    &lt;!-- 阿里高清方案 --&gt;
+    &lt;script&gt;!function(e){function t(a){if(i[a])return i[a].exports;var n=i[a]={exports:{},id:a,loaded:!1};return e[a].call(n.exports,n,n.exports,t),n.loaded=!0,n.exports}var i={};return t.m=e,t.c=i,t.p=&quot;&quot;,t(0)}([function(e,t){&quot;use strict&quot;;Object.defineProperty(t,&quot;__esModule&quot;,{value:!0});var i=window;t[&quot;default&quot;]=i.flex=function(e,t){var a=e||100,n=t||1,r=i.document,o=navigator.userAgent,d=o.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i),l=o.match(/U3\/((\d+|\.){5,})/i),c=l&amp;&amp;parseInt(l[1].split(&quot;.&quot;).join(&quot;&quot;),10)&gt;=80,p=navigator.appVersion.match(/(iphone|ipad|ipod)/gi),s=i.devicePixelRatio||1;p||d&amp;&amp;d[1]&gt;534||c||(s=1);var u=1/s,m=r.querySelector('meta[name=&quot;viewport&quot;]');m||(m=r.createElement(&quot;meta&quot;),m.setAttribute(&quot;name&quot;,&quot;viewport&quot;),r.head.appendChild(m)),m.setAttribute(&quot;content&quot;,&quot;width=device-width,user-scalable=no,initial-scale=&quot;+u+&quot;,maximum-scale=&quot;+u+&quot;,minimum-scale=&quot;+u),r.documentElement.style.fontSize=a/2*s*n+&quot;px&quot;},e.exports=t[&quot;default&quot;]}]);
+    flex(100, 1);&lt;/script&gt;
+    &lt;!-- 字形图标 --&gt;
+    &lt;script src=&quot;https://use.fontawesome.com/f47f4563cb.js&quot;&gt;&lt;/script&gt;
+    &lt;style&gt;
+        * {
+            box-sizing: border-box;
+        }
+
+        *:before, *:after {
+            box-sizing: border-box;
+        }
+
+        *, *:before, *:after {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+            border: 0 none;
+            font-size: inherit;
+            color: inherit;
+            margin: 0;
+            padding: 0;
+            vertical-align: baseline;
+
+            /* 在X5新内核Blink中，在排版页面的时候，会主动对字体进行放大，会检测页面中的主字体，当某一块字体在我们的判定规则中，认为字号较小，并且是页面中的主要字体，就会采取主动放大的操作。然而这不是我们想要的，可以采取给最大高度解决 */
+            max-height: 100000px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: normal;
+        }
+
+        em, strong {
+            font-style: normal;
+        }
+
+        ul, ol, li {
+            list-style: none;
+        }
+
+        body {
+            font-family: &quot;Helvetica Neue&quot;,Helvetica,&quot;PingFang SC&quot;,&quot;Hiragino Sans GB&quot;,&quot;Microsoft YaHei&quot;,&quot;\5FAE\8F6F\96C5\9ED1&quot;,Arial,sans-serif;
+            line-height: 1.5;
+            color: #333;
+            background-color: #f2f2f2;
+            font-size: 0.24rem;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        .box {
+            position: relative;
+            max-width: 10rem;
+            margin: 0 auto;
+        }
+
+        .navRoot {
+            position: fixed;
+            z-index: 50;
+            bottom: 0;
+            left:0;
+            width: 100%;
+            height: 1rem;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            border-top: 0.01rem solid #ccc;
+            background:#f2f2f2;
+        }
+
+        .navLink {
+            font-size: 0.42rem;
+            -webkit-box-flex: 1;
+            -ms-flex: auto;
+            flex: auto;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            line-height: 1;
+            color: #666;
+        }
+        .navLink.active {
+            color: #1abc9c
+        }
+        .navLinkIco {
+            display: block;
+            margin-bottom: 0.1rem;
+        }
+
+        .navLinkText {
+            display: block;
+            line-height: 1;
+            font-size: 0.24rem;
+        }
+
+        .img-responsive {
+            width: 100%;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class=&quot;box&quot;&gt;
+   &lt;div class=&quot;box-content&quot;&gt;
+    &lt;img src=&quot;http://temp.im/640x260/444/fff&quot; class=&quot;img-responsive&quot;&gt;
+    &lt;ul style=&quot;font-size:0.3rem; padding: 0.2rem&quot;&gt;
+        &lt;li style=&quot;font-size:0.4rem&quot;&gt;&lt;a href=&quot;http://www.jianshu.com/p/985d26b40199&quot;&gt;rem布局（进阶版）的一些说明&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;1，大家先把这个页面在不同设备模式下浏览下，感受下。&lt;/li&gt;
+        &lt;li&gt;2，一般来说我们的手机端效果图是640px或750px。&lt;/li&gt;
+        &lt;li&gt;3，对于上图这类需要等屏宽的图片，只需让其宽度设为 100% 即可。&lt;/li&gt;
+        &lt;li&gt;4，该布局方案要求凡是涉及尺寸的，单位都是rem，比如，height width margin paddint top border-radius 等等。你只需要按照效果图上标注的尺寸布局即可。&lt;/li&gt;
+    &lt;/ul&gt;
+
+   &lt;/div&gt;
+    &lt;div class=&quot;navRoot&quot;&gt;
+        &lt;a href=&quot;#&quot; class=&quot;navLink active&quot;&gt;
+            &lt;i class=&quot;fa fa-home navLinkIco&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+            &lt;span class=&quot;navLinkText&quot;&gt;首页&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;a href=&quot;#&quot; class=&quot;navLink&quot;&gt;
+            &lt;i class=&quot;fa fa-home navLinkIco&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+            &lt;span class=&quot;navLinkText&quot;&gt;好店&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;a href=&quot;#&quot; class=&quot;navLink&quot;&gt;
+            &lt;i class=&quot;fa fa-home navLinkIco&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+            &lt;span class=&quot;navLinkText&quot;&gt;简单&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;a href=&quot;#&quot; class=&quot;navLink&quot;&gt;
+            &lt;i class=&quot;fa fa-home navLinkIco&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+            &lt;span class=&quot;navLinkText&quot;&gt;复杂&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;a href=&quot;#&quot; class=&quot;navLink&quot;&gt;
+            &lt;i class=&quot;fa fa-home navLinkIco&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+            &lt;span class=&quot;navLinkText&quot;&gt;异步&lt;/span&gt;
+        &lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div><p>参考： http://www.jianshu.com/p/985d26b40199<br>
+http://www.w3cplus.com/mobile/lib-flexible-for-html5-layout.html</p></div></div> <div class="page-slot page-slot-bottom"><!-- 横向自适应 -->
+      <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-7828333725993554"
+          data-ad-slot="6620245489"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script></div> <div class="page-edit"><div class="edit-link"><a href="https://github.com/wu529778790/wu529778790.github.io/edit/master/docs/_posts/hexo迁移数据/移动端rem布局-阿里.md" target="_blank" rel="noopener noreferrer">编辑</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2021/06/17, 21:24:24</span></div></div> <div class="page-nav-wapper"><!----> <!----></div></div> <div class="article-list"><div class="article-title"><a href="/archives/" class="iconfont icon-bi">最近更新</a></div> <div class="article-wrapper"><dl><dd>01</dd> <dt><a href="/pages/b95d4f4164dbd/"><div>前端项目负责人最基础的需要会哪些</div></a> <span>06-24</span></dt></dl><dl><dd>02</dd> <dt><a href="/pages/a7133b8247d7b/"><div>前端项目负责人需要具有的能力</div></a> <span>06-24</span></dt></dl><dl><dd>03</dd> <dt><a href="/pages/f9ef4c6a6f4e/"><div>导航</div></a> <span>06-24</span></dt></dl> <dl><dd></dd> <dt><a href="/archives/" class="more">更多文章&gt;</a></dt></dl></div></div></main></div> <div class="footer"><div class="icons"><a href="mailto:529778790@qq.com" title="发邮件" target="_blank" class="iconfont icon-youjian"></a><a href="https://github.com/wu529778790" title="GitHub" target="_blank" class="iconfont icon-github"></a><a href="https://shenzjd.com/shenzjd/music/" title="听音乐" target="_blank" class="iconfont icon-erji"></a></div> 
+  Power by
+  <a href="https://vuepress.vuejs.org/zh/" target="_blank" title="vuepress">vuepress</a> 
+    | Copyright © 2015-2021
+    <span>神族九帝</span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <!----> <!----> <div class="custom-html-window custom-html-window-rb" style="display:;"><div class="custom-wrapper"><i class="close-but">×</i> <div><!-- 固定160*160px -->
+      <ins class="adsbygoogle"
+          style="display:inline-block;max-width:160px;max-height:160px"
+          data-ad-client="ca-pub-7828333725993554"
+          data-ad-slot="8377369658"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+      </div></div></div></div><div class="global-ui"><div></div><APlayer audio="" fixed="true" mini="true" theme="#b7daff" loop="loop" order="list" preload="auto" volume="0.7" mutex="true" lrc-type="0" list-max-height="250" storage-name="vuepress-plugin-meting" id="aplayer-fixed"></APlayer></div></div>
+    <script src="/assets/js/app.66ab9d5c.js" defer></script><script src="/assets/js/2.b4fcb84b.js" defer></script><script src="/assets/js/3.f517613b.js" defer></script><script src="/assets/js/103.602a3742.js" defer></script>
+  </body>
+</html>
