@@ -27,7 +27,6 @@
 
         <PageNav v-bind="{ sidebarItems }" />
       </div>
-      <Boxx />
       <UpdateArticle
         :length="3"
         :moreArticle="updateBarConfig && updateBarConfig.moreArticle"
