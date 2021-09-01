@@ -77,25 +77,38 @@ module.exports = [
     },
   ],
   [
-    "vuepress-plugin-comment", // 评论
+    "@vssue/vuepress-plugin-vssue",
     {
-      choosen: "gitalk",
-      options: {
-        clientID: "d1ed030f2a671802799f",
-        clientSecret: "3a73125f3fd398cc6c27ed999b490af67343e970",
-        repo: "wu529778790.github.io", // GitHub 仓库
-        owner: "wu529778790", // GitHub仓库所有者
-        admin: ["wu529778790"], // 对仓库有写权限的人
-        // distractionFreeMode: true,
-        pagerDirection: "first", // 'first'正序 | 'last'倒序
-        id: "<%- (frontmatter.permalink || frontmatter.to.path).slice(-16) %>", //  页面的唯一标识,长度不能超过50
-        title: "「评论」<%- frontmatter.title %>", // GitHub issue 的标题
-        labels: ["Gitalk", "Comment"], // GitHub issue 的标签
-        body:
-          "页面：<%- window.location.origin + (frontmatter.to.path || window.location.pathname) %>", // GitHub issue 的内容
-      },
+      // 设置 `platform` 而不是 `api`
+      platform: "github",
+
+      // 其他的 Vssue 配置
+      repo: "wu529778790.github.io", // GitHub 仓库
+      owner: "wu529778790", // GitHub仓库所有者
+      clientID: "d1ed030f2a671802799f",
+      clientSecret: "3a73125f3fd398cc6c27ed999b490af67343e970",
     },
   ],
+  // [
+  //   "vuepress-plugin-comment", // 评论
+  //   {
+  //     choosen: "gitalk",
+  //     options: {
+  //       clientID: "d1ed030f2a671802799f",
+  //       clientSecret: "3a73125f3fd398cc6c27ed999b490af67343e970",
+  //       repo: "wu529778790.github.io", // GitHub 仓库
+  //       owner: "wu529778790", // GitHub仓库所有者
+  //       admin: ["wu529778790"], // 对仓库有写权限的人
+  //       // distractionFreeMode: true,
+  //       pagerDirection: "first", // 'first'正序 | 'last'倒序
+  //       id: "<%- (frontmatter.permalink || frontmatter.to.path).slice(-16) %>", //  页面的唯一标识,长度不能超过50
+  //       title: "「评论」<%- frontmatter.title %>", // GitHub issue 的标题
+  //       labels: ["Gitalk", "Comment"], // GitHub issue 的标签
+  //       body:
+  //         "页面：<%- window.location.origin + (frontmatter.to.path || window.location.pathname) %>", // GitHub issue 的内容
+  //     },
+  //   },
+  // ],
   [
     "@vuepress/last-updated", // "上次更新"时间格式
     {
