@@ -167,25 +167,83 @@ function ListNode(val) {
 //     return null;
 //   };
 
-const leftToRight = {
-  "(": ")",
-  "[": "]",
-  "{": "}",
-};
-const isValid = function(s) {
-  if (!s) {
-    return true;
-  }
-  const stack = [];
-  const len = s.length;
-  for (let i = 0; i < len; i++) {
-    const ch = s[i];
-    if (["(", "{", "["].includes(ch)) {
-      stack.push(leftToRight[ch]);
+// const leftToRight = {
+//   "(": ")",
+//   "[": "]",
+//   "{": "}",
+// };
+// const isValid = function(s) {
+//   if (!s) {
+//     return true;
+//   }
+//   const stack = [];
+//   const len = s.length;
+//   for (let i = 0; i < len; i++) {
+//     const ch = s[i];
+//     if (["(", "{", "["].includes(ch)) {
+//       stack.push(leftToRight[ch]);
+//     } else {
+//       if (!stack.length || stack.pop() !== ch) {
+//         return false;
+//       }
+//     }
+//   }
+// };
+
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+// var validPalindrome = function(s) {
+//   const leftIsRight = function(st, ed) {
+//     while (st < ed) {
+//       if (s[st] !== s[ed]) {
+//         return false;
+//       }
+//       st++;
+//       ed--;
+//     }
+//     return true;
+//   };
+//   let left = 0;
+//   let right = s.length - 1;
+//   while (left < right && s[left] === s[right]) {
+//     left++;
+//     right--;
+//   }
+
+//   if (leftIsRight(left + 1, right)) {
+//     return true;
+//   }
+//   if (leftIsRight(left, right - 1)) {
+//     return true;
+//   }
+//   return false;
+// };
+
+// console.log(validPalindrome("abc"));
+
+const mergeTwoListNode = function(l1, l2) {
+  let head = new ListNode();
+  let cur = head;
+  while (l1 && l2) {
+    if (l1.val <= l2.val) {
+      cur.next = l1;
+      l1 = l1.next;
     } else {
-      if (!stack.length || stack.pop() !== ch) {
-        return false;
-      }
+      cur.next = l2;
+      l2 = l2.next;
     }
+    cur = cur.next;
   }
+
+  cur.next = l1 !== null ? l1 : l2;
+  return head.next;
 };
+
+const l1 = {
+  val: 1,
+  next: null,
+};
+const l2 = {};
+console.log(JSON.stringify(mergeTwoListNode(l1, l2)));
