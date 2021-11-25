@@ -223,27 +223,82 @@ function ListNode(val) {
 
 // console.log(validPalindrome("abc"));
 
-const mergeTwoListNode = function(l1, l2) {
-  let head = new ListNode();
-  let cur = head;
-  while (l1 && l2) {
-    if (l1.val <= l2.val) {
-      cur.next = l1;
-      l1 = l1.next;
-    } else {
-      cur.next = l2;
-      l2 = l2.next;
+// const mergeTwoListNode = function(l1, l2) {
+//   let head = new ListNode();
+//   let cur = head;
+//   while (l1 && l2) {
+//     if (l1.val <= l2.val) {
+//       cur.next = l1;
+//       l1 = l1.next;
+//     } else {
+//       cur.next = l2;
+//       l2 = l2.next;
+//     }
+//     cur = cur.next;
+//   }
+
+//   cur.next = l1 !== null ? l1 : l2;
+//   return head.next;
+// };
+
+// const l1 = {
+//   val: 1,
+//   next: null,
+// };
+// const l2 = {};
+// console.log(JSON.stringify(mergeTwoListNode(l1, l2)));
+
+// 冒泡排序
+function bubbleSort(arr) {
+  const len = arr.length;
+  for (let i = 0; i < len; i++) {
+    console.log(i);
+    let flag = false;
+    for (let j = 0; j < len - 1 - i; j++) {
+      if (arr[j] > arr[j + 1]) {
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+        flag = true;
+      }
     }
-    cur = cur.next;
+    // 若一次交换也没发生，说明数组有序，直接返回
+    if (flag === false) return arr;
   }
+  return arr;
+}
+// console.log(bubbleSort([5, 4, 3, 2, 1]));
+// 选择排序
 
-  cur.next = l1 !== null ? l1 : l2;
-  return head.next;
-};
+function selectSort(arr) {
+  const len = arr.length;
+  let minIndex;
+  for (let i = 0; i < len - 1; i++) {
+    minIndex = i;
+    for (let j = i; j < len; j++) {
+      if (arr[j] < arr[minIndex]) {
+        minIndex = j;
+      }
+    }
+    if (minIndex !== i) {
+      [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
+    }
+  }
+  return arr;
+}
 
-const l1 = {
-  val: 1,
-  next: null,
-};
-const l2 = {};
-console.log(JSON.stringify(mergeTwoListNode(l1, l2)));
+// 插入排序
+
+function insertSort(arr) {
+  const len = arr.length;
+  let temp;
+  for (let i = 1; i < len; i++) {
+    temp = arr[i];
+    let j = i;
+    while (j > 0 && arr[j - 1] > temp) {
+      arr[j] = arr[j - 1];
+      j--;
+    }
+    arr[j] = temp;
+  }
+  return arr;
+}
+console.log(insertSort([5, 4, 3, 2, 1]));
