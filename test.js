@@ -279,11 +279,12 @@ function selectSort(arr) {
       }
     }
     if (minIndex !== i) {
-      [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
+      [arr[minIndex], arr[i]] = [arr[i], arr[minIndex]];
     }
   }
   return arr;
 }
+console.log(selectSort([5, 4, 3, 2, 1]));
 
 // 插入排序
 
@@ -301,4 +302,4 @@ function insertSort(arr) {
   }
   return arr;
 }
-console.log(insertSort([5, 4, 3, 2, 1]));
+// console.log(insertSort([5, 4, 3, 2, 1]));
