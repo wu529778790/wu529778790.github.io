@@ -332,12 +332,43 @@
 // const a = compose(fn1, fn2, fn3, fn4);
 // console.log(a(1)); // 1+4+3+2+1=11
 
-function mySetinterVal(cb, delay) {
-  setTimeout(() => {
-    cb();
-    mySetinterVal(cb, delay);
-  }, delay);
-}
-mySetinterVal(() => {
-  console.log(1);
-}, 1000);
+// function mySetinterVal(cb, delay) {
+//   setTimeout(() => {
+//     cb();
+//     mySetinterVal(cb, delay);
+//   }, delay);
+// }
+// mySetinterVal(() => {
+//   console.log(1);
+// }, 1000);
+
+// function mySetTimeout(cb, delay) {
+//   const timer = setInterval(() => {
+//     cb();
+//     clearInterval(timer);
+//   }, delay);
+// }
+
+// mySetTimeout(() => {
+//   console.log(1);
+// }, 1000);
+
+// String.prototype.strim1 = function () {
+//   return this.replace(/(^\s+|\s+$)/g, "");
+// };
+// String.prototype.strim2 = function () {
+//   return this.replace(/^\s+(.*?)\s+$/g, "$1");
+// };
+
+// let str = "     dsfd    ";
+
+// console.log(str, 1);
+// console.log(str.trim(), 2);
+// console.log(str.strim1(), 3);
+// console.log(str.strim2(), 4);
+
+console.log('13785241526'.replace(/(?=(\d{4})+$)/g,'-'))
+const splitMobile = (mobile, format = "-") => {
+  return String(mobile).replace(/(?=(\d{4})+$)/g, format);
+};
+console.log(splitMobile(13785241526))
