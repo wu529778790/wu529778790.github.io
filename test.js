@@ -367,8 +367,19 @@
 // console.log(str.strim1(), 3);
 // console.log(str.strim2(), 4);
 
-console.log('13785241526'.replace(/(?=(\d{4})+$)/g,'-'))
-const splitMobile = (mobile, format = "-") => {
-  return String(mobile).replace(/(?=(\d{4})+$)/g, format);
+// console.log('13785241526'.replace(/(?=(\d{4})+$)/g,'-'))
+// const splitMobile = (mobile, format = "-") => {
+//   return String(mobile).replace(/(?=(\d{4})+$)/g, format);
+// };
+// console.log(splitMobile(13785241526))
+
+const formatPrice = function (num) {
+  console.log(num);
+  const [integer, decimal = ""] = String(num).split(".");
+  console.log(integer, decimal);
+  return (
+    integer.replace(/\B(?=(\d{3})+$)/g, ",") + (decimal ? "." + decimal : "")
+  );
 };
-console.log(splitMobile(13785241526))
+
+console.log(formatPrice(123456789.3343));
