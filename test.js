@@ -373,13 +373,30 @@
 // };
 // console.log(splitMobile(13785241526))
 
-const formatPrice = function (num) {
-  console.log(num);
-  const [integer, decimal = ""] = String(num).split(".");
-  console.log(integer, decimal);
-  return (
-    integer.replace(/\B(?=(\d{3})+$)/g, ",") + (decimal ? "." + decimal : "")
-  );
+// const formatPrice = function (num) {
+//   console.log(num);
+//   const [integer, decimal = ""] = String(num).split(".");
+//   console.log(integer, decimal);
+//   return (
+//     integer.replace(/\B(?=(\d{3})+$)/g, ",") + (decimal ? "." + decimal : "")
+//   );
+// };
+
+// console.log(formatPrice(123456789.3343));
+
+
+const render = (template, data) => {
+  return template.replace(/{{\s*?(\w+)\s*?}}/g, (match, key) => {
+    return key && data.hasOwnProperty(key) ? data[key] : "";
+  });
 };
 
-console.log(formatPrice(123456789.3343));
+const data = {
+  name: "神族九帝",
+  age: 100,
+};
+const template = `
+  我是: {{ name }}
+  年龄是: {{age}}
+`;
+console.log(render(template, data));
