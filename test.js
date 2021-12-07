@@ -384,19 +384,42 @@
 
 // console.log(formatPrice(123456789.3343));
 
+// const render = (template, data) => {
+//   return template.replace(/{{\s*?(\w+)\s*?}}/g, (match, key) => {
+//     return key && data.hasOwnProperty(key) ? data[key] : "";
+//   });
+// };
 
-const render = (template, data) => {
-  return template.replace(/{{\s*?(\w+)\s*?}}/g, (match, key) => {
-    return key && data.hasOwnProperty(key) ? data[key] : "";
+// const data = {
+//   name: "神族九帝",
+//   age: 100,
+// };
+// const template = `
+//   我是: {{ name }}
+//   年龄是: {{age}}
+// `;
+// console.log(render(template, data));
+
+const sleep = (func, delay) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(func());
+    }, delay);
   });
 };
 
-const data = {
-  name: "神族九帝",
-  age: 100,
+const consoleStr = (str) => {
+  return () => {
+    console.log(str);
+    return str;
+  };
 };
-const template = `
-  我是: {{ name }}
-  年龄是: {{age}}
-`;
-console.log(render(template, data));
+
+const doFns = async () => {
+  const name = await sleep(consoleStr("神族九帝"), 1000);
+  const sex = await sleep(consoleStr("boy"), 1000);
+  const age = await sleep(consoleStr(100), 1000);
+  console.log(name, sex, age);
+};
+
+doFns();
