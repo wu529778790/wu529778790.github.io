@@ -36,6 +36,8 @@
 // // //     )
 // // // );
 
+const { right } = require("inquirer/lib/utils/readline");
+
 // // // 局部反转链表
 // // // function ListNode(val) {
 // // //   this.val = val;
@@ -400,26 +402,44 @@
 // `;
 // console.log(render(template, data));
 
-const sleep = (func, delay) => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(func());
-    }, delay);
-  });
-};
+// const sleep = (func, delay) => {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       resolve(func());
+//     }, delay);
+//   });
+// };
 
-const consoleStr = (str) => {
-  return () => {
-    console.log(str);
-    return str;
-  };
-};
+// const consoleStr = (str) => {
+//   return () => {
+//     console.log(str);
+//     return str;
+//   };
+// };
 
-const doFns = async () => {
-  const name = await sleep(consoleStr("神族九帝"), 1000);
-  const sex = await sleep(consoleStr("boy"), 1000);
-  const age = await sleep(consoleStr(100), 1000);
-  console.log(name, sex, age);
-};
+// const doFns = async () => {
+//   const name = await sleep(consoleStr("神族九帝"), 1000);
+//   const sex = await sleep(consoleStr("boy"), 1000);
+//   const age = await sleep(consoleStr(100), 1000);
+//   console.log(name, sex, age);
+// };
 
-doFns();
+// doFns();
+
+const quickSort = (arr) => {
+  if (arr.length <= 1) return arr;
+  let middleIndex = Math.floor(arr.length / 2);
+  // let middleValue = arr[middleIndex]; // 这样写会报内存溢出
+  let middleValue = arr.splice(middleIndex, 1)[0];
+  let left = [];
+  let right = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < middleValue) {
+      left.push(arr[i]);
+    } else {
+      right.push(arr[i]);
+    }
+  }
+  return quickSort(left).concat([middleValue], quickSort(right));
+};
+console.log(quickSort([4, 5, 2, 8, 1]));
