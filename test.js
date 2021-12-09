@@ -426,20 +426,44 @@ const { right } = require("inquirer/lib/utils/readline");
 
 // doFns();
 
-const quickSort = (arr) => {
-  if (arr.length <= 1) return arr;
-  let middleIndex = Math.floor(arr.length / 2);
-  // let middleValue = arr[middleIndex]; // 这样写会报内存溢出
-  let middleValue = arr.splice(middleIndex, 1)[0];
-  let left = [];
-  let right = [];
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] < middleValue) {
-      left.push(arr[i]);
-    } else {
-      right.push(arr[i]);
-    }
+// const quickSort = (arr) => {
+//   if (arr.length <= 1) return arr;
+//   let middleIndex = Math.floor(arr.length / 2);
+//   // let middleValue = arr[middleIndex]; // 这样写会报内存溢出
+//   let middleValue = arr.splice(middleIndex, 1)[0];
+//   let left = [];
+//   let right = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] < middleValue) {
+//       left.push(arr[i]);
+//     } else {
+//       right.push(arr[i]);
+//     }
+//   }
+//   return quickSort(left).concat([middleValue], quickSort(right));
+// };
+// console.log(quickSort([4, 5, 2, 8, 1]));
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var removeDuplicates = function (nums) {
+  if ([0, 1].includes(nums.length)) {
+    return nums.length;
   }
-  return quickSort(left).concat([middleValue], quickSort(right));
+  let slow = 0;
+  let fast = 1;
+  const length = nums.length;
+  while (fast < length) {
+    if (nums[slow] !== nums[fast]) {
+      // 走到不相等的时候，slow走一步，是为了保留一个相同的值，剩下的重新赋值
+      nums[++slow] = nums[fast];
+    }
+    // 如果相等，fast一直走
+    fast++;
+  }
+  return slow + 1;
 };
-console.log(quickSort([4, 5, 2, 8, 1]));
+nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4];
+console.log(removeDuplicates(nums), nums);
