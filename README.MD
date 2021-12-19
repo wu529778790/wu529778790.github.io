@@ -10,7 +10,7 @@
 
 点击如图的 subscribe
 
-![20211212215226](https://cdn.jsdelivr.net/gh/wu529778790/image/blog/20211212215226.png)
+![1639914332(1)](https://cdn.jsdelivr.net/gh/wu529778790/image/blog/1639914332(1).png)
 
 ## 求资源
 
