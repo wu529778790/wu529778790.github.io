@@ -448,22 +448,40 @@ const { right } = require("inquirer/lib/utils/readline");
  * @param {number[]} nums
  * @return {number}
  */
-var removeDuplicates = function (nums) {
-  if ([0, 1].includes(nums.length)) {
-    return nums.length;
+// var removeDuplicates = function (nums) {
+//   if ([0, 1].includes(nums.length)) {
+//     return nums.length;
+//   }
+//   let slow = 0;
+//   let fast = 1;
+//   const length = nums.length;
+//   while (fast < length) {
+//     if (nums[slow] !== nums[fast]) {
+//       // 走到不相等的时候，slow走一步，是为了保留一个相同的值，剩下的重新赋值
+//       nums[++slow] = nums[fast];
+//     }
+//     // 如果相等，fast一直走
+//     fast++;
+//   }
+//   return slow + 1;
+// };
+// nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4];
+// console.log(removeDuplicates(nums), nums);
+
+Object.assign = function (target, ...source) {
+  if (target === null) {
+    throw new TypeError("cannot concert undefined or null to Object");
   }
-  let slow = 0;
-  let fast = 1;
-  const length = nums.length;
-  while (fast < length) {
-    if (nums[slow] !== nums[fast]) {
-      // 走到不相等的时候，slow走一步，是为了保留一个相同的值，剩下的重新赋值
-      nums[++slow] = nums[fast];
+
+  let res = Object(target);
+  source.forEach((item) => {
+    if (item !== null) {
+      for (let key in obj) {
+        if (obj.hasOwnProperty(ket)) {
+          res[key] = obj[key];
+        }
+      }
     }
-    // 如果相等，fast一直走
-    fast++;
-  }
-  return slow + 1;
+  });
+  return res;
 };
-nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4];
-console.log(removeDuplicates(nums), nums);
