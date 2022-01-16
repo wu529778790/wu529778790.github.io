@@ -1,21 +1,16 @@
-Function.prototype.call = function (context, ...args) {
-  const context = context || window;
-  let fn = Symbol();
-  context[fn] = this;
-  let res = context[fn](...args);
-  delete context[fn];
-  return res;
-};
-
-Function.prototype.bind = function (context, ...args) {
-  if (typeof context !== "function")
-    throw TypeError("context must be a function");
-  let that = this;
-  let rfn = function () {
-    that.call(context, ...args, arguments);
-  };
-  if (this.prototype) {
-    rfn.rptototype = Object.create(this.prototype);
+Object.assign = function (target, ...args) {
+  if (target === null) {
+    throw new TypeError("cannot convert undefined or null ro Object");
   }
-  return rfn;
+  let res = Object(target);
+  args.forEach((item) => {
+    if (item !== null) {
+      for (let key of item) {
+        if (item.hasOwnProperty(key)) {
+          res[key] = item[key];
+        }
+      }
+    }
+  });
+  return res;
 };
