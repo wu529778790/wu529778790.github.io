@@ -89,31 +89,69 @@ class myPromise {
   }
 }
 
-Promise.all = function (promises) {
-  if (!Array.isArray(promises))
-    throw new TypeError("arguments must be a array");
+Promise.race = function (promises) {
   return new Promise((resolve, reject) => {
-    let result = [];
-    let count = 0
-    let addData = (value, index) => {
-      result[index] = value;
-      if (result.length === promises.length) {
-        resolve(result);
-      }
-    };
-    promises.forEach((promise, index) => {
-      if (promise instanceof Promise) {
-        promise.then(
-          (res) => {
-            addData(res, index);
-          },
-          (err) => {
-            reject(err);
-          }
-        );
-      } else {
-        addData(primise, index);
-      }
+    promises.forEach((promise) => {
+      Promise.resolve(promise).then(
+        (res) => {
+          resolve(res);
+        },
+        (err) => {
+          reject(err);
+        }
+      );
+      // if (promise instanceof Promise) {
+      //   promise.then(
+      //     (res) => {
+      //       resolve(res);
+      //     },
+      //     (err) => {
+      //       rejecte(err);
+      //     }
+      //   );
+      // } else {
+      //   resolve(promise);
+      // }
     });
   });
 };
+
+const shallowClone = function (target) {
+  if (typeof target !== "object" || target === null) return target;
+  let cloneTarget = Object(target);
+  for (let key in target) {
+    if (target.hasOwnproperty(key)) {
+      cloneTarget[key] = target[key];
+    }
+  }
+  return cloneTarget;
+};
+
+const deepClone = function (target, cache = new WeakMap()) {
+  if (target instanceof Date) return new Date(target);
+  if (target instanceof RegExp) return new RegExp(target);
+  if (target !== "object" || target === null) return target;
+  if (cache.has(target)) {
+    return cache.get(target);
+  }
+  let cloneTarget = new target.constructor();
+  cache.set(target, true);
+  for (let key in target) {
+    if (target.hasOwnProperty(key)) {
+      cloneTarget[key] = deepClone(target[key]);
+    }
+  }
+  let symbolObj = Object.getOwnPropertySymbols(target);
+  for (let i = 0; i < symbolObj.length; i++) {
+    if (target.hasOwnProperty(symbolObj[i])) {
+      cloneTarget[symbolObj[i]] = deepClone(target[symbolObj[i]], cache);
+    }
+  }
+  return cloneTarget;
+};
+
+function flatten(arr) {
+  return arr.resuce((pre, cur) => {
+    return pre.concat(Array.isArray(cur) ? flatten(cur) : cur);
+  }, []);
+}
