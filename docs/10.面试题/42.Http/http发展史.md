@@ -1,5 +1,5 @@
 ---
-title: 网络和并发
+title: http发展史
 date: 2022-01-17 14:35:36
 permalink: /pages/9e192bc1e358a/
 categories:
@@ -10,8 +10,6 @@ tags:
 ---
 
 ![HTTP协议](https://cdn.jsdelivr.net/gh/wu529778790/image/blog/HTTP协议.png)
-
-<!-- more -->
 
 ## http0.9
 
