@@ -49,5 +49,9 @@ module.exports = [
   {
     text: "线报",
     link: "https://xianbao.shenzjd.com",
-  }
+  },
+  {
+    text: "网盘资源",
+    link: "https://alist.shenzjd.com",
+  },
 ];
