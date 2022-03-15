@@ -2,6 +2,10 @@
 
 <https://blog.shenzjd.com>
 
+## 网盘共享连接
+
+<https://alist.shenzjd.com/>
+
 ## 《资源》更新列表以及《订阅》教程
 
 请点击
@@ -10,7 +14,7 @@
 
 点击如图的 subscribe
 
-![1639914332(1)](https://cdn.jsdelivr.net/gh/wu529778790/image/blog/1639914332(1).png)
+![1639914332(1)](<https://cdn.jsdelivr.net/gh/wu529778790/image/blog/1639914332(1).png>)
 
 ## 求资源
 
