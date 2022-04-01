@@ -51,7 +51,11 @@ module.exports = [
     link: "https://xianbao.shenzjd.com",
   },
   {
-    text: "网盘资源",
+    text: "商城",
+    link: "https://mall.shenzjd.com",
+  },
+  {
+    text: "网盘",
     link: "https://alist.shenzjd.com",
   },
 ];
