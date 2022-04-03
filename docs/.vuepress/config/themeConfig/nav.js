@@ -47,15 +47,15 @@ module.exports = [
   //   ],
   // },
   {
+    text: "网盘",
+    link: "https://alist.shenzjd.com",
+  },
+  {
     text: "线报",
     link: "https://xianbao.shenzjd.com",
   },
   {
     text: "商城",
     link: "https://mall.shenzjd.com",
-  },
-  {
-    text: "网盘",
-    link: "https://alist.shenzjd.com",
   },
 ];
