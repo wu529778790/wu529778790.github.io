@@ -2,6 +2,12 @@
 
 <https://blog.shenzjd.com>
 
+也可以加我好友，拉你入最新的`资源群`。
+
+![6ef4b4a7769b157d386ad750452b2c1](https://cdn.jsdelivr.net/gh/wu529778790/image/blog/6ef4b4a7769b157d386ad750452b2c1.jpg)
+
+备注`资源`加群，拉你进入`微信群`
+
 ## 网盘共享连接
 
 <https://alist.shenzjd.com/>
