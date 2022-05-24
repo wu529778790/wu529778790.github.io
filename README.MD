@@ -4,7 +4,7 @@
 
 也可以加我好友，拉你入最新的`资源群`。
 
-![6ef4b4a7769b157d386ad750452b2c1](https://cdn.jsdelivr.net/gh/wu529778790/image/blog/6ef4b4a7769b157d386ad750452b2c1.jpg)
+![6ef4b4a7769b157d386ad750452b2c1](https://gcore.jsdelivr.net/gh/wu529778790/image/blog/6ef4b4a7769b157d386ad750452b2c1.jpg)
 
 备注`资源`加群，拉你进入`微信群`
 
@@ -20,7 +20,7 @@
 
 点击如图的 subscribe
 
-![1639914332(1)](<https://cdn.jsdelivr.net/gh/wu529778790/image/blog/1639914332(1).png>)
+![1639914332(1)](<https://gcore.jsdelivr.net/gh/wu529778790/image/blog/1639914332(1).png>)
 
 ## 求资源
 
@@ -45,6 +45,6 @@
 
 - 导航栏增加排序（可以和自定义导航栏混入）
 
-![vuepress-architecture-overview](https://cdn.jsdelivr.net/gh/wu529778790/image/blog/vuepress-architecture-overview.png)
+![vuepress-architecture-overview](https://gcore.jsdelivr.net/gh/wu529778790/image/blog/vuepress-architecture-overview.png)
 
-![vuepress-core-process](https://cdn.jsdelivr.net/gh/wu529778790/image/blog/vuepress-core-process.png)
+![vuepress-core-process](https://gcore.jsdelivr.net/gh/wu529778790/image/blog/vuepress-core-process.png)
