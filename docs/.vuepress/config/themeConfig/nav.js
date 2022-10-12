@@ -52,7 +52,7 @@ module.exports = [
   },
   {
     text: "线报",
-    link: "https://xianbao.shenzjd.com",
+    link: "https://mall.shenzjd.com/?cid=eBRfingC&tmp=rt_xb&code=eBRfingC&sp=#/sp",
   },
   {
     text: "商城",
