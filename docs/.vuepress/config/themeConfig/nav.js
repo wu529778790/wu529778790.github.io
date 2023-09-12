@@ -51,11 +51,11 @@ module.exports = [
     link: "https://alist.shenzjd.com",
   },
   {
-    text: "线报",
-    link: "http://shop.shenzjd.com/?cid=LHCR7Ad#/index/home",
+    text: "神卡",
+    link: "https://docs.qq.com/sheet/DV09NbXlvQW5QVHpp?tab=BB08J2",
   },
   {
     text: "商城",
-    link: "http://shop.shenzjd.com",
+    link: "http://91haoka.cn/gth/#/minishop?share_id=391093&shop_name=%25E7%25A5%259E%25E6%2597%258F%25E4%25B9%259D%25E5%25B8%259D",
   },
 ];
