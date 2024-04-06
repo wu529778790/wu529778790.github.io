@@ -1,5 +1,7 @@
 import { github, createSocialLinks, createAlgolia } from './setting.js';
+import { generateMenu } from './utils.js'
 
+generateMenu()
 export default {
   base: '/',
   srcDir: 'src',

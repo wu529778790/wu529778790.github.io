@@ -1,9 +1,9 @@
 {
-    "eslint.format.enable": true,
-    "editor.formatOnSave": true,
-    // 按照 eslint 配置格式化代码
-    "editor.codeActionsOnSave": {
-        "source.fixAll": false,
-        "source.fixAll.eslint": false
-    }
+  "eslint.format.enable": true,
+  "editor.formatOnSave": true,
+  // 按照 eslint 配置格式化代码
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "never",
+    "source.fixAll.eslint": "never"
+  }
 }
