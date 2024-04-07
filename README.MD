@@ -8,6 +8,11 @@
 
 备注`资源`加群，拉你进入`微信群`
 
+## 三大运营商正规流量卡，官方 APP 可查
+
+【腾讯文档】正规三网大流量卡对比表（实时更新中）
+<https://docs.qq.com/sheet/DV09NbXlvQW5QVHpp?tab=BB08J2>
+
 ## 网盘共享连接
 
 <https://alist.shenzjd.com/>
@@ -43,13 +48,8 @@
 
 ## 未来要做的事
 
-- 导航栏增加排序（可以和自定义导航栏混入）
-
-![vuepress-architecture-overview](https://gcore.jsdelivr.net/gh/wu529778790/image/blog/vuepress-architecture-overview.png)
-
-![vuepress-core-process](https://gcore.jsdelivr.net/gh/wu529778790/image/blog/vuepress-core-process.png)
+换成 vitePress <https://vitepress.dev/zh/>
 
 ## Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=wu529778790/wu529778790.github.io&type=Date)](https://star-history.com/#wu529778790/wu529778790.github.io&Date)
-
