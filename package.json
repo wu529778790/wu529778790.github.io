@@ -9,10 +9,11 @@
     "build": "vite build"
   },
   "dependencies": {
+    "cross-env": "^7.0.3",
     "express": "^4.18.2",
     "vite-express": "*",
     "vue": "^3.3.8",
-    "cross-env": "^7.0.3"
+    "vue-router": "^4.3.2"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.5.0",
