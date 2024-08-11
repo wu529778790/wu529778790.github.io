@@ -4,8 +4,6 @@ node_modules
 # yarn
 yarn.lock
 
-# vscode
-.vscode
 
 # vuepress
 docs/.vuepress/dist
