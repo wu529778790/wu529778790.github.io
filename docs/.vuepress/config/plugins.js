@@ -91,8 +91,7 @@ module.exports = [
         id: "<%- (frontmatter.permalink || frontmatter.to.path).slice(-16) %>", //  页面的唯一标识,长度不能超过50
         title: "「评论」<%- frontmatter.title %>", // GitHub issue 的标题
         labels: ["Gitalk", "Comment"], // GitHub issue 的标签
-        body:
-          "页面：<%- window.location.origin + (frontmatter.to.path || window.location.pathname) %>", // GitHub issue 的内容
+        body: "页面：<%- window.location.origin + (frontmatter.to.path || window.location.pathname) %>", // GitHub issue 的内容
       },
     },
   ],
@@ -147,34 +146,34 @@ module.exports = [
   // ],
   // 为博客文章自动随机添加名人名言或其他，可自定义样式和内容
   // ["vuepress-plugin-boxx"],
-  [
-    "meting",
-    {
-      meting: {
-        // 歌单地址-> 如果输入可忽略server|type|mid
-        // 但是不知道为什么不写上这三个会报错, 所以我都写上了
-        auto: "https://music.163.com/#/song?id=514053886",
-        // 当前服务为netease -> 网易
-        server: "netease",
-        // 类型为歌单
-        type: "song",
-        // 歌单id
-        mid: "514053886",
-      },
-      aplayer: {
-        // 歌单为随机
-        // order: "random",
-        // 0为不显示歌词
-        // lrcType: 0,
-        // 音量
-        // volume: 0.15,
-        // 开启迷你模式
-        mini: true,
-        // 自动播放
-        autoplay: false,
-      },
-    },
-  ],
+  // [
+  //   "meting",
+  //   {
+  //     meting: {
+  //       // 歌单地址-> 如果输入可忽略server|type|mid
+  //       // 但是不知道为什么不写上这三个会报错, 所以我都写上了
+  //       auto: "https://music.163.com/#/song?id=529546384",
+  //       // 当前服务为netease -> 网易
+  //       server: "netease",
+  //       // 类型为歌单
+  //       type: "song",
+  //       // 歌单id
+  //       mid: "514053886",
+  //     },
+  //     aplayer: {
+  //       // 歌单为随机
+  //       // order: "random",
+  //       // 0为不显示歌词
+  //       // lrcType: 0,
+  //       // 音量
+  //       // volume: 0.15,
+  //       // 开启迷你模式
+  //       mini: true,
+  //       // 自动播放
+  //       autoplay: false,
+  //     },
+  //   },
+  // ],
   // [
   //   "@vuepress/pwa",
   //   {
