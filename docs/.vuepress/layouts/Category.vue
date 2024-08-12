@@ -1,11 +1,11 @@
 <script setup>
-import { useBlogCategory } from '@vuepress/plugin-blog/client'
-import ParentLayout from '@vuepress/theme-default/layouts/Layout.vue'
-import { RouteLink, useRoute } from 'vuepress/client'
-import ArticleList from '../components/ArticleList.vue'
+import { useBlogCategory } from "@vuepress/plugin-blog/client";
+import ParentLayout from "@vuepress/theme-default/layouts/Layout.vue";
+import { RouteLink, useRoute } from "vuepress/client";
+import ArticleList from "../components/ArticleList.vue";
 
-const route = useRoute()
-const categoryMap = useBlogCategory('category')
+const route = useRoute();
+const categoryMap = useBlogCategory("category");
 </script>
 
 <template>
@@ -18,8 +18,7 @@ const categoryMap = useBlogCategory('category')
             :key="name"
             :to="path"
             :active="route.path === path"
-            class="category"
-          >
+            class="category">
             {{ name }}
             <span class="category-num">
               {{ items.length }}
@@ -33,8 +32,8 @@ const categoryMap = useBlogCategory('category')
   </ParentLayout>
 </template>
 
-<style lang="scss">
-@use '@vuepress/theme-default/styles/mixins';
+<style lang="scss" scoped>
+@use "@vuepress/theme-default/styles/mixins";
 
 .category-wrapper {
   @include mixins.content_wrapper;
@@ -60,9 +59,7 @@ const categoryMap = useBlogCategory('category')
 
     cursor: pointer;
 
-    transition:
-      background 0.3s,
-      color 0.3s;
+    transition: background 0.3s, color 0.3s;
 
     @media (max-width: 419px) {
       font-size: 0.9rem;

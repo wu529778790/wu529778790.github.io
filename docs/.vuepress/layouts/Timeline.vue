@@ -17,7 +17,11 @@ const timelines = useBlogType("timeline");
   </ParentLayout>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
+.page {
+  padding-top: var(--navbar-height);
+}
+
 .timeline-title {
   padding: 0;
   text-align: center;

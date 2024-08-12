@@ -27,18 +27,22 @@ export default defineUserConfig({
         text: "首页",
         link: "/",
       },
-      // {
-      //   text: 'Article',
-      //   link: '/article/',
-      // },
-      // {
-      //   text: 'Category',
-      //   link: '/category/',
-      // },
-      // {
-      //   text: 'Tag',
-      //   link: '/tag/',
-      // },
+      {
+        text: "文章",
+        link: "/article/",
+      },
+      {
+        text: "分类",
+        link: "/category/",
+      },
+      {
+        text: "标签",
+        link: "/tag/",
+      },
+      {
+        text: "时间轴",
+        link: "/timeline/",
+      },
       {
         text: "博客",
         link: "/blog/",
@@ -131,6 +135,19 @@ export default defineUserConfig({
               new Date(pageA.frontmatter.date).getTime()
             );
           },
+        },
+        {
+          key: "timeline",
+          filter: (page) => page.frontmatter.date instanceof Date,
+          // Sort pages with time
+          sorter: (pageA, pageB) =>
+            new Date(pageB.frontmatter.date).getTime() -
+            new Date(pageA.frontmatter.date).getTime(),
+          layout: "Timeline",
+          frontmatter: () => ({
+            title: "时间轴",
+            sidebar: false,
+          }),
         },
         {
           key: "blog",

@@ -10,14 +10,16 @@ const blogs = useBlogType("blog");
   <ParentLayout>
     <template #page>
       <main class="page">
-        <h1 class="blog-title">时间轴</h1>
         <ArticleList :items="blogs.items" isTimeline />
       </main>
     </template>
   </ParentLayout>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
+.page {
+  padding-top: var(--navbar-height);
+}
 .blog-title {
   padding: 0;
   text-align: center;
