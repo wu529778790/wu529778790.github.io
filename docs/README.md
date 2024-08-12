@@ -28,4 +28,3 @@ actions:
 footer: MIT Licensed | Copyright © 2018-present VuePress Community
 ---
 
-下面给我生成一篇五百字的markdown格式的文章
