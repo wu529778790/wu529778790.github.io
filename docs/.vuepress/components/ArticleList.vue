@@ -5,9 +5,8 @@ defineProps({
     type: Array,
     required: true,
   },
-  /** Whether is timeline or not */
   isTimeline: Boolean,
-})
+});
 </script>
 
 <template>
@@ -18,11 +17,10 @@ defineProps({
       v-for="{ info, path } in items"
       :key="path"
       class="article"
-      @click="$router.push(path)"
-    >
+      @click="$router.push(path)">
       <header class="title">
         {{
-          (isTimeline ? `${new Date(info.date).toLocaleDateString()}: ` : '') +
+          (isTimeline ? `${new Date(info.date).toLocaleDateString()}: ` : "") +
           info.title
         }}
       </header>
@@ -37,10 +35,10 @@ defineProps({
         >
 
         <span v-if="info.category" class="category"
-          >Category: {{ info.category.join(', ') }}</span
+          >Category: {{ info.category.join(", ") }}</span
         >
 
-        <span v-if="info.tag" class="tag">Tag: {{ info.tag.join(', ') }}</span>
+        <span v-if="info.tag" class="tag">Tag: {{ info.tag.join(", ") }}</span>
       </div>
 
       <div v-if="info.excerpt" class="excerpt" v-html="info.excerpt" />
@@ -49,7 +47,7 @@ defineProps({
 </template>
 
 <style lang="scss">
-@use '@vuepress/theme-default/styles/mixins';
+@use "@vuepress/theme-default/styles/mixins";
 
 .article-wrapper {
   @include mixins.content_wrapper;
@@ -87,7 +85,7 @@ defineProps({
     line-height: 2rem;
 
     &::after {
-      content: '';
+      content: "";
 
       position: absolute;
       bottom: 0;
