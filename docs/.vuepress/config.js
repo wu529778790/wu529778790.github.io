@@ -21,27 +21,13 @@ export default defineUserConfig({
   theme: defaultTheme({
     logo: "https://blog.shenzjd.com/img/logo.png",
     hostname: "https://blog.shenzjd.com",
+    // repo: "https://github.com/wu529778790/wu529778790.github.io",
+    // editLink: true, // 是否启用 编辑此页 链接。
 
     navbar: [
       {
         text: "首页",
         link: "/",
-      },
-      {
-        text: "文章",
-        link: "/article/",
-      },
-      {
-        text: "分类",
-        link: "/category/",
-      },
-      {
-        text: "标签",
-        link: "/tag/",
-      },
-      {
-        text: "时间轴",
-        link: "/timeline/",
       },
       {
         text: "博客",
