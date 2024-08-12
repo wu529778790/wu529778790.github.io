@@ -4,7 +4,7 @@ title: Home
 heroImage: https://vuejs.press/images/hero.png
 actions:
   - text: Get Started
-    link: /getting-started.html
+    link: /timeline/
     type: primary
 
   - text: Introduction
