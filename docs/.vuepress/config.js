@@ -1,16 +1,26 @@
-import { blogPlugin } from "@vuepress/plugin-blog";
+import { viteBundler } from "@vuepress/bundler-vite";
 import { defaultTheme } from "@vuepress/theme-default";
 import { defineUserConfig } from "vuepress";
-import { viteBundler } from "@vuepress/bundler-vite";
+import { blogPlugin } from "@vuepress/plugin-blog";
 
 export default defineUserConfig({
-  lang: "en-US",
-
-  title: "VuePress",
-  description: "My first VuePress Site",
+  lang: "zh-CN",
+  title: "神族九帝's Blog",
+  description: "神族九帝，永不言弃",
+  base: "/",
+  head: [
+    [
+      "link",
+      {
+        rel: "icon",
+        href: "https://blog.shenzjd.com/img/logo.png",
+      },
+    ],
+  ],
 
   theme: defaultTheme({
-    logo: "https://vuejs.press/images/hero.png",
+    logo: "https://blog.shenzjd.com/img/logo.png",
+    hostname: "https://blog.shenzjd.com",
 
     navbar: [
       "/",
