@@ -1,18 +1,20 @@
+import { defaultTheme } from "@vuepress/theme-default";
 import { getDirname, path } from "vuepress/utils";
 
 const __dirname = getDirname(import.meta.url);
 
-export const Theme = () => {
+export default (options) => {
   return {
-    name: "vuepress-theme-blog",
-    extends: "@vuepress/theme-default",
-    layouts: {
-      Layout: path.resolve(__dirname, "layouts/Layout.vue"),
+    name: "vuepress-theme-child",
+    extends: defaultTheme(options),
+
+    // 在子主题的客户端配置文件中覆盖布局
+    // 注意，你在发布到 NPM 之前会将 TS 构建为 JS ，因此这里需要设置为 JS 文件的路径
+    // clientConfigFile: path.resolve(__dirname, "./client.js"),
+
+    // 覆盖组件别名
+    alias: {
+      "@theme/VPHome.vue": path.resolve(__dirname, "./components/VPHome.vue"),
     },
-    // 主题的客户端配置文件的路径
-    // clientConfigFile: path.resolve(__dirname, "client.js"),
-    // 如果没有指定模板，将会使用默认模板
-    templateBuild: path.resolve(__dirname, "templates/build.html"),
-    templateDev: path.resolve(__dirname, "templates/build.html"),
   };
 };
