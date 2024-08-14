@@ -1,28 +1,17 @@
 <script setup>
 defineProps({
-  /** Article items */
   items: {
     type: Array,
     required: true,
   },
-  isTimeline: Boolean,
 });
 </script>
 
 <template>
   <div class="article-wrapper">
-    <div v-if="!items.length">Nothing in here.</div>
-
-    <article
-      v-for="{ info, path } in items"
-      :key="path"
-      class="article"
-      @click="$router.push(path)">
-      <header class="title">
-        {{
-          (isTimeline ? `${new Date(info.date).toLocaleDateString()}: ` : "") +
-          info.title
-        }}
+    <article v-for="{ info, path } in items" :key="path" class="article">
+      <header class="title" @click="$router.push(path)">
+        {{ `${new Date(info.date).toLocaleDateString()}: ` + info.title }}
       </header>
 
       <hr />
@@ -30,7 +19,7 @@ defineProps({
       <div class="article-info">
         <span v-if="info.author" class="author">Author: {{ info.author }}</span>
 
-        <span v-if="info.date && !isTimeline" class="date"
+        <span v-if="info.date" class="date"
           >Date: {{ new Date(info.date).toLocaleDateString() }}</span
         >
 
@@ -72,10 +61,6 @@ defineProps({
     border-radius: 0;
   }
 
-  &:hover {
-    cursor: pointer;
-  }
-
   .title {
     position: relative;
 
@@ -83,6 +68,9 @@ defineProps({
 
     font-size: 1.28rem;
     line-height: 2rem;
+    &:hover {
+      cursor: pointer;
+    }
 
     &::after {
       content: "";
