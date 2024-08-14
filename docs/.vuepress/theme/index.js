@@ -14,7 +14,7 @@ export default (options) => {
 
     // 覆盖组件别名
     alias: {
-      "@theme/VPHome.vue": path.resolve(__dirname, "./components/VPHome.vue"),
+      "@theme/VPHome.vue": path.resolve(__dirname, "./layouts/VPHome.vue"),
     },
   };
 };
