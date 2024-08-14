@@ -136,6 +136,9 @@ defineProps({
     h3 {
       font-size: 1.15em;
     }
+    img {
+      width: 100%;
+    }
   }
 }
 </style>
