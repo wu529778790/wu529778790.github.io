@@ -20,5 +20,6 @@ const blogs = useBlogType("blog");
 <style lang="scss" scoped>
 .page {
   padding-top: var(--navbar-height);
+  background-color: #f4f4f4;
 }
 </style>
