@@ -16,3 +16,5 @@ urls.txt
 
 # vite
 cache
+.cache
+.temp
