@@ -4,20 +4,17 @@
     <div
       class="banner"
       :class="{ 'hide-banner': !showBanner }"
-      :style="bannerBgStyle"
-    >
+      :style="bannerBgStyle">
       <div
         class="banner-conent"
         :style="
           !homeData.features && !homeData.heroImage && `padding-top: 7rem`
-        "
-      >
+        ">
         <header class="hero">
           <img
             v-if="homeData.heroImage"
             :src="$withBase(homeData.heroImage)"
-            :alt="homeData.heroAlt"
-          />
+            :alt="homeData.heroAlt" />
           <h1 v-if="homeData.heroText" id="main-title">
             {{ homeData.heroText }}
           </h1>
@@ -34,15 +31,13 @@
           <div
             class="feature"
             v-for="(feature, index) in homeData.features"
-            :key="index"
-          >
+            :key="index">
             <router-link v-if="feature.link" :to="feature.link">
               <img
                 class="feature-img"
                 v-if="feature.imgUrl"
                 :src="$withBase(feature.imgUrl)"
-                :alt="feature.title"
-              />
+                :alt="feature.title" />
               <h2>{{ feature.title }}</h2>
               <p>{{ feature.details }}</p>
             </router-link>
@@ -51,8 +46,7 @@
                 class="feature-img"
                 v-if="feature.imgUrl"
                 :src="$withBase(feature.imgUrl)"
-                :alt="feature.title"
-              />
+                :alt="feature.title" />
               <h2>{{ feature.title }}</h2>
               <p>{{ feature.details }}</p>
             </a>
@@ -70,15 +64,13 @@
               <div
                 class="slide-item"
                 v-for="(feature, index) in homeData.features"
-                :key="index"
-              >
+                :key="index">
                 <router-link v-if="feature.link" :to="feature.link">
                   <img
                     class="feature-img"
                     v-if="feature.imgUrl"
                     :src="$withBase(feature.imgUrl)"
-                    :alt="feature.title"
-                  />
+                    :alt="feature.title" />
                   <h2>{{ feature.title }}</h2>
                   <p>{{ feature.details }}</p>
                 </router-link>
@@ -87,8 +79,7 @@
                     class="feature-img"
                     v-if="feature.imgUrl"
                     :src="$withBase(feature.imgUrl)"
-                    :alt="feature.title"
-                  />
+                    :alt="feature.title" />
                   <h2>{{ feature.title }}</h2>
                   <p>{{ feature.details }}</p>
                 </a>
@@ -100,8 +91,7 @@
               class="doc"
               v-for="(item, index) in homeData.features.length"
               :key="index"
-              :class="{ active: currentPageIndex === index }"
-            ></span>
+              :class="{ active: currentPageIndex === index }"></span>
           </div>
         </div>
       </div>
@@ -115,21 +105,18 @@
         <UpdateArticle
           class="card-box"
           v-if="homeData.postList === 'simple'"
-          :length="homeData.simplePostListLength || 10"
-        />
+          :length="homeData.simplePostListLength || 10" />
 
         <!-- 详情版文章列表 -->
         <template
-          v-else-if="!homeData.postList || homeData.postList === 'detailed'"
-        >
+          v-else-if="!homeData.postList || homeData.postList === 'detailed'">
           <PostList :currentPage="currentPage" :perPage="perPage" />
           <Pagination
             :total="total"
             :perPage="perPage"
             :currentPage="currentPage"
             @getCurrentPage="handlePagination"
-            v-show="Math.ceil(total / perPage) > 1"
-          />
+            v-show="Math.ceil(total / perPage) > 1" />
         </template>
 
         <Content class="theme-vdoing-content custom card-box" />
@@ -143,18 +130,11 @@
             $categoriesAndTags.categories.length
           "
           :categoriesData="$categoriesAndTags.categories"
-          :length="10"
-        />
+          :length="10" />
         <TagsBar
           v-if="$themeConfig.tag !== false && $categoriesAndTags.tags.length"
           :tagsData="$categoriesAndTags.tags"
-          :length="30"
-        />
-        <div
-          class="custom-html-box card-box"
-          v-if="homeSidebarB"
-          v-html="homeSidebarB"
-        ></div>
+          :length="30" />
       </template>
     </MainLayout>
   </div>
@@ -199,10 +179,6 @@ export default {
     },
     hasFeatures() {
       return !!(this.homeData.features && this.homeData.features.length);
-    },
-    homeSidebarB() {
-      const { htmlModules } = this.$themeConfig;
-      return htmlModules ? htmlModules.homeSidebarB : "";
     },
     showBanner() {
       // 当分页不在第一页时隐藏banner栏
