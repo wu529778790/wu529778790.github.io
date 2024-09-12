@@ -1,20 +1,25 @@
-# npm
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
 node_modules
+dist
+dist-ssr
+*.local
 
-# yarn
-yarn.lock
-
-
-# vuepress
-docs/.vuepress/dist
-
-# 百度链接推送
-urls.txt
-
-# mac
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
 .DS_Store
-
-# vite
-cache
-.cache
-.temp
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+doc_build
