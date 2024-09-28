@@ -11,7 +11,7 @@
 ## 三大运营商正规流量卡，官方 APP 可查
 
 【腾讯文档】正规三网大流量卡对比表（实时更新中）
-<https://docs.qq.com/sheet/DV09NbXlvQW5QVHpp?tab=BB08J2>
+<https://www.kdocs.cn/l/cu04FUTRCy3V?from=docs&reqtype=kdocs&startTime=1725334756592>
 
 ## 网盘共享连接
 
@@ -36,19 +36,6 @@
 资源名称：《Vue.js 源码全方位深入解析，快人一步进名企》
 
 资源链接：[https://coding.imooc.com/class/228.html](https://coding.imooc.com/class/228.html)
-
-## 插件
-
-- vuepress-plugin-live
-
-## 魔改
-
-- 自动生成导航栏
-- 自动匹配目录页(后续改成自动生成目录页)
-
-## 未来要做的事
-
-换成 vitePress <https://vitepress.dev/zh/>
 
 ## Star History
 
