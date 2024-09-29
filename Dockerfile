@@ -11,7 +11,7 @@ COPY dist ./dist
 COPY package*.json ./
 
 # 安装项目依赖
-RUN pnpm install --only=production
+RUN npm install --only=production
 
 # 暴露端口
 EXPOSE 8080
