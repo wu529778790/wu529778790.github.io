@@ -16,7 +16,10 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: "19" # 或者你项目中使用的 Node.js 版本
+          node-version: "19"
+
+      - name: Install pnpm
+        run: npm install -g pnpm
 
       - name: Install dependencies
         run: pnpm install
