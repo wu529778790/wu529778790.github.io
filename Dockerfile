@@ -1,20 +1,11 @@
 # 使用官方的基础镜像，这里以 Node.js 为例
-FROM node:19-alpine
-
-# 设置工作目录
-WORKDIR /usr/src/app
+FROM nginx:1.17.10
 
 # 将 dist 目录复制到容器中的工作目录
-COPY docs/.vuepress/dist ./dist
-
-# 将 package.json 和 package-lock.json 复制到工作目录
-COPY package*.json ./
-
-# 安装项目依赖
-RUN npm install --only=production
+COPY docs/.vuepress/dist /usr/share/nginx/html
 
 # 暴露端口
-EXPOSE 8080
+EXPOSE 80
 
 # 启动应用
-CMD ["npm", "start"]
+CMD ["nginx", "-g", "daemon off;"]
