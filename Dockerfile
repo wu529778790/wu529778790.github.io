@@ -5,7 +5,7 @@ FROM node:19-alpine
 WORKDIR /usr/src/app
 
 # 将 dist 目录复制到容器中的工作目录
-COPY dist ./dist
+COPY docs/.vuepress/dist ./dist
 
 # 将 package.json 和 package-lock.json 复制到工作目录
 COPY package*.json ./
