@@ -1,41 +1,68 @@
-name: Build and Deploy
+name: 构建和部署
 
 on:
   push:
     branches:
-      - master
+      - main
+
+permissions:
+  contents: write
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: 检出仓库
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # 需要获取所有历史记录以创建标签
 
-      - name: Set up Node.js
+      - name: 设置Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: "14.21.3"
+          node-version: "19"
 
-      - name: Install dependencies
-        run: npm install
+      - name: 下载pnpm
+        run: npm install -g pnpm
 
-      - name: Build project
-        run: npm run build
+      - name: 安装依赖
+        run: pnpm install
 
-      - name: Set up Docker Buildx
+      - name: 构建项目
+        run: pnpm run build
+
+      - name: 设置Docker Buildx
         uses: docker/setup-buildx-action@v1
 
-      - name: Login to Docker Hub
+      - name: 登录Docker Hub
         uses: docker/login-action@v1
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build and push Docker image
+      - name: 获取并递增版本号
+        id: version
+        run: |
+          NEW_VERSION=$(echo $(cat VERSION) | awk -F. '{printf("%d.%d.%d\n",$1,$2,$3+1)}')
+          echo "::set-output name=new-version::$NEW_VERSION"
+
+      - name: 更新版本号并推送更改
+        env:
+          GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+        run: |
+          echo ${{ steps.version.outputs.new-version }} > VERSION
+          git config --global user.name 'wu529778790'
+          git config --global user.email '529778790@qq.com'
+          git remote set-url origin https://${GIT_TOKEN}@github.com/${{ github.repository }}
+          git add VERSION
+          git commit -m "chore: bump version to ${{ steps.version.outputs.new-version }}"
+          git push
+          git push origin --tags
+
+      - name: 构建并推送Docker镜像
         uses: docker/build-push-action@v2
         with:
           context: .
           push: true
-          tags: wu529778790/blog.shenzjd.com:latest
+          tags: wu529778790/blog.shenzjd.com:${{ steps.version.outputs.new-version }}
