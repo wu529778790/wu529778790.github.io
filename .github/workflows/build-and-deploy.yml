@@ -56,7 +56,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: wu529778790/blog.shenzjd.com:${{ outputs.new-version }}
+          tags: wu529778790/blog.shenzjd.com:${{ steps.version.outputs.new-version }}
 
       - name: Push changes
         run: |
