@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ES6常用基础集合 | 神族九帝&#39;s blog</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/img/favicon.ico">
+    <meta name="description" content="web前端技术博客,简洁至上,专注web前端学习与总结。JavaScript,js,ES6,TypeScript,vue,css3,html5,Node,git,github等技术文章。">
+    <meta name="keywords" content="前端博客,个人技术博客,前端,前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github,markdown">
+    <meta name="baidu-site-verification" content="code-yywEP2q5jK">
+    <meta name="theme-color" content="#11a8cd">
+    <link rel="preload" href="/assets/css/0.styles.acf465bc.css" as="style"><link rel="preload" href="/assets/js/app.6f32355a.js" as="script"><link rel="preload" href="/assets/js/3.1b204256.js" as="script"><link rel="preload" href="/assets/js/276.2de6a69e.js" as="script"><link rel="prefetch" href="/assets/js/1.b79f6464.js"><link rel="prefetch" href="/assets/js/10.8c55266b.js"><link rel="prefetch" href="/assets/js/100.88faff32.js"><link rel="prefetch" href="/assets/js/101.1592c682.js"><link rel="prefetch" href="/assets/js/102.6518ceb0.js"><link rel="prefetch" href="/assets/js/103.cd5065a6.js"><link rel="prefetch" href="/assets/js/104.1123b4e9.js"><link rel="prefetch" href="/assets/js/105.ccd5a63c.js"><link rel="prefetch" href="/assets/js/106.81988c57.js"><link rel="prefetch" href="/assets/js/107.8a646636.js"><link rel="prefetch" href="/assets/js/108.b7afe936.js"><link rel="prefetch" href="/assets/js/109.b0752e30.js"><link rel="prefetch" href="/assets/js/11.10fafd8c.js"><link rel="prefetch" href="/assets/js/110.5a308e48.js"><link rel="prefetch" href="/assets/js/111.189b5a54.js"><link rel="prefetch" href="/assets/js/112.db870ac5.js"><link rel="prefetch" href="/assets/js/113.bf1ebc68.js"><link rel="prefetch" href="/assets/js/114.7860efc0.js"><link rel="prefetch" href="/assets/js/115.34c51867.js"><link rel="prefetch" href="/assets/js/116.97be8bba.js"><link rel="prefetch" href="/assets/js/117.4d5a10bf.js"><link rel="prefetch" href="/assets/js/118.6c6a76f4.js"><link rel="prefetch" href="/assets/js/119.dc3c2ea1.js"><link rel="prefetch" href="/assets/js/12.141c6a7c.js"><link rel="prefetch" href="/assets/js/120.92eecb8c.js"><link rel="prefetch" href="/assets/js/121.7b9c3657.js"><link rel="prefetch" href="/assets/js/122.f6b5d289.js"><link rel="prefetch" href="/assets/js/123.61c25c57.js"><link rel="prefetch" href="/assets/js/124.302ee0b5.js"><link rel="prefetch" href="/assets/js/125.975de502.js"><link rel="prefetch" href="/assets/js/126.45b64331.js"><link rel="prefetch" href="/assets/js/127.763c2a56.js"><link rel="prefetch" href="/assets/js/128.88ee6335.js"><link rel="prefetch" href="/assets/js/129.a58a64b9.js"><link rel="prefetch" href="/assets/js/13.da863508.js"><link rel="prefetch" href="/assets/js/130.54121522.js"><link rel="prefetch" href="/assets/js/131.aca2d708.js"><link rel="prefetch" href="/assets/js/132.1756e101.js"><link rel="prefetch" href="/assets/js/133.12db2891.js"><link rel="prefetch" href="/assets/js/134.757602d2.js"><link rel="prefetch" href="/assets/js/135.fb98f363.js"><link rel="prefetch" href="/assets/js/136.3cff0f4d.js"><link rel="prefetch" href="/assets/js/137.36fd107d.js"><link rel="prefetch" href="/assets/js/138.49509f7e.js"><link rel="prefetch" href="/assets/js/139.5d534c03.js"><link rel="prefetch" href="/assets/js/14.8ca70db2.js"><link rel="prefetch" href="/assets/js/140.e89f2f4d.js"><link rel="prefetch" href="/assets/js/141.e829b906.js"><link rel="prefetch" href="/assets/js/142.98e7aaee.js"><link rel="prefetch" href="/assets/js/143.1a65ec12.js"><link rel="prefetch" href="/assets/js/144.fc2c801e.js"><link rel="prefetch" href="/assets/js/145.ecd75a5b.js"><link rel="prefetch" href="/assets/js/146.69cc2143.js"><link rel="prefetch" href="/assets/js/147.a6021905.js"><link rel="prefetch" href="/assets/js/148.37a4f153.js"><link rel="prefetch" href="/assets/js/149.0a2441a8.js"><link rel="prefetch" href="/assets/js/15.dc33b636.js"><link rel="prefetch" href="/assets/js/150.e8388075.js"><link rel="prefetch" href="/assets/js/151.a4ebf84b.js"><link rel="prefetch" href="/assets/js/152.15e23325.js"><link rel="prefetch" href="/assets/js/153.57e02e73.js"><link rel="prefetch" href="/assets/js/154.ba69127e.js"><link rel="prefetch" href="/assets/js/155.98ebe21a.js"><link rel="prefetch" href="/assets/js/156.113ec037.js"><link rel="prefetch" href="/assets/js/157.fa80da63.js"><link rel="prefetch" href="/assets/js/158.b1b74414.js"><link rel="prefetch" href="/assets/js/159.40b68f4f.js"><link rel="prefetch" href="/assets/js/16.c098c1fa.js"><link rel="prefetch" href="/assets/js/160.3830ac97.js"><link rel="prefetch" href="/assets/js/161.9d4f7012.js"><link rel="prefetch" href="/assets/js/162.13cca27d.js"><link rel="prefetch" href="/assets/js/163.df4a6f84.js"><link rel="prefetch" href="/assets/js/164.bf27f0b0.js"><link rel="prefetch" href="/assets/js/165.c7b8cafa.js"><link rel="prefetch" href="/assets/js/166.3f217dd7.js"><link rel="prefetch" href="/assets/js/167.735e05d9.js"><link rel="prefetch" href="/assets/js/168.c575d903.js"><link rel="prefetch" href="/assets/js/169.3e8adc50.js"><link rel="prefetch" href="/assets/js/17.7437eb7d.js"><link rel="prefetch" href="/assets/js/170.f6d2e13d.js"><link rel="prefetch" href="/assets/js/171.d14168d4.js"><link rel="prefetch" href="/assets/js/172.16bd452f.js"><link rel="prefetch" href="/assets/js/173.c37e1e0f.js"><link rel="prefetch" href="/assets/js/174.15963486.js"><link rel="prefetch" href="/assets/js/175.975777ee.js"><link rel="prefetch" href="/assets/js/176.2517981a.js"><link rel="prefetch" href="/assets/js/177.1358e1ee.js"><link rel="prefetch" href="/assets/js/178.ab5f3594.js"><link rel="prefetch" href="/assets/js/179.09ba373d.js"><link rel="prefetch" href="/assets/js/18.835bef0b.js"><link rel="prefetch" href="/assets/js/180.9a7ec7cb.js"><link rel="prefetch" href="/assets/js/181.c79e50d9.js"><link rel="prefetch" href="/assets/js/182.23755a00.js"><link rel="prefetch" href="/assets/js/183.4449a6de.js"><link rel="prefetch" href="/assets/js/184.f83dc12a.js"><link rel="prefetch" href="/assets/js/185.65cf0c33.js"><link rel="prefetch" href="/assets/js/186.36ff7e5d.js"><link rel="prefetch" href="/assets/js/187.5472a769.js"><link rel="prefetch" href="/assets/js/188.988e7dba.js"><link rel="prefetch" href="/assets/js/189.31359ed4.js"><link rel="prefetch" href="/assets/js/19.4c3c8195.js"><link rel="prefetch" href="/assets/js/190.fdd64806.js"><link rel="prefetch" href="/assets/js/191.92498652.js"><link rel="prefetch" href="/assets/js/192.4834fa75.js"><link rel="prefetch" href="/assets/js/193.add31334.js"><link rel="prefetch" href="/assets/js/194.f12564a1.js"><link rel="prefetch" href="/assets/js/195.ffe31af5.js"><link rel="prefetch" href="/assets/js/196.6e446bf2.js"><link rel="prefetch" href="/assets/js/197.3a41a0a8.js"><link rel="prefetch" href="/assets/js/198.641bae3d.js"><link rel="prefetch" href="/assets/js/199.ebd03ef7.js"><link rel="prefetch" href="/assets/js/2.7266734b.js"><link rel="prefetch" href="/assets/js/20.ec5e4cf7.js"><link rel="prefetch" href="/assets/js/200.5cb868f3.js"><link rel="prefetch" href="/assets/js/201.19a87590.js"><link rel="prefetch" href="/assets/js/202.b618c8f5.js"><link rel="prefetch" href="/assets/js/203.0fbc9ac5.js"><link rel="prefetch" href="/assets/js/204.1457be89.js"><link rel="prefetch" href="/assets/js/205.a86b5230.js"><link rel="prefetch" href="/assets/js/206.881c82dc.js"><link rel="prefetch" href="/assets/js/207.3b0206d0.js"><link rel="prefetch" href="/assets/js/208.ed47ec02.js"><link rel="prefetch" href="/assets/js/209.99f97bdb.js"><link rel="prefetch" href="/assets/js/21.9188d311.js"><link rel="prefetch" href="/assets/js/210.bb7acf71.js"><link rel="prefetch" href="/assets/js/211.2e81be95.js"><link rel="prefetch" href="/assets/js/212.89ab703d.js"><link rel="prefetch" href="/assets/js/213.50276242.js"><link rel="prefetch" href="/assets/js/214.7f108614.js"><link rel="prefetch" href="/assets/js/215.6574a133.js"><link rel="prefetch" href="/assets/js/216.af9e8210.js"><link rel="prefetch" href="/assets/js/217.76057d83.js"><link rel="prefetch" href="/assets/js/218.55f67111.js"><link rel="prefetch" href="/assets/js/219.ffacadfe.js"><link rel="prefetch" href="/assets/js/22.37e5e389.js"><link rel="prefetch" href="/assets/js/220.5a5c5787.js"><link rel="prefetch" href="/assets/js/221.4eb8395e.js"><link rel="prefetch" href="/assets/js/222.62e527e3.js"><link rel="prefetch" href="/assets/js/223.1f1e7b4b.js"><link rel="prefetch" href="/assets/js/224.2259db70.js"><link rel="prefetch" href="/assets/js/225.91a5f216.js"><link rel="prefetch" href="/assets/js/226.a13c50f9.js"><link rel="prefetch" href="/assets/js/227.de470de3.js"><link rel="prefetch" href="/assets/js/228.5a80e5fb.js"><link rel="prefetch" href="/assets/js/229.efff5960.js"><link rel="prefetch" href="/assets/js/23.d9976b2c.js"><link rel="prefetch" href="/assets/js/230.5fbb8bb7.js"><link rel="prefetch" href="/assets/js/231.95c8ff44.js"><link rel="prefetch" href="/assets/js/232.19219fac.js"><link rel="prefetch" href="/assets/js/233.8b78e75a.js"><link rel="prefetch" href="/assets/js/234.3f914b2e.js"><link rel="prefetch" href="/assets/js/235.95ddd74d.js"><link rel="prefetch" href="/assets/js/236.7c4a59be.js"><link rel="prefetch" href="/assets/js/237.57371aaf.js"><link rel="prefetch" href="/assets/js/238.392a568c.js"><link rel="prefetch" href="/assets/js/239.f14d65f8.js"><link rel="prefetch" href="/assets/js/24.55ad5b7c.js"><link rel="prefetch" href="/assets/js/240.ebf3009f.js"><link rel="prefetch" href="/assets/js/241.5fb81b73.js"><link rel="prefetch" href="/assets/js/242.a7e25549.js"><link rel="prefetch" href="/assets/js/243.f74b3d4e.js"><link rel="prefetch" href="/assets/js/244.f95f77a7.js"><link rel="prefetch" href="/assets/js/245.53678547.js"><link rel="prefetch" href="/assets/js/246.39ebec6c.js"><link rel="prefetch" href="/assets/js/247.d6a2a18e.js"><link rel="prefetch" href="/assets/js/248.07736c3d.js"><link rel="prefetch" href="/assets/js/249.c8fd3339.js"><link rel="prefetch" href="/assets/js/25.011fc197.js"><link rel="prefetch" href="/assets/js/250.ba6ef5e1.js"><link rel="prefetch" href="/assets/js/251.3aa84692.js"><link rel="prefetch" href="/assets/js/252.38cdae28.js"><link rel="prefetch" href="/assets/js/253.041ddb67.js"><link rel="prefetch" href="/assets/js/254.9053aa71.js"><link rel="prefetch" href="/assets/js/255.86ccc408.js"><link rel="prefetch" href="/assets/js/256.b8365b1d.js"><link rel="prefetch" href="/assets/js/257.7f3fb60b.js"><link rel="prefetch" href="/assets/js/258.48a58ecf.js"><link rel="prefetch" href="/assets/js/259.edc72a7a.js"><link rel="prefetch" href="/assets/js/26.3cb3c5af.js"><link rel="prefetch" href="/assets/js/260.c78cbad0.js"><link rel="prefetch" href="/assets/js/261.b7c3d231.js"><link rel="prefetch" href="/assets/js/262.d7bcdae5.js"><link rel="prefetch" href="/assets/js/263.db764fa1.js"><link rel="prefetch" href="/assets/js/264.6a94bf4f.js"><link rel="prefetch" href="/assets/js/265.5f0e9c03.js"><link rel="prefetch" href="/assets/js/266.ff6b094d.js"><link rel="prefetch" href="/assets/js/267.04e7cb80.js"><link rel="prefetch" href="/assets/js/268.38b5f5a6.js"><link rel="prefetch" href="/assets/js/269.9ee4cd2e.js"><link rel="prefetch" href="/assets/js/27.7e232e2c.js"><link rel="prefetch" href="/assets/js/270.16a33f1e.js"><link rel="prefetch" href="/assets/js/271.f4d164b0.js"><link rel="prefetch" href="/assets/js/272.791fecfb.js"><link rel="prefetch" href="/assets/js/273.22a788bf.js"><link rel="prefetch" href="/assets/js/274.03fc79c3.js"><link rel="prefetch" href="/assets/js/275.7bd56154.js"><link rel="prefetch" href="/assets/js/277.7ca05f6c.js"><link rel="prefetch" href="/assets/js/278.f0ee63c0.js"><link rel="prefetch" href="/assets/js/279.609eb7d9.js"><link rel="prefetch" href="/assets/js/28.32f1341e.js"><link rel="prefetch" href="/assets/js/280.e0e3a930.js"><link rel="prefetch" href="/assets/js/281.abad37c8.js"><link rel="prefetch" href="/assets/js/282.1501b44f.js"><link rel="prefetch" href="/assets/js/283.0558a3c4.js"><link rel="prefetch" href="/assets/js/284.756846db.js"><link rel="prefetch" href="/assets/js/285.bf31d51d.js"><link rel="prefetch" href="/assets/js/286.defd2a92.js"><link rel="prefetch" href="/assets/js/287.c67805d0.js"><link rel="prefetch" href="/assets/js/288.c457a47a.js"><link rel="prefetch" href="/assets/js/289.0afb1f12.js"><link rel="prefetch" href="/assets/js/29.f6301882.js"><link rel="prefetch" href="/assets/js/290.837b3179.js"><link rel="prefetch" href="/assets/js/291.8ca62fcf.js"><link rel="prefetch" href="/assets/js/292.e9a93680.js"><link rel="prefetch" href="/assets/js/293.cf0a52c6.js"><link rel="prefetch" href="/assets/js/294.0cdd1975.js"><link rel="prefetch" href="/assets/js/295.c8c7a0e2.js"><link rel="prefetch" href="/assets/js/296.4710615a.js"><link rel="prefetch" href="/assets/js/297.7e434981.js"><link rel="prefetch" href="/assets/js/298.27800acc.js"><link rel="prefetch" href="/assets/js/299.94524a20.js"><link rel="prefetch" href="/assets/js/30.457633e7.js"><link rel="prefetch" href="/assets/js/31.7ec68579.js"><link rel="prefetch" href="/assets/js/32.eef7ba01.js"><link rel="prefetch" href="/assets/js/33.80351101.js"><link rel="prefetch" href="/assets/js/34.16c10f0d.js"><link rel="prefetch" href="/assets/js/35.9f765814.js"><link rel="prefetch" href="/assets/js/36.2ebf9dea.js"><link rel="prefetch" href="/assets/js/37.1fc1164f.js"><link rel="prefetch" href="/assets/js/38.b6adb462.js"><link rel="prefetch" href="/assets/js/39.d93e83cf.js"><link rel="prefetch" href="/assets/js/4.2ac0ca3e.js"><link rel="prefetch" href="/assets/js/40.d706107a.js"><link rel="prefetch" href="/assets/js/41.fc02d2b6.js"><link rel="prefetch" href="/assets/js/42.7cab86d5.js"><link rel="prefetch" href="/assets/js/43.ef9cd246.js"><link rel="prefetch" href="/assets/js/44.a0569c2e.js"><link rel="prefetch" href="/assets/js/45.5fafe2cf.js"><link rel="prefetch" href="/assets/js/46.03f46ad7.js"><link rel="prefetch" href="/assets/js/47.df256cdb.js"><link rel="prefetch" href="/assets/js/48.65a60760.js"><link rel="prefetch" href="/assets/js/49.04fe57d4.js"><link rel="prefetch" href="/assets/js/5.a6226436.js"><link rel="prefetch" href="/assets/js/50.8651dd04.js"><link rel="prefetch" href="/assets/js/51.7662caaf.js"><link rel="prefetch" href="/assets/js/52.166e0a74.js"><link rel="prefetch" href="/assets/js/53.4afd7699.js"><link rel="prefetch" href="/assets/js/54.9a917c2c.js"><link rel="prefetch" href="/assets/js/55.5fa482d9.js"><link rel="prefetch" href="/assets/js/56.f6d194cf.js"><link rel="prefetch" href="/assets/js/57.a784f860.js"><link rel="prefetch" href="/assets/js/58.dd4202bd.js"><link rel="prefetch" href="/assets/js/59.25fbb8f7.js"><link rel="prefetch" href="/assets/js/6.b0755d77.js"><link rel="prefetch" href="/assets/js/60.d1e2af36.js"><link rel="prefetch" href="/assets/js/61.61571afd.js"><link rel="prefetch" href="/assets/js/62.1f1a3b47.js"><link rel="prefetch" href="/assets/js/63.6bfff3b4.js"><link rel="prefetch" href="/assets/js/64.71d4a416.js"><link rel="prefetch" href="/assets/js/65.617890e7.js"><link rel="prefetch" href="/assets/js/66.65920bca.js"><link rel="prefetch" href="/assets/js/67.001f760c.js"><link rel="prefetch" href="/assets/js/68.82192159.js"><link rel="prefetch" href="/assets/js/69.d4cb8bca.js"><link rel="prefetch" href="/assets/js/7.20d8bda4.js"><link rel="prefetch" href="/assets/js/70.24090621.js"><link rel="prefetch" href="/assets/js/71.405a13d9.js"><link rel="prefetch" href="/assets/js/72.dd8add1c.js"><link rel="prefetch" href="/assets/js/73.2bd91ddf.js"><link rel="prefetch" href="/assets/js/74.17ff1ebb.js"><link rel="prefetch" href="/assets/js/75.24e8d319.js"><link rel="prefetch" href="/assets/js/76.2414719f.js"><link rel="prefetch" href="/assets/js/77.77779e67.js"><link rel="prefetch" href="/assets/js/78.b262a06e.js"><link rel="prefetch" href="/assets/js/79.f02d599e.js"><link rel="prefetch" href="/assets/js/80.a1114b22.js"><link rel="prefetch" href="/assets/js/81.348cdb2b.js"><link rel="prefetch" href="/assets/js/82.957cb300.js"><link rel="prefetch" href="/assets/js/83.5c997e13.js"><link rel="prefetch" href="/assets/js/84.1274a110.js"><link rel="prefetch" href="/assets/js/85.a6e36a7f.js"><link rel="prefetch" href="/assets/js/86.9436b1a1.js"><link rel="prefetch" href="/assets/js/87.4e607f33.js"><link rel="prefetch" href="/assets/js/88.9a83dc3a.js"><link rel="prefetch" href="/assets/js/89.b0499d00.js"><link rel="prefetch" href="/assets/js/90.495af3b2.js"><link rel="prefetch" href="/assets/js/91.29907c15.js"><link rel="prefetch" href="/assets/js/92.5c148247.js"><link rel="prefetch" href="/assets/js/93.0e481e18.js"><link rel="prefetch" href="/assets/js/94.85777854.js"><link rel="prefetch" href="/assets/js/95.2baa77e2.js"><link rel="prefetch" href="/assets/js/96.a641e6ee.js"><link rel="prefetch" href="/assets/js/97.9ec64eb5.js"><link rel="prefetch" href="/assets/js/98.fb1e8cdc.js"><link rel="prefetch" href="/assets/js/99.39208b0d.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.3894b547.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.acf465bc.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/logo.png" alt="神族九帝's blog" class="logo"> <span class="site-name can-hide">神族九帝's blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="导航" class="dropdown-title"><!----> <span class="title" style="display:;">导航</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://docs.qq.com/sheet/DV09NbXlvQW5QVHpp?tab=BB08J2" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  神卡套餐
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://wallpaper.shenzjd.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  壁纸
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://alist.shenzjd.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  网盘
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="面试题" class="dropdown-title"><!----> <span class="title" style="display:;">面试题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/d4fd303b96708/" class="nav-link">面试突击</a></li><li class="dropdown-item"><!----> <a href="/pages/92a3d01d007d4/" class="nav-link">复习指导</a></li><li class="dropdown-item"><!----> <a href="/pages/41925dd005aac/" class="nav-link">HTML</a></li><li class="dropdown-item"><!----> <a href="/pages/b7bfe8372b67a/" class="nav-link">CSS</a></li><li class="dropdown-item"><!----> <a href="/pages/873bcbd19d49b/" class="nav-link">JavaScript</a></li><li class="dropdown-item"><!----> <a href="/pages/d35a839d5b4b6/" class="nav-link">设计模式</a></li><li class="dropdown-item"><!----> <a href="/pages/62502f3dd8041/" class="nav-link">浏览器</a></li><li class="dropdown-item"><!----> <a href="/pages/462a20be0048a/" class="nav-link">手写系列</a></li><li class="dropdown-item"><!----> <a href="/pages/7860f2c6dd001/" class="nav-link">Vue</a></li><li class="dropdown-item"><!----> <a href="/pages/b9014c6cc5abc/" class="nav-link">Webpack</a></li><li class="dropdown-item"><!----> <a href="/pages/5ff5a12bd4bd2/" class="nav-link">Http</a></li><li class="dropdown-item"><!----> <a href="/pages/274217c7c2876/" class="nav-link">前端优化</a></li><li class="dropdown-item"><!----> <a href="/pages/318726d3f6062/" class="nav-link">项目</a></li><li class="dropdown-item"><!----> <a href="/pages/0d28ab62c07b1/" class="nav-link">面试真题</a></li><li class="dropdown-item"><!----> <a href="/pages/9eaae444f0d5b/" class="nav-link">算法</a></li><li class="dropdown-item"><!----> <a href="/pages/96c5de658a426/" class="nav-link">精选文章</a></li><li class="dropdown-item"><!----> <a href="/pages/11309122e2911/" class="nav-link">八股文</a></li><li class="dropdown-item"><!----> <a href="/pages/294378a3e4f4/" class="nav-link">前端工程化</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="笔记" class="dropdown-title"><!----> <span class="title" style="display:;">笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/b7de4855154b1/" class="nav-link">工作笔记</a></li><li class="dropdown-item"><!----> <a href="/pages/664ab7712895e/" class="nav-link">前端基础建设与架构 30 讲</a></li><li class="dropdown-item"><!----> <a href="/pages/de5e42d9aade5/" class="nav-link">vue2源码学习</a></li><li class="dropdown-item"><!----> <a href="/pages/9a973ad8de378/" class="nav-link">剖析vuejs内部运行机制</a></li><li class="dropdown-item"><!----> <a href="/pages/7b9593fc1d246/" class="nav-link">TypeScript 入门实战笔记</a></li><li class="dropdown-item"><!----> <a href="/pages/1b26a2a3224ed/" class="nav-link">vue3源码学习</a></li><li class="dropdown-item"><!----> <a href="/pages/6840ffe53b64e/" class="nav-link">2周刷完100道前端优质面试真题</a></li><li class="dropdown-item"><!----> <a href="/pages/b2402e45f8434/" class="nav-link">思维导图</a></li><li class="dropdown-item"><!----> <a href="/pages/df8208be80149/" class="nav-link">npm发包</a></li><li class="dropdown-item"><!----> <a href="/pages/9d3cce63f5b1f/" class="nav-link">重学node</a></li><li class="dropdown-item"><!----> <a href="/pages/82d13321f862e/" class="nav-link">前端性能优化方法与实战</a></li><li class="dropdown-item"><!----> <a href="/pages/70523322e3de7/" class="nav-link">webpack原理与实战</a></li><li class="dropdown-item"><!----> <a href="/pages/201ade54239a8/" class="nav-link">webGl</a></li><li class="dropdown-item"><!----> <a href="/pages/493b3e94e222f/" class="nav-link">前端优化</a></li><li class="dropdown-item"><!----> <a href="/pages/9215dd598cf2f/" class="nav-link">Web3</a></li><li class="dropdown-item"><!----> <a href="/pages/654a66a46648a/" class="nav-link">更多</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="服务器" class="dropdown-title"><!----> <span class="title" style="display:;">服务器</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/559a89ed185a/" class="nav-link">未来要做的事</a></li><li class="dropdown-item"><!----> <a href="/pages/3643ef45ec2df/" class="nav-link">Stirling-PDF</a></li><li class="dropdown-item"><!----> <a href="/pages/84b570b268311/" class="nav-link">ComfyUI</a></li><li class="dropdown-item"><!----> <a href="/pages/266a6e0607e5b/" class="nav-link">富强</a></li><li class="dropdown-item"><!----> <a href="/pages/48f2f48705e84/" class="nav-link">宝塔面板+青龙面板</a></li><li class="dropdown-item"><!----> <a href="/pages/fd345053693da/" class="nav-link">安卓手机当服务器使用</a></li><li class="dropdown-item"><!----> <a href="/pages/fabb9a071e3ab/" class="nav-link">京东自动评价代码</a></li><li class="dropdown-item"><!----> <a href="/pages/4e2e100aa5bc3/" class="nav-link">搭建x-ui免流服务器(已失效)</a></li><li class="dropdown-item"><!----> <a href="/pages/1ec52a9aef382/" class="nav-link">海外联盟</a></li><li class="dropdown-item"><!----> <a href="/pages/4f8522f268cc3/" class="nav-link">好玩的docker</a></li><li class="dropdown-item"><!----> <a href="/pages/beb6c0bd8a66cea6/" class="nav-link">收藏夹</a></li><li class="dropdown-item"><!----> <a href="/pages/f9ef4c6a6f4e/" class="nav-link">更多</a></li></ul></div></div> <a href="https://github.com/wu529778790/wu529778790.github.io" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="/img/logo.png"> <div class="blogger-info"><h3>神族九帝,永不言弃</h3> <span></span></div></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="导航" class="dropdown-title"><!----> <span class="title" style="display:;">导航</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://docs.qq.com/sheet/DV09NbXlvQW5QVHpp?tab=BB08J2" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  神卡套餐
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://wallpaper.shenzjd.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  壁纸
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://alist.shenzjd.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  网盘
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="面试题" class="dropdown-title"><!----> <span class="title" style="display:;">面试题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/d4fd303b96708/" class="nav-link">面试突击</a></li><li class="dropdown-item"><!----> <a href="/pages/92a3d01d007d4/" class="nav-link">复习指导</a></li><li class="dropdown-item"><!----> <a href="/pages/41925dd005aac/" class="nav-link">HTML</a></li><li class="dropdown-item"><!----> <a href="/pages/b7bfe8372b67a/" class="nav-link">CSS</a></li><li class="dropdown-item"><!----> <a href="/pages/873bcbd19d49b/" class="nav-link">JavaScript</a></li><li class="dropdown-item"><!----> <a href="/pages/d35a839d5b4b6/" class="nav-link">设计模式</a></li><li class="dropdown-item"><!----> <a href="/pages/62502f3dd8041/" class="nav-link">浏览器</a></li><li class="dropdown-item"><!----> <a href="/pages/462a20be0048a/" class="nav-link">手写系列</a></li><li class="dropdown-item"><!----> <a href="/pages/7860f2c6dd001/" class="nav-link">Vue</a></li><li class="dropdown-item"><!----> <a href="/pages/b9014c6cc5abc/" class="nav-link">Webpack</a></li><li class="dropdown-item"><!----> <a href="/pages/5ff5a12bd4bd2/" class="nav-link">Http</a></li><li class="dropdown-item"><!----> <a href="/pages/274217c7c2876/" class="nav-link">前端优化</a></li><li class="dropdown-item"><!----> <a href="/pages/318726d3f6062/" class="nav-link">项目</a></li><li class="dropdown-item"><!----> <a href="/pages/0d28ab62c07b1/" class="nav-link">面试真题</a></li><li class="dropdown-item"><!----> <a href="/pages/9eaae444f0d5b/" class="nav-link">算法</a></li><li class="dropdown-item"><!----> <a href="/pages/96c5de658a426/" class="nav-link">精选文章</a></li><li class="dropdown-item"><!----> <a href="/pages/11309122e2911/" class="nav-link">八股文</a></li><li class="dropdown-item"><!----> <a href="/pages/294378a3e4f4/" class="nav-link">前端工程化</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="笔记" class="dropdown-title"><!----> <span class="title" style="display:;">笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/b7de4855154b1/" class="nav-link">工作笔记</a></li><li class="dropdown-item"><!----> <a href="/pages/664ab7712895e/" class="nav-link">前端基础建设与架构 30 讲</a></li><li class="dropdown-item"><!----> <a href="/pages/de5e42d9aade5/" class="nav-link">vue2源码学习</a></li><li class="dropdown-item"><!----> <a href="/pages/9a973ad8de378/" class="nav-link">剖析vuejs内部运行机制</a></li><li class="dropdown-item"><!----> <a href="/pages/7b9593fc1d246/" class="nav-link">TypeScript 入门实战笔记</a></li><li class="dropdown-item"><!----> <a href="/pages/1b26a2a3224ed/" class="nav-link">vue3源码学习</a></li><li class="dropdown-item"><!----> <a href="/pages/6840ffe53b64e/" class="nav-link">2周刷完100道前端优质面试真题</a></li><li class="dropdown-item"><!----> <a href="/pages/b2402e45f8434/" class="nav-link">思维导图</a></li><li class="dropdown-item"><!----> <a href="/pages/df8208be80149/" class="nav-link">npm发包</a></li><li class="dropdown-item"><!----> <a href="/pages/9d3cce63f5b1f/" class="nav-link">重学node</a></li><li class="dropdown-item"><!----> <a href="/pages/82d13321f862e/" class="nav-link">前端性能优化方法与实战</a></li><li class="dropdown-item"><!----> <a href="/pages/70523322e3de7/" class="nav-link">webpack原理与实战</a></li><li class="dropdown-item"><!----> <a href="/pages/201ade54239a8/" class="nav-link">webGl</a></li><li class="dropdown-item"><!----> <a href="/pages/493b3e94e222f/" class="nav-link">前端优化</a></li><li class="dropdown-item"><!----> <a href="/pages/9215dd598cf2f/" class="nav-link">Web3</a></li><li class="dropdown-item"><!----> <a href="/pages/654a66a46648a/" class="nav-link">更多</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="服务器" class="dropdown-title"><!----> <span class="title" style="display:;">服务器</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/559a89ed185a/" class="nav-link">未来要做的事</a></li><li class="dropdown-item"><!----> <a href="/pages/3643ef45ec2df/" class="nav-link">Stirling-PDF</a></li><li class="dropdown-item"><!----> <a href="/pages/84b570b268311/" class="nav-link">ComfyUI</a></li><li class="dropdown-item"><!----> <a href="/pages/266a6e0607e5b/" class="nav-link">富强</a></li><li class="dropdown-item"><!----> <a href="/pages/48f2f48705e84/" class="nav-link">宝塔面板+青龙面板</a></li><li class="dropdown-item"><!----> <a href="/pages/fd345053693da/" class="nav-link">安卓手机当服务器使用</a></li><li class="dropdown-item"><!----> <a href="/pages/fabb9a071e3ab/" class="nav-link">京东自动评价代码</a></li><li class="dropdown-item"><!----> <a href="/pages/4e2e100aa5bc3/" class="nav-link">搭建x-ui免流服务器(已失效)</a></li><li class="dropdown-item"><!----> <a href="/pages/1ec52a9aef382/" class="nav-link">海外联盟</a></li><li class="dropdown-item"><!----> <a href="/pages/4f8522f268cc3/" class="nav-link">好玩的docker</a></li><li class="dropdown-item"><!----> <a href="/pages/beb6c0bd8a66cea6/" class="nav-link">收藏夹</a></li><li class="dropdown-item"><!----> <a href="/pages/f9ef4c6a6f4e/" class="nav-link">更多</a></li></ul></div></div> <a href="https://github.com/wu529778790/wu529778790.github.io" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>ES6常用基础集合</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pages/48ca67/#新的变量声明方式-let-const" class="sidebar-link">新的变量声明方式 let/const</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/pages/48ca67/#我们常常使用-let-来声明一个值会被改变的变量-而使用-const-来声明一个值不会被改变的变量" class="sidebar-link">我们常常使用 let 来声明一个值会被改变的变量，而使用 const 来声明一个值不会被改变的变量</a></li></ul></li><li><a href="/pages/48ca67/#箭头函数的使用" class="sidebar-link">箭头函数的使用</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/pages/48ca67/#模板字符串" class="sidebar-link">模板字符串</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/pages/48ca67/#解析结构" class="sidebar-link">解析结构</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/pages/48ca67/#函数默认参数" class="sidebar-link">函数默认参数</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/pages/48ca67/#展开运算符" class="sidebar-link">展开运算符</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> <div class="sidebar-slot sidebar-slot-bottom"><!-- 正方形 -->
+      <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-7828333725993554"
+          data-ad-slot="3508773082"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script></div></aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-071ed482><div class="articleInfo" data-v-071ed482><!----> <div class="info" data-v-071ed482><div title="作者" class="author iconfont icon-touxiang" data-v-071ed482><a href="https://github.com/wu529778790" target="_blank" title="作者" class="beLink" data-v-071ed482>神族九帝</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-071ed482><a href="javascript:;" data-v-071ed482>2017-06-06</a></div> <div title="分类" class="date iconfont icon-wenjian" data-v-071ed482><a href="/categories/?category=hexo%E8%BF%81%E7%A7%BB%E6%95%B0%E6%8D%AE" data-v-071ed482>hexo迁移数据 </a></div></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABH1JREFUSA3tVl1oHFUUPmdmd2ltklqbpJDiNnXFmgbFktho7YMPNiJSSZM0+CAYSkUELVhM6YuwIPpgoOKDqOBDC0XE2CQoNtQXBUFTTcCi+Wlh1V2TQExsUzcltd3M9Tt3ZjZzZ2fT+OJTL8yeM+eee757fmeJbq//KQL8X3DUSFOcfr7cRsRtxNQMWueeVzOkaITIGqQHNg5y8+jNW9ldM7A6nTpAjuolUikAwq7CE3WcM2RRDz+XGVgN3FptU/aUSlvq9Pa3iZ1+sgAqJyyAFqkipd9dqiwHF3P65YycLWc/6sqGrvoEoIp6DOFaX5h6+dnfjkWprwqsPk0dUGq5vySwDImC10KxFHgGL1SWoc92O3eVht09qdXNH11I2SsTsJYqMWzihqGMi+A+Garf3BAuuLI5oGlULyNfyB/HYNujwktOfRrMr5t77NmevqaUopx0grnKAyvVpmwUDB4x6FPXuGvYLTDwWsejwgtgkYKPqRJg8SV6xaiZ3ZTppGneS4yfH5/66fZSDHv+QZci/+h5c5UHtpy67JUqGppM0sh0Nc1dW6/N1W5Yoqat8/TU/VnadmdeW2PLLSyh0cvxBs3KbqTmwYPpxN4do/mzE8nEpvX/UMu2Wbp74zUAK5q6WkHns7V0eWkdPbPzd3rxkTGybadYySumVzhcaJFbs5UrEkQ/+CK8gF5dnh/6ciIZ73gwQ927L1IitoxKLXYP3SjYdOrHHfTZhRRlFyrorafPk20B3HPD1y2G3qKZME5Jcf3t/HUC13/8tSd++vqFveMUTwAUxSUFI1QekR1+bIze3D9MF2aq6cPvG72CgnldWCFqyRw3lwH8ZMerjTD9ElRO7Gv44wNpC90aASqGfVlz/Rx17srQ57/UU26hkhQqUB7dBR71WmzQhHUnblGmVOEw0jhbV1n9OlXUDCIRGaNV5Jp43N516fN7JmnTHdfp7Hgy0luO4aMhtkLL8Bi3bUWYvzh5Mn1dTxrL6QmGuRhGL/TiTTxRoEdTszSaq9GR0NGA3KdkOz3hqSV3MIDhQ5IVX/Ivx3umBti2es2h4eZby7x8br1rkf7Mo90AqC8aQ3sJeNzqFRu+vSANAQe3PL7l0HGOAdwDCeZYvNKeoZp1Qfs6Aipndh86HmFRi0LAnEO47wsqM6cdfjh3jBPUzhZy7nvlUfFsamED1VQt6aISHVymXZ/B2aCtIG8AI8xfobj2d3en1wWVhOeHELKmLQ1s211s88comkv4UCwWyF787mJdYXtNfhKAXVqnKTq8QZvGAGGOfaTo5pGZ/PwbUCr5+DPr/1J92JNHr9aOl/F3iI5+O1nfybsGxoimvZ3ViWSluDITw3P37mypheDIPY0tw7+O/5ApbkYw+zpfaUVu32Pi98+defdUhEpZkRFq0aqyNh9FuL9hpYbEm6iwi0z2REd09ZmyENEbuhjDWzKvZXTqKYaBIr3tt5kuPtQBZFvEUwHt60vfCNu41XsksH9Ij1BMMz1Y0OOunHNShFIP5868g5zeXmuLwL9T4b6Q2+KejgAAAABJRU5ErkJggg==">
+          ES6常用基础集合
+        </h1> <div class="page-slot page-slot-top"><!-- 固定100% * 90px可显示，max-height:90px未见显示-->
+     <ins class="adsbygoogle"
+          style="display:inline-block;width:100%;max-height:90px"
+          data-ad-client="ca-pub-7828333725993554"
+          data-ad-slot="6625304284"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script></div> <div class="theme-vdoing-content content__default"><p>ES6 彻底改变了前端的编码风格，可以说对于前端的影响非常巨大。</p> <blockquote><p>在学习之前，推荐大家使用 babel 官方提供的在线编译工具，编写自己的 demo，会在右侧实时显示出编译之后的代码，以供参考学习 <a href="http://babeljs.io/repl/" target="_blank" rel="noopener noreferrer">http://babeljs.io/repl/<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></blockquote> <h2 id="新的变量声明方式-let-const"><a href="#新的变量声明方式-let-const" class="header-anchor">#</a> 新的变量声明方式 let/const</h2> <p>与 var 不同，新的变量声明方式带来了一些不一样的特性，其中最重要的两个特性就是提供了块级作用域与不再具备变量提升。</p> <p>通过 2 个简单的例子来说明这两点。</p> <div class="language- extra-class"><pre><code>{
+    let a = 20;
+}
+
+console.log(a);  // a is not defined
+</code></pre></div><p>而这个简单的例子，会被编译为：</p> <div class="language- extra-class"><pre><code>{
+    let _a = 20;
+}
+
+console.log(a);  // a is not defined
+
+
+// ES5
+console.log(a);   // undefined
+var a = 20;
+
+// ES6
+console.log(a); // a is not defined
+let a = 20;
+</code></pre></div><p>当然，如果你的代码编译成为了 ES5 之后，仍然会存在变量提升，因此这一点只需要我们记住即可。我们在实际使用中，也需要尽量避免使用变量提升的特性带来的负面影响。对于变量提升的滥用，只存在与面试题中。</p> <p>使用 ES6，我们需要全面使用 let/const 替换 var，那么什么时候用 let，什么时候用 const 就成为了一个大家要熟练区分的一个知识点。</p> <h3 id="我们常常使用-let-来声明一个值会被改变的变量-而使用-const-来声明一个值不会被改变的变量"><a href="#我们常常使用-let-来声明一个值会被改变的变量-而使用-const-来声明一个值不会被改变的变量" class="header-anchor">#</a> 我们常常使用 let 来声明一个值会被改变的变量，而使用 const 来声明一个值不会被改变的变量</h3> <p>当值为基础数据类型时，那么这里的值，就是指值本身。
+而当值对应的为引用数据类型时，那么我这里说的值，则表示指向该对象的引用。这里需要注意，正因为该值为一个引用，重要保证引用不变就可以，我们仍然可以改变该引用所指向的对象。</p> <p>当我们试图改变 const 声明的变量时，则会报错:</p> <div class="language- extra-class"><pre><code>let a = null;
+a = 20;
+
+
+const obDev = {
+    a: 20,
+    b: 30
+}
+
+
+obDev.a = 30;
+
+console.log(obDev); // Object {a: 30, b: 30}
+
+
+const fn = function() {}
+const a = obDev.a;
+... ...
+</code></pre></div><p>只要抓住上面我说的特性，那么在使用 let/const 时就会显得游刃有余。
+根据我自己的经验，使用 const 的场景要比使用 let 的场景多很多。</p> <h2 id="箭头函数的使用"><a href="#箭头函数的使用" class="header-anchor">#</a> 箭头函数的使用</h2> <p>之前我说 ES6 颠覆了 js 的编码习惯，箭头函数的使用占了很大一部分。</p> <p>首先是写法上的不同:</p> <div class="language- extra-class"><pre><code>// es5
+var fn = function(a, b) {
+    return a + b;
+}
+
+// es6 箭头函数写法，当函数直接被return时
+const fn = (a, b) =&gt; a + b;
+
+// es5
+var foo = function() {
+    var a = 20；
+    var b = 30;
+    return a + b;
+}
+
+// es6
+const foo = () =&gt; {
+   const a = 20;
+   const b = 30;
+   return a + b;
+}
+</code></pre></div><blockquote><p>箭头函数可以替换函数表达式，但是不能替换函数声明</p></blockquote> <p>其次还有一个至关重要的一点，那就是箭头函数中，没有 this。如果你在箭头函数中使用了 this，那么该 this 一定就是外层的 this。</p> <p>也正是因为箭头函数中没有 this，因此我们也就无从谈起用 call/apply/bind 来改变 this 指向。记住这个特性，能让你在 react 组件之间传值时少走无数弯路。</p> <div class="language- extra-class"><pre><code>var person = {
+    name: 'tom',
+    getName: function() {
+        return this.name;
+    }
+}
+
+// 我们试图用ES6的写法来重构上面的对象
+const person = {
+    name: 'tom',
+    getName: () =&gt; this.name
+}
+
+// 但是编译结果却是
+var person = {
+    name: 'tom',
+    getName: function getName() {
+        return undefined.name;
+    }
+};
+</code></pre></div><p>在 ES6 中，会默认采用严格模式，因此 this 也不会自动指向 window 对象了，而箭头函数本身并没有 this，因此 this 就只能是 undefined，这一点，在使用的时候，一定要慎重慎重再慎重，不然踩了坑你都不知道自己错在哪！这种情况，如果你还想用 this，就不用使用箭头函数的写法。</p> <div class="language- extra-class"><pre><code>// 可以稍做改动
+const person = {
+    name: 'tom',
+    getName: function() {
+        return setTimeout(() =&gt; this.name, 1000);
+    }
+}
+
+// 编译之后变成
+var person = {
+    name: 'tom',
+    getName: function getName() {
+        var _this = this;  // 使用了我们在es5时常用的方式保存this引用
+
+        return setTimeout(function () {
+            return _this.name;
+        }, 1000);
+    }
+};
+</code></pre></div><p>先记住箭头函数的写法，并留意箭头函数中关于 this 的特殊性，更过实践与注意事项我们在封装 react 组件时再慢慢来感受</p> <h2 id="模板字符串"><a href="#模板字符串" class="header-anchor">#</a> 模板字符串</h2> <p>模板字符串是为了解决使用+号拼接字符串的不便利而出现的。它的功能非常强大，但是我们大多数时候使用它则非常简单。看一个例子大家就明白怎么使用了。</p> <div class="language- extra-class"><pre><code>// es6
+const a = 20;
+const b = 30;
+const string = `${a}+${b}=${a+b}`;
+
+// es5
+var a = 20;
+var b = 30;
+var string = a + &quot;+&quot; + b + &quot;=&quot; + (a + b);
+</code></pre></div><p>使用 整个字符串包裹起来，而在其中使用 ${} 来包裹一个变量或者一个表达式。</p> <p>当然模板字符串还支持换行等强大的功能，更多的大家可通过参考资料进一步学习</p> <h2 id="解析结构"><a href="#解析结构" class="header-anchor">#</a> 解析结构</h2> <p>解析结构是一种全新的写法，我们只需要使用一个例子，大家就能够明白解析结构到底是怎么一回事儿。</p> <div class="language- extra-class"><pre><code>// 首先有这么一个对象
+const props = {
+    className: 'tiger-button',
+    loading: false,
+    clicked: true,
+    disabled: 'disabled'
+}
+</code></pre></div><p>当我们想要取得其中的 2 个值：loading 与 clicked 时：</p> <div class="language- extra-class"><pre><code>// es5
+var loading = props.loading;
+var clicked = props.clicked;
+
+// es6
+const { loading, clicked } = props;
+
+// 给一个默认值，当props对象中找不到loading时，loading就等于该默认值
+const { loading = false, clicked } = props;
+</code></pre></div><p>是不是简单了许多？正是由于解析结构大大减少了代码量，因此它大受欢迎，在很多代码中它的影子随处可见。</p> <div class="language- extra-class"><pre><code>// 比如
+// section1
+import React, { Component } from 'react';
+
+// section2
+export { default } from './Button';
+
+// section3
+const { click, loading } = this.props;
+const { isCheck } = this.state;
+
+// more  任何获取对象属性值的场景都可以使用解析结构来减少我们的代码量
+</code></pre></div><p>另外，数组也有属于自己的解析结构。</p> <div class="language- extra-class"><pre><code>// es6
+const arr = [1, 2, 3];
+const [a, b, c] = arr;
+
+// es5
+var arr = [1, 2, 3];
+var a = arr[0];
+var b = arr[1];
+var c = arr[2];
+</code></pre></div><p>数组以序列号一一对应，这是一个有序的对应关系。
+而对象根据属性名一一对应，这是一个无序的对应关系。
+根据这个特性，使用解析结构从对象中获取属性值更加具有可用性。</p> <h2 id="函数默认参数"><a href="#函数默认参数" class="header-anchor">#</a> 函数默认参数</h2> <p>之前我们不能直接为函数指定默认参数，因此很多时候为了保证传入的参数具备一个默认值，我们常常使用如下的方法：</p> <div class="language- extra-class"><pre><code>function add(x, y) {
+    var x = x || 20;
+    var y = y || 30;
+    return x + y;
+}
+
+console.log(add()); // 50
+</code></pre></div><p>这种方式并不是没有缺点，比如当我传入一个 x 值为 false，这个时候任然会取到默认值，就不是我们的本意了。</p> <p>来看看 ES6 的默认值写法：</p> <div class="language- extra-class"><pre><code>function add(x = 20, y = 30) {
+    return x + y;
+}
+
+console.log(add());
+</code></pre></div><p>在实际开发中给参数添加适当的默认值，可以让我们堆函数的参数类型有一个直观的认知</p> <p>const ButtonGroupProps = {
+size: 'normal',
+className: 'xxxx-button-group',
+borderColor: '#333'
+}</p> <p>export default function ButtonGroup(props = ButtonGroupProps) {
+... ...
+}</p> <h2 id="展开运算符"><a href="#展开运算符" class="header-anchor">#</a> 展开运算符</h2> <p>在 ES6 中用...来表示展开运算符，它可以将数组方法或者对象进行展开。先来看一个例子它是如何使用的。</p> <div class="language- extra-class"><pre><code>const arr1 = [1, 2, 3];
+const arr2 = [...arr1, 10, 20, 30];
+
+// 这样，arr2 就变成了[1, 2, 3, 10, 20, 30];
+</code></pre></div><p>当然，展开对象数据也是可以得到类似的结果</p> <div class="language- extra-class"><pre><code>const obj1 = {
+  a: 1,
+  b: 2,
+  c: 3
+}
+
+const obj2 = {
+  ...obj1,
+  d: 4,
+  e: 5,
+  f: 6
+}
+
+// 结果类似于 const obj2 = Object.assign({}, obj1, {d: 4})
+</code></pre></div><p>展开运算符还常常运用在解析结构之中，例如我们在 Raect 封装组件的时候常常不确定 props 到底还有多少数据会传进来，就会利用展开运算符来处理剩余的数据。</p> <div class="language- extra-class"><pre><code>// 这种方式在react中十分常用
+const props = {
+  size: 1,
+  src: 'xxxx',
+  mode: 'si'
+}
+
+
+const { size, ...others } = props;
+
+console.log(others)
+
+// 然后再利用暂开运算符传递给下一个元素，再以后封装react组件时会大量使用到这种方式，正在学习react的同学一定要搞懂这种使用方式
+&lt;button&gt;&lt;/button&gt;
+</code></pre></div><p>展开运算符还用在函数的参数中，来表示函数的不定参。只有放在最后才能作为函数的不定参，否则会报错。</p> <div class="language- extra-class"><pre><code>// 所有参数之和
+const add = (a, b, ...more) =&gt; {
+    return more.reduce((m, n) =&gt; m + n) + a + b
+}
+
+console.log(add(1, 23, 1, 2, 3, 4, 5)) // 39
+</code></pre></div><p>展开运算符的运用可以大大提高我们的代码效率，但是在刚开始使用的时候比较绕脑，掌握好了用起来还是非常爽的，记住这些使用场景，平时在用的时候可以刻意多运用就行了。</p> <p>更多信息参考阮一峰老师的入门教程：<a href="http://es6.ruanyifeng.com/" target="_blank" rel="noopener noreferrer">http://es6.ruanyifeng.com/<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></div></div> <div class="page-slot page-slot-bottom"><!-- 横向自适应 -->
+      <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-7828333725993554"
+          data-ad-slot="6620245489"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script></div> <div class="page-edit"><div class="edit-link"><a href="https://github.com/wu529778790/wu529778790.github.io/edit/master/docs/_posts/hexo迁移数据/ES6常用基础集合.md" target="_blank" rel="noopener noreferrer">编辑</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2021/06/17, 21:24:24</span></div></div> <div class="page-nav-wapper"><!----> <!----></div></div> <div class="article-list"><div class="article-title"><a href="/archives/" class="iconfont icon-bi">最近更新</a></div> <div class="article-wrapper"><dl><dd>01</dd> <dt><a href="/pages/537e4ca5f546b/"><div>Code Review</div></a> <span>10-14</span></dt></dl><dl><dd>02</dd> <dt><a href="/pages/266a6e0607e5b/"><div>富强</div></a> <span>10-13</span></dt></dl><dl><dd>03</dd> <dt><a href="/pages/84b570b268311/"><div>ComfyUI</div></a> <span>10-11</span></dt></dl> <dl><dd></dd> <dt><a href="/archives/" class="more">更多文章&gt;</a></dt></dl></div></div></main></div> <div class="footer"><div class="icons"><a href="mailto:529778790@qq.com" title="发邮件" target="_blank" class="iconfont icon-youjian"></a><a href="https://github.com/wu529778790" title="GitHub" target="_blank" class="iconfont icon-github"></a><a href="https://shenzjd.com/shenzjd/music/" title="听音乐" target="_blank" class="iconfont icon-erji"></a></div> 
+  Power by
+  <a href="https://vuepress.vuejs.org/zh/" target="_blank" title="vuepress">vuepress</a> 
+    | Copyright © 2015-2024
+    <span>神族九帝</span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <!----> <!----> <div class="custom-html-window custom-html-window-rb" style="display:;"><div class="custom-wrapper"><i class="close-but">×</i> <div><!-- 固定160*160px -->
+      <ins class="adsbygoogle"
+          style="display:inline-block;max-width:160px;max-height:160px"
+          data-ad-client="ca-pub-7828333725993554"
+          data-ad-slot="8377369658"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+      </div></div></div></div><div class="global-ui"><div></div></div></div>
+    <script src="/assets/js/app.6f32355a.js" defer></script><script src="/assets/js/3.1b204256.js" defer></script><script src="/assets/js/276.2de6a69e.js" defer></script>
+  </body>
+</html>

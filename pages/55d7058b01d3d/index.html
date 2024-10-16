@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>如何利用 JavaScript 实现经典数据结构？ | 神族九帝&#39;s blog</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/img/favicon.ico">
+    <meta name="description" content="web前端技术博客,简洁至上,专注web前端学习与总结。JavaScript,js,ES6,TypeScript,vue,css3,html5,Node,git,github等技术文章。">
+    <meta name="keywords" content="前端博客,个人技术博客,前端,前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github,markdown">
+    <meta name="baidu-site-verification" content="code-yywEP2q5jK">
+    <meta name="theme-color" content="#11a8cd">
+    <link rel="preload" href="/assets/css/0.styles.acf465bc.css" as="style"><link rel="preload" href="/assets/js/app.6f32355a.js" as="script"><link rel="preload" href="/assets/js/3.1b204256.js" as="script"><link rel="preload" href="/assets/js/174.15963486.js" as="script"><link rel="prefetch" href="/assets/js/1.b79f6464.js"><link rel="prefetch" href="/assets/js/10.8c55266b.js"><link rel="prefetch" href="/assets/js/100.88faff32.js"><link rel="prefetch" href="/assets/js/101.1592c682.js"><link rel="prefetch" href="/assets/js/102.6518ceb0.js"><link rel="prefetch" href="/assets/js/103.cd5065a6.js"><link rel="prefetch" href="/assets/js/104.1123b4e9.js"><link rel="prefetch" href="/assets/js/105.ccd5a63c.js"><link rel="prefetch" href="/assets/js/106.81988c57.js"><link rel="prefetch" href="/assets/js/107.8a646636.js"><link rel="prefetch" href="/assets/js/108.b7afe936.js"><link rel="prefetch" href="/assets/js/109.b0752e30.js"><link rel="prefetch" href="/assets/js/11.10fafd8c.js"><link rel="prefetch" href="/assets/js/110.5a308e48.js"><link rel="prefetch" href="/assets/js/111.189b5a54.js"><link rel="prefetch" href="/assets/js/112.db870ac5.js"><link rel="prefetch" href="/assets/js/113.bf1ebc68.js"><link rel="prefetch" href="/assets/js/114.7860efc0.js"><link rel="prefetch" href="/assets/js/115.34c51867.js"><link rel="prefetch" href="/assets/js/116.97be8bba.js"><link rel="prefetch" href="/assets/js/117.4d5a10bf.js"><link rel="prefetch" href="/assets/js/118.6c6a76f4.js"><link rel="prefetch" href="/assets/js/119.dc3c2ea1.js"><link rel="prefetch" href="/assets/js/12.141c6a7c.js"><link rel="prefetch" href="/assets/js/120.92eecb8c.js"><link rel="prefetch" href="/assets/js/121.7b9c3657.js"><link rel="prefetch" href="/assets/js/122.f6b5d289.js"><link rel="prefetch" href="/assets/js/123.61c25c57.js"><link rel="prefetch" href="/assets/js/124.302ee0b5.js"><link rel="prefetch" href="/assets/js/125.975de502.js"><link rel="prefetch" href="/assets/js/126.45b64331.js"><link rel="prefetch" href="/assets/js/127.763c2a56.js"><link rel="prefetch" href="/assets/js/128.88ee6335.js"><link rel="prefetch" href="/assets/js/129.a58a64b9.js"><link rel="prefetch" href="/assets/js/13.da863508.js"><link rel="prefetch" href="/assets/js/130.54121522.js"><link rel="prefetch" href="/assets/js/131.aca2d708.js"><link rel="prefetch" href="/assets/js/132.1756e101.js"><link rel="prefetch" href="/assets/js/133.12db2891.js"><link rel="prefetch" href="/assets/js/134.757602d2.js"><link rel="prefetch" href="/assets/js/135.fb98f363.js"><link rel="prefetch" href="/assets/js/136.3cff0f4d.js"><link rel="prefetch" href="/assets/js/137.36fd107d.js"><link rel="prefetch" href="/assets/js/138.49509f7e.js"><link rel="prefetch" href="/assets/js/139.5d534c03.js"><link rel="prefetch" href="/assets/js/14.8ca70db2.js"><link rel="prefetch" href="/assets/js/140.e89f2f4d.js"><link rel="prefetch" href="/assets/js/141.e829b906.js"><link rel="prefetch" href="/assets/js/142.98e7aaee.js"><link rel="prefetch" href="/assets/js/143.1a65ec12.js"><link rel="prefetch" href="/assets/js/144.fc2c801e.js"><link rel="prefetch" href="/assets/js/145.ecd75a5b.js"><link rel="prefetch" href="/assets/js/146.69cc2143.js"><link rel="prefetch" href="/assets/js/147.a6021905.js"><link rel="prefetch" href="/assets/js/148.37a4f153.js"><link rel="prefetch" href="/assets/js/149.0a2441a8.js"><link rel="prefetch" href="/assets/js/15.dc33b636.js"><link rel="prefetch" href="/assets/js/150.e8388075.js"><link rel="prefetch" href="/assets/js/151.a4ebf84b.js"><link rel="prefetch" href="/assets/js/152.15e23325.js"><link rel="prefetch" href="/assets/js/153.57e02e73.js"><link rel="prefetch" href="/assets/js/154.ba69127e.js"><link rel="prefetch" href="/assets/js/155.98ebe21a.js"><link rel="prefetch" href="/assets/js/156.113ec037.js"><link rel="prefetch" href="/assets/js/157.fa80da63.js"><link rel="prefetch" href="/assets/js/158.b1b74414.js"><link rel="prefetch" href="/assets/js/159.40b68f4f.js"><link rel="prefetch" href="/assets/js/16.c098c1fa.js"><link rel="prefetch" href="/assets/js/160.3830ac97.js"><link rel="prefetch" href="/assets/js/161.9d4f7012.js"><link rel="prefetch" href="/assets/js/162.13cca27d.js"><link rel="prefetch" href="/assets/js/163.df4a6f84.js"><link rel="prefetch" href="/assets/js/164.bf27f0b0.js"><link rel="prefetch" href="/assets/js/165.c7b8cafa.js"><link rel="prefetch" href="/assets/js/166.3f217dd7.js"><link rel="prefetch" href="/assets/js/167.735e05d9.js"><link rel="prefetch" href="/assets/js/168.c575d903.js"><link rel="prefetch" href="/assets/js/169.3e8adc50.js"><link rel="prefetch" href="/assets/js/17.7437eb7d.js"><link rel="prefetch" href="/assets/js/170.f6d2e13d.js"><link rel="prefetch" href="/assets/js/171.d14168d4.js"><link rel="prefetch" href="/assets/js/172.16bd452f.js"><link rel="prefetch" href="/assets/js/173.c37e1e0f.js"><link rel="prefetch" href="/assets/js/175.975777ee.js"><link rel="prefetch" href="/assets/js/176.2517981a.js"><link rel="prefetch" href="/assets/js/177.1358e1ee.js"><link rel="prefetch" href="/assets/js/178.ab5f3594.js"><link rel="prefetch" href="/assets/js/179.09ba373d.js"><link rel="prefetch" href="/assets/js/18.835bef0b.js"><link rel="prefetch" href="/assets/js/180.9a7ec7cb.js"><link rel="prefetch" href="/assets/js/181.c79e50d9.js"><link rel="prefetch" href="/assets/js/182.23755a00.js"><link rel="prefetch" href="/assets/js/183.4449a6de.js"><link rel="prefetch" href="/assets/js/184.f83dc12a.js"><link rel="prefetch" href="/assets/js/185.65cf0c33.js"><link rel="prefetch" href="/assets/js/186.36ff7e5d.js"><link rel="prefetch" href="/assets/js/187.5472a769.js"><link rel="prefetch" href="/assets/js/188.988e7dba.js"><link rel="prefetch" href="/assets/js/189.31359ed4.js"><link rel="prefetch" href="/assets/js/19.4c3c8195.js"><link rel="prefetch" href="/assets/js/190.fdd64806.js"><link rel="prefetch" href="/assets/js/191.92498652.js"><link rel="prefetch" href="/assets/js/192.4834fa75.js"><link rel="prefetch" href="/assets/js/193.add31334.js"><link rel="prefetch" href="/assets/js/194.f12564a1.js"><link rel="prefetch" href="/assets/js/195.ffe31af5.js"><link rel="prefetch" href="/assets/js/196.6e446bf2.js"><link rel="prefetch" href="/assets/js/197.3a41a0a8.js"><link rel="prefetch" href="/assets/js/198.641bae3d.js"><link rel="prefetch" href="/assets/js/199.ebd03ef7.js"><link rel="prefetch" href="/assets/js/2.7266734b.js"><link rel="prefetch" href="/assets/js/20.ec5e4cf7.js"><link rel="prefetch" href="/assets/js/200.5cb868f3.js"><link rel="prefetch" href="/assets/js/201.19a87590.js"><link rel="prefetch" href="/assets/js/202.b618c8f5.js"><link rel="prefetch" href="/assets/js/203.0fbc9ac5.js"><link rel="prefetch" href="/assets/js/204.1457be89.js"><link rel="prefetch" href="/assets/js/205.a86b5230.js"><link rel="prefetch" href="/assets/js/206.881c82dc.js"><link rel="prefetch" href="/assets/js/207.3b0206d0.js"><link rel="prefetch" href="/assets/js/208.ed47ec02.js"><link rel="prefetch" href="/assets/js/209.99f97bdb.js"><link rel="prefetch" href="/assets/js/21.9188d311.js"><link rel="prefetch" href="/assets/js/210.bb7acf71.js"><link rel="prefetch" href="/assets/js/211.2e81be95.js"><link rel="prefetch" href="/assets/js/212.89ab703d.js"><link rel="prefetch" href="/assets/js/213.50276242.js"><link rel="prefetch" href="/assets/js/214.7f108614.js"><link rel="prefetch" href="/assets/js/215.6574a133.js"><link rel="prefetch" href="/assets/js/216.af9e8210.js"><link rel="prefetch" href="/assets/js/217.76057d83.js"><link rel="prefetch" href="/assets/js/218.55f67111.js"><link rel="prefetch" href="/assets/js/219.ffacadfe.js"><link rel="prefetch" href="/assets/js/22.37e5e389.js"><link rel="prefetch" href="/assets/js/220.5a5c5787.js"><link rel="prefetch" href="/assets/js/221.4eb8395e.js"><link rel="prefetch" href="/assets/js/222.62e527e3.js"><link rel="prefetch" href="/assets/js/223.1f1e7b4b.js"><link rel="prefetch" href="/assets/js/224.2259db70.js"><link rel="prefetch" href="/assets/js/225.91a5f216.js"><link rel="prefetch" href="/assets/js/226.a13c50f9.js"><link rel="prefetch" href="/assets/js/227.de470de3.js"><link rel="prefetch" href="/assets/js/228.5a80e5fb.js"><link rel="prefetch" href="/assets/js/229.efff5960.js"><link rel="prefetch" href="/assets/js/23.d9976b2c.js"><link rel="prefetch" href="/assets/js/230.5fbb8bb7.js"><link rel="prefetch" href="/assets/js/231.95c8ff44.js"><link rel="prefetch" href="/assets/js/232.19219fac.js"><link rel="prefetch" href="/assets/js/233.8b78e75a.js"><link rel="prefetch" href="/assets/js/234.3f914b2e.js"><link rel="prefetch" href="/assets/js/235.95ddd74d.js"><link rel="prefetch" href="/assets/js/236.7c4a59be.js"><link rel="prefetch" href="/assets/js/237.57371aaf.js"><link rel="prefetch" href="/assets/js/238.392a568c.js"><link rel="prefetch" href="/assets/js/239.f14d65f8.js"><link rel="prefetch" href="/assets/js/24.55ad5b7c.js"><link rel="prefetch" href="/assets/js/240.ebf3009f.js"><link rel="prefetch" href="/assets/js/241.5fb81b73.js"><link rel="prefetch" href="/assets/js/242.a7e25549.js"><link rel="prefetch" href="/assets/js/243.f74b3d4e.js"><link rel="prefetch" href="/assets/js/244.f95f77a7.js"><link rel="prefetch" href="/assets/js/245.53678547.js"><link rel="prefetch" href="/assets/js/246.39ebec6c.js"><link rel="prefetch" href="/assets/js/247.d6a2a18e.js"><link rel="prefetch" href="/assets/js/248.07736c3d.js"><link rel="prefetch" href="/assets/js/249.c8fd3339.js"><link rel="prefetch" href="/assets/js/25.011fc197.js"><link rel="prefetch" href="/assets/js/250.ba6ef5e1.js"><link rel="prefetch" href="/assets/js/251.3aa84692.js"><link rel="prefetch" href="/assets/js/252.38cdae28.js"><link rel="prefetch" href="/assets/js/253.041ddb67.js"><link rel="prefetch" href="/assets/js/254.9053aa71.js"><link rel="prefetch" href="/assets/js/255.86ccc408.js"><link rel="prefetch" href="/assets/js/256.b8365b1d.js"><link rel="prefetch" href="/assets/js/257.7f3fb60b.js"><link rel="prefetch" href="/assets/js/258.48a58ecf.js"><link rel="prefetch" href="/assets/js/259.edc72a7a.js"><link rel="prefetch" href="/assets/js/26.3cb3c5af.js"><link rel="prefetch" href="/assets/js/260.c78cbad0.js"><link rel="prefetch" href="/assets/js/261.b7c3d231.js"><link rel="prefetch" href="/assets/js/262.d7bcdae5.js"><link rel="prefetch" href="/assets/js/263.db764fa1.js"><link rel="prefetch" href="/assets/js/264.6a94bf4f.js"><link rel="prefetch" href="/assets/js/265.5f0e9c03.js"><link rel="prefetch" href="/assets/js/266.ff6b094d.js"><link rel="prefetch" href="/assets/js/267.04e7cb80.js"><link rel="prefetch" href="/assets/js/268.38b5f5a6.js"><link rel="prefetch" href="/assets/js/269.9ee4cd2e.js"><link rel="prefetch" href="/assets/js/27.7e232e2c.js"><link rel="prefetch" href="/assets/js/270.16a33f1e.js"><link rel="prefetch" href="/assets/js/271.f4d164b0.js"><link rel="prefetch" href="/assets/js/272.791fecfb.js"><link rel="prefetch" href="/assets/js/273.22a788bf.js"><link rel="prefetch" href="/assets/js/274.03fc79c3.js"><link rel="prefetch" href="/assets/js/275.7bd56154.js"><link rel="prefetch" href="/assets/js/276.2de6a69e.js"><link rel="prefetch" href="/assets/js/277.7ca05f6c.js"><link rel="prefetch" href="/assets/js/278.f0ee63c0.js"><link rel="prefetch" href="/assets/js/279.609eb7d9.js"><link rel="prefetch" href="/assets/js/28.32f1341e.js"><link rel="prefetch" href="/assets/js/280.e0e3a930.js"><link rel="prefetch" href="/assets/js/281.abad37c8.js"><link rel="prefetch" href="/assets/js/282.1501b44f.js"><link rel="prefetch" href="/assets/js/283.0558a3c4.js"><link rel="prefetch" href="/assets/js/284.756846db.js"><link rel="prefetch" href="/assets/js/285.bf31d51d.js"><link rel="prefetch" href="/assets/js/286.defd2a92.js"><link rel="prefetch" href="/assets/js/287.c67805d0.js"><link rel="prefetch" href="/assets/js/288.c457a47a.js"><link rel="prefetch" href="/assets/js/289.0afb1f12.js"><link rel="prefetch" href="/assets/js/29.f6301882.js"><link rel="prefetch" href="/assets/js/290.837b3179.js"><link rel="prefetch" href="/assets/js/291.8ca62fcf.js"><link rel="prefetch" href="/assets/js/292.e9a93680.js"><link rel="prefetch" href="/assets/js/293.cf0a52c6.js"><link rel="prefetch" href="/assets/js/294.0cdd1975.js"><link rel="prefetch" href="/assets/js/295.c8c7a0e2.js"><link rel="prefetch" href="/assets/js/296.4710615a.js"><link rel="prefetch" href="/assets/js/297.7e434981.js"><link rel="prefetch" href="/assets/js/298.27800acc.js"><link rel="prefetch" href="/assets/js/299.94524a20.js"><link rel="prefetch" href="/assets/js/30.457633e7.js"><link rel="prefetch" href="/assets/js/31.7ec68579.js"><link rel="prefetch" href="/assets/js/32.eef7ba01.js"><link rel="prefetch" href="/assets/js/33.80351101.js"><link rel="prefetch" href="/assets/js/34.16c10f0d.js"><link rel="prefetch" href="/assets/js/35.9f765814.js"><link rel="prefetch" href="/assets/js/36.2ebf9dea.js"><link rel="prefetch" href="/assets/js/37.1fc1164f.js"><link rel="prefetch" href="/assets/js/38.b6adb462.js"><link rel="prefetch" href="/assets/js/39.d93e83cf.js"><link rel="prefetch" href="/assets/js/4.2ac0ca3e.js"><link rel="prefetch" href="/assets/js/40.d706107a.js"><link rel="prefetch" href="/assets/js/41.fc02d2b6.js"><link rel="prefetch" href="/assets/js/42.7cab86d5.js"><link rel="prefetch" href="/assets/js/43.ef9cd246.js"><link rel="prefetch" href="/assets/js/44.a0569c2e.js"><link rel="prefetch" href="/assets/js/45.5fafe2cf.js"><link rel="prefetch" href="/assets/js/46.03f46ad7.js"><link rel="prefetch" href="/assets/js/47.df256cdb.js"><link rel="prefetch" href="/assets/js/48.65a60760.js"><link rel="prefetch" href="/assets/js/49.04fe57d4.js"><link rel="prefetch" href="/assets/js/5.a6226436.js"><link rel="prefetch" href="/assets/js/50.8651dd04.js"><link rel="prefetch" href="/assets/js/51.7662caaf.js"><link rel="prefetch" href="/assets/js/52.166e0a74.js"><link rel="prefetch" href="/assets/js/53.4afd7699.js"><link rel="prefetch" href="/assets/js/54.9a917c2c.js"><link rel="prefetch" href="/assets/js/55.5fa482d9.js"><link rel="prefetch" href="/assets/js/56.f6d194cf.js"><link rel="prefetch" href="/assets/js/57.a784f860.js"><link rel="prefetch" href="/assets/js/58.dd4202bd.js"><link rel="prefetch" href="/assets/js/59.25fbb8f7.js"><link rel="prefetch" href="/assets/js/6.b0755d77.js"><link rel="prefetch" href="/assets/js/60.d1e2af36.js"><link rel="prefetch" href="/assets/js/61.61571afd.js"><link rel="prefetch" href="/assets/js/62.1f1a3b47.js"><link rel="prefetch" href="/assets/js/63.6bfff3b4.js"><link rel="prefetch" href="/assets/js/64.71d4a416.js"><link rel="prefetch" href="/assets/js/65.617890e7.js"><link rel="prefetch" href="/assets/js/66.65920bca.js"><link rel="prefetch" href="/assets/js/67.001f760c.js"><link rel="prefetch" href="/assets/js/68.82192159.js"><link rel="prefetch" href="/assets/js/69.d4cb8bca.js"><link rel="prefetch" href="/assets/js/7.20d8bda4.js"><link rel="prefetch" href="/assets/js/70.24090621.js"><link rel="prefetch" href="/assets/js/71.405a13d9.js"><link rel="prefetch" href="/assets/js/72.dd8add1c.js"><link rel="prefetch" href="/assets/js/73.2bd91ddf.js"><link rel="prefetch" href="/assets/js/74.17ff1ebb.js"><link rel="prefetch" href="/assets/js/75.24e8d319.js"><link rel="prefetch" href="/assets/js/76.2414719f.js"><link rel="prefetch" href="/assets/js/77.77779e67.js"><link rel="prefetch" href="/assets/js/78.b262a06e.js"><link rel="prefetch" href="/assets/js/79.f02d599e.js"><link rel="prefetch" href="/assets/js/80.a1114b22.js"><link rel="prefetch" href="/assets/js/81.348cdb2b.js"><link rel="prefetch" href="/assets/js/82.957cb300.js"><link rel="prefetch" href="/assets/js/83.5c997e13.js"><link rel="prefetch" href="/assets/js/84.1274a110.js"><link rel="prefetch" href="/assets/js/85.a6e36a7f.js"><link rel="prefetch" href="/assets/js/86.9436b1a1.js"><link rel="prefetch" href="/assets/js/87.4e607f33.js"><link rel="prefetch" href="/assets/js/88.9a83dc3a.js"><link rel="prefetch" href="/assets/js/89.b0499d00.js"><link rel="prefetch" href="/assets/js/90.495af3b2.js"><link rel="prefetch" href="/assets/js/91.29907c15.js"><link rel="prefetch" href="/assets/js/92.5c148247.js"><link rel="prefetch" href="/assets/js/93.0e481e18.js"><link rel="prefetch" href="/assets/js/94.85777854.js"><link rel="prefetch" href="/assets/js/95.2baa77e2.js"><link rel="prefetch" href="/assets/js/96.a641e6ee.js"><link rel="prefetch" href="/assets/js/97.9ec64eb5.js"><link rel="prefetch" href="/assets/js/98.fb1e8cdc.js"><link rel="prefetch" href="/assets/js/99.39208b0d.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.3894b547.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.acf465bc.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/logo.png" alt="神族九帝's blog" class="logo"> <span class="site-name can-hide">神族九帝's blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="导航" class="dropdown-title"><!----> <span class="title" style="display:;">导航</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://docs.qq.com/sheet/DV09NbXlvQW5QVHpp?tab=BB08J2" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  神卡套餐
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://wallpaper.shenzjd.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  壁纸
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://alist.shenzjd.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  网盘
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="面试题" class="dropdown-title"><!----> <span class="title" style="display:;">面试题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/d4fd303b96708/" class="nav-link">面试突击</a></li><li class="dropdown-item"><!----> <a href="/pages/92a3d01d007d4/" class="nav-link">复习指导</a></li><li class="dropdown-item"><!----> <a href="/pages/41925dd005aac/" class="nav-link">HTML</a></li><li class="dropdown-item"><!----> <a href="/pages/b7bfe8372b67a/" class="nav-link">CSS</a></li><li class="dropdown-item"><!----> <a href="/pages/873bcbd19d49b/" class="nav-link">JavaScript</a></li><li class="dropdown-item"><!----> <a href="/pages/d35a839d5b4b6/" class="nav-link">设计模式</a></li><li class="dropdown-item"><!----> <a href="/pages/62502f3dd8041/" class="nav-link">浏览器</a></li><li class="dropdown-item"><!----> <a href="/pages/462a20be0048a/" class="nav-link">手写系列</a></li><li class="dropdown-item"><!----> <a href="/pages/7860f2c6dd001/" class="nav-link">Vue</a></li><li class="dropdown-item"><!----> <a href="/pages/b9014c6cc5abc/" class="nav-link">Webpack</a></li><li class="dropdown-item"><!----> <a href="/pages/5ff5a12bd4bd2/" class="nav-link">Http</a></li><li class="dropdown-item"><!----> <a href="/pages/274217c7c2876/" class="nav-link">前端优化</a></li><li class="dropdown-item"><!----> <a href="/pages/318726d3f6062/" class="nav-link">项目</a></li><li class="dropdown-item"><!----> <a href="/pages/0d28ab62c07b1/" class="nav-link">面试真题</a></li><li class="dropdown-item"><!----> <a href="/pages/9eaae444f0d5b/" class="nav-link">算法</a></li><li class="dropdown-item"><!----> <a href="/pages/96c5de658a426/" class="nav-link">精选文章</a></li><li class="dropdown-item"><!----> <a href="/pages/11309122e2911/" class="nav-link">八股文</a></li><li class="dropdown-item"><!----> <a href="/pages/294378a3e4f4/" class="nav-link">前端工程化</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="笔记" class="dropdown-title"><!----> <span class="title" style="display:;">笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/b7de4855154b1/" class="nav-link">工作笔记</a></li><li class="dropdown-item"><!----> <a href="/pages/664ab7712895e/" class="nav-link">前端基础建设与架构 30 讲</a></li><li class="dropdown-item"><!----> <a href="/pages/de5e42d9aade5/" class="nav-link">vue2源码学习</a></li><li class="dropdown-item"><!----> <a href="/pages/9a973ad8de378/" class="nav-link">剖析vuejs内部运行机制</a></li><li class="dropdown-item"><!----> <a href="/pages/7b9593fc1d246/" class="nav-link">TypeScript 入门实战笔记</a></li><li class="dropdown-item"><!----> <a href="/pages/1b26a2a3224ed/" class="nav-link">vue3源码学习</a></li><li class="dropdown-item"><!----> <a href="/pages/6840ffe53b64e/" class="nav-link">2周刷完100道前端优质面试真题</a></li><li class="dropdown-item"><!----> <a href="/pages/b2402e45f8434/" class="nav-link">思维导图</a></li><li class="dropdown-item"><!----> <a href="/pages/df8208be80149/" class="nav-link">npm发包</a></li><li class="dropdown-item"><!----> <a href="/pages/9d3cce63f5b1f/" class="nav-link">重学node</a></li><li class="dropdown-item"><!----> <a href="/pages/82d13321f862e/" class="nav-link">前端性能优化方法与实战</a></li><li class="dropdown-item"><!----> <a href="/pages/70523322e3de7/" class="nav-link">webpack原理与实战</a></li><li class="dropdown-item"><!----> <a href="/pages/201ade54239a8/" class="nav-link">webGl</a></li><li class="dropdown-item"><!----> <a href="/pages/493b3e94e222f/" class="nav-link">前端优化</a></li><li class="dropdown-item"><!----> <a href="/pages/9215dd598cf2f/" class="nav-link">Web3</a></li><li class="dropdown-item"><!----> <a href="/pages/654a66a46648a/" class="nav-link">更多</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="服务器" class="dropdown-title"><!----> <span class="title" style="display:;">服务器</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/559a89ed185a/" class="nav-link">未来要做的事</a></li><li class="dropdown-item"><!----> <a href="/pages/3643ef45ec2df/" class="nav-link">Stirling-PDF</a></li><li class="dropdown-item"><!----> <a href="/pages/84b570b268311/" class="nav-link">ComfyUI</a></li><li class="dropdown-item"><!----> <a href="/pages/266a6e0607e5b/" class="nav-link">富强</a></li><li class="dropdown-item"><!----> <a href="/pages/48f2f48705e84/" class="nav-link">宝塔面板+青龙面板</a></li><li class="dropdown-item"><!----> <a href="/pages/fd345053693da/" class="nav-link">安卓手机当服务器使用</a></li><li class="dropdown-item"><!----> <a href="/pages/fabb9a071e3ab/" class="nav-link">京东自动评价代码</a></li><li class="dropdown-item"><!----> <a href="/pages/4e2e100aa5bc3/" class="nav-link">搭建x-ui免流服务器(已失效)</a></li><li class="dropdown-item"><!----> <a href="/pages/1ec52a9aef382/" class="nav-link">海外联盟</a></li><li class="dropdown-item"><!----> <a href="/pages/4f8522f268cc3/" class="nav-link">好玩的docker</a></li><li class="dropdown-item"><!----> <a href="/pages/beb6c0bd8a66cea6/" class="nav-link">收藏夹</a></li><li class="dropdown-item"><!----> <a href="/pages/f9ef4c6a6f4e/" class="nav-link">更多</a></li></ul></div></div> <a href="https://github.com/wu529778790/wu529778790.github.io" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="/img/logo.png"> <div class="blogger-info"><h3>神族九帝,永不言弃</h3> <span></span></div></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="导航" class="dropdown-title"><!----> <span class="title" style="display:;">导航</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://docs.qq.com/sheet/DV09NbXlvQW5QVHpp?tab=BB08J2" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  神卡套餐
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://wallpaper.shenzjd.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  壁纸
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://alist.shenzjd.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  网盘
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="面试题" class="dropdown-title"><!----> <span class="title" style="display:;">面试题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/d4fd303b96708/" class="nav-link">面试突击</a></li><li class="dropdown-item"><!----> <a href="/pages/92a3d01d007d4/" class="nav-link">复习指导</a></li><li class="dropdown-item"><!----> <a href="/pages/41925dd005aac/" class="nav-link">HTML</a></li><li class="dropdown-item"><!----> <a href="/pages/b7bfe8372b67a/" class="nav-link">CSS</a></li><li class="dropdown-item"><!----> <a href="/pages/873bcbd19d49b/" class="nav-link">JavaScript</a></li><li class="dropdown-item"><!----> <a href="/pages/d35a839d5b4b6/" class="nav-link">设计模式</a></li><li class="dropdown-item"><!----> <a href="/pages/62502f3dd8041/" class="nav-link">浏览器</a></li><li class="dropdown-item"><!----> <a href="/pages/462a20be0048a/" class="nav-link">手写系列</a></li><li class="dropdown-item"><!----> <a href="/pages/7860f2c6dd001/" class="nav-link">Vue</a></li><li class="dropdown-item"><!----> <a href="/pages/b9014c6cc5abc/" class="nav-link">Webpack</a></li><li class="dropdown-item"><!----> <a href="/pages/5ff5a12bd4bd2/" class="nav-link">Http</a></li><li class="dropdown-item"><!----> <a href="/pages/274217c7c2876/" class="nav-link">前端优化</a></li><li class="dropdown-item"><!----> <a href="/pages/318726d3f6062/" class="nav-link">项目</a></li><li class="dropdown-item"><!----> <a href="/pages/0d28ab62c07b1/" class="nav-link">面试真题</a></li><li class="dropdown-item"><!----> <a href="/pages/9eaae444f0d5b/" class="nav-link">算法</a></li><li class="dropdown-item"><!----> <a href="/pages/96c5de658a426/" class="nav-link">精选文章</a></li><li class="dropdown-item"><!----> <a href="/pages/11309122e2911/" class="nav-link">八股文</a></li><li class="dropdown-item"><!----> <a href="/pages/294378a3e4f4/" class="nav-link">前端工程化</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="笔记" class="dropdown-title"><!----> <span class="title" style="display:;">笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/b7de4855154b1/" class="nav-link">工作笔记</a></li><li class="dropdown-item"><!----> <a href="/pages/664ab7712895e/" class="nav-link">前端基础建设与架构 30 讲</a></li><li class="dropdown-item"><!----> <a href="/pages/de5e42d9aade5/" class="nav-link">vue2源码学习</a></li><li class="dropdown-item"><!----> <a href="/pages/9a973ad8de378/" class="nav-link">剖析vuejs内部运行机制</a></li><li class="dropdown-item"><!----> <a href="/pages/7b9593fc1d246/" class="nav-link">TypeScript 入门实战笔记</a></li><li class="dropdown-item"><!----> <a href="/pages/1b26a2a3224ed/" class="nav-link">vue3源码学习</a></li><li class="dropdown-item"><!----> <a href="/pages/6840ffe53b64e/" class="nav-link">2周刷完100道前端优质面试真题</a></li><li class="dropdown-item"><!----> <a href="/pages/b2402e45f8434/" class="nav-link">思维导图</a></li><li class="dropdown-item"><!----> <a href="/pages/df8208be80149/" class="nav-link">npm发包</a></li><li class="dropdown-item"><!----> <a href="/pages/9d3cce63f5b1f/" class="nav-link">重学node</a></li><li class="dropdown-item"><!----> <a href="/pages/82d13321f862e/" class="nav-link">前端性能优化方法与实战</a></li><li class="dropdown-item"><!----> <a href="/pages/70523322e3de7/" class="nav-link">webpack原理与实战</a></li><li class="dropdown-item"><!----> <a href="/pages/201ade54239a8/" class="nav-link">webGl</a></li><li class="dropdown-item"><!----> <a href="/pages/493b3e94e222f/" class="nav-link">前端优化</a></li><li class="dropdown-item"><!----> <a href="/pages/9215dd598cf2f/" class="nav-link">Web3</a></li><li class="dropdown-item"><!----> <a href="/pages/654a66a46648a/" class="nav-link">更多</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="服务器" class="dropdown-title"><!----> <span class="title" style="display:;">服务器</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/559a89ed185a/" class="nav-link">未来要做的事</a></li><li class="dropdown-item"><!----> <a href="/pages/3643ef45ec2df/" class="nav-link">Stirling-PDF</a></li><li class="dropdown-item"><!----> <a href="/pages/84b570b268311/" class="nav-link">ComfyUI</a></li><li class="dropdown-item"><!----> <a href="/pages/266a6e0607e5b/" class="nav-link">富强</a></li><li class="dropdown-item"><!----> <a href="/pages/48f2f48705e84/" class="nav-link">宝塔面板+青龙面板</a></li><li class="dropdown-item"><!----> <a href="/pages/fd345053693da/" class="nav-link">安卓手机当服务器使用</a></li><li class="dropdown-item"><!----> <a href="/pages/fabb9a071e3ab/" class="nav-link">京东自动评价代码</a></li><li class="dropdown-item"><!----> <a href="/pages/4e2e100aa5bc3/" class="nav-link">搭建x-ui免流服务器(已失效)</a></li><li class="dropdown-item"><!----> <a href="/pages/1ec52a9aef382/" class="nav-link">海外联盟</a></li><li class="dropdown-item"><!----> <a href="/pages/4f8522f268cc3/" class="nav-link">好玩的docker</a></li><li class="dropdown-item"><!----> <a href="/pages/beb6c0bd8a66cea6/" class="nav-link">收藏夹</a></li><li class="dropdown-item"><!----> <a href="/pages/f9ef4c6a6f4e/" class="nav-link">更多</a></li></ul></div></div> <a href="https://github.com/wu529778790/wu529778790.github.io" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>工作笔记</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>前端基础建设与架构 30 讲</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pages/664ab7712895e/" class="sidebar-link">开篇词  像架构师一样思考，突破技术成长瓶颈</a></li><li><a href="/pages/49cd9ababc9a1/" class="sidebar-link">npm 安装机制及企业级部署私服原理</a></li><li><a href="/pages/09fbf8a1156b8/" class="sidebar-link">Yarn 的安装理念及如何破解依赖管理困境</a></li><li><a href="/pages/10f2ebc91b73c/" class="sidebar-link">CI 环境上的 npm 优化及更多工程化问题解析</a></li><li><a href="/pages/245300f457539/" class="sidebar-link">横向对比主流构建工具，了解构建工具的设计考量</a></li><li><a href="/pages/a094da54e65f/" class="sidebar-link">Vite 实现：从源码分析出发，构建 bundlele 开发工程</a></li><li><a href="/pages/3bbfdc8e7cf4/" class="sidebar-link">core-j 及垫片理念：设计一个“最完美”的 Polyfill 方案</a></li><li><a href="/pages/a0e586d6898f9/" class="sidebar-link">梳理混乱的 Babel，不再被编译报错困扰</a></li><li><a href="/pages/3caede772e761/" class="sidebar-link">探索前端工具链生态，制定一个统一标准化 babel-preet</a></li><li><a href="/pages/4dbb987bcfc5f/" class="sidebar-link">从实战出发，从 0 到 1 构建一个符合标准的公共库</a></li><li><a href="/pages/7f9d7786e6aa1/" class="sidebar-link">代码拆分和按需加载：缩减 bundle ize，把性能做到极致</a></li><li><a href="/pages/d7a25227c33fc/" class="sidebar-link">Tree Shaking：移除 JavaScript 上下文中的未引用代码</a></li><li><a href="/pages/d0d381c1e284e/" class="sidebar-link">如何理解 AST 实现和编译原理？</a></li><li><a href="/pages/773169c96a412/" class="sidebar-link">工程化思维处理方案：如何实现应用主题切换功能？</a></li><li><a href="/pages/943231620daa3/" class="sidebar-link">解析 Webpack 源码，实现自己的构建工具</a></li><li><a href="/pages/12102b0892053/" class="sidebar-link">从编译到运行，跨端解析小程序多端方案</a></li><li><a href="/pages/22b509db57f1a/" class="sidebar-link">原生跨平台技术：移动端跨平台到 Flutter 的技术变革</a></li><li><a href="/pages/20b426615a1c8/" class="sidebar-link">学习 axio：封装一个结构清晰的 Fetch 库</a></li><li><a href="/pages/3c41f5dcb7811/" class="sidebar-link">对比 Koa 和 Redux：分析前端中的中间件理念</a></li><li><a href="/pages/328eaba5cae39/" class="sidebar-link">如何理解软件开发灵活性和高定制性？</a></li><li><a href="/pages/8df5b32829fc9/" class="sidebar-link">如何理解前端中面向对象的思想？</a></li><li><a href="/pages/55d7058b01d3d/" aria-current="page" class="active sidebar-link">如何利用 JavaScript 实现经典数据结构？</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/pages/073be8a8552d5/" class="sidebar-link">剖析前端中的数据结构应用场景</a></li><li><a href="/pages/8fad03ebb05b2/" class="sidebar-link">npm cript：打造一体化的构建和部署流程</a></li><li><a href="/pages/d07bdbfe6f9ce/" class="sidebar-link">自动化代码检查：剖析 Lint 工具和工程化接入&amp;优化方案</a></li><li><a href="/pages/378f678a7284b/" class="sidebar-link">如何设计一个前端 + 移动端离线包方案？</a></li><li><a href="/pages/c4145a056135d/" class="sidebar-link">如何设计一个“万能”项目脚手架？</a></li><li><a href="/pages/c78977462af88/" class="sidebar-link">同构渲染架构：实现一个 SSR 应用</a></li><li><a href="/pages/6287d534540ad/" class="sidebar-link">设计性能守卫系统：完善 CICD 流程</a></li><li><a href="/pages/5418c92e818e/" class="sidebar-link">实践打造网关：改造企业 BFF 方案</a></li><li><a href="/pages/eeb2a33385edd/" class="sidebar-link">实现高可用：使用 Puppeteer 生成性能最优的海报系统</a></li><li><a href="/pages/b559221c07262/" class="sidebar-link">结束语  再谈项目的基建和架构，个人的价值和方向</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>vue2源码学习</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>剖析vuejs内部运行机制</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>TypeScript 入门实战笔记</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>vue3源码学习</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>2周刷完100道前端优质面试真题</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>思维导图</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>npm发包</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>重学node</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端性能优化方法与实战</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>webpack原理与实战</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>webGl</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端优化</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Web3</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>更多</span> <span class="arrow right"></span></p> <!----></section></li></ul> <div class="sidebar-slot sidebar-slot-bottom"><!-- 正方形 -->
+      <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-7828333725993554"
+          data-ad-slot="3508773082"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script></div></aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-071ed482><div class="articleInfo" data-v-071ed482><ul class="breadcrumbs" data-v-071ed482><li data-v-071ed482><a href="/" title="首页" class="iconfont icon-home router-link-active" data-v-071ed482></a></li> <li data-v-071ed482><a href="/categories/?category=%E7%AC%94%E8%AE%B0" title="分类" data-v-071ed482>笔记</a></li> <li data-v-071ed482><a href="/categories/?category=%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E5%BB%BA%E8%AE%BE%E4%B8%8E%E6%9E%B6%E6%9E%84%2030%20%E8%AE%B2" title="分类" data-v-071ed482>前端基础建设与架构 30 讲</a></li> <!----></ul> <div class="info" data-v-071ed482><div title="作者" class="author iconfont icon-touxiang" data-v-071ed482><a href="https://shenzjd.com" target="_blank" title="作者" class="beLink" data-v-071ed482>wu529778790</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-071ed482><a href="javascript:;" data-v-071ed482>2024-04-07</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABH1JREFUSA3tVl1oHFUUPmdmd2ltklqbpJDiNnXFmgbFktho7YMPNiJSSZM0+CAYSkUELVhM6YuwIPpgoOKDqOBDC0XE2CQoNtQXBUFTTcCi+Wlh1V2TQExsUzcltd3M9Tt3ZjZzZ2fT+OJTL8yeM+eee757fmeJbq//KQL8X3DUSFOcfr7cRsRtxNQMWueeVzOkaITIGqQHNg5y8+jNW9ldM7A6nTpAjuolUikAwq7CE3WcM2RRDz+XGVgN3FptU/aUSlvq9Pa3iZ1+sgAqJyyAFqkipd9dqiwHF3P65YycLWc/6sqGrvoEoIp6DOFaX5h6+dnfjkWprwqsPk0dUGq5vySwDImC10KxFHgGL1SWoc92O3eVht09qdXNH11I2SsTsJYqMWzihqGMi+A+Garf3BAuuLI5oGlULyNfyB/HYNujwktOfRrMr5t77NmevqaUopx0grnKAyvVpmwUDB4x6FPXuGvYLTDwWsejwgtgkYKPqRJg8SV6xaiZ3ZTppGneS4yfH5/66fZSDHv+QZci/+h5c5UHtpy67JUqGppM0sh0Nc1dW6/N1W5Yoqat8/TU/VnadmdeW2PLLSyh0cvxBs3KbqTmwYPpxN4do/mzE8nEpvX/UMu2Wbp74zUAK5q6WkHns7V0eWkdPbPzd3rxkTGybadYySumVzhcaJFbs5UrEkQ/+CK8gF5dnh/6ciIZ73gwQ927L1IitoxKLXYP3SjYdOrHHfTZhRRlFyrorafPk20B3HPD1y2G3qKZME5Jcf3t/HUC13/8tSd++vqFveMUTwAUxSUFI1QekR1+bIze3D9MF2aq6cPvG72CgnldWCFqyRw3lwH8ZMerjTD9ElRO7Gv44wNpC90aASqGfVlz/Rx17srQ57/UU26hkhQqUB7dBR71WmzQhHUnblGmVOEw0jhbV1n9OlXUDCIRGaNV5Jp43N516fN7JmnTHdfp7Hgy0luO4aMhtkLL8Bi3bUWYvzh5Mn1dTxrL6QmGuRhGL/TiTTxRoEdTszSaq9GR0NGA3KdkOz3hqSV3MIDhQ5IVX/Ivx3umBti2es2h4eZby7x8br1rkf7Mo90AqC8aQ3sJeNzqFRu+vSANAQe3PL7l0HGOAdwDCeZYvNKeoZp1Qfs6Aipndh86HmFRi0LAnEO47wsqM6cdfjh3jBPUzhZy7nvlUfFsamED1VQt6aISHVymXZ/B2aCtIG8AI8xfobj2d3en1wWVhOeHELKmLQ1s211s88comkv4UCwWyF787mJdYXtNfhKAXVqnKTq8QZvGAGGOfaTo5pGZ/PwbUCr5+DPr/1J92JNHr9aOl/F3iI5+O1nfybsGxoimvZ3ViWSluDITw3P37mypheDIPY0tw7+O/5ApbkYw+zpfaUVu32Pi98+defdUhEpZkRFq0aqyNh9FuL9hpYbEm6iwi0z2REd09ZmyENEbuhjDWzKvZXTqKYaBIr3tt5kuPtQBZFvEUwHt60vfCNu41XsksH9Ij1BMMz1Y0OOunHNShFIP5868g5zeXmuLwL9T4b6Q2+KejgAAAABJRU5ErkJggg==">
+          如何利用 JavaScript 实现经典数据结构？
+        </h1> <div class="page-slot page-slot-top"><!-- 固定100% * 90px可显示，max-height:90px未见显示-->
+     <ins class="adsbygoogle"
+          style="display:inline-block;width:100%;max-height:90px"
+          data-ad-client="ca-pub-7828333725993554"
+          data-ad-slot="6625304284"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script></div> <div class="theme-vdoing-content content__default"><p data-nodeid="2">前面几讲我们从编程思维的角度分析了软件设计哲学。从这一讲开始，我们将深入数据结构这个话题。</p> <p data-nodeid="3">数据结构是计算机中组织和存储数据的特定方式，它的目的是方便且高效地对数据进行访问和修改。数据结构体现了数据之间的关系，以及操作数据的一系列方法。数据又是程序的基本单元，因此无论哪种语言、哪种领域，都离不开数据结构；另一方面，数据结构是算法的基础，其本身也包含了算法的部分内容。也就是说，想要掌握算法，有一个坚固的数据结构基础是必要条件。</p> <p data-nodeid="4">下面我们用 JavaScript 实现几个常见的数据结构。</p> <h3 data-nodeid="5">数据结构介绍</h3> <p data-nodeid="6">我通常将数据结构分为八大类。</p> <ul data-nodeid="7"><li data-nodeid="8"><p data-nodeid="9">数组：Array</p></li> <li data-nodeid="10"><p data-nodeid="11">堆栈：Stack</p></li> <li data-nodeid="12"><p data-nodeid="13">队列：Queue</p></li> <li data-nodeid="14"><p data-nodeid="15">链表：Linked Lists</p></li> <li data-nodeid="16"><p data-nodeid="17">树：Trees</p></li> <li data-nodeid="18"><p data-nodeid="19">图：Graphs</p></li> <li data-nodeid="20"><p data-nodeid="21">字典树：Trie</p></li> <li data-nodeid="22"><p data-nodeid="23">散列表（哈希表）：Hash Tables</p></li></ul> <p data-nodeid="24">我们可以先大体感知一下各种数据结构之间的关系：</p> <ul data-nodeid="25"><li data-nodeid="26"><p data-nodeid="27">栈和队列是类似数组的结构，非常多的初级题目要求用数组实现栈和队列，它们在插入和删除的方式上和数组有所差异，但是实现还是非常简单的；</p></li> <li data-nodeid="28"><p data-nodeid="29">链表、树和图这种数据结构的特点是，其节点需要引用其他节点，因此在增/删时，需要注意对<strong data-nodeid="258">相关前驱和后继节点</strong>的影响；</p></li> <li data-nodeid="30"><p data-nodeid="31">可以从堆栈和队列出发，构建出链表；</p></li> <li data-nodeid="32"><p data-nodeid="33">树和图最为复杂，但它们本质上扩展了链表的概念；</p></li> <li data-nodeid="34"><p data-nodeid="35">散列表的关键是<strong data-nodeid="266">理解散列函数</strong>，明白依赖散列函数实现保存和定位数据的过程；</p></li> <li data-nodeid="36"><p data-nodeid="37">直观上认为，链表适合记录和存储数据；哈希表和字典树在检索数据以及搜索方面有更大的应用场景。</p></li></ul> <p data-nodeid="38">以上这些“直观感性”的认知并不是“恒等式”，我们将在下面的学习中去印证这些“认知”，这两讲中，你将会看到熟悉的 React、Vue 框架的部分实现，将会看到典型的算法场景，也请你做好相关基础知识的储备。</p> <h3 data-nodeid="39">堆栈和队列</h3> <p data-nodeid="40">栈和队列是一种<strong data-nodeid="275">操作受限的线性结构</strong>，它们非常简单，虽然 JavaScript 并没有原生内置这样的数据结构，但是我们可以轻松地模拟出来。</p> <p data-nodeid="41">栈的实现，后进先出 LIFO（Last in、First out）：</p> <pre data-nodeid="42" class="lang-java"><code data-language="java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Stack</span> </span>{
+  constructor(...args) {
+    <span class="hljs-comment">// 使用数组进行模拟</span>
+    <span class="hljs-keyword">this</span>.stack = [...args]
+  }
+  push(...items) {
+    <span class="hljs-comment">// 入栈</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.stack.push(... items)
+  }
+  pop() {
+   <span class="hljs-comment">// 出栈，从数组尾部弹出一项</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.stack.pop()
+  }
+  peek() {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.isEmpty()
+        ? undefined
+        : <span class="hljs-keyword">this</span>.stack[<span class="hljs-keyword">this</span>.size() - <span class="hljs-number">1</span>]
+  }
+  isEmpty() {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.size() == <span class="hljs-number">0</span>
+  }
+  size() {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.stack.length
+  }
+}
+</code></pre> <p data-nodeid="43">队列的实现，先进先出 FIFO（First in、First out），“比葫芦画瓢”即可：</p> <pre data-nodeid="44" class="lang-java"><code data-language="java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Queue</span> </span>{
+  constructor(...args) {
+    <span class="hljs-comment">// 使用数组进行模拟</span>
+    <span class="hljs-keyword">this</span>.queue = [...args]
+  }
+  enqueue(...items) {
+    <span class="hljs-comment">// 入队</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.queue.push(... items)
+  }
+  dequeue() {
+    <span class="hljs-comment">// 出队</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.queue.shift()
+  }
+  front() {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.isEmpty()
+        ? undefined
+        : <span class="hljs-keyword">this</span>.queue[<span class="hljs-number">0</span>]
+  }
+  back() {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.isEmpty()
+        ? undefined
+        : <span class="hljs-keyword">this</span>.queue[<span class="hljs-keyword">this</span>.size() - <span class="hljs-number">1</span>]
+  }
+  isEmpty() {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.size() == <span class="hljs-number">0</span>
+  }
+  size() {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.queue.length
+  }
+}
+</code></pre> <p data-nodeid="45">我们可以看到不管是栈还是队列，都是用数组进行模拟的。数组是最基本的数据结构，但是它的价值是惊人的。我们会在下一讲，进一步介绍栈和队列的应用场景。</p> <h3 data-nodeid="46">链表（单向链表和双向链表）</h3> <p data-nodeid="47">堆栈和队列都可以利用数组实现，链表和数组一样，也实现了按照一定的顺序存储元素，不同的地方在于链表不能像数组一样通过下标访问，而是<strong data-nodeid="289">每一个元素都能够通过“指针”指向下一个元素</strong>。我们可以直观地得出结论：<strong data-nodeid="290">链表不需要一段连续的存储空间</strong>，“指向下一个元素”的方式能够更大限度地利用内存。</p> <p data-nodeid="48">根据上述内容，我们可以总结出链表的优点在于：</p> <ul data-nodeid="49"><li data-nodeid="50"><p data-nodeid="51">链表的插入和删除操作的时间复杂度是常数级的，我们只需要改变相关节点的指针指向即可；</p></li> <li data-nodeid="52"><p data-nodeid="53">链表可以像数组一样顺序访问，查找元素的时间复杂度是线性的。</p></li></ul> <p data-nodeid="54">要想实现链表，我们需要先对链表进行分类，常见的有<strong data-nodeid="299">单链表和双向链表</strong>。</p> <ul data-nodeid="2077"><li data-nodeid="2078"><p data-nodeid="2079">单链表：单链表是维护一系列节点的数据结构，其特点是：每个节点包含了数据，同时包含指向链表中下一个节点的指针。</p></li> <li data-nodeid="2080"><p data-nodeid="2081">双向链表：不同于单链表，双向链表特点：每个节点分支除了包含其数据以外，还包含了分别指向其前驱和后继节点的指针。</p></li> <li data-nodeid="2082"></li></ul> <p data-nodeid="2971"><img src="https://s0.lgstatic.com/i/image6/M01/04/F5/CioPOWAvYtuAEfl-AAIhGegvMJU666.png" alt="图片12.png" data-nodeid="2974"></p> <p data-nodeid="61">首先，根据双向链表的特点，我们实现一个节点构造函数（节点类），如下代码：</p> <pre data-nodeid="62" class="lang-java"><code data-language="java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Node</span> </span>{
+    constructor(data) {
+        <span class="hljs-comment">// data 为当前节点储存的数据</span>
+        <span class="hljs-keyword">this</span>.data = data
+        <span class="hljs-comment">// next 指向下一个节点</span>
+        <span class="hljs-keyword">this</span>.next = <span class="hljs-keyword">null</span>
+        <span class="hljs-comment">// prev 指向前一个节点</span>
+        <span class="hljs-keyword">this</span>.prev = <span class="hljs-keyword">null</span>
+    }
+}
+</code></pre> <p data-nodeid="63">有了节点类，我们来初步实现双向链表类，如下代码：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">class</span> <span class="token class-name">DoublyLinkedList</span> <span class="token punctuation">{</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 双向链表开头</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>head <span class="token operator">=</span> <span class="token keyword">null</span>
+        <span class="token comment">// 双向链表结尾</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>tail <span class="token operator">=</span> <span class="token keyword">null</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p data-nodeid="65">接下来，需要实现双向链表原型上的一些方法，这些方法包括以下几种。</p> <ul data-nodeid="66"><li data-nodeid="67"><p data-nodeid="68">add：在链表尾部添加一个新的节点，实现如下代码：</p></li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token function">add</span><span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 实例化一个节点</span>
+  <span class="token keyword">let</span> node <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+  <span class="token comment">// 如果当前链表还没有头</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>head <span class="token operator">=</span> node
+    <span class="token keyword">this</span><span class="token punctuation">.</span>tail <span class="token operator">=</span> node
+  <span class="token punctuation">}</span>
+  
+  <span class="token comment">// 如果当前链表已经有了头，只需要在尾部加上该节点</span>
+  <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 把当前的尾部作为新节点的 prev</span>
+    node<span class="token punctuation">.</span>prev <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>tail
+    <span class="token comment">// 把当前的尾部的 next 指向为新节点 node</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>tail<span class="token punctuation">.</span>next <span class="token operator">=</span> node
+    <span class="token keyword">this</span><span class="token punctuation">.</span>tail <span class="token operator">=</span> node
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ul data-nodeid="70"><li data-nodeid="71"><p data-nodeid="72">addAt：在链表指定位置添加一个新的节点，实现如下代码：</p></li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token function">addAt</span><span class="token punctuation">(</span><span class="token parameter">index<span class="token punctuation">,</span> item</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token keyword">let</span> current <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>head
+
+   <span class="token comment">// 维护查找时当前节点的索引</span>
+   <span class="token keyword">let</span> counter <span class="token operator">=</span> <span class="token number">1</span>
+   <span class="token keyword">let</span> node <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span>
+   <span class="token comment">// 如果在头部插入</span>
+   <span class="token keyword">if</span> <span class="token punctuation">(</span>index <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+     <span class="token keyword">this</span><span class="token punctuation">.</span>head<span class="token punctuation">.</span>prev <span class="token operator">=</span> node
+     node<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>head
+     <span class="token keyword">this</span><span class="token punctuation">.</span>head <span class="token operator">=</span> node
+   <span class="token punctuation">}</span>
+
+   <span class="token comment">// 非头部插入，需要从头开始，找寻插入位置</span>
+   <span class="token keyword">else</span> <span class="token punctuation">{</span>
+     <span class="token keyword">while</span><span class="token punctuation">(</span>current<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      current <span class="token operator">=</span> current<span class="token punctuation">.</span>next
+      <span class="token keyword">if</span><span class="token punctuation">(</span> counter <span class="token operator">===</span> index<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        node<span class="token punctuation">.</span>prev <span class="token operator">=</span> current<span class="token punctuation">.</span>prev
+        current<span class="token punctuation">.</span>prev<span class="token punctuation">.</span>next <span class="token operator">=</span> node
+        node<span class="token punctuation">.</span>next <span class="token operator">=</span> current
+        current<span class="token punctuation">.</span>prev <span class="token operator">=</span> node
+      <span class="token punctuation">}</span>
+      counter<span class="token operator">++</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ul data-nodeid="74"><li data-nodeid="75"><p data-nodeid="76">remove：删除链表指定数据项节点，实现如下代码：</p></li></ul> <pre data-nodeid="77" class="lang-java"><code data-language="java">remove(item) {
+  let current = <span class="hljs-keyword">this</span>.<span class="hljs-function">head
+  <span class="hljs-title">while</span> <span class="hljs-params">(current)</span> </span>{
+       <span class="hljs-comment">// 找到了目标节点</span>
+    <span class="hljs-keyword">if</span> (current.data === item ) {
+      <span class="hljs-comment">// 目标链表只有当前目标项，即目标节点即是链表头又是链表尾</span>
+      <span class="hljs-keyword">if</span> (current == <span class="hljs-keyword">this</span>.head &amp;&amp; current == <span class="hljs-keyword">this</span>.tail) {
+        <span class="hljs-keyword">this</span>.head = <span class="hljs-keyword">null</span>
+        <span class="hljs-keyword">this</span>.tail = <span class="hljs-keyword">null</span>
+      }
+      <span class="hljs-comment">// 目标节点为链表头</span>
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (current == <span class="hljs-keyword">this</span>.head ) {
+        <span class="hljs-keyword">this</span>.head = <span class="hljs-keyword">this</span>.head.next
+        <span class="hljs-keyword">this</span>.head.prev = <span class="hljs-keyword">null</span>
+      }
+      <span class="hljs-comment">// 目标节点为链表尾部</span>
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (current == <span class="hljs-keyword">this</span>.tail ) {
+        <span class="hljs-keyword">this</span>.tail = <span class="hljs-keyword">this</span>.tail.prev;
+        <span class="hljs-keyword">this</span>.tail.next = <span class="hljs-keyword">null</span>;
+      }
+      <span class="hljs-comment">// 目标节点在链表首尾之间，中部</span>
+      <span class="hljs-keyword">else</span> {
+        current.prev.next = current.next;
+        current.next.prev = current.prev;
+      }
+   }
+   current = current.next
+  }
+}
+</code></pre> <ul data-nodeid="78"><li data-nodeid="79"><p data-nodeid="80">removeAt：删除链表指定位置节点，实现如下代码：</p></li></ul> <pre data-nodeid="81" class="lang-java"><code data-language="java">removeAt(index) {
+  <span class="hljs-comment">// 都是从“头”开始遍历</span>
+  let current = <span class="hljs-keyword">this</span>.head
+  let counter = <span class="hljs-number">1</span>
+  <span class="hljs-comment">// 删除链表头部</span>
+  <span class="hljs-keyword">if</span> (index === <span class="hljs-number">0</span> ) {
+   <span class="hljs-keyword">this</span>.head = <span class="hljs-keyword">this</span>.head.next
+   <span class="hljs-keyword">this</span>.head.prev = <span class="hljs-keyword">null</span>
+  }
+  <span class="hljs-keyword">else</span> {
+   <span class="hljs-keyword">while</span>(current) {
+    current = current.next
+    <span class="hljs-comment">// 如果目标节点在链表尾</span>
+    <span class="hljs-keyword">if</span> (current == <span class="hljs-keyword">this</span>.tail) {
+     <span class="hljs-keyword">this</span>.tail = <span class="hljs-keyword">this</span>.tail.prev
+     <span class="hljs-keyword">this</span>.tail.next = <span class="hljs-keyword">null</span>
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (counter === index) {
+     current.prev.next = current.next
+     current.next.prev = current.prev
+     <span class="hljs-keyword">break</span>
+    }
+    counter++
+   }
+  }
+}
+</code></pre> <ul data-nodeid="82"><li data-nodeid="83"><p data-nodeid="84">reverse：翻转链表，实现如下代码：</p></li></ul> <pre data-nodeid="85" class="lang-java"><code data-language="java">reverse() {
+  let current = <span class="hljs-keyword">this</span>.head
+  let prev = <span class="hljs-function"><span class="hljs-keyword">null</span>
+  <span class="hljs-title">while</span> <span class="hljs-params">(current)</span> </span>{
+   let next = current.next
+   <span class="hljs-comment">// 前后倒置</span>
+   current.next = prev
+   current.prev = next
+   prev = current
+   current = next
+  }
+  <span class="hljs-keyword">this</span>.tail = <span class="hljs-keyword">this</span>.head
+  <span class="hljs-keyword">this</span>.head = prev
+}
+</code></pre> <ul data-nodeid="86"><li data-nodeid="87"><p data-nodeid="88">swap：交换两个节点数据，实现如下代码：</p></li></ul> <pre data-nodeid="89" class="lang-java"><code data-language="java">swap(index1, index2) {
+  <span class="hljs-comment">// 使 index1 始终小于 index2，方便后面查找交换</span>
+  <span class="hljs-keyword">if</span> (index1 &gt; index2) {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.swap(index2, index1)
+  }
+  let current = <span class="hljs-keyword">this</span>.head
+  let counter = <span class="hljs-number">0</span>
+  <span class="hljs-function">let firstNode
+  <span class="hljs-title">while</span><span class="hljs-params">(current !== <span class="hljs-keyword">null</span>)</span> </span>{
+    <span class="hljs-comment">// 找到第一个节点，先存起来</span>
+    <span class="hljs-keyword">if</span> (counter === index1 ){
+        firstNode = current
+    }
+    <span class="hljs-comment">// 找到第二个节点，进行数据交换</span>
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (counter === index2) {
+      <span class="hljs-comment">// ES 提供了更为简洁的交换数据的方式，这里我们用传统方式实现，更为直观</span>
+      let temp = current.data
+      current.data = firstNode.data
+      firstNode.data = temp
+    }
+    current = current.next
+    counter++
+  }
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>
+}
+</code></pre> <ul data-nodeid="90"><li data-nodeid="91"><p data-nodeid="92">isEmpty：查询链表是否为空，实现如下代码：</p></li></ul> <pre data-nodeid="93" class="lang-java"><code data-language="java">isEmpty() {
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.length() &lt; <span class="hljs-number">1</span>
+}
+</code></pre> <ul data-nodeid="94"><li data-nodeid="95"><p data-nodeid="96">length：查询链表长度，实现如下代码：</p></li></ul> <pre data-nodeid="97" class="lang-java"><code data-language="java">length() {
+  let current = <span class="hljs-keyword">this</span>.head
+  let counter = <span class="hljs-number">0</span>
+  <span class="hljs-comment">// 完整遍历一遍链表</span>
+  <span class="hljs-keyword">while</span>(current !== <span class="hljs-keyword">null</span>) {
+    counter++
+    current = current.next
+  }
+  <span class="hljs-keyword">return</span> counter
+}
+</code></pre> <ul data-nodeid="98"><li data-nodeid="99"><p data-nodeid="100">traverse：遍历链表，实现如下代码：</p></li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token function">traverse</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> current <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>head
+  
+  <span class="token keyword">while</span><span class="token punctuation">(</span>current <span class="token operator">!==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 执行遍历时回调 </span>
+    <span class="token function">fn</span><span class="token punctuation">(</span>current<span class="token punctuation">)</span>
+    current <span class="token operator">=</span> current<span class="token punctuation">.</span>next
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p data-nodeid="102">如上代码，有了上面 length 方法的遍历实现，traverse 也就不难理解了，它接受一个遍历执行函数，在 while 循环中进行调用。</p> <ul data-nodeid="103"><li data-nodeid="104"><p data-nodeid="105">find：查找某个节点的索引，实现如下代码：</p></li></ul> <pre data-nodeid="106" class="lang-java"><code data-language="java">find(item) {
+  let current = <span class="hljs-keyword">this</span>.head
+  let counter = <span class="hljs-number">0</span>
+  <span class="hljs-keyword">while</span>( current ) {
+    <span class="hljs-keyword">if</span>( current.data == item ) {
+      <span class="hljs-keyword">return</span> counter
+    }
+    current = current.next
+    counter++
+  }
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>
+}
+</code></pre> <p data-nodeid="107">至此，我们就实现了所有双向链表（DoublyLinkedList）的方法。仔细分析整个实现过程，你可以发现：双向链表的实现并不复杂，在手写过程中，需要开发者做到心中有“表”，考虑到当前节点的 next 和 prev 取值，逻辑上还是很简单的。</p> <h3 data-nodeid="108">树</h3> <p data-nodeid="109">前端开发者应该对树这个数据结构丝毫不陌生，不同于之前介绍的所有数据结构，<strong data-nodeid="334">树是非线性的</strong>。因为树决定了其存储的数据直接有明确的层级关系，因此对于维护具有层级特性的数据，树是一个天然良好的选择。</p> <p data-nodeid="110">事实上，树有很多种分类，但是它们都具有以下特性：</p> <ul data-nodeid="111"><li data-nodeid="112"><p data-nodeid="113">除了根节点以外，所有的节点都有一个父节点；</p></li> <li data-nodeid="114"><p data-nodeid="115">每一个节点都可以有若干子节点，如果没有子节点，则称此节点为叶子节点；</p></li> <li data-nodeid="116"><p data-nodeid="117">一个节点所拥有的叶子节点的个数，称之为该节点的度，因此叶子节点的度为 0；</p></li> <li data-nodeid="118"><p data-nodeid="119">所有节点中，最大的度为整棵树的度；</p></li> <li data-nodeid="120"><p data-nodeid="121">树的最大层次称为树的深度。</p></li></ul> <p data-nodeid="122">我们这里对二叉搜索树展开分析。二叉树算是最基本的树，因为它的结构最简单，每个节点至多包含两个子节点。二叉树又非常有用，因为根据二叉树，我们可以延伸出二叉搜索树（BST）、平衡二叉搜索树（AVL）、红黑树（R/B Tree）等。</p> <p data-nodeid="123">二叉搜索树有以下特性：</p> <ul data-nodeid="124"><li data-nodeid="125"><p data-nodeid="126">左子树上所有结点的值均小于或等于它的根结点的值；</p></li> <li data-nodeid="127"><p data-nodeid="128">右子树上所有结点的值均大于或等于它的根结点的值；</p></li> <li data-nodeid="129"><p data-nodeid="130">左、右子树也分别为二叉搜索树。</p></li></ul> <p data-nodeid="131">根据其特性，我们实现二叉搜索树还是应该先构造一个节点类，如下代码：</p> <pre data-nodeid="132" class="lang-java"><code data-language="java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Node</span> </span>{
+  constructor(data) {
+    <span class="hljs-keyword">this</span>.left = <span class="hljs-keyword">null</span>
+    <span class="hljs-keyword">this</span>.right = <span class="hljs-keyword">null</span>
+    <span class="hljs-keyword">this</span>.value = data
+  }
+}
+</code></pre> <p data-nodeid="133">然后我们实现二叉搜索树的以下方法。</p> <ul data-nodeid="134"><li data-nodeid="135"><p data-nodeid="136">insertNode：根据一个父节点，插入一个子节点，如下代码：</p></li></ul> <pre data-nodeid="137" class="lang-java"><code data-language="java">insertNode(root, newNode) {
+  <span class="hljs-comment">// 根据待插入节点的值的大小，递归调用 this.insertNode</span>
+  <span class="hljs-keyword">if</span> (newNode.value &lt; root.value) {
+    (!root.left) ? root.left = newNode : <span class="hljs-keyword">this</span>.insertNode(root.left, newNode)
+  } <span class="hljs-keyword">else</span> {
+    (!root.right) ? root.right = newNode : <span class="hljs-keyword">this</span>.insertNode(root.right, newNode)
+  }
+}
+</code></pre> <ul data-nodeid="138"><li data-nodeid="139"><p data-nodeid="140">insert：插入一个新节点，如下代码：</p></li></ul> <pre data-nodeid="141" class="lang-java"><code data-language="java">insert(value) {
+    let newNode = <span class="hljs-keyword">new</span> Node(value)
+    <span class="hljs-comment">// 判读是否是根节点</span>
+    <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.root) {
+      <span class="hljs-keyword">this</span>.root = newNode
+    } <span class="hljs-keyword">else</span> {
+     <span class="hljs-comment">// 不是根结点，则直接调用 this.insertNode 方法</span>
+      <span class="hljs-keyword">this</span>.insertNode(<span class="hljs-keyword">this</span>.root, newNode)
+    }
+}
+</code></pre> <p data-nodeid="142">理解这两个方法是理解二叉搜索树的关键，如果你理解了这两个方法，下面的其他方法也就“不在话下”。</p> <p data-nodeid="143">我们可以看到，insertNode 方法先判断目标父节点和插入节点的值，如果插入节点的值更小，则考虑放到父节点的左边，接着递归调用 this.insertNode(root.left, newNode)；如果插入节点的值更大，以此类推即可。insert 方法只是多了一步构造 Node 节点实例，接下来区分有无父节点的情况，调用 this.insertNode 方法即可。</p> <ul data-nodeid="144"><li data-nodeid="145"><p data-nodeid="146">removeNode：根据一个父节点，移除一个子节点，如下代码：</p></li></ul> <pre data-nodeid="147" class="lang-java"><code data-language="java">removeNode(root, value) {
+    <span class="hljs-keyword">if</span> (!root) {
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>
+    }
+    <span class="hljs-keyword">if</span> (value &lt; root.value) {
+      root.left = <span class="hljs-keyword">this</span>.removeNode(root.left, value)
+      <span class="hljs-keyword">return</span> root
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (value &gt; root.value) {
+      root.right = tis.removeNode(root.right, value)
+      <span class="hljs-keyword">return</span> root
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-comment">// 找到了需要删除的节点 </span>
+      <span class="hljs-comment">// 如果当前 root 节点无左右子节点</span>
+      <span class="hljs-keyword">if</span> (!root.left &amp;&amp; !root.right) {
+        root = <span class="hljs-keyword">null</span>
+        <span class="hljs-keyword">return</span> root
+      }
+      <span class="hljs-comment">// 只有左节点</span>
+      <span class="hljs-keyword">if</span> (root.left &amp;&amp; !root.right) {
+        root = root.left
+        <span class="hljs-keyword">return</span> root
+      }
+      <span class="hljs-comment">// 只有右节点</span>
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (root.right) {
+        root = root.right
+        <span class="hljs-keyword">return</span> root
+      }
+      <span class="hljs-comment">// 有左右两个子节点</span>
+      let minRight = <span class="hljs-keyword">this</span>.findMinNode(root.right)
+      root.value = minRight.value
+      root.right = <span class="hljs-keyword">this</span>.removeNode(root.right, minRight.value)
+      <span class="hljs-keyword">return</span> root
+    }
+  }
+</code></pre> <ul data-nodeid="148"><li data-nodeid="149"><p data-nodeid="150">remove：移除一个节点，如下代码：</p></li></ul> <pre data-nodeid="151" class="lang-java"><code data-language="java">remove(value) {
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.root) {
+      <span class="hljs-keyword">this</span>.removeNode(<span class="hljs-keyword">this</span>.root, value)
+    }
+}
+<span class="hljs-comment">// 找到最小的节点</span>
+<span class="hljs-comment">// 该方法不断递归，直到找到最左叶子节点即可</span>
+findMinNode(root) {
+    <span class="hljs-keyword">if</span> (!root.left) {
+      <span class="hljs-keyword">return</span> root
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.findMinNode(root.left)
+    }
+}
+</code></pre> <p data-nodeid="152">上述代码不难理解，唯一需要说明的是：当需要删除的节点含有左右两个子节点时，因为我们要把当前节点删除，就需要找到合适的“补位”节点，<strong data-nodeid="359">这个“补位”节点一定在该目标节点的右侧树当中</strong>，因为这样才能保证“补位”节点的值一定大于该目标节点的左侧树所有节点，而该目标节点的左侧树不需要调整；同时为了保证“补位”节点的值一定要小于该目标节点的右侧树值，因此要找的“补位”节点其实就是该目标节点的右侧树当中最小的那个节点。</p> <ul data-nodeid="153"><li data-nodeid="154"><p data-nodeid="155">searchNode：根据一个父节点，查找子节点，如下代码：</p></li></ul> <pre data-nodeid="156" class="lang-java"><code data-language="java">searchNode(root, value) {
+    <span class="hljs-keyword">if</span> (!root) {
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>
+    }
+    <span class="hljs-keyword">if</span> (value &lt; root.value) {
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.searchNode(root.left, value)
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (value &gt; root.value) {
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.searchNode(root.right, value)
+    }
+    <span class="hljs-keyword">return</span> root
+}
+</code></pre> <ul data-nodeid="157"><li data-nodeid="158"><p data-nodeid="159">search：查找节点，如下代码：</p></li></ul> <pre data-nodeid="160" class="lang-java"><code data-language="java">search(value) {
+    <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.root) {
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>
+    }
+    <span class="hljs-keyword">return</span> Boolean(<span class="hljs-keyword">this</span>.searchNode(<span class="hljs-keyword">this</span>.root, value))
+}
+</code></pre> <ul data-nodeid="161"><li data-nodeid="162"><p data-nodeid="163">preOrder：前序遍历，如下代码：</p></li></ul> <pre data-nodeid="164" class="lang-java"><code data-language="java">preOrder(root) {
+    <span class="hljs-keyword">if</span> (root) {
+      console.log(root.value)
+      <span class="hljs-keyword">this</span>.preOrder(root.left)
+      <span class="hljs-keyword">this</span>.preOrder(root.right)
+    }
+}
+</code></pre> <ul data-nodeid="165"><li data-nodeid="166"><p data-nodeid="167">InOrder：中序遍历，如下代码：</p></li></ul> <pre data-nodeid="168" class="lang-java"><code data-language="java">inOrder(root) {
+    <span class="hljs-keyword">if</span> (root) {
+      <span class="hljs-keyword">this</span>.inOrder(root.left)
+      console.log(root.value)
+      <span class="hljs-keyword">this</span>.inOrder(root.right)
+    }
+}
+</code></pre> <ul data-nodeid="169"><li data-nodeid="170"><p data-nodeid="171">PostOrder：后续遍历，如下代码：</p></li></ul> <pre data-nodeid="172" class="lang-java"><code data-language="java">postOrder(root) {
+    <span class="hljs-keyword">if</span> (root) {
+      <span class="hljs-keyword">this</span>.postOrder(root.left)
+      <span class="hljs-keyword">this</span>.postOrder(root.right)
+      console.log(root.value)
+    }
+}
+</code></pre> <p data-nodeid="173">上述前、中、后序遍历的区别其实就在于<strong data-nodeid="370">console.log(root.value) 方法执行的位置</strong>。</p> <h3 data-nodeid="174">图</h3> <p data-nodeid="175">图是由具有边的节点集合组成的数据结构，图可以是定向的或不定向的。图也是应用最广泛的数据结构之一，真实场景中处处有图。当然更多概念还是需要你先进行了解，尤其是图的几种基本元素。</p> <ul data-nodeid="176"><li data-nodeid="177"><p data-nodeid="178">节点：Node</p></li> <li data-nodeid="179"><p data-nodeid="180">边：Edge</p></li> <li data-nodeid="181"><p data-nodeid="182">|V|：图中顶点（节点）的总数</p></li> <li data-nodeid="183"><p data-nodeid="184">|E|：图中的连接总数（边）</p></li></ul> <p data-nodeid="185">这里我们主要实现一个有向图，Graph 类，如下代码：</p> <pre data-nodeid="186" class="lang-java"><code data-language="java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Graph</span> </span>{
+  constructor() {
+    <span class="hljs-comment">// 使用 Map 数据结构表述图中顶点关系</span>
+    <span class="hljs-keyword">this</span>.AdjList = <span class="hljs-keyword">new</span> Map()
+  }
+}
+</code></pre> <p data-nodeid="187">我们先通过创建节点，来创建一个图，如下代码：</p> <pre data-nodeid="188" class="lang-java"><code data-language="java">let graph = <span class="hljs-keyword">new</span> Graph();
+graph.addVertex(<span class="hljs-string">'A'</span>)
+graph.addVertex(<span class="hljs-string">'B'</span>)
+graph.addVertex(<span class="hljs-string">'C'</span>)
+graph.addVertex(<span class="hljs-string">'D'</span>)
+</code></pre> <ul data-nodeid="189"><li data-nodeid="190"><p data-nodeid="191">添加顶点：addVertex，如下代码：</p></li></ul> <pre data-nodeid="192" class="lang-java"><code data-language="java">addVertex(vertex) {
+  <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.AdjList.has(vertex)) {
+    <span class="hljs-keyword">this</span>.AdjList.set(vertex, [])
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-keyword">throw</span> <span class="hljs-string">'vertex already exist!'</span>
+  }
+}
+</code></pre> <p data-nodeid="193">这时候，A、B、C、D 顶点都对应一个数组，如下代码所示：</p> <pre data-nodeid="194" class="lang-java"><code data-language="java">  <span class="hljs-string">'A'</span> =&gt; [],
+  <span class="hljs-string">'B'</span> =&gt; [],
+  <span class="hljs-string">'C'</span> =&gt; [],
+  <span class="hljs-string">'D'</span> =&gt; []
+</code></pre> <p data-nodeid="195">数组将用来存储边。我们设计图预计得到如下关系：</p> <pre data-nodeid="196" class="lang-java"><code data-language="java">Map {
+  <span class="hljs-string">'A'</span> =&gt; [<span class="hljs-string">'B'</span>, <span class="hljs-string">'C'</span>, <span class="hljs-string">'D'</span>],
+  <span class="hljs-string">'B'</span> =&gt; [],
+  <span class="hljs-string">'C'</span> =&gt; [<span class="hljs-string">'B'</span>],
+  <span class="hljs-string">'D'</span> =&gt; [<span class="hljs-string">'C'</span>]
+}
+</code></pre> <p data-nodeid="197">根据以上描述，其实已经可以把图画出来了。addEdge 需要两个参数：一个是顶点，一个是连接对象 Node。我们看看添加边是如何实现的。</p> <ul data-nodeid="198"><li data-nodeid="199"><p data-nodeid="200">添加边：addEdge，如下代码：</p></li></ul> <pre data-nodeid="201" class="lang-java"><code data-language="java"> addEdge(vertex, node) {
+    if (this.AdjList.has(vertex)) {
+      if (this.AdjList.has(node)){
+        let arr = this.AdjList.get(vertex)
+        if (!arr.includes(node)){
+          arr.push(node)
+        }
+      } else {
+        throw `Can't add non-existing vertex -&gt;'${node}'`
+      }
+    } else {
+      throw `You should add '${vertex}' first`
+    }
+}
+</code></pre> <p data-nodeid="202">理清楚数据关系，我们就可以打印图了，其实就是一个很简单的 for…of 循环：</p> <ul data-nodeid="203"><li data-nodeid="204"><p data-nodeid="205">打印图：print，如下代码：</p></li></ul> <pre data-nodeid="206" class="lang-java"><code data-language="java">print() {
+  <span class="hljs-comment">// 使用 for of 遍历并打印 this.AdjList</span>
+  <span class="hljs-keyword">for</span> (let [key, value] of <span class="hljs-keyword">this</span>.AdjList) {
+    console.log(key, value)
+  }
+}
+</code></pre> <p data-nodeid="207">剩下的内容就是遍历图了。遍历分为广度优先算法（BFS）和深度优先搜索算法（DFS）。我们先来看下广度优先算法（BFS）。</p> <p data-nodeid="208">广度优先算法遍历，如下代码：</p> <pre data-nodeid="209" class="lang-java"><code data-language="java">createVisitedObject() {
+  let map = {}
+  <span class="hljs-keyword">for</span> (let key of <span class="hljs-keyword">this</span>.AdjList.keys()) {
+    arr[key] = <span class="hljs-keyword">false</span>
+  }
+  <span class="hljs-keyword">return</span> map
+}
+bfs (initialNode) {
+  <span class="hljs-comment">// 创建一个已访问节点的 map</span>
+  let visited = <span class="hljs-keyword">this</span>.createVisitedObject()
+  <span class="hljs-comment">// 模拟一个队列</span>
+  let queue = []
+  <span class="hljs-comment">// 第一个节点已访问</span>
+  visited[initialNode] = <span class="hljs-keyword">true</span>
+  <span class="hljs-comment">// 第一个节点入队列</span>
+  queue.push(initialNode)
+  <span class="hljs-keyword">while</span> (queue.length) {
+    let current = queue.shift()
+    console.log(current)
+     <span class="hljs-comment">// 获得该节点的其他节点关系</span>
+    let arr = <span class="hljs-keyword">this</span>.AdjList.get(current)
+    <span class="hljs-keyword">for</span> (let elem of arr) {
+      <span class="hljs-comment">// 如果当前节点没有访问过</span>
+      <span class="hljs-keyword">if</span> (!visited[elem]) {
+        visited[elem] = <span class="hljs-keyword">true</span>
+        queue.push(elem)
+      }
+    }
+  }
+}
+</code></pre> <p data-nodeid="210">如上代码所示，我们来进行简单总结。广度优先算法（BFS），是一种<strong data-nodeid="393">利用队列实现的搜索算法</strong>。对于图来说，就是从起点出发，对于每次出队列的点，都要遍历其四周的点。</p> <p data-nodeid="211">因此 BFS 的实现步骤：</p> <ul data-nodeid="212"><li data-nodeid="213"><p data-nodeid="214">起始节点作为起始，并初始化一个空对象——visited；</p></li> <li data-nodeid="215"><p data-nodeid="216">初始化一个空数组，该数组将模拟一个队列；</p></li> <li data-nodeid="217"><p data-nodeid="218">将起始节点标记为已访问；</p></li> <li data-nodeid="219"><p data-nodeid="220">将起始节点放入队列中；</p></li> <li data-nodeid="221"><p data-nodeid="222">循环直到队列为空。</p></li></ul> <p data-nodeid="223">深度优先算法，如下代码：</p> <pre data-nodeid="224" class="lang-java"><code data-language="java">createVisitedObject() {
+  let map = {}
+  <span class="hljs-keyword">for</span> (let key of <span class="hljs-keyword">this</span>.AdjList.keys()) {
+    arr[key] = <span class="hljs-keyword">false</span>
+  }
+  <span class="hljs-keyword">return</span> map
+}
+ <span class="hljs-comment">// 深度优先算法</span>
+ dfs(initialNode) {
+    let visited = <span class="hljs-keyword">this</span>.createVisitedObject()
+    <span class="hljs-keyword">this</span>.dfsHelper(initialNode, visited)
+  }
+  dfsHelper(node, visited) {
+    visited[node] = <span class="hljs-keyword">true</span>
+    console.log(node)
+    let arr = <span class="hljs-keyword">this</span>.AdjList.get(node)
+    <span class="hljs-comment">// 遍历节点调用 this.dfsHelper</span>
+    <span class="hljs-keyword">for</span> (let elem of arr) {
+      <span class="hljs-keyword">if</span> (!visited[elem]) {
+        <span class="hljs-keyword">this</span>.dfsHelper(elem, visited)
+      }
+    }
+  }
+}
+</code></pre> <p data-nodeid="225">如上代码，对于深度优先搜索算法（DFS），我把它总结为：“不撞南墙不回头”，从起点出发，先把一个方向的点都遍历完才会改变方向。换成程序语言就是：“<strong data-nodeid="406">DFS 是利用递归实现的搜索算法</strong>”。因此 DFS 的实现过程：</p> <ul data-nodeid="226"><li data-nodeid="227"><p data-nodeid="228">起始节点作为起始，创建访问对象；</p></li> <li data-nodeid="229"><p data-nodeid="230">调用辅助函数递归起始节点。</p></li></ul> <p data-nodeid="231">BFS 的实现重点在于队列，而 DFS 的重点在于递归，这是它们的本质区别。</p> <h3 data-nodeid="232">总结</h3> <p data-nodeid="233">这一讲我们介绍了和前端最为贴合的几种数据结构，事实上数据结构更重要的是应用，我希望你能够做到：在需要的场景，能够想到最为适合的数据结构处理问题。请你务必掌握好这些内容，接下来的几讲都需要对数据结构有一个较为熟练的掌握和了解。我们马上进入数据结构的应用学习。</p> <p data-nodeid="234">本讲内容总结如下：</p> <p data-nodeid="3789" class="te-preview-highlight"><img src="https://s0.lgstatic.com/i/image6/M00/04/F5/CioPOWAvYweAUX2mAAHhvq_M9XU847.png" alt="如何利用 JavaScript 实现经典数据结构？.png" data-nodeid="3792"></p> <p data-nodeid="236">随着需求的复杂度上升，前端工程师越来越离不开数据结构。是否能够掌握这个难点内容，将是进阶的重要考量。下一讲，我们将解析数据结构在前端中的具体应用场景，来帮助你加深理解，做到灵活应用。</p> <hr> <h3 id="精选评论"><a href="#精选评论" class="header-anchor">#</a> 精选评论</h3> <h5 id="宇"><a href="#宇" class="header-anchor">#</a> **宇</h5> <blockquote><p>bfs dfs其实就是层序遍历和前序遍历，树是一种特殊的有向图</p></blockquote> <h5 id="聪"><a href="#聪" class="header-anchor">#</a> *聪</h5> <blockquote><p>【createVisitedObject() { let map = {} for (let key of this.AdjList.keys()) { arr[key] = false } return map}】-------这里arr[key] = false，应是 map[key] = false ？</p></blockquote> <h6 id="讲师回复"><a href="#讲师回复" class="header-anchor">#</a>     讲师回复</h6> <blockquote><p>    是，这里是个 typo</p></blockquote> <h5 id="聪-2"><a href="#聪-2" class="header-anchor">#</a> *聪</h5> <blockquote><p>老师，文中【这个“补位”节点一定在该目标节点的右侧树当中】是不是不一定？既然可以选右侧最小的节点，那我要选左侧最大的节点也行吧？</p></blockquote> <h6 id="讲师回复-2"><a href="#讲师回复-2" class="header-anchor">#</a>     讲师回复</h6> <blockquote><p>    右侧 &gt; 左侧</p></blockquote></div></div> <div class="page-slot page-slot-bottom"><!-- 横向自适应 -->
+      <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-7828333725993554"
+          data-ad-slot="6620245489"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script></div> <div class="page-edit"><div class="edit-link"><a href="https://github.com/wu529778790/wu529778790.github.io/edit/master/docs/20.笔记/01.前端基础建设与架构 30 讲/21.如何利用 JavaScript 实现经典数据结构？.md" target="_blank" rel="noopener noreferrer">编辑</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2024/08/24, 09:28:28</span></div></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a href="/pages/8df5b32829fc9/" class="page-nav-centre page-nav-centre-prev"><div class="tooltip">如何理解前端中面向对象的思想？</div></a> <a href="/pages/073be8a8552d5/" class="page-nav-centre page-nav-centre-next"><div class="tooltip">剖析前端中的数据结构应用场景</div></a></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/pages/8df5b32829fc9/" class="prev">如何理解前端中面向对象的思想？</a></span> <span class="next"><a href="/pages/073be8a8552d5/">剖析前端中的数据结构应用场景</a>→
+      </span></p></div></div></div> <div class="article-list"><div class="article-title"><a href="/archives/" class="iconfont icon-bi">最近更新</a></div> <div class="article-wrapper"><dl><dd>01</dd> <dt><a href="/pages/537e4ca5f546b/"><div>Code Review</div></a> <span>10-14</span></dt></dl><dl><dd>02</dd> <dt><a href="/pages/266a6e0607e5b/"><div>富强</div></a> <span>10-13</span></dt></dl><dl><dd>03</dd> <dt><a href="/pages/84b570b268311/"><div>ComfyUI</div></a> <span>10-11</span></dt></dl> <dl><dd></dd> <dt><a href="/archives/" class="more">更多文章&gt;</a></dt></dl></div></div></main></div> <div class="footer"><div class="icons"><a href="mailto:529778790@qq.com" title="发邮件" target="_blank" class="iconfont icon-youjian"></a><a href="https://github.com/wu529778790" title="GitHub" target="_blank" class="iconfont icon-github"></a><a href="https://shenzjd.com/shenzjd/music/" title="听音乐" target="_blank" class="iconfont icon-erji"></a></div> 
+  Power by
+  <a href="https://vuepress.vuejs.org/zh/" target="_blank" title="vuepress">vuepress</a> 
+    | Copyright © 2015-2024
+    <span>神族九帝</span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <!----> <!----> <div class="custom-html-window custom-html-window-rb" style="display:;"><div class="custom-wrapper"><i class="close-but">×</i> <div><!-- 固定160*160px -->
+      <ins class="adsbygoogle"
+          style="display:inline-block;max-width:160px;max-height:160px"
+          data-ad-client="ca-pub-7828333725993554"
+          data-ad-slot="8377369658"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+      </div></div></div></div><div class="global-ui"><div></div></div></div>
+    <script src="/assets/js/app.6f32355a.js" defer></script><script src="/assets/js/3.1b204256.js" defer></script><script src="/assets/js/174.15963486.js" defer></script>
+  </body>
+</html>

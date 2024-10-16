@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>前端程序员经常忽略的一道js面试题 | 神族九帝&#39;s blog</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/img/favicon.ico">
+    <meta name="description" content="web前端技术博客,简洁至上,专注web前端学习与总结。JavaScript,js,ES6,TypeScript,vue,css3,html5,Node,git,github等技术文章。">
+    <meta name="keywords" content="前端博客,个人技术博客,前端,前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github,markdown">
+    <meta name="baidu-site-verification" content="code-yywEP2q5jK">
+    <meta name="theme-color" content="#11a8cd">
+    <link rel="preload" href="/assets/css/0.styles.acf465bc.css" as="style"><link rel="preload" href="/assets/js/app.6f32355a.js" as="script"><link rel="preload" href="/assets/js/3.1b204256.js" as="script"><link rel="preload" href="/assets/js/288.c457a47a.js" as="script"><link rel="prefetch" href="/assets/js/1.b79f6464.js"><link rel="prefetch" href="/assets/js/10.8c55266b.js"><link rel="prefetch" href="/assets/js/100.88faff32.js"><link rel="prefetch" href="/assets/js/101.1592c682.js"><link rel="prefetch" href="/assets/js/102.6518ceb0.js"><link rel="prefetch" href="/assets/js/103.cd5065a6.js"><link rel="prefetch" href="/assets/js/104.1123b4e9.js"><link rel="prefetch" href="/assets/js/105.ccd5a63c.js"><link rel="prefetch" href="/assets/js/106.81988c57.js"><link rel="prefetch" href="/assets/js/107.8a646636.js"><link rel="prefetch" href="/assets/js/108.b7afe936.js"><link rel="prefetch" href="/assets/js/109.b0752e30.js"><link rel="prefetch" href="/assets/js/11.10fafd8c.js"><link rel="prefetch" href="/assets/js/110.5a308e48.js"><link rel="prefetch" href="/assets/js/111.189b5a54.js"><link rel="prefetch" href="/assets/js/112.db870ac5.js"><link rel="prefetch" href="/assets/js/113.bf1ebc68.js"><link rel="prefetch" href="/assets/js/114.7860efc0.js"><link rel="prefetch" href="/assets/js/115.34c51867.js"><link rel="prefetch" href="/assets/js/116.97be8bba.js"><link rel="prefetch" href="/assets/js/117.4d5a10bf.js"><link rel="prefetch" href="/assets/js/118.6c6a76f4.js"><link rel="prefetch" href="/assets/js/119.dc3c2ea1.js"><link rel="prefetch" href="/assets/js/12.141c6a7c.js"><link rel="prefetch" href="/assets/js/120.92eecb8c.js"><link rel="prefetch" href="/assets/js/121.7b9c3657.js"><link rel="prefetch" href="/assets/js/122.f6b5d289.js"><link rel="prefetch" href="/assets/js/123.61c25c57.js"><link rel="prefetch" href="/assets/js/124.302ee0b5.js"><link rel="prefetch" href="/assets/js/125.975de502.js"><link rel="prefetch" href="/assets/js/126.45b64331.js"><link rel="prefetch" href="/assets/js/127.763c2a56.js"><link rel="prefetch" href="/assets/js/128.88ee6335.js"><link rel="prefetch" href="/assets/js/129.a58a64b9.js"><link rel="prefetch" href="/assets/js/13.da863508.js"><link rel="prefetch" href="/assets/js/130.54121522.js"><link rel="prefetch" href="/assets/js/131.aca2d708.js"><link rel="prefetch" href="/assets/js/132.1756e101.js"><link rel="prefetch" href="/assets/js/133.12db2891.js"><link rel="prefetch" href="/assets/js/134.757602d2.js"><link rel="prefetch" href="/assets/js/135.fb98f363.js"><link rel="prefetch" href="/assets/js/136.3cff0f4d.js"><link rel="prefetch" href="/assets/js/137.36fd107d.js"><link rel="prefetch" href="/assets/js/138.49509f7e.js"><link rel="prefetch" href="/assets/js/139.5d534c03.js"><link rel="prefetch" href="/assets/js/14.8ca70db2.js"><link rel="prefetch" href="/assets/js/140.e89f2f4d.js"><link rel="prefetch" href="/assets/js/141.e829b906.js"><link rel="prefetch" href="/assets/js/142.98e7aaee.js"><link rel="prefetch" href="/assets/js/143.1a65ec12.js"><link rel="prefetch" href="/assets/js/144.fc2c801e.js"><link rel="prefetch" href="/assets/js/145.ecd75a5b.js"><link rel="prefetch" href="/assets/js/146.69cc2143.js"><link rel="prefetch" href="/assets/js/147.a6021905.js"><link rel="prefetch" href="/assets/js/148.37a4f153.js"><link rel="prefetch" href="/assets/js/149.0a2441a8.js"><link rel="prefetch" href="/assets/js/15.dc33b636.js"><link rel="prefetch" href="/assets/js/150.e8388075.js"><link rel="prefetch" href="/assets/js/151.a4ebf84b.js"><link rel="prefetch" href="/assets/js/152.15e23325.js"><link rel="prefetch" href="/assets/js/153.57e02e73.js"><link rel="prefetch" href="/assets/js/154.ba69127e.js"><link rel="prefetch" href="/assets/js/155.98ebe21a.js"><link rel="prefetch" href="/assets/js/156.113ec037.js"><link rel="prefetch" href="/assets/js/157.fa80da63.js"><link rel="prefetch" href="/assets/js/158.b1b74414.js"><link rel="prefetch" href="/assets/js/159.40b68f4f.js"><link rel="prefetch" href="/assets/js/16.c098c1fa.js"><link rel="prefetch" href="/assets/js/160.3830ac97.js"><link rel="prefetch" href="/assets/js/161.9d4f7012.js"><link rel="prefetch" href="/assets/js/162.13cca27d.js"><link rel="prefetch" href="/assets/js/163.df4a6f84.js"><link rel="prefetch" href="/assets/js/164.bf27f0b0.js"><link rel="prefetch" href="/assets/js/165.c7b8cafa.js"><link rel="prefetch" href="/assets/js/166.3f217dd7.js"><link rel="prefetch" href="/assets/js/167.735e05d9.js"><link rel="prefetch" href="/assets/js/168.c575d903.js"><link rel="prefetch" href="/assets/js/169.3e8adc50.js"><link rel="prefetch" href="/assets/js/17.7437eb7d.js"><link rel="prefetch" href="/assets/js/170.f6d2e13d.js"><link rel="prefetch" href="/assets/js/171.d14168d4.js"><link rel="prefetch" href="/assets/js/172.16bd452f.js"><link rel="prefetch" href="/assets/js/173.c37e1e0f.js"><link rel="prefetch" href="/assets/js/174.15963486.js"><link rel="prefetch" href="/assets/js/175.975777ee.js"><link rel="prefetch" href="/assets/js/176.2517981a.js"><link rel="prefetch" href="/assets/js/177.1358e1ee.js"><link rel="prefetch" href="/assets/js/178.ab5f3594.js"><link rel="prefetch" href="/assets/js/179.09ba373d.js"><link rel="prefetch" href="/assets/js/18.835bef0b.js"><link rel="prefetch" href="/assets/js/180.9a7ec7cb.js"><link rel="prefetch" href="/assets/js/181.c79e50d9.js"><link rel="prefetch" href="/assets/js/182.23755a00.js"><link rel="prefetch" href="/assets/js/183.4449a6de.js"><link rel="prefetch" href="/assets/js/184.f83dc12a.js"><link rel="prefetch" href="/assets/js/185.65cf0c33.js"><link rel="prefetch" href="/assets/js/186.36ff7e5d.js"><link rel="prefetch" href="/assets/js/187.5472a769.js"><link rel="prefetch" href="/assets/js/188.988e7dba.js"><link rel="prefetch" href="/assets/js/189.31359ed4.js"><link rel="prefetch" href="/assets/js/19.4c3c8195.js"><link rel="prefetch" href="/assets/js/190.fdd64806.js"><link rel="prefetch" href="/assets/js/191.92498652.js"><link rel="prefetch" href="/assets/js/192.4834fa75.js"><link rel="prefetch" href="/assets/js/193.add31334.js"><link rel="prefetch" href="/assets/js/194.f12564a1.js"><link rel="prefetch" href="/assets/js/195.ffe31af5.js"><link rel="prefetch" href="/assets/js/196.6e446bf2.js"><link rel="prefetch" href="/assets/js/197.3a41a0a8.js"><link rel="prefetch" href="/assets/js/198.641bae3d.js"><link rel="prefetch" href="/assets/js/199.ebd03ef7.js"><link rel="prefetch" href="/assets/js/2.7266734b.js"><link rel="prefetch" href="/assets/js/20.ec5e4cf7.js"><link rel="prefetch" href="/assets/js/200.5cb868f3.js"><link rel="prefetch" href="/assets/js/201.19a87590.js"><link rel="prefetch" href="/assets/js/202.b618c8f5.js"><link rel="prefetch" href="/assets/js/203.0fbc9ac5.js"><link rel="prefetch" href="/assets/js/204.1457be89.js"><link rel="prefetch" href="/assets/js/205.a86b5230.js"><link rel="prefetch" href="/assets/js/206.881c82dc.js"><link rel="prefetch" href="/assets/js/207.3b0206d0.js"><link rel="prefetch" href="/assets/js/208.ed47ec02.js"><link rel="prefetch" href="/assets/js/209.99f97bdb.js"><link rel="prefetch" href="/assets/js/21.9188d311.js"><link rel="prefetch" href="/assets/js/210.bb7acf71.js"><link rel="prefetch" href="/assets/js/211.2e81be95.js"><link rel="prefetch" href="/assets/js/212.89ab703d.js"><link rel="prefetch" href="/assets/js/213.50276242.js"><link rel="prefetch" href="/assets/js/214.7f108614.js"><link rel="prefetch" href="/assets/js/215.6574a133.js"><link rel="prefetch" href="/assets/js/216.af9e8210.js"><link rel="prefetch" href="/assets/js/217.76057d83.js"><link rel="prefetch" href="/assets/js/218.55f67111.js"><link rel="prefetch" href="/assets/js/219.ffacadfe.js"><link rel="prefetch" href="/assets/js/22.37e5e389.js"><link rel="prefetch" href="/assets/js/220.5a5c5787.js"><link rel="prefetch" href="/assets/js/221.4eb8395e.js"><link rel="prefetch" href="/assets/js/222.62e527e3.js"><link rel="prefetch" href="/assets/js/223.1f1e7b4b.js"><link rel="prefetch" href="/assets/js/224.2259db70.js"><link rel="prefetch" href="/assets/js/225.91a5f216.js"><link rel="prefetch" href="/assets/js/226.a13c50f9.js"><link rel="prefetch" href="/assets/js/227.de470de3.js"><link rel="prefetch" href="/assets/js/228.5a80e5fb.js"><link rel="prefetch" href="/assets/js/229.efff5960.js"><link rel="prefetch" href="/assets/js/23.d9976b2c.js"><link rel="prefetch" href="/assets/js/230.5fbb8bb7.js"><link rel="prefetch" href="/assets/js/231.95c8ff44.js"><link rel="prefetch" href="/assets/js/232.19219fac.js"><link rel="prefetch" href="/assets/js/233.8b78e75a.js"><link rel="prefetch" href="/assets/js/234.3f914b2e.js"><link rel="prefetch" href="/assets/js/235.95ddd74d.js"><link rel="prefetch" href="/assets/js/236.7c4a59be.js"><link rel="prefetch" href="/assets/js/237.57371aaf.js"><link rel="prefetch" href="/assets/js/238.392a568c.js"><link rel="prefetch" href="/assets/js/239.f14d65f8.js"><link rel="prefetch" href="/assets/js/24.55ad5b7c.js"><link rel="prefetch" href="/assets/js/240.ebf3009f.js"><link rel="prefetch" href="/assets/js/241.5fb81b73.js"><link rel="prefetch" href="/assets/js/242.a7e25549.js"><link rel="prefetch" href="/assets/js/243.f74b3d4e.js"><link rel="prefetch" href="/assets/js/244.f95f77a7.js"><link rel="prefetch" href="/assets/js/245.53678547.js"><link rel="prefetch" href="/assets/js/246.39ebec6c.js"><link rel="prefetch" href="/assets/js/247.d6a2a18e.js"><link rel="prefetch" href="/assets/js/248.07736c3d.js"><link rel="prefetch" href="/assets/js/249.c8fd3339.js"><link rel="prefetch" href="/assets/js/25.011fc197.js"><link rel="prefetch" href="/assets/js/250.ba6ef5e1.js"><link rel="prefetch" href="/assets/js/251.3aa84692.js"><link rel="prefetch" href="/assets/js/252.38cdae28.js"><link rel="prefetch" href="/assets/js/253.041ddb67.js"><link rel="prefetch" href="/assets/js/254.9053aa71.js"><link rel="prefetch" href="/assets/js/255.86ccc408.js"><link rel="prefetch" href="/assets/js/256.b8365b1d.js"><link rel="prefetch" href="/assets/js/257.7f3fb60b.js"><link rel="prefetch" href="/assets/js/258.48a58ecf.js"><link rel="prefetch" href="/assets/js/259.edc72a7a.js"><link rel="prefetch" href="/assets/js/26.3cb3c5af.js"><link rel="prefetch" href="/assets/js/260.c78cbad0.js"><link rel="prefetch" href="/assets/js/261.b7c3d231.js"><link rel="prefetch" href="/assets/js/262.d7bcdae5.js"><link rel="prefetch" href="/assets/js/263.db764fa1.js"><link rel="prefetch" href="/assets/js/264.6a94bf4f.js"><link rel="prefetch" href="/assets/js/265.5f0e9c03.js"><link rel="prefetch" href="/assets/js/266.ff6b094d.js"><link rel="prefetch" href="/assets/js/267.04e7cb80.js"><link rel="prefetch" href="/assets/js/268.38b5f5a6.js"><link rel="prefetch" href="/assets/js/269.9ee4cd2e.js"><link rel="prefetch" href="/assets/js/27.7e232e2c.js"><link rel="prefetch" href="/assets/js/270.16a33f1e.js"><link rel="prefetch" href="/assets/js/271.f4d164b0.js"><link rel="prefetch" href="/assets/js/272.791fecfb.js"><link rel="prefetch" href="/assets/js/273.22a788bf.js"><link rel="prefetch" href="/assets/js/274.03fc79c3.js"><link rel="prefetch" href="/assets/js/275.7bd56154.js"><link rel="prefetch" href="/assets/js/276.2de6a69e.js"><link rel="prefetch" href="/assets/js/277.7ca05f6c.js"><link rel="prefetch" href="/assets/js/278.f0ee63c0.js"><link rel="prefetch" href="/assets/js/279.609eb7d9.js"><link rel="prefetch" href="/assets/js/28.32f1341e.js"><link rel="prefetch" href="/assets/js/280.e0e3a930.js"><link rel="prefetch" href="/assets/js/281.abad37c8.js"><link rel="prefetch" href="/assets/js/282.1501b44f.js"><link rel="prefetch" href="/assets/js/283.0558a3c4.js"><link rel="prefetch" href="/assets/js/284.756846db.js"><link rel="prefetch" href="/assets/js/285.bf31d51d.js"><link rel="prefetch" href="/assets/js/286.defd2a92.js"><link rel="prefetch" href="/assets/js/287.c67805d0.js"><link rel="prefetch" href="/assets/js/289.0afb1f12.js"><link rel="prefetch" href="/assets/js/29.f6301882.js"><link rel="prefetch" href="/assets/js/290.837b3179.js"><link rel="prefetch" href="/assets/js/291.8ca62fcf.js"><link rel="prefetch" href="/assets/js/292.e9a93680.js"><link rel="prefetch" href="/assets/js/293.cf0a52c6.js"><link rel="prefetch" href="/assets/js/294.0cdd1975.js"><link rel="prefetch" href="/assets/js/295.c8c7a0e2.js"><link rel="prefetch" href="/assets/js/296.4710615a.js"><link rel="prefetch" href="/assets/js/297.7e434981.js"><link rel="prefetch" href="/assets/js/298.27800acc.js"><link rel="prefetch" href="/assets/js/299.94524a20.js"><link rel="prefetch" href="/assets/js/30.457633e7.js"><link rel="prefetch" href="/assets/js/31.7ec68579.js"><link rel="prefetch" href="/assets/js/32.eef7ba01.js"><link rel="prefetch" href="/assets/js/33.80351101.js"><link rel="prefetch" href="/assets/js/34.16c10f0d.js"><link rel="prefetch" href="/assets/js/35.9f765814.js"><link rel="prefetch" href="/assets/js/36.2ebf9dea.js"><link rel="prefetch" href="/assets/js/37.1fc1164f.js"><link rel="prefetch" href="/assets/js/38.b6adb462.js"><link rel="prefetch" href="/assets/js/39.d93e83cf.js"><link rel="prefetch" href="/assets/js/4.2ac0ca3e.js"><link rel="prefetch" href="/assets/js/40.d706107a.js"><link rel="prefetch" href="/assets/js/41.fc02d2b6.js"><link rel="prefetch" href="/assets/js/42.7cab86d5.js"><link rel="prefetch" href="/assets/js/43.ef9cd246.js"><link rel="prefetch" href="/assets/js/44.a0569c2e.js"><link rel="prefetch" href="/assets/js/45.5fafe2cf.js"><link rel="prefetch" href="/assets/js/46.03f46ad7.js"><link rel="prefetch" href="/assets/js/47.df256cdb.js"><link rel="prefetch" href="/assets/js/48.65a60760.js"><link rel="prefetch" href="/assets/js/49.04fe57d4.js"><link rel="prefetch" href="/assets/js/5.a6226436.js"><link rel="prefetch" href="/assets/js/50.8651dd04.js"><link rel="prefetch" href="/assets/js/51.7662caaf.js"><link rel="prefetch" href="/assets/js/52.166e0a74.js"><link rel="prefetch" href="/assets/js/53.4afd7699.js"><link rel="prefetch" href="/assets/js/54.9a917c2c.js"><link rel="prefetch" href="/assets/js/55.5fa482d9.js"><link rel="prefetch" href="/assets/js/56.f6d194cf.js"><link rel="prefetch" href="/assets/js/57.a784f860.js"><link rel="prefetch" href="/assets/js/58.dd4202bd.js"><link rel="prefetch" href="/assets/js/59.25fbb8f7.js"><link rel="prefetch" href="/assets/js/6.b0755d77.js"><link rel="prefetch" href="/assets/js/60.d1e2af36.js"><link rel="prefetch" href="/assets/js/61.61571afd.js"><link rel="prefetch" href="/assets/js/62.1f1a3b47.js"><link rel="prefetch" href="/assets/js/63.6bfff3b4.js"><link rel="prefetch" href="/assets/js/64.71d4a416.js"><link rel="prefetch" href="/assets/js/65.617890e7.js"><link rel="prefetch" href="/assets/js/66.65920bca.js"><link rel="prefetch" href="/assets/js/67.001f760c.js"><link rel="prefetch" href="/assets/js/68.82192159.js"><link rel="prefetch" href="/assets/js/69.d4cb8bca.js"><link rel="prefetch" href="/assets/js/7.20d8bda4.js"><link rel="prefetch" href="/assets/js/70.24090621.js"><link rel="prefetch" href="/assets/js/71.405a13d9.js"><link rel="prefetch" href="/assets/js/72.dd8add1c.js"><link rel="prefetch" href="/assets/js/73.2bd91ddf.js"><link rel="prefetch" href="/assets/js/74.17ff1ebb.js"><link rel="prefetch" href="/assets/js/75.24e8d319.js"><link rel="prefetch" href="/assets/js/76.2414719f.js"><link rel="prefetch" href="/assets/js/77.77779e67.js"><link rel="prefetch" href="/assets/js/78.b262a06e.js"><link rel="prefetch" href="/assets/js/79.f02d599e.js"><link rel="prefetch" href="/assets/js/80.a1114b22.js"><link rel="prefetch" href="/assets/js/81.348cdb2b.js"><link rel="prefetch" href="/assets/js/82.957cb300.js"><link rel="prefetch" href="/assets/js/83.5c997e13.js"><link rel="prefetch" href="/assets/js/84.1274a110.js"><link rel="prefetch" href="/assets/js/85.a6e36a7f.js"><link rel="prefetch" href="/assets/js/86.9436b1a1.js"><link rel="prefetch" href="/assets/js/87.4e607f33.js"><link rel="prefetch" href="/assets/js/88.9a83dc3a.js"><link rel="prefetch" href="/assets/js/89.b0499d00.js"><link rel="prefetch" href="/assets/js/90.495af3b2.js"><link rel="prefetch" href="/assets/js/91.29907c15.js"><link rel="prefetch" href="/assets/js/92.5c148247.js"><link rel="prefetch" href="/assets/js/93.0e481e18.js"><link rel="prefetch" href="/assets/js/94.85777854.js"><link rel="prefetch" href="/assets/js/95.2baa77e2.js"><link rel="prefetch" href="/assets/js/96.a641e6ee.js"><link rel="prefetch" href="/assets/js/97.9ec64eb5.js"><link rel="prefetch" href="/assets/js/98.fb1e8cdc.js"><link rel="prefetch" href="/assets/js/99.39208b0d.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.3894b547.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.acf465bc.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/logo.png" alt="神族九帝's blog" class="logo"> <span class="site-name can-hide">神族九帝's blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="导航" class="dropdown-title"><!----> <span class="title" style="display:;">导航</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://docs.qq.com/sheet/DV09NbXlvQW5QVHpp?tab=BB08J2" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  神卡套餐
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://wallpaper.shenzjd.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  壁纸
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://alist.shenzjd.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  网盘
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="面试题" class="dropdown-title"><!----> <span class="title" style="display:;">面试题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/d4fd303b96708/" class="nav-link">面试突击</a></li><li class="dropdown-item"><!----> <a href="/pages/92a3d01d007d4/" class="nav-link">复习指导</a></li><li class="dropdown-item"><!----> <a href="/pages/41925dd005aac/" class="nav-link">HTML</a></li><li class="dropdown-item"><!----> <a href="/pages/b7bfe8372b67a/" class="nav-link">CSS</a></li><li class="dropdown-item"><!----> <a href="/pages/873bcbd19d49b/" class="nav-link">JavaScript</a></li><li class="dropdown-item"><!----> <a href="/pages/d35a839d5b4b6/" class="nav-link">设计模式</a></li><li class="dropdown-item"><!----> <a href="/pages/62502f3dd8041/" class="nav-link">浏览器</a></li><li class="dropdown-item"><!----> <a href="/pages/462a20be0048a/" class="nav-link">手写系列</a></li><li class="dropdown-item"><!----> <a href="/pages/7860f2c6dd001/" class="nav-link">Vue</a></li><li class="dropdown-item"><!----> <a href="/pages/b9014c6cc5abc/" class="nav-link">Webpack</a></li><li class="dropdown-item"><!----> <a href="/pages/5ff5a12bd4bd2/" class="nav-link">Http</a></li><li class="dropdown-item"><!----> <a href="/pages/274217c7c2876/" class="nav-link">前端优化</a></li><li class="dropdown-item"><!----> <a href="/pages/318726d3f6062/" class="nav-link">项目</a></li><li class="dropdown-item"><!----> <a href="/pages/0d28ab62c07b1/" class="nav-link">面试真题</a></li><li class="dropdown-item"><!----> <a href="/pages/9eaae444f0d5b/" class="nav-link">算法</a></li><li class="dropdown-item"><!----> <a href="/pages/96c5de658a426/" class="nav-link">精选文章</a></li><li class="dropdown-item"><!----> <a href="/pages/11309122e2911/" class="nav-link">八股文</a></li><li class="dropdown-item"><!----> <a href="/pages/294378a3e4f4/" class="nav-link">前端工程化</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="笔记" class="dropdown-title"><!----> <span class="title" style="display:;">笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/b7de4855154b1/" class="nav-link">工作笔记</a></li><li class="dropdown-item"><!----> <a href="/pages/664ab7712895e/" class="nav-link">前端基础建设与架构 30 讲</a></li><li class="dropdown-item"><!----> <a href="/pages/de5e42d9aade5/" class="nav-link">vue2源码学习</a></li><li class="dropdown-item"><!----> <a href="/pages/9a973ad8de378/" class="nav-link">剖析vuejs内部运行机制</a></li><li class="dropdown-item"><!----> <a href="/pages/7b9593fc1d246/" class="nav-link">TypeScript 入门实战笔记</a></li><li class="dropdown-item"><!----> <a href="/pages/1b26a2a3224ed/" class="nav-link">vue3源码学习</a></li><li class="dropdown-item"><!----> <a href="/pages/6840ffe53b64e/" class="nav-link">2周刷完100道前端优质面试真题</a></li><li class="dropdown-item"><!----> <a href="/pages/b2402e45f8434/" class="nav-link">思维导图</a></li><li class="dropdown-item"><!----> <a href="/pages/df8208be80149/" class="nav-link">npm发包</a></li><li class="dropdown-item"><!----> <a href="/pages/9d3cce63f5b1f/" class="nav-link">重学node</a></li><li class="dropdown-item"><!----> <a href="/pages/82d13321f862e/" class="nav-link">前端性能优化方法与实战</a></li><li class="dropdown-item"><!----> <a href="/pages/70523322e3de7/" class="nav-link">webpack原理与实战</a></li><li class="dropdown-item"><!----> <a href="/pages/201ade54239a8/" class="nav-link">webGl</a></li><li class="dropdown-item"><!----> <a href="/pages/493b3e94e222f/" class="nav-link">前端优化</a></li><li class="dropdown-item"><!----> <a href="/pages/9215dd598cf2f/" class="nav-link">Web3</a></li><li class="dropdown-item"><!----> <a href="/pages/654a66a46648a/" class="nav-link">更多</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="服务器" class="dropdown-title"><!----> <span class="title" style="display:;">服务器</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/559a89ed185a/" class="nav-link">未来要做的事</a></li><li class="dropdown-item"><!----> <a href="/pages/3643ef45ec2df/" class="nav-link">Stirling-PDF</a></li><li class="dropdown-item"><!----> <a href="/pages/84b570b268311/" class="nav-link">ComfyUI</a></li><li class="dropdown-item"><!----> <a href="/pages/266a6e0607e5b/" class="nav-link">富强</a></li><li class="dropdown-item"><!----> <a href="/pages/48f2f48705e84/" class="nav-link">宝塔面板+青龙面板</a></li><li class="dropdown-item"><!----> <a href="/pages/fd345053693da/" class="nav-link">安卓手机当服务器使用</a></li><li class="dropdown-item"><!----> <a href="/pages/fabb9a071e3ab/" class="nav-link">京东自动评价代码</a></li><li class="dropdown-item"><!----> <a href="/pages/4e2e100aa5bc3/" class="nav-link">搭建x-ui免流服务器(已失效)</a></li><li class="dropdown-item"><!----> <a href="/pages/1ec52a9aef382/" class="nav-link">海外联盟</a></li><li class="dropdown-item"><!----> <a href="/pages/4f8522f268cc3/" class="nav-link">好玩的docker</a></li><li class="dropdown-item"><!----> <a href="/pages/beb6c0bd8a66cea6/" class="nav-link">收藏夹</a></li><li class="dropdown-item"><!----> <a href="/pages/f9ef4c6a6f4e/" class="nav-link">更多</a></li></ul></div></div> <a href="https://github.com/wu529778790/wu529778790.github.io" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="/img/logo.png"> <div class="blogger-info"><h3>神族九帝,永不言弃</h3> <span></span></div></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="导航" class="dropdown-title"><!----> <span class="title" style="display:;">导航</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://docs.qq.com/sheet/DV09NbXlvQW5QVHpp?tab=BB08J2" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  神卡套餐
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://wallpaper.shenzjd.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  壁纸
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://alist.shenzjd.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  网盘
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="面试题" class="dropdown-title"><!----> <span class="title" style="display:;">面试题</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/d4fd303b96708/" class="nav-link">面试突击</a></li><li class="dropdown-item"><!----> <a href="/pages/92a3d01d007d4/" class="nav-link">复习指导</a></li><li class="dropdown-item"><!----> <a href="/pages/41925dd005aac/" class="nav-link">HTML</a></li><li class="dropdown-item"><!----> <a href="/pages/b7bfe8372b67a/" class="nav-link">CSS</a></li><li class="dropdown-item"><!----> <a href="/pages/873bcbd19d49b/" class="nav-link">JavaScript</a></li><li class="dropdown-item"><!----> <a href="/pages/d35a839d5b4b6/" class="nav-link">设计模式</a></li><li class="dropdown-item"><!----> <a href="/pages/62502f3dd8041/" class="nav-link">浏览器</a></li><li class="dropdown-item"><!----> <a href="/pages/462a20be0048a/" class="nav-link">手写系列</a></li><li class="dropdown-item"><!----> <a href="/pages/7860f2c6dd001/" class="nav-link">Vue</a></li><li class="dropdown-item"><!----> <a href="/pages/b9014c6cc5abc/" class="nav-link">Webpack</a></li><li class="dropdown-item"><!----> <a href="/pages/5ff5a12bd4bd2/" class="nav-link">Http</a></li><li class="dropdown-item"><!----> <a href="/pages/274217c7c2876/" class="nav-link">前端优化</a></li><li class="dropdown-item"><!----> <a href="/pages/318726d3f6062/" class="nav-link">项目</a></li><li class="dropdown-item"><!----> <a href="/pages/0d28ab62c07b1/" class="nav-link">面试真题</a></li><li class="dropdown-item"><!----> <a href="/pages/9eaae444f0d5b/" class="nav-link">算法</a></li><li class="dropdown-item"><!----> <a href="/pages/96c5de658a426/" class="nav-link">精选文章</a></li><li class="dropdown-item"><!----> <a href="/pages/11309122e2911/" class="nav-link">八股文</a></li><li class="dropdown-item"><!----> <a href="/pages/294378a3e4f4/" class="nav-link">前端工程化</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="笔记" class="dropdown-title"><!----> <span class="title" style="display:;">笔记</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/b7de4855154b1/" class="nav-link">工作笔记</a></li><li class="dropdown-item"><!----> <a href="/pages/664ab7712895e/" class="nav-link">前端基础建设与架构 30 讲</a></li><li class="dropdown-item"><!----> <a href="/pages/de5e42d9aade5/" class="nav-link">vue2源码学习</a></li><li class="dropdown-item"><!----> <a href="/pages/9a973ad8de378/" class="nav-link">剖析vuejs内部运行机制</a></li><li class="dropdown-item"><!----> <a href="/pages/7b9593fc1d246/" class="nav-link">TypeScript 入门实战笔记</a></li><li class="dropdown-item"><!----> <a href="/pages/1b26a2a3224ed/" class="nav-link">vue3源码学习</a></li><li class="dropdown-item"><!----> <a href="/pages/6840ffe53b64e/" class="nav-link">2周刷完100道前端优质面试真题</a></li><li class="dropdown-item"><!----> <a href="/pages/b2402e45f8434/" class="nav-link">思维导图</a></li><li class="dropdown-item"><!----> <a href="/pages/df8208be80149/" class="nav-link">npm发包</a></li><li class="dropdown-item"><!----> <a href="/pages/9d3cce63f5b1f/" class="nav-link">重学node</a></li><li class="dropdown-item"><!----> <a href="/pages/82d13321f862e/" class="nav-link">前端性能优化方法与实战</a></li><li class="dropdown-item"><!----> <a href="/pages/70523322e3de7/" class="nav-link">webpack原理与实战</a></li><li class="dropdown-item"><!----> <a href="/pages/201ade54239a8/" class="nav-link">webGl</a></li><li class="dropdown-item"><!----> <a href="/pages/493b3e94e222f/" class="nav-link">前端优化</a></li><li class="dropdown-item"><!----> <a href="/pages/9215dd598cf2f/" class="nav-link">Web3</a></li><li class="dropdown-item"><!----> <a href="/pages/654a66a46648a/" class="nav-link">更多</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="服务器" class="dropdown-title"><!----> <span class="title" style="display:;">服务器</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/559a89ed185a/" class="nav-link">未来要做的事</a></li><li class="dropdown-item"><!----> <a href="/pages/3643ef45ec2df/" class="nav-link">Stirling-PDF</a></li><li class="dropdown-item"><!----> <a href="/pages/84b570b268311/" class="nav-link">ComfyUI</a></li><li class="dropdown-item"><!----> <a href="/pages/266a6e0607e5b/" class="nav-link">富强</a></li><li class="dropdown-item"><!----> <a href="/pages/48f2f48705e84/" class="nav-link">宝塔面板+青龙面板</a></li><li class="dropdown-item"><!----> <a href="/pages/fd345053693da/" class="nav-link">安卓手机当服务器使用</a></li><li class="dropdown-item"><!----> <a href="/pages/fabb9a071e3ab/" class="nav-link">京东自动评价代码</a></li><li class="dropdown-item"><!----> <a href="/pages/4e2e100aa5bc3/" class="nav-link">搭建x-ui免流服务器(已失效)</a></li><li class="dropdown-item"><!----> <a href="/pages/1ec52a9aef382/" class="nav-link">海外联盟</a></li><li class="dropdown-item"><!----> <a href="/pages/4f8522f268cc3/" class="nav-link">好玩的docker</a></li><li class="dropdown-item"><!----> <a href="/pages/beb6c0bd8a66cea6/" class="nav-link">收藏夹</a></li><li class="dropdown-item"><!----> <a href="/pages/f9ef4c6a6f4e/" class="nav-link">更多</a></li></ul></div></div> <a href="https://github.com/wu529778790/wu529778790.github.io" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>前端程序员经常忽略的一道js面试题</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pages/e14f75/#第一问" class="sidebar-link">第一问</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/pages/e14f75/#第二问" class="sidebar-link">第二问</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/pages/e14f75/#第三问" class="sidebar-link">第三问</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/pages/e14f75/#第四问" class="sidebar-link">第四问</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/pages/e14f75/#第五问" class="sidebar-link">第五问</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/pages/e14f75/#第六问" class="sidebar-link">第六问</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/pages/e14f75/#第七问" class="sidebar-link">第七问</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/pages/e14f75/#后续" class="sidebar-link">后续</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> <div class="sidebar-slot sidebar-slot-bottom"><!-- 正方形 -->
+      <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-7828333725993554"
+          data-ad-slot="3508773082"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script></div></aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-071ed482><div class="articleInfo" data-v-071ed482><!----> <div class="info" data-v-071ed482><div title="作者" class="author iconfont icon-touxiang" data-v-071ed482><a href="https://github.com/wu529778790" target="_blank" title="作者" class="beLink" data-v-071ed482>神族九帝</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-071ed482><a href="javascript:;" data-v-071ed482>2017-06-06</a></div> <div title="分类" class="date iconfont icon-wenjian" data-v-071ed482><a href="/categories/?category=hexo%E8%BF%81%E7%A7%BB%E6%95%B0%E6%8D%AE" data-v-071ed482>hexo迁移数据 </a></div></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABH1JREFUSA3tVl1oHFUUPmdmd2ltklqbpJDiNnXFmgbFktho7YMPNiJSSZM0+CAYSkUELVhM6YuwIPpgoOKDqOBDC0XE2CQoNtQXBUFTTcCi+Wlh1V2TQExsUzcltd3M9Tt3ZjZzZ2fT+OJTL8yeM+eee757fmeJbq//KQL8X3DUSFOcfr7cRsRtxNQMWueeVzOkaITIGqQHNg5y8+jNW9ldM7A6nTpAjuolUikAwq7CE3WcM2RRDz+XGVgN3FptU/aUSlvq9Pa3iZ1+sgAqJyyAFqkipd9dqiwHF3P65YycLWc/6sqGrvoEoIp6DOFaX5h6+dnfjkWprwqsPk0dUGq5vySwDImC10KxFHgGL1SWoc92O3eVht09qdXNH11I2SsTsJYqMWzihqGMi+A+Garf3BAuuLI5oGlULyNfyB/HYNujwktOfRrMr5t77NmevqaUopx0grnKAyvVpmwUDB4x6FPXuGvYLTDwWsejwgtgkYKPqRJg8SV6xaiZ3ZTppGneS4yfH5/66fZSDHv+QZci/+h5c5UHtpy67JUqGppM0sh0Nc1dW6/N1W5Yoqat8/TU/VnadmdeW2PLLSyh0cvxBs3KbqTmwYPpxN4do/mzE8nEpvX/UMu2Wbp74zUAK5q6WkHns7V0eWkdPbPzd3rxkTGybadYySumVzhcaJFbs5UrEkQ/+CK8gF5dnh/6ciIZ73gwQ927L1IitoxKLXYP3SjYdOrHHfTZhRRlFyrorafPk20B3HPD1y2G3qKZME5Jcf3t/HUC13/8tSd++vqFveMUTwAUxSUFI1QekR1+bIze3D9MF2aq6cPvG72CgnldWCFqyRw3lwH8ZMerjTD9ElRO7Gv44wNpC90aASqGfVlz/Rx17srQ57/UU26hkhQqUB7dBR71WmzQhHUnblGmVOEw0jhbV1n9OlXUDCIRGaNV5Jp43N516fN7JmnTHdfp7Hgy0luO4aMhtkLL8Bi3bUWYvzh5Mn1dTxrL6QmGuRhGL/TiTTxRoEdTszSaq9GR0NGA3KdkOz3hqSV3MIDhQ5IVX/Ivx3umBti2es2h4eZby7x8br1rkf7Mo90AqC8aQ3sJeNzqFRu+vSANAQe3PL7l0HGOAdwDCeZYvNKeoZp1Qfs6Aipndh86HmFRi0LAnEO47wsqM6cdfjh3jBPUzhZy7nvlUfFsamED1VQt6aISHVymXZ/B2aCtIG8AI8xfobj2d3en1wWVhOeHELKmLQ1s211s88comkv4UCwWyF787mJdYXtNfhKAXVqnKTq8QZvGAGGOfaTo5pGZ/PwbUCr5+DPr/1J92JNHr9aOl/F3iI5+O1nfybsGxoimvZ3ViWSluDITw3P37mypheDIPY0tw7+O/5ApbkYw+zpfaUVu32Pi98+defdUhEpZkRFq0aqyNh9FuL9hpYbEm6iwi0z2REd09ZmyENEbuhjDWzKvZXTqKYaBIr3tt5kuPtQBZFvEUwHt60vfCNu41XsksH9Ij1BMMz1Y0OOunHNShFIP5868g5zeXmuLwL9T4b6Q2+KejgAAAABJRU5ErkJggg==">
+          前端程序员经常忽略的一道js面试题
+        </h1> <div class="page-slot page-slot-top"><!-- 固定100% * 90px可显示，max-height:90px未见显示-->
+     <ins class="adsbygoogle"
+          style="display:inline-block;width:100%;max-height:90px"
+          data-ad-client="ca-pub-7828333725993554"
+          data-ad-slot="6625304284"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script></div> <div class="theme-vdoing-content content__default"><p>在网上看的这道面试题很经典，就转载过来记录一下，顺便加深自己的印象</p> <p>function Foo() {
+getName = function () { alert (1); };
+return this;
+}
+Foo.getName = function () { alert (2);};
+Foo.prototype.getName = function () { alert (3);};
+var getName = function () { alert (4);};
+function getName() { alert (5);}</p> <p>//请写出以下输出结果：
+Foo.getName();
+getName();
+Foo().getName();
+getName();
+new Foo.getName();
+new Foo().getName();
+new new Foo().getName();</p> <div class="language- extra-class"><pre><code>这几道题经常碰见，但是没有好好研究过，今天看了一下，考查的内容确实很多，基本看出了js的综合能力，包含了变量定义提升，this指针指向，运算符优先级，原型，继承，全局变量污染，对象属性以及原型属性优先级等知识。
+</code></pre></div><h2 id="第一问"><a href="#第一问" class="header-anchor">#</a> 第一问</h2> <div class="language- extra-class"><pre><code>先看此题的上半部分说了什么，首先是自定义了一个叫Foo的函数，之后为Foo创建了一个getName的静态属性储存了一个匿名函数，之后为Foo的原型对象新创建了一个叫getName的匿名函数。之后又通过函数变量表达式创建了一个getName的函数，最后再声明一个getName函数。
+
+第一问的Foo.getName自然是访问Foo函数上储存的静态属性，答案自然是2，这个很简单，没什么说的，但是我们来复习下基础知识
+
+    function User(name) {
+        var name = name ;//私有属性
+        this.name = name ;//公有属性
+        function getName() {//公有方法
+            return name;
+        }
+    }
+    User.prototype.getName = function() {
+        return this.name;
+    }
+    User.name = 'Wscats';//静态属性
+    User.getName = function(){//静态方法
+        return this.name ;
+    }
+    var Wscat = new User('Wscats');//实例化
+
+注意下面这几点：
+    * 调用公有方法，公有属性，我们必须先实例化对象，也就是用new操作符实例化对象，就可构造函数实例化对象的方法和属性，并且公有方法是不能调用私有方法和静态属性的
+    * 静态方法和静态属性就是我们无需实例化就可以调用
+    * 而对象的私有方法和属性，外部是不可以访问的
+</code></pre></div><h2 id="第二问"><a href="#第二问" class="header-anchor">#</a> 第二问</h2> <div class="language- extra-class"><pre><code>直接调用getName函数，就是访问当前尚文作用域内的叫getName的函数，所以这里应该直接把关注点放在4和5上，跟123都没什么关系。此处有两个坑，一是变量生命提升，而是函数表达式和函数声明的区别。
+此处可以参考https://github.com/Wscats/Good-text-Share/issues/73
+
+https://github.com/Wscats/Good-text-Share/issues/86
+
+在js中，定义函数有两种类型
+
+### 函数声明
+    //函数声明
+    function wacat(type){
+        return type === 'wscat';
+    }
+
+### 函数表达式
+    //函数表达式
+    var oaoafly = function (type){
+        return type ===  'oaoafly';
+    }
+
+    先来看一下下面这个问题，在一个程序里同时用函数声明和函数表达式定义一个名为getName的函数
+        getName()//oaoafly
+        var getName  = function () {
+            console.log('wscat')
+        }
+        getName()//wscat
+        function getName(){
+            console.log('oaoafly')
+        }
+        getName()//wscat
+    #### js解释器中存在一种变量声明被提升的机制，也就是说函数声明会被提升到作用域的最前面，即使写代码的时候是写在后面，也还是会被提升到前面
+    #### 而用函数表达式创建的函数在运行时进行赋值，且要等到表达式赋值完成后才能调用
+
+        var getName //变量被提升，此时为undefined
+
+        getName();//oaoafly函数被提升，这里受函数声明的影响，虽然函数声明在最后可以被提升到最前面了
+        var getName = function () {
+            console.log('wacat')
+        }//函数表达式此时才开始覆盖函数声明的定义
+        getName()//wscat
+        function getName () {
+            console.log('oaoafly');
+        }
+        getName()//wscat 这里就执行了函数表达式的值
+
+    所以可以分解为这两个简单的问题来看清楚区别的本质
+
+        var getName ;
+        console.log(getName)//undefined
+        getName()//Uncaught TypeError: getName is not a function
+        var getName = function () {
+            console.log('wscat')
+        }
+
+
+
+        var getName ;
+        console.log(getName);//function getName() {console.log('oaoafly')}
+        getName()//oaoafly
+        function getName(){
+            console.log('oaoafly')
+        }
+    这个区别看似微不足道，但在某些情况下确实是一个难以察觉并且知名的陷阱。出现这个陷阱的本质原因体现在这两种类型在函数提升和运行时机上的差异。
+    总结：
+        #### js中函数声明和函数表达式是存在区别的，函数声明在js解析时进行函数提升，因此在同一个作用域内，不管函数声明在哪定义，该函数都可以进行调用，而函数表达式的值是在js运行时确定，并且在表达式赋值完成后，该函数才能调用。
+        所以第二问的答案就是4，5的函数生命被4的函数表达式覆盖了
+</code></pre></div><h2 id="第三问"><a href="#第三问" class="header-anchor">#</a> 第三问</h2> <div class="language- extra-class"><pre><code>Foo().getName();先执行了Foo函数，然后再调用Foo函数的返回值对象的getName属性函数
+Foo函数的第一句getName = function (){alert(1)}是一句函数赋值语句，注意他没有var声明，所以先向当前Foo函数作用域内寻找getName变量，没有的话，在想当前函数作用域上层，即外层作用域内寻找是否含有getNAme变量，找到了，也就是第二问种的alert(4)函数,将此变量的值赋值为function(){alert(1)}
+此处实际上是将外层作用域内的getName函数修改了。
+
+注意：此处若依然没有找到会一直向上查找到window对象，若window对象中也没有getName属性，就在window对象中创建一个getName变量。
+
+之后Foo函数的返回值是this，简单的讲，this的指向室友所在函数的调用方式决定的，而此处的直接调用方式，this指向window对象。所以Foo函数返回的是window对象，相当于执行window.getname(),而window种的getName已经被修改为alert(1),所以最终会输出1
+
+    var name = 'wscat';//全局变量
+    window.name = 'Wscats';//全局变量
+    function getName () {
+        name = 'Oaoafly'; //去掉var变成了全局变量
+        var privateName = 'Stacsw';
+        return function () {
+            console.log(this);//window
+            return privateName
+        }
+    }
+    var getPrivate = getName('Hello');//当然传参是局部变量，但函数里面没有接受这个参数
+
+    console.log(name);//Oaoafly
+    console.log(getPrivate());//Stacsw
+
+    因为js没有块级作用域，但是函数是能产生一个作用域的，函数内部不同定义值得方法会直接或间接影响到全局或者局部变量，函数内部的私有变量可以用闭包获取，函数还真是第一公民呀
+    而关于this，this的志向是在函数定义的时候是确定不了的，只有函数执行的时候才能确定this到底指向谁，实际上this的最终指向的是那个调用它的对象
+    所以第三问中实际上就是window在调用  Foo() 函数，所以this的指向是window
+
+    window.Foo().getName()
+</code></pre></div><h2 id="第四问"><a href="#第四问" class="header-anchor">#</a> 第四问</h2> <div class="language- extra-class"><pre><code>直接调用getName函数，相当于window.getName(),因为这个变量已经被Foo函数执行时修改了，所以结果与第三问相同，为1，也就是说Foo执行后把全局的getName函数给重写了一次，所以结果就是Foo()执行重写的拿个getName函数。
+</code></pre></div><h2 id="第五问"><a href="#第五问" class="header-anchor">#</a> 第五问</h2> <div class="language- extra-class"><pre><code>第五问的 new Foo.getName() 此处考查的是js的运算符优先级问题
+js运算符的优先级问题，可以参考https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Operator_Precedence
+
+这道题首先看优先级的第18和第17都出现关于new的优先级，new(带参数列表)比new(无参数列表)高，跟成员访问同级
+
+new Foo.getName();的优先级是这样的
+相当于是：
+    new (Foo.getName)();
+
+    * 点的优先级(18)比new无序列表(17)优先级高
+    * 当点运算完后又因为有个括号(),此时就是变成new有序列表(18)，所以直接执行new，当然也有可能有朋友会问，为什么遇到()不函数调用在new呢，那是因为函数调用(17)比new有参数列表(18)优先级低
+所以这里实际上将getName函数作为了构造函数来执行，所以是2
+</code></pre></div><h2 id="第六问"><a href="#第六问" class="header-anchor">#</a> 第六问</h2> <div class="language- extra-class"><pre><code>这一题比上一题的区别就在Foo那里多了一个括号，这个有括号跟没括号在我们上疑问中就看出来优先级是有区别的
+
+    (new Foo()).getName()
+
+首先new有参数列表(18)跟点的优先级(18)是同级，同级的话按照从左到右的执行顺序，所以先执行new有参数列表(18)在执行点的优先级(18),最后在函数调用(17)
+    new有参数列表(18)-&gt;.成员访问(18)-&gt;()函数调用(17)
+这里还有一个知识点，Foo作为构造函数有返回值
+#### 构造函数的返回值
+    在传统语言中， 构造函数不应该有返回值，实际执行的返回值就是此构造函数的实例化对象。而在js中构造函数可以有返回值也可以没有。
+    1，没有返回值则按照其他语言一样返回实例化对象
+        function Foo(name) {
+            this.name = name;
+        }
+        console.log(new Foo('wscats'))
+
+    2,若有返回值则检查其返回值是否为引用类型，如果是非引用类型，如基本类型(String.Number.Boolean.Null.Undefined)则于无返回值相同，实际返回其实例化对象
+
+        function Foo(name) {
+            this.name = name
+            return 520
+        }
+        console.log(new Foo('wscats'))
+
+    3,若返回值是引用类型，则实际返回值为这个引用类型
+
+        function foo(name) {
+            this.name = name
+            return {
+                age:16
+            }
+        }
+        console.log(new Foo('wscats'))
+
+
+原题中，由于返回的是this，而在this在构造函数中本来就代表当前实例化对象，最终Foo函数返回实例化对象
+之后调用实例化对象的getName函数，因为在Foo构造函数中没有实例化对象添加任何属性，当前对象的原型对象(prototype)中寻找getName函数。
+当然这里再拓展个题外话，如果构造函数和原型链都有相同的方法，如下面的代码，那么默认会拿构造函数的公有方法而不是原型链，这个知识点在原题中没有表现出来，后面改进版我已经加上
+
+    function Foo(name) {
+        this.name = name ;
+        this.getName = function() {
+            return this.name
+        }
+    }
+    Foo.prototype.name = 'Oaoafly';
+    Foo.prototype.getName = function () {
+        return 'Oaoafly'
+    }
+    console.log((new Foo('Wscats')).name)//Wscats
+    console.log((new Foo('Wscats')).getName)//Wscats
+</code></pre></div><h2 id="第七问"><a href="#第七问" class="header-anchor">#</a> 第七问</h2> <div class="language- extra-class"><pre><code>new new Foo().getName(); 同样是运算符优先级问题
+
+实际上问的是
+
+    new ((new Foo()).getName)()
+    new有参数列表(18)-&gt;new有参数列表(18)
+先初始化Foo的实例化对象，然后将原型上的getName函数作为构造函数再次new
+</code></pre></div><p>##答案
+function Foo() {
+getName = function () { alert (1); };
+return this;
+}
+Foo.getName = function () { alert (2);};
+Foo.prototype.getName = function () { alert (3);};
+var getName = function () { alert (4);};
+function getName() { alert (5);}</p> <div class="language- extra-class"><pre><code>    //答案：
+    Foo.getName();//2
+    getName();//4
+    Foo().getName();//1
+    getName();//1
+    new Foo.getName();//2
+    new Foo().getName();//3
+    new new Foo().getName();//3
+</code></pre></div><h2 id="后续"><a href="#后续" class="header-anchor">#</a> 后续</h2> <div class="language- extra-class"><pre><code>难度加大，在Foo函数里面加多一个公有方法getName
+
+            function Foo() {
+                this.getName = function() {
+                    console.log(3);
+                    return {
+                        getName: getName//这个就是第六问中涉及的构造函数的返回值问题
+                    }
+                };//这个就是第六问中涉及到的，JS构造函数公有方法和原型链方法的优先级
+                getName = function() {
+                    console.log(1);
+                };
+                return this
+            }
+            Foo.getName = function() {
+                console.log(2);
+            };
+            Foo.prototype.getName = function() {
+                console.log(6);
+            };
+            var getName = function() {
+                console.log(4);
+            };
+
+            function getName() {
+                console.log(5);
+            } //答案：
+            Foo.getName(); //2
+            getName(); //4
+            console.log(Foo())
+            Foo().getName(); //1
+            getName(); //1
+            new Foo.getName(); //2
+            new Foo().getName(); //3
+                    //多了一问
+            new Foo().getName().getName(); //3 1
+            new new Foo().getName(); //3
+</code></pre></div><p>转载自https://github.com/Wscats/Good-text-Share/issues/85</p></div></div> <div class="page-slot page-slot-bottom"><!-- 横向自适应 -->
+      <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-7828333725993554"
+          data-ad-slot="6620245489"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script></div> <div class="page-edit"><div class="edit-link"><a href="https://github.com/wu529778790/wu529778790.github.io/edit/master/docs/_posts/hexo迁移数据/前端程序员经常忽略的一道js面试题.md" target="_blank" rel="noopener noreferrer">编辑</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2021/06/17, 21:24:24</span></div></div> <div class="page-nav-wapper"><!----> <!----></div></div> <div class="article-list"><div class="article-title"><a href="/archives/" class="iconfont icon-bi">最近更新</a></div> <div class="article-wrapper"><dl><dd>01</dd> <dt><a href="/pages/537e4ca5f546b/"><div>Code Review</div></a> <span>10-14</span></dt></dl><dl><dd>02</dd> <dt><a href="/pages/266a6e0607e5b/"><div>富强</div></a> <span>10-13</span></dt></dl><dl><dd>03</dd> <dt><a href="/pages/84b570b268311/"><div>ComfyUI</div></a> <span>10-11</span></dt></dl> <dl><dd></dd> <dt><a href="/archives/" class="more">更多文章&gt;</a></dt></dl></div></div></main></div> <div class="footer"><div class="icons"><a href="mailto:529778790@qq.com" title="发邮件" target="_blank" class="iconfont icon-youjian"></a><a href="https://github.com/wu529778790" title="GitHub" target="_blank" class="iconfont icon-github"></a><a href="https://shenzjd.com/shenzjd/music/" title="听音乐" target="_blank" class="iconfont icon-erji"></a></div> 
+  Power by
+  <a href="https://vuepress.vuejs.org/zh/" target="_blank" title="vuepress">vuepress</a> 
+    | Copyright © 2015-2024
+    <span>神族九帝</span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <!----> <!----> <div class="custom-html-window custom-html-window-rb" style="display:;"><div class="custom-wrapper"><i class="close-but">×</i> <div><!-- 固定160*160px -->
+      <ins class="adsbygoogle"
+          style="display:inline-block;max-width:160px;max-height:160px"
+          data-ad-client="ca-pub-7828333725993554"
+          data-ad-slot="8377369658"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+      </div></div></div></div><div class="global-ui"><div></div></div></div>
+    <script src="/assets/js/app.6f32355a.js" defer></script><script src="/assets/js/3.1b204256.js" defer></script><script src="/assets/js/288.c457a47a.js" defer></script>
+  </body>
+</html>
