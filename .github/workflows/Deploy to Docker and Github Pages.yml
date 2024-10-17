@@ -31,19 +31,15 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          npm version patch -m "chore(release): v%s [skip ci]"
-        if: ${{ always() }}
-
-      - name: Get version
-        id: version
-        run: echo ::set-output name=new-version::$(npm version patch)
+          new_version=$(npm version patch -m "chore(release): v%s [skip ci]")
+          echo "new-version=$new_version" >> $GITHUB_ENV
         if: ${{ always() }}
 
       - name: Deploy Github Pages
         run: |
           cd docs/.vuepress/dist
           git add -A
-          git commit -m "deploy github pages: v${{ steps.version.outputs.new-version }}"
+          git commit -m "deploy github pages: v${{ env.new-version }}"
           git push -f origin gh-pages
 
       - name: Set Docker Buildx
@@ -61,7 +57,7 @@ jobs:
           context: .
           push: true
           tags: |
-            wu529778790/blog.shenzjd.com:${{ steps.version.outputs.new-version }}
+            wu529778790/blog.shenzjd.com:${{ env.new-version }}
             wu529778790/blog.shenzjd.com:latest
         if: ${{ always() }}
 
