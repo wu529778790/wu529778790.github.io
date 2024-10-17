@@ -1,0 +1,71 @@
+name: Deploy to Docker and Github Pages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "19"
+
+      - name: Install Pnpm
+        run: npm install -g pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build project
+        run: pnpm run build
+
+      - name: Update version and commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          npm version patch -m "chore(release): v%s [skip ci]"
+        if: ${{ always() }}
+
+      - name: Get version
+        id: version
+        run: echo ::set-output name=new-version::$(npm version patch)
+        if: ${{ always() }}
+
+      - name: Deploy Github Pages
+        run: |
+          cd docs/.vuepress/dist
+          git add -A
+          git commit -m "deploy github pages: v${{ steps.version.outputs.new-version }}"
+          git push -f origin gh-pages
+
+      - name: Set Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and push docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: |
+            wu529778790/blog.shenzjd.com:${{ steps.version.outputs.new-version }}
+            wu529778790/blog.shenzjd.com:latest
+        if: ${{ always() }}
+
+      - name: Push changes
+        run: |
+          git push
+        if: ${{ always() }}
