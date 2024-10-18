@@ -26,6 +26,7 @@ jobs:
 
       - name: Build project
         run: pnpm run build
+        if: ${{ always() }}
 
       - name: Update version and commit
         run: |

@@ -25,7 +25,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: "Run baiduPush"
+      - name: Run baiduPush
         run: |
           node utils/baiduPush.js https://blog.shenzjd.com
           curl -H 'Content-Type:text/plain' --data-binary @urls.txt "http://data.zz.baidu.com/urls?site=shenzjd.com&token=fxNQL2Ht9bL9WjlO"
