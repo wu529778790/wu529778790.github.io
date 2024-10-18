@@ -1,0 +1,26 @@
+name: Baidu Push
+
+# 两种触发方式：一、push代码，二、每天国际标准时间23点（北京时间+8即早上7点）运行
+on:
+  push:
+  schedule:
+    - cron: "0 23 * * *" # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#scheduled-events-schedule
+
+jobs:
+  bot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "19"
+
+      - name: Install Pnpm
+        run: npm install -g pnpm
+
+      - name: "Run baiduPush"
+        run: pnpm install && pnpm run baiduPush
