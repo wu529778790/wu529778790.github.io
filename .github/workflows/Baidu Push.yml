@@ -27,6 +27,6 @@ jobs:
 
       - name: "Run baiduPush"
         run: |
-          node utils/baiduPush.js https://blog.shenzjd.com && bash baiduPush.sh
-        env:
-          BAIDU_TOKEN: ${{ secrets.BAIDU_TOKEN }}
+          node utils/baiduPush.js https://blog.shenzjd.com
+          curl -H 'Content-Type:text/plain' --data-binary @urls.txt "http://data.zz.baidu.com/urls?site=shenzjd.com&token=fxNQL2Ht9bL9WjlO"
+          rm -rf urls.txt
