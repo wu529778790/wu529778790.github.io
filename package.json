@@ -12,8 +12,7 @@
   "scripts": {
     "dev": "SET NODE_OPTIONS=--openssl-legacy-provider && vuepress dev docs",
     "build": "vuepress build docs",
-    "deploy": "bash deploy.sh",
-    "baiduPush": "node utils/baiduPush.js https://blog.shenzjd.com && bash baiduPush.sh"
+    "deploy": "bash deploy.sh"
   },
   "devDependencies": {
     "@better-scroll/core": "^2.5.1",
@@ -40,6 +39,7 @@
     "@vssue/api-github-v3": "^1.4.7",
     "@vssue/vuepress-plugin-vssue": "^1.4.8",
     "@vuepress/core": "^1.9.10",
+    "chalk": "^5.3.0",
     "vuepress-plugin-comment": "^0.7.3"
   }
 }

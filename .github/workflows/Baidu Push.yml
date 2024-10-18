@@ -22,5 +22,11 @@ jobs:
       - name: Install Pnpm
         run: npm install -g pnpm
 
+      - name: Install dependencies
+        run: pnpm install
+
       - name: "Run baiduPush"
-        run: pnpm install && pnpm run baiduPush
+        run: |
+          node utils/baiduPush.js https://blog.shenzjd.com && bash baiduPush.sh
+        env:
+          BAIDU_TOKEN: ${{ secrets.BAIDU_TOKEN }}

@@ -17,6 +17,9 @@ importers:
       '@vuepress/core':
         specifier: ^1.9.10
         version: 1.9.10(@vue/compiler-sfc@3.5.10)(hogan.js@3.0.2)(lodash@4.17.21)(underscore@1.13.7)
+      chalk:
+        specifier: ^5.3.0
+        version: 5.3.0
       vuepress-plugin-comment:
         specifier: ^0.7.3
         version: 0.7.3
@@ -1578,6 +1581,10 @@ packages:
   chalk@4.1.2:
     resolution: {integrity: sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==}
     engines: {node: '>=10'}
+
+  chalk@5.3.0:
+    resolution: {integrity: sha512-dLitG79d+GV1Nb/VYcCDFivJeK1hiukt9QjRNVOsUtTy1rR1YJsmpGGTZ3qJos+uw7WmWF4wUwBd9jxjocFC2w==}
+    engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
 
   chardet@0.7.0:
     resolution: {integrity: sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA==}
@@ -7878,6 +7885,8 @@ snapshots:
     dependencies:
       ansi-styles: 4.3.0
       supports-color: 7.2.0
+
+  chalk@5.3.0: {}
 
   chardet@0.7.0: {}
 
