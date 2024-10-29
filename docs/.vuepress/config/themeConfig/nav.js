@@ -5,7 +5,7 @@ module.exports = [
     items: [
       {
         text: "神卡套餐",
-        link: "https://docs.qq.com/sheet/DV09NbXlvQW5QVHpp?tab=BB08J2",
+        link: "https://www.kdocs.cn/l/cu04FUTRCy3V",
       },
       {
         text: "壁纸",
