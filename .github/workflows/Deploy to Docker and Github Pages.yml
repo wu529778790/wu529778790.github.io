@@ -36,18 +36,6 @@ jobs:
           echo "new-version=$new_version" >> $GITHUB_ENV
         if: ${{ always() }}
 
-      - name: Deploy to GitHub Pages
-        run: |
-          git fetch origin gh-pages
-          git checkout gh-pages
-          git rm -rf .
-          cp -rf dist/* .
-          echo 'dist/' >> .gitignore
-          echo 'node_modules/' >> .gitignore
-          git add .
-          git commit -m "Deploy to GitHub Pages"
-          git push -f origin gh-pages
-
       - name: Set Docker Buildx
         uses: docker/setup-buildx-action@v1
 
@@ -72,3 +60,15 @@ jobs:
         run: |
           git push
         if: ${{ always() }}
+
+      - name: Deploy to GitHub Pages
+        run: |
+          git fetch origin gh-pages
+          git checkout gh-pages
+          git rm -rf .
+          cp -rf docs/.vuepress/dist/* .
+          echo 'docs/.vuepress/dist/' >> .gitignore
+          echo 'node_modules/' >> .gitignore
+          git add .
+          git commit -m "Deploy to GitHub Pages"
+          git push -f origin gh-pages
