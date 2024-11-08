@@ -75,7 +75,7 @@ jobs:
 
       - name: Update Docker
         run: |
-          curl -X POST https://api.github.com/docker \
+          curl -X POST https://api.shenzjd.com/docker \
           -H "Content-Type: application/json" \
           -d '{
             "dockerName": "wu529778790/blog.shenzjd.com",
