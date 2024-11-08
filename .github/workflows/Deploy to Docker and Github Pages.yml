@@ -72,3 +72,12 @@ jobs:
           git add .
           git commit -m "Deploy to GitHub Pages"
           git push -f origin gh-pages
+
+      - name: Update Docker
+        run: |
+          curl -X POST https://api.github.com/dcoker \
+          -H "Content-Type: application/json" \
+          -d '{
+            "dockerName": "wu529778790/blog.shenzjd.com",
+            "dockerComposeYml": "$(cat docker-compose.yml)"
+          }'
