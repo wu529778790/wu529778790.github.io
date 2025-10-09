@@ -36,25 +36,25 @@ jobs:
           echo "new-version=$new_version" >> $GITHUB_ENV
         if: ${{ always() }}
 
-      - name: Set Docker Buildx
-        uses: docker/setup-buildx-action@v1
+      # - name: Set Docker Buildx
+      #   uses: docker/setup-buildx-action@v1
 
-      - name: Login to DockerHub
-        uses: docker/login-action@v1
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-        if: ${{ always() }}
+      # - name: Login to DockerHub
+      #   uses: docker/login-action@v1
+      #   with:
+      #     username: ${{ secrets.DOCKER_USERNAME }}
+      #     password: ${{ secrets.DOCKER_PASSWORD }}
+      #   if: ${{ always() }}
 
-      - name: Build and push docker image
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          push: true
-          tags: |
-            wu529778790/blog.shenzjd.com:${{ env.new-version }}
-            wu529778790/blog.shenzjd.com:latest
-        if: ${{ always() }}
+      # - name: Build and push docker image
+      #   uses: docker/build-push-action@v2
+      #   with:
+      #     context: .
+      #     push: true
+      #     tags: |
+      #       wu529778790/blog.shenzjd.com:${{ env.new-version }}
+      #       wu529778790/blog.shenzjd.com:latest
+      #   if: ${{ always() }}
 
       - name: Push changes
         run: |
@@ -72,12 +72,3 @@ jobs:
           git add .
           git commit -m "Deploy to GitHub Pages"
           git push -f origin gh-pages
-
-      - name: Update Docker
-        run: |
-          curl -X POST https://api.shenzjd.com/docker \
-          -H "Content-Type: application/json" \
-          -d '{
-            "dockerName": "wu529778790/blog.shenzjd.com",
-            "dockerComposeYml": "$(cat docker-compose.yml)"
-          }'
