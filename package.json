@@ -10,7 +10,7 @@
     "url": "git+https://github.com/wu529778790/wu529778790.github.io.git"
   },
   "scripts": {
-    "dev": "SET NODE_OPTIONS=--openssl-legacy-provider && vuepress dev docs",
+    "dev": "NODE_OPTIONS=--openssl-legacy-provider vuepress dev docs",
     "build": "vuepress build docs",
     "deploy": "bash deploy.sh"
   },
