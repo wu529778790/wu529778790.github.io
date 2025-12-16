@@ -28,6 +28,9 @@ jobs:
         run: pnpm run build
         if: ${{ always() }}
 
+      - name: copy CNAME
+        run: cp CNAME docs/.vuepress/dist/CNAME
+
       - name: Update version and commit
         run: |
           git config user.name 'github-actions[bot]'
