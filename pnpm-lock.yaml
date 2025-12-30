@@ -26,6 +26,9 @@ importers:
       vuepress-plugin-comment:
         specifier: ^0.7.3
         version: 0.7.3
+      wx-auth-sdk:
+        specifier: ^1.0.2
+        version: 1.0.2
     devDependencies:
       '@better-scroll/core':
         specifier: ^2.5.1
@@ -5593,6 +5596,9 @@ packages:
         optional: true
       utf-8-validate:
         optional: true
+
+  wx-auth-sdk@1.0.2:
+    resolution: {integrity: sha512-bis7UMj7ZN9WGIz364uXICaj8wLtG0k18G6qAtRpDjVrgUWSeA1/Ekg5pyqACfXrLI33qFfIzP1UkliS7qMvrA==}
 
   xdg-basedir@4.0.0:
     resolution: {integrity: sha512-PSNhEJDejZYV7h50BohL09Er9VaIefr2LMAf3OEmpCkjOi34eYyQYAXUTjEQtZJTKcF0E2UKTh+osDLsgNim9Q==}
@@ -12301,6 +12307,8 @@ snapshots:
   ws@6.2.3:
     dependencies:
       async-limiter: 1.0.1
+
+  wx-auth-sdk@1.0.2: {}
 
   xdg-basedir@4.0.0: {}
 
