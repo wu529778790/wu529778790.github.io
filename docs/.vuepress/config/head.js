@@ -12,28 +12,6 @@ module.exports = [
   ],
   ["meta", { name: "baidu-site-verification", content: "code-yywEP2q5jK" }], // 百度统计的站长验证
   ["meta", { name: "theme-color", content: "#11a8cd" }], // 移动浏览器主题颜色
-  // PageSpy SDK
-  ["script", { src: "https://pagespy.shenzjd.com/page-spy/index.min.js" }],
-  // 插件（非必须，但建议使用）
-  [
-    "script",
-    { src: "https://pagespy.shenzjd.com/plugin/data-harbor/index.min.js" },
-  ],
-  ["script", { src: "https://pagespy.shenzjd.com/plugin/rrweb/index.min.js" }],
-  [
-    "script",
-    {},
-    `
-    window.$harbor = new DataHarborPlugin();
-    window.$rrweb = new RRWebPlugin();
-
-    [window.$harbor, window.$rrweb].forEach(p => {
-      PageSpy.registerPlugin(p)
-    })
-
-    window.$pageSpy = new PageSpy();
-    `,
-  ],
 
   // PWA start
   // [
