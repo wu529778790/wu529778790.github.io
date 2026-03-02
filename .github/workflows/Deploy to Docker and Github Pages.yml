@@ -24,20 +24,19 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build project
-        run: pnpm run build
-        if: ${{ always() }}
-
-      - name: copy CNAME
-        run: cp CNAME docs/.vuepress/dist/CNAME
-
       - name: Update version and commit
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
           new_version=$(npm version patch -m "chore(release): v%s [skip ci]")
           echo "new-version=$new_version" >> $GITHUB_ENV
+
+      - name: Build project
+        run: pnpm run build
         if: ${{ always() }}
+
+      - name: copy CNAME
+        run: cp CNAME docs/.vuepress/dist/CNAME
 
       # - name: Set Docker Buildx
       #   uses: docker/setup-buildx-action@v1
