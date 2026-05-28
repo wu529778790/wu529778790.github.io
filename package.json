@@ -35,9 +35,6 @@
     "vuepress-plugin-zooming": "^1.1.8",
     "yamljs": "^0.3.0"
   },
-  "pnpm": {
-    "onlyBuiltDependencies": ["core-js", "ejs", "esbuild", "highlight.js", "vuepress", "fsevents"]
-  },
   "dependencies": {
     "@vssue/api-github-v3": "^1.4.7",
     "@vssue/vuepress-plugin-vssue": "^1.4.8",
