@@ -19,3 +19,4 @@ tags:
 - [03. 实现 mini cursor](03.实现mini-cursor.md)
 - [04. MCP：可跨进程调用的 Tool](04.MCP-可跨进程调用的Tool.md)
 - [05. RAG：把文档向量化实现语义搜索](05.RAG-把文档向量化实现语义搜索.md)
+- [06. RAG 的 Loader 和 Splitter](06.RAG的Loader和Splitter.md)
