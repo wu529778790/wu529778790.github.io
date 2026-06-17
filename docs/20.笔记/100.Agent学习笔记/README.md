@@ -20,3 +20,6 @@ tags:
 - [04. MCP：可跨进程调用的 Tool](04.MCP-可跨进程调用的Tool.md)
 - [05. RAG：把文档向量化实现语义搜索](05.RAG-把文档向量化实现语义搜索.md)
 - [06. RAG 的 Loader 和 Splitter](06.RAG的Loader和Splitter.md)
+- [07. LangChain 全部 Splitter](07.LangChain全部Splitter.md)
+- [08. Milvus 向量数据库](08.Milvus向量数据库.md)
+- [09. Milvus + RAG 实战：电子书语义检索](09.Milvus加RAG实战电子书语义检索.md)
