@@ -156,8 +156,8 @@ const visiblePages = computed(() => {
 /* ── Post Grid ── */
 .post-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-5);
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
   margin-bottom: var(--space-8);
 }
 
@@ -389,11 +389,6 @@ const visiblePages = computed(() => {
     padding: var(--space-5) var(--space-4);
   }
 
-  .post-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-4);
-  }
-
   .post-card-link {
     padding: var(--space-4);
   }
@@ -405,12 +400,6 @@ const visiblePages = computed(() => {
   .post-read-more {
     opacity: 1;
     transform: translateX(0);
-  }
-}
-
-@media (min-width: 1024px) {
-  .post-grid {
-    grid-template-columns: repeat(2, 1fr);
   }
 }
 </style>
