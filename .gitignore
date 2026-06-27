@@ -4,6 +4,7 @@ node_modules
 # VitePress
 docs/.vitepress/dist
 docs/.vitepress/cache
+docs/.vitepress/theme/posts.data.ts
 .vite-temp
 
 # OS

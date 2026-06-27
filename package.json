@@ -2,8 +2,9 @@
   "name": "blog-vitepress",
   "version": "1.0.0",
   "scripts": {
-    "dev": "vitepress dev docs",
-    "build": "vitepress build docs",
+    "generate": "node scripts/generate-posts.mjs",
+    "dev": "npm run generate && vitepress dev docs",
+    "build": "npm run generate && vitepress build docs",
     "preview": "vitepress preview docs"
   },
   "devDependencies": {

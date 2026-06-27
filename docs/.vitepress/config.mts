@@ -34,8 +34,6 @@ export default defineConfig({
     siteTitle: '神族九帝',
     nav: [
       { text: '首页', link: '/' },
-      { text: '标签', link: '/tags' },
-      { text: '归档', link: '/archive' },
       ...autoNav.filter((item: any) => item.text !== '首页'),
     ],
     socialLinks: [
