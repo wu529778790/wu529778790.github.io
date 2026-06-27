@@ -237,6 +237,22 @@ a:hover {
   font-weight: 500;
 }
 
+/* Fix sidebar arrow alignment */
+.VPSidebarItem .text {
+  display: flex;
+  align-items: center;
+}
+
+.VPSidebarItem .indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.VPSidebarItem.is-link > .item > .indicator {
+  display: none;
+}
+
 /* VitePress Nav */
 .VPNav .VPNavBarTitle .title {
   font-family: var(--font-heading);
