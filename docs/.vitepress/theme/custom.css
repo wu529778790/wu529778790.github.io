@@ -238,15 +238,8 @@ a:hover {
 }
 
 /* Fix sidebar arrow alignment */
-.VPSidebarItem .text {
-  display: flex;
+.VPSidebarItem .item {
   align-items: center;
-}
-
-.VPSidebarItem .indicator {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .VPSidebarItem.is-link > .item > .indicator {
