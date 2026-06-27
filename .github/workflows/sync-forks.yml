@@ -1,0 +1,20 @@
+name: Sync Fork
+
+on:
+  schedule:
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    if: github.repository != 'wu529778790/wu529778790.github.io'
+    steps:
+      - name: Sync fork with upstream
+        uses: aormsby/Fork-Sync-With-Upstream-action@v4
+        with:
+          upstream_repository: wu529778790/wu529778790.github.io
+          upstream_branch: master
+          target_branch: master
+          git_username: github-actions[bot]
+          git_email: github-actions[bot]@users.noreply.github.com
