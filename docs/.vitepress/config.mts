@@ -17,6 +17,13 @@ export default defineConfig({
     html: false,
   },
 
+  vite: {
+    build: {
+      chunkSizeWarningLimit: 2000,
+    },
+    logLevel: 'error',
+  },
+
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],
     ['meta', { name: 'author', content: '神族九帝' }],
