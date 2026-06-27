@@ -238,6 +238,20 @@ a:hover {
   letter-spacing: -0.02em;
 }
 
+/* Sidebar fixes: reduce spacing and align arrows */
+.VPSidebarItem .item {
+  align-items: center;
+}
+
+.VPSidebarItem.level-0 > .item > .text {
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+
+.VPSidebarItem .text {
+  margin-bottom: 4px;
+}
+
 /* ── Utility Classes ── */
 .visually-hidden {
   position: absolute;
