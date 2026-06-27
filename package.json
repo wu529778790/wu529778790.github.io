@@ -8,11 +8,6 @@
     "build": "npm run clean && vitepress build docs",
     "preview": "vitepress preview docs"
   },
-  "dependencies": {
-    "@element-plus/icons-vue": "^2.3.2",
-    "@sugarat/theme": "^0.5.23",
-    "element-plus": "^2.14.2"
-  },
   "devDependencies": {
     "vitepress": "2.0.0-alpha.17"
   }

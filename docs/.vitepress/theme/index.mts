@@ -1,4 +1,5 @@
-import BlogTheme from '@sugarat/theme'
+// https://vitepress.dev/guide/custom-theme
+import DefaultTheme from 'vitepress/theme'
 import './custom.css'
 
-export default BlogTheme
+export default DefaultTheme
