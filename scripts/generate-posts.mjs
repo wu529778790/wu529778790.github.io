@@ -51,6 +51,15 @@ function scanDir(dir) {
           .replace(docsDir, '')
           .replace(/\.md$/, '.html')
           .replace(/\/index\.html$/, '/')
+        // Extract first paragraph as excerpt
+        const body = content.replace(/^---[\s\S]*?---\s*/, '')
+        const firstPara = body
+          .replace(/^#+\s+.*$/gm, '') // remove headings
+          .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // strip links, keep text
+          .replace(/[*_`~]/g, '') // remove markdown formatting
+          .split('\n\n')[0]
+          .trim()
+          .substring(0, 150)
         posts.push({
           title: fm.title,
           date: fm.date,
@@ -58,6 +67,7 @@ function scanDir(dir) {
           tags: Array.isArray(fm.tags) ? fm.tags.filter(t => t && t.trim()) : (fm.tags ? [fm.tags] : []),
           url,
           sticky: fm.sticky ? Number(fm.sticky) : 0,
+          excerpt: firstPara,
         })
       }
     }
@@ -81,6 +91,7 @@ export interface Post {
   tags: string[]
   url: string
   sticky?: number
+  excerpt?: string
 }
 
 export const posts: Post[] = ${JSON.stringify(posts, null, 2)}

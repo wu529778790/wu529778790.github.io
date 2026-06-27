@@ -60,6 +60,7 @@ const visiblePages = computed(() => {
       <h3 class="post-title">
         <a :href="post.url">{{ post.title }}</a>
       </h3>
+      <p v-if="post.excerpt" class="post-excerpt">{{ post.excerpt }}...</p>
       <div class="post-tags">
         <span v-for="tag in post.tags" :key="tag" class="post-tag">
           <a :href="`/tags#${tag}`"># {{ tag }}</a>
@@ -121,6 +122,16 @@ const visiblePages = computed(() => {
 }
 .post-title a:hover {
   color: var(--vp-c-brand-1);
+}
+.post-excerpt {
+  margin: 0 0 8px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--vp-c-text-2);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .post-tags {
   display: flex;
