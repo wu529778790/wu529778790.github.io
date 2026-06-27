@@ -89,8 +89,7 @@ const posts = scanDir(docsDir)
 posts.sort((a, b) => {
   if (a.sticky && !b.sticky) return -1
   if (!a.sticky && b.sticky) return 1
-  // Higher order number = newer content, sort descending
-  if (a.order !== b.order) return b.order - a.order
+  // Newest first by date
   return new Date(b.date).getTime() - new Date(a.date).getTime()
 })
 
