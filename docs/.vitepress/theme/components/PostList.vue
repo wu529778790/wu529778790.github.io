@@ -64,11 +64,8 @@ const visiblePages = computed(() => {
       >
         <a :href="post.url" class="post-card-link">
           <!-- Card Header -->
-          <div class="post-card-header">
-            <span class="post-category" :class="`post-category--${post.categorySlug}`">
-              {{ post.category }}
-            </span>
-            <span v-if="post.sticky" class="post-sticky-badge">
+          <div v-if="post.sticky" class="post-card-header">
+            <span class="post-sticky-badge">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 17v5"/>
                 <path d="M9 11l-4 4h14l-4-4"/>
@@ -193,55 +190,6 @@ const visiblePages = computed(() => {
   align-items: center;
   gap: var(--space-2);
   margin-bottom: var(--space-3);
-}
-
-.post-category {
-  display: inline-flex;
-  align-items: center;
-  padding: var(--space-1) var(--space-2);
-  font-size: var(--text-xs);
-  font-weight: 500;
-  border-radius: var(--radius-sm);
-  background: var(--color-muted);
-  color: var(--color-text-2);
-  line-height: 1.4;
-}
-
-/* Category color variants */
-.post-category--ai {
-  background: rgba(139, 92, 246, 0.1);
-  color: #8B5CF6;
-}
-.dark .post-category--ai {
-  background: rgba(139, 92, 246, 0.15);
-  color: #A78BFA;
-}
-
-.post-category--interview {
-  background: rgba(245, 158, 11, 0.1);
-  color: #D97706;
-}
-.dark .post-category--interview {
-  background: rgba(245, 158, 11, 0.15);
-  color: #FBBF24;
-}
-
-.post-category--notes {
-  background: rgba(16, 185, 129, 0.1);
-  color: #059669;
-}
-.dark .post-category--notes {
-  background: rgba(16, 185, 129, 0.15);
-  color: #34D399;
-}
-
-.post-category--server {
-  background: rgba(59, 130, 246, 0.1);
-  color: #2563EB;
-}
-.dark .post-category--server {
-  background: rgba(59, 130, 246, 0.15);
-  color: #60A5FA;
 }
 
 .post-sticky-badge {

@@ -94,7 +94,6 @@ const navSites = [
 
             <!-- Nav Sites Card -->
             <div class="sidebar-card sidebar-nav">
-              <h2 class="sidebar-card-title">我的网站</h2>
               <div class="sidebar-nav-list">
                 <a
                   v-for="site in navSites"
@@ -274,16 +273,6 @@ const navSites = [
 /* ── Nav Card ── */
 .sidebar-nav {
   padding: var(--space-4);
-}
-
-.sidebar-card-title {
-  font-family: var(--font-heading);
-  font-size: var(--text-sm);
-  font-weight: 600;
-  color: var(--color-text-1);
-  margin: 0 0 var(--space-3);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
 }
 
 .sidebar-nav-list {
