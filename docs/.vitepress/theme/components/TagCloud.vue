@@ -7,7 +7,7 @@ const selectedTag = ref('')
 
 const filteredPosts = computed(() => {
   if (!selectedTag.value) return []
-  return posts.value.filter(p => p.tags.includes(selectedTag.value))
+  return posts.filter(p => p.tags.includes(selectedTag.value))
 })
 
 function formatDate(dateStr: string) {
