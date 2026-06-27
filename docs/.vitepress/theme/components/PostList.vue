@@ -53,18 +53,13 @@ const visiblePages = computed(() => {
 <template>
   <div class="post-list">
     <div v-for="post in currentPosts" :key="post.url" class="post-item">
-      <div class="post-meta">
-        <span class="post-date">{{ formatDate(post.date) }}</span>
-        <span v-if="post.sticky" class="post-sticky">📌 置顶</span>
-      </div>
       <h3 class="post-title">
         <a :href="post.url">{{ post.title }}</a>
+        <span v-if="post.sticky" class="post-sticky">📌 置顶</span>
       </h3>
       <p v-if="post.excerpt" class="post-excerpt">{{ post.excerpt }}...</p>
-      <div class="post-tags">
-        <span v-for="tag in post.tags" :key="tag" class="post-tag">
-          <a :href="`/tags#${tag}`"># {{ tag }}</a>
-        </span>
+      <div class="post-meta">
+        <span class="post-date">{{ formatDate(post.date) }}</span>
       </div>
     </div>
 
@@ -100,18 +95,17 @@ const visiblePages = computed(() => {
   border-bottom: none;
 }
 .post-meta {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 8px;
-  font-size: 14px;
-  color: var(--vp-c-text-2);
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--vp-c-text-3);
 }
 .post-sticky {
+  font-size: 13px;
   color: var(--vp-c-brand-1);
+  margin-left: 6px;
 }
 .post-title {
-  margin: 0 0 8px;
+  margin: 0 0 6px;
   font-size: 18px;
   font-weight: 600;
   line-height: 1.5;

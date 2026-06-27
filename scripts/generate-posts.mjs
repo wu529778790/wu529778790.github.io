@@ -51,18 +51,23 @@ function scanDir(dir) {
           .replace(docsDir, '')
           .replace(/\.md$/, '.html')
           .replace(/\/index\.html$/, '/')
-        // Extract first paragraph as excerpt
+        // Extract first meaningful paragraph as excerpt
         const body = content.replace(/^---[\s\S]*?---\s*/, '')
-        const firstPara = body
-          .replace(/^#+\s+.*$/gm, '') // remove headings
-          .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // strip links, keep text
-          .replace(/[*_`~]/g, '') // remove markdown formatting
-          .split('\n\n')[0]
-          .trim()
-          .substring(0, 150)
+        const paragraphs = body
+          .split('\n\n')
+          .map(p => p
+            .replace(/^#+\s+.*$/gm, '') // remove headings
+            .replace(/!\[.*?\]\(.*?\)/g, '') // remove images
+            .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // strip links, keep text
+            .replace(/[*_`~]/g, '') // remove markdown formatting
+            .replace(/<[^>]+>/g, '') // remove HTML tags
+            .trim()
+          )
+          .filter(p => p.length > 10) // skip very short paragraphs
+        const firstPara = paragraphs[0] || ''
         // Extract numeric prefix from filename for sorting
         const numMatch = entry.name.match(/^(\d+)/)
-        const order = numMatch ? parseInt(numMatch[1]) : 999
+        const order = numMatch ? parseInt(numMatch[1]) : -1
 
         posts.push({
           title: fm.title,
@@ -84,8 +89,8 @@ const posts = scanDir(docsDir)
 posts.sort((a, b) => {
   if (a.sticky && !b.sticky) return -1
   if (!a.sticky && b.sticky) return 1
-  // Sort by order (filename prefix), higher number = newer
-  if (a.order !== b.order) return a.order - b.order
+  // Higher order number = newer content, sort descending
+  if (a.order !== b.order) return b.order - a.order
   return new Date(b.date).getTime() - new Date(a.date).getTime()
 })
 

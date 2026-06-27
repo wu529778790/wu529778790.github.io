@@ -13,7 +13,6 @@ const isHome = () => route.path === '/' || route.path === '/index.html' || route
   <Layout>
     <template v-if="isHome()" #page-top>
       <div class="blog-page">
-        <h1 class="blog-title">博客</h1>
         <PostList />
       </div>
     </template>
