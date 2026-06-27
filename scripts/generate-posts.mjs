@@ -105,5 +105,9 @@ export const posts: Post[] = ${JSON.stringify(posts, null, 2)}
 `
 
 const outPath = path.resolve(process.cwd(), 'docs/.vitepress/theme/data/posts.ts')
+const outDir = path.dirname(outPath)
+if (!fs.existsSync(outDir)) {
+  fs.mkdirSync(outDir, { recursive: true })
+}
 fs.writeFileSync(outPath, tsContent)
 console.log(`[generate-posts] Generated ${posts.length} posts -> posts.data.ts`)
