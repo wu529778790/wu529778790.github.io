@@ -24,6 +24,7 @@ const socialLinks = [
 
 // 导航网站
 const navSites = [
+  { name: '首页', url: 'https://shenzjd.com', desc: '个人主页', icon: 'home' },
   { name: '在线网盘', url: 'https://alist.shenzjd.com', desc: '文件存储与分享', icon: 'folder' },
   { name: '网盘搜索', url: 'https://panhub.shenzjd.com', desc: '资源搜索利器', icon: 'search' },
   { name: '快链', url: 'https://duanlian.shenzjd.com', desc: '短链接服务', icon: 'link' },
@@ -103,8 +104,13 @@ const navSites = [
                   rel="noopener"
                   class="sidebar-nav-item"
                 >
+                  <!-- Home -->
+                  <svg v-if="site.icon === 'home'" class="sidebar-nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                    <polyline points="9 22 9 12 15 12 15 22"/>
+                  </svg>
                   <!-- Folder -->
-                  <svg v-if="site.icon === 'folder'" class="sidebar-nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg v-else-if="site.icon === 'folder'" class="sidebar-nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/>
                   </svg>
                   <!-- Search -->
