@@ -148,9 +148,7 @@ const visiblePages = computed(() => {
 
 <style scoped>
 .post-list {
-  max-width: var(--page-max-width);
-  margin: 0 auto;
-  padding: var(--space-8) var(--space-6);
+  padding: var(--space-6) var(--space-5);
 }
 
 /* ── Post Grid ── */

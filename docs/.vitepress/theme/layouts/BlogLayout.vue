@@ -38,118 +38,117 @@ const navSites = [
   <Layout>
     <template v-if="isHome()" #page-top>
       <div class="blog-home">
-        <!-- Hero Section -->
-        <header class="hero">
-          <div class="hero-bg"></div>
-          <div class="hero-content">
-            <h1 class="hero-title">神族九帝</h1>
-            <p class="hero-desc">前端技术博客 — 面试题 · 学习笔记 · AI 探索</p>
+        <!-- Left: Post List -->
+        <main class="blog-main">
+          <PostList />
+        </main>
 
-            <!-- Stats -->
-            <div class="hero-stats">
-              <div class="hero-stat">
-                <span class="hero-stat-num">{{ totalPosts }}</span>
-                <span class="hero-stat-label">篇文章</span>
+        <!-- Right: Sidebar -->
+        <aside class="blog-sidebar">
+          <div class="sidebar-inner">
+            <!-- Author Card -->
+            <div class="sidebar-card sidebar-author">
+              <h1 class="sidebar-title">神族九帝</h1>
+              <p class="sidebar-desc">前端技术博客 — 面试题 · 学习笔记 · AI 探索</p>
+
+              <!-- Stats -->
+              <div class="sidebar-stats">
+                <div class="sidebar-stat">
+                  <span class="sidebar-stat-num">{{ totalPosts }}</span>
+                  <span class="sidebar-stat-label">篇文章</span>
+                </div>
+                <div class="sidebar-stat">
+                  <span class="sidebar-stat-num">{{ totalCategories }}</span>
+                  <span class="sidebar-stat-label">个分类</span>
+                </div>
+                <div class="sidebar-stat">
+                  <span class="sidebar-stat-num">2015</span>
+                  <span class="sidebar-stat-label">年开始</span>
+                </div>
               </div>
-              <div class="hero-stat-divider"></div>
-              <div class="hero-stat">
-                <span class="hero-stat-num">{{ totalCategories }}</span>
-                <span class="hero-stat-label">个分类</span>
-              </div>
-              <div class="hero-stat-divider"></div>
-              <div class="hero-stat">
-                <span class="hero-stat-num">2015</span>
-                <span class="hero-stat-label">年开始</span>
+
+              <!-- Social Icons -->
+              <div class="sidebar-social">
+                <a
+                  v-for="social in socialLinks"
+                  :key="social.name"
+                  :href="social.url"
+                  target="_blank"
+                  rel="noopener"
+                  class="sidebar-social-icon"
+                  :aria-label="social.name"
+                >
+                  <svg v-if="social.icon === 'telegram'" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                  </svg>
+                  <svg v-else-if="social.icon === 'github'" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                  </svg>
+                  <svg v-else-if="social.icon === 'x'" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                  </svg>
+                </a>
               </div>
             </div>
 
-            <!-- Social Icons -->
-            <div class="hero-social-row">
-              <a
-                v-for="social in socialLinks"
-                :key="social.name"
-                :href="social.url"
-                target="_blank"
-                rel="noopener"
-                class="hero-social-icon"
-                :aria-label="social.name"
-              >
-                <svg v-if="social.icon === 'telegram'" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-                </svg>
-                <svg v-else-if="social.icon === 'github'" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-                </svg>
-                <svg v-else-if="social.icon === 'x'" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                </svg>
-              </a>
+            <!-- Nav Sites Card -->
+            <div class="sidebar-card sidebar-nav">
+              <h2 class="sidebar-card-title">我的网站</h2>
+              <div class="sidebar-nav-list">
+                <a
+                  v-for="site in navSites"
+                  :key="site.name"
+                  :href="site.url"
+                  target="_blank"
+                  rel="noopener"
+                  class="sidebar-nav-item"
+                >
+                  <!-- Folder -->
+                  <svg v-if="site.icon === 'folder'" class="sidebar-nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/>
+                  </svg>
+                  <!-- Search -->
+                  <svg v-else-if="site.icon === 'search'" class="sidebar-nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="m21 21-4.3-4.3"/>
+                  </svg>
+                  <!-- Link -->
+                  <svg v-else-if="site.icon === 'link'" class="sidebar-nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                  </svg>
+                  <!-- Video -->
+                  <svg v-else-if="site.icon === 'video'" class="sidebar-nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/>
+                    <rect x="2" y="6" width="14" height="12" rx="2"/>
+                  </svg>
+                  <!-- RSS -->
+                  <svg v-else-if="site.icon === 'rss'" class="sidebar-nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 11a9 9 0 0 1 9 9"/>
+                    <path d="M4 4a16 16 0 0 1 16 16"/>
+                    <circle cx="5" cy="19" r="1"/>
+                  </svg>
+                  <!-- Compass -->
+                  <svg v-else-if="site.icon === 'compass'" class="sidebar-nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+                  </svg>
+                  <!-- Image -->
+                  <svg v-else-if="site.icon === 'image'" class="sidebar-nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="18" height="18" x="3" y="3" rx="2" ry="2"/>
+                    <circle cx="9" cy="9" r="2"/>
+                    <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
+                  </svg>
+                  <span class="sidebar-nav-name">{{ site.name }}</span>
+                  <svg class="sidebar-nav-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"/>
+                    <path d="m12 5 7 7-7 7"/>
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
-        </header>
-
-        <!-- Nav Sites Section -->
-        <section class="nav-sites">
-          <h2 class="nav-sites-title">我的网站</h2>
-          <div class="nav-sites-grid">
-            <a
-              v-for="site in navSites"
-              :key="site.name"
-              :href="site.url"
-              target="_blank"
-              rel="noopener"
-              class="nav-site-card"
-            >
-              <!-- Folder -->
-              <svg v-if="site.icon === 'folder'" class="nav-site-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/>
-              </svg>
-              <!-- Search -->
-              <svg v-else-if="site.icon === 'search'" class="nav-site-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="11" cy="11" r="8"/>
-                <path d="m21 21-4.3-4.3"/>
-              </svg>
-              <!-- Link -->
-              <svg v-else-if="site.icon === 'link'" class="nav-site-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
-                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
-              </svg>
-              <!-- Video -->
-              <svg v-else-if="site.icon === 'video'" class="nav-site-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/>
-                <rect x="2" y="6" width="14" height="12" rx="2"/>
-              </svg>
-              <!-- RSS -->
-              <svg v-else-if="site.icon === 'rss'" class="nav-site-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 11a9 9 0 0 1 9 9"/>
-                <path d="M4 4a16 16 0 0 1 16 16"/>
-                <circle cx="5" cy="19" r="1"/>
-              </svg>
-              <!-- Compass -->
-              <svg v-else-if="site.icon === 'compass'" class="nav-site-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"/>
-                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
-              </svg>
-              <!-- Image -->
-              <svg v-else-if="site.icon === 'image'" class="nav-site-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect width="18" height="18" x="3" y="3" rx="2" ry="2"/>
-                <circle cx="9" cy="9" r="2"/>
-                <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
-              </svg>
-              <div class="nav-site-info">
-                <span class="nav-site-name">{{ site.name }}</span>
-                <span class="nav-site-desc">{{ site.desc }}</span>
-              </div>
-              <svg class="nav-site-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 12h14"/>
-                <path d="m12 5 7 7-7 7"/>
-              </svg>
-            </a>
-          </div>
-        </section>
-
-        <!-- Post List -->
-        <PostList />
+        </aside>
       </div>
     </template>
 
@@ -161,104 +160,102 @@ const navSites = [
 
 <style scoped>
 .blog-home {
+  display: flex;
+  max-width: 1100px;
+  margin: 0 auto;
   min-height: 100vh;
 }
 
-/* ── Hero ── */
-.hero {
-  position: relative;
-  padding: var(--space-20) var(--space-6) var(--space-12);
+/* ── Left: Main Content ── */
+.blog-main {
+  flex: 1;
+  min-width: 0;
+  border-right: 1px solid var(--color-border);
+}
+
+/* ── Right: Sidebar ── */
+.blog-sidebar {
+  width: 300px;
+  flex-shrink: 0;
+}
+
+.sidebar-inner {
+  position: sticky;
+  top: 60px;
+  padding: var(--space-6);
+  max-height: calc(100vh - 60px);
+  overflow-y: auto;
+}
+
+/* ── Sidebar Card ── */
+.sidebar-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  margin-bottom: var(--space-4);
+}
+
+/* ── Author Card ── */
+.sidebar-author {
   text-align: center;
-  overflow: hidden;
 }
 
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(37, 99, 235, 0.12), transparent),
-    radial-gradient(ellipse 60% 40% at 80% 60%, rgba(139, 92, 246, 0.08), transparent),
-    var(--color-surface);
-  z-index: -1;
-}
-
-.dark .hero-bg {
-  background:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(96, 165, 250, 0.15), transparent),
-    radial-gradient(ellipse 60% 40% at 80% 60%, rgba(139, 92, 246, 0.1), transparent),
-    var(--color-surface);
-}
-
-.hero-content {
-  max-width: var(--content-max-width);
-  margin: 0 auto;
-}
-
-.hero-title {
+.sidebar-title {
   font-family: var(--font-heading);
-  font-size: 2.75rem;
+  font-size: var(--text-2xl);
   font-weight: 700;
   color: var(--color-text-1);
-  margin: 0 0 var(--space-3);
-  letter-spacing: -0.03em;
-  line-height: 1.2;
+  margin: 0 0 var(--space-2);
+  letter-spacing: -0.02em;
 }
 
-.hero-desc {
-  font-size: var(--text-lg);
+.sidebar-desc {
+  font-size: var(--text-sm);
   color: var(--color-text-2);
-  margin: 0 0 var(--space-6);
-  line-height: 1.6;
+  margin: 0 0 var(--space-4);
+  line-height: 1.5;
 }
 
-/* ── Stats ── */
-.hero-stats {
+.sidebar-stats {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: var(--space-6);
-  margin-bottom: var(--space-6);
+  gap: var(--space-5);
+  margin-bottom: var(--space-4);
 }
 
-.hero-stat {
+.sidebar-stat {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-1);
+  gap: 2px;
 }
 
-.hero-stat-num {
+.sidebar-stat-num {
   font-family: var(--font-heading);
-  font-size: var(--text-2xl);
+  font-size: var(--text-lg);
   font-weight: 700;
   color: var(--color-accent);
   line-height: 1;
 }
 
-.hero-stat-label {
-  font-size: var(--text-sm);
+.sidebar-stat-label {
+  font-size: var(--text-xs);
   color: var(--color-text-3);
 }
 
-.hero-stat-divider {
-  width: 1px;
-  height: 32px;
-  background: var(--color-border);
-}
-
-/* ── Social Icons ── */
-.hero-social-row {
+.sidebar-social {
   display: flex;
   justify-content: center;
-  gap: var(--space-3);
+  gap: var(--space-2);
 }
 
-.hero-social-icon {
+.sidebar-social-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   border-radius: var(--radius-md);
   color: var(--color-text-2);
   background: var(--color-muted);
@@ -266,133 +263,103 @@ const navSites = [
   text-decoration: none;
 }
 
-.hero-social-icon:hover {
+.sidebar-social-icon:hover {
   color: var(--color-accent);
   background: var(--color-accent-soft, rgba(37, 99, 235, 0.1));
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
-/* ── Nav Sites ── */
-.nav-sites {
-  max-width: var(--page-max-width);
-  margin: 0 auto;
-  padding: 0 var(--space-6) var(--space-8);
+/* ── Nav Card ── */
+.sidebar-nav {
+  padding: var(--space-4);
 }
 
-.nav-sites-title {
+.sidebar-card-title {
   font-family: var(--font-heading);
-  font-size: var(--text-xl);
-  font-weight: 600;
-  color: var(--color-text-1);
-  margin: 0 0 var(--space-5);
-  text-align: center;
-}
-
-.nav-sites-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-3);
-}
-
-.nav-site-card {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  padding: var(--space-3) var(--space-4);
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  text-decoration: none;
-  transition: all var(--transition-base);
-}
-
-.nav-site-card:hover {
-  border-color: var(--color-accent);
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
-}
-
-.nav-site-icon {
-  color: var(--color-accent);
-  flex-shrink: 0;
-}
-
-.nav-site-info {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1px;
-  flex: 1;
-  min-width: 0;
-}
-
-.nav-site-name {
   font-size: var(--text-sm);
   font-weight: 600;
   color: var(--color-text-1);
-  line-height: 1.3;
+  margin: 0 0 var(--space-3);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.nav-site-desc {
-  font-size: var(--text-xs);
-  color: var(--color-text-3);
-  line-height: 1.3;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 120px;
+.sidebar-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
 }
 
-.nav-site-arrow {
-  color: var(--color-text-3);
-  flex-shrink: 0;
+.sidebar-nav-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-2);
+  border-radius: var(--radius-md);
+  text-decoration: none;
   transition: all var(--transition-fast);
 }
 
-.nav-site-card:hover .nav-site-arrow {
+.sidebar-nav-item:hover {
+  background: var(--color-muted);
+}
+
+.sidebar-nav-icon {
   color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.sidebar-nav-name {
+  font-size: var(--text-sm);
+  color: var(--color-text-1);
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar-nav-arrow {
+  color: var(--color-text-3);
+  flex-shrink: 0;
+  opacity: 0;
+  transition: all var(--transition-fast);
+}
+
+.sidebar-nav-item:hover .sidebar-nav-arrow {
+  opacity: 1;
   transform: translateX(2px);
 }
 
 /* ── Responsive ── */
-@media (max-width: 1024px) {
-  .nav-sites-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .hero {
-    padding: var(--space-12) var(--space-4) var(--space-8);
+@media (max-width: 900px) {
+  .blog-home {
+    flex-direction: column;
   }
 
-  .hero-title {
-    font-size: var(--text-3xl);
+  .blog-main {
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
   }
 
-  .hero-desc {
-    font-size: var(--text-base);
+  .blog-sidebar {
+    width: 100%;
   }
 
-  .hero-stats {
-    gap: var(--space-4);
+  .sidebar-inner {
+    position: static;
+    max-height: none;
+    padding: var(--space-4);
   }
 
-  .hero-stat-num {
-    font-size: var(--text-xl);
-  }
-
-  .nav-sites {
-    padding: 0 var(--space-4) var(--space-6);
-  }
-
-  .nav-sites-grid {
+  .sidebar-nav-list {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 480px) {
-  .nav-sites-grid {
+  .sidebar-nav-list {
     grid-template-columns: 1fr;
   }
 }
