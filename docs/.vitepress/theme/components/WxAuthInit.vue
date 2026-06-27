@@ -5,7 +5,7 @@ import 'wx-auth-sdk/dist/style.css'
 
 onMounted(() => {
   WxAuth.init({
-    apiBase: 'https://auth.shenzjd.com',
+    apiBase: 'https://wx-auth.shenzjd.com',
     siteId: 'blog.shenzjd.com',
     onVerified: (user: any) => {
       console.log('认证成功', user)
