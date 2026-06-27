@@ -1,6 +1,5 @@
 import { defineConfig, getThemeConfig } from '@sugarat/theme/node'
 import { generateSidebar, generateNav } from './sidebar.mjs'
-import buildFix from './build-fix.js'
 
 const blogTheme = getThemeConfig({
   author: '神族九帝',
@@ -54,7 +53,6 @@ export default defineConfig({
   },
 
   vite: {
-    plugins: [buildFix()],
     server: {
       hmr: {
         overlay: false
