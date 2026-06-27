@@ -127,26 +127,6 @@ const visiblePages = computed(() => {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.post-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-.post-tag {
-  font-size: 12px;
-}
-.post-tag a {
-  color: var(--vp-c-text-3);
-  text-decoration: none;
-  padding: 2px 8px;
-  border-radius: 12px;
-  background: var(--vp-c-bg-soft);
-  transition: all 0.2s;
-}
-.post-tag a:hover {
-  color: var(--vp-c-brand-1);
-  background: var(--vp-c-brand-soft);
-}
 .pagination {
   display: flex;
   justify-content: center;
