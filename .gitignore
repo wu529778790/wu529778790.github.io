@@ -26,3 +26,4 @@ urls.txt
 # logs
 *.log
 npm-debug.log*
+.playwright-mcp/

@@ -45,7 +45,10 @@ watch(() => route.path, () => {
 <template>
   <div class="giscus-wrapper">
     <div class="giscus-divider">
-      <span>💬 评论区</span>
+      <svg class="giscus-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
+      </svg>
+      <span>评论区</span>
     </div>
     <div id="giscus-container"></div>
   </div>
@@ -53,23 +56,31 @@ watch(() => route.path, () => {
 
 <style scoped>
 .giscus-wrapper {
-  max-width: 740px;
+  max-width: var(--content-max-width);
   margin: 0 auto;
-  padding: 32px 24px;
+  padding: var(--space-8) var(--space-6);
 }
+
 .giscus-divider {
   display: flex;
   align-items: center;
-  margin-bottom: 24px;
-  gap: 12px;
-  font-size: 18px;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
   font-weight: 600;
-  color: var(--vp-c-text-1);
+  color: var(--color-text-1);
 }
+
+.giscus-icon {
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
 .giscus-divider::after {
   content: '';
   flex: 1;
   height: 1px;
-  background: var(--vp-c-divider);
+  background: var(--color-border);
 }
 </style>
