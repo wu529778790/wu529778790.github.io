@@ -4,6 +4,7 @@ import { useRoute } from 'vitepress'
 import { useBlog } from '../composables/useBlog'
 import PostList from '../components/PostList.vue'
 import GiscusComment from '../components/GiscusComment.vue'
+import WxAuthInit from '../components/WxAuthInit.vue'
 
 const { Layout } = DefaultTheme
 const route = useRoute()
@@ -161,6 +162,7 @@ const navSites = [
       <GiscusComment v-if="!isHome()" />
     </template>
   </Layout>
+  <WxAuthInit />
 </template>
 
 <style scoped>
