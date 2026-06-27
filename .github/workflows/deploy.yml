@@ -67,6 +67,6 @@ jobs:
             sudo docker run -d \
               --name "$CONTAINER" \
               --restart unless-stopped \
-              -p 8080:80 \
+              -p 6703:80 \
               "$IMAGE"
             sudo docker image prune -f
