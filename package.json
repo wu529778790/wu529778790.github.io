@@ -1,47 +1,17 @@
 {
-  "name": "blog.shenzjd.com",
-  "version": "1.0.62",
-  "homepage": "https://github.com/wu529778790/wu529778790.github.io",
-  "bugs": {
-    "url": "https://github.com/wu529778790/wu529778790.github.io/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wu529778790/wu529778790.github.io.git"
-  },
+  "name": "blog-vitepress",
+  "version": "1.0.0",
   "scripts": {
-    "dev": "NODE_OPTIONS=--openssl-legacy-provider vuepress dev docs",
-    "build": "vuepress build docs",
-    "deploy": "bash deploy.sh"
-  },
-  "devDependencies": {
-    "@better-scroll/core": "^2.5.1",
-    "@better-scroll/slide": "^2.5.1",
-    "@vuepress-reco/vuepress-plugin-kan-ban-niang": "^1.0.5",
-    "dayjs": "^1.11.12",
-    "good-storage": "^1.1.1",
-    "inquirer": "^10.1.8",
-    "json2yaml": "^1.1.0",
-    "lodash": "^4.17.21",
-    "vuepress": "1.9.10",
-    "vuepress-plugin-baidu-autopush": "^1.0.1",
-    "vuepress-plugin-baidu-tongji": "^1.0.1",
-    "vuepress-plugin-boxx": "^0.0.7",
-    "vuepress-plugin-demo-block": "^0.7.2",
-    "vuepress-plugin-meting": "^0.3.3",
-    "vuepress-plugin-nest": "^1.0.2",
-    "vuepress-plugin-one-click-copy": "^1.0.6",
-    "vuepress-plugin-thirdparty-search": "^1.0.2",
-    "vuepress-plugin-zooming": "^1.1.8",
-    "yamljs": "^0.3.0"
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs"
   },
   "dependencies": {
-    "@vssue/api-github-v3": "^1.4.7",
-    "@vssue/vuepress-plugin-vssue": "^1.4.8",
-    "@vuepress/core": "^1.9.10",
-    "chalk": "^2.4.2",
-    "gray-matter": "^4.0.3",
-    "vuepress-plugin-comment": "^0.7.3",
-    "wx-auth-sdk": "^1.0.2"
+    "@element-plus/icons-vue": "^2.3.2",
+    "@sugarat/theme": "^0.5.23",
+    "element-plus": "^2.14.2"
+  },
+  "devDependencies": {
+    "vitepress": "2.0.0-alpha.17"
   }
 }

@@ -1,7 +1,0 @@
-allowBuilds:
-  core-js: true
-  ejs: true
-  esbuild: true
-  highlight.js: true
-  vuepress: true
-  fsevents: true

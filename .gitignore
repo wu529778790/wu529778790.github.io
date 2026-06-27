@@ -1,20 +1,27 @@
-# npm
+# dependencies
 node_modules
 
-# yarn
-yarn.lock
+# VitePress
+docs/.vitepress/dist
+docs/.vitepress/cache
+.vite-temp
 
-
-# vuepress
-docs/.vuepress/dist
-
-# 百度链接推送
-urls.txt
-
-# mac
+# OS
 .DS_Store
 
-# vite
-cache
-.cache
-.temp
+# IDE
+.vscode
+.idea
+
+# AI
+.claude
+
+# old vuepress (deprecated)
+docs/.vuepress/dist
+
+# baidu push
+urls.txt
+
+# logs
+*.log
+npm-debug.log*
