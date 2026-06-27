@@ -2,10 +2,8 @@
   "name": "blog-vitepress",
   "version": "1.0.0",
   "scripts": {
-    "postinstall": "node patch-compiler.js",
-    "clean": "rm -rf docs/.vitepress/cache node_modules/.vite docs/.vitepress/dist",
-    "dev": "npm run clean && vitepress dev docs",
-    "build": "npm run clean && vitepress build docs",
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
     "preview": "vitepress preview docs"
   },
   "devDependencies": {
