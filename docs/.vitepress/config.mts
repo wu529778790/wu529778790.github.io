@@ -32,7 +32,13 @@ export default defineConfig({
 
   themeConfig: {
     siteTitle: '神族九帝',
-    nav: autoNav,
+    nav: [
+      { text: '首页', link: '/' },
+      { text: '博客', link: '/blog' },
+      { text: '标签', link: '/tags' },
+      { text: '归档', link: '/archive' },
+      ...autoNav.filter((item: any) => item.text !== '首页'),
+    ],
     socialLinks: [
       { icon: 'github', link: 'https://github.com/wu529778790' }
     ],
