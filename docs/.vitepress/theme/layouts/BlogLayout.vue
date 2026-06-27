@@ -186,8 +186,6 @@ const navSites = [
 }
 
 .sidebar-inner {
-  position: sticky;
-  top: 60px;
   padding: var(--space-6);
 }
 
@@ -351,8 +349,6 @@ const navSites = [
   }
 
   .sidebar-inner {
-    position: static;
-    max-height: none;
     padding: var(--space-4);
   }
 

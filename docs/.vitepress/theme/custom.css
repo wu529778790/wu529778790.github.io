@@ -231,21 +231,6 @@ a:hover {
   text-decoration: none;
 }
 
-/* VitePress Sidebar */
-.VPSidebar .group .title {
-  font-family: var(--font-heading);
-  font-weight: 500;
-}
-
-/* Fix sidebar arrow alignment */
-.VPSidebarItem .item {
-  align-items: center;
-}
-
-.VPSidebarItem.is-link > .item > .indicator {
-  display: none;
-}
-
 /* VitePress Nav */
 .VPNav .VPNavBarTitle .title {
   font-family: var(--font-heading);
