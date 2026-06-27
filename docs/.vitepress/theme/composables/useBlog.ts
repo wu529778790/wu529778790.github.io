@@ -1,5 +1,5 @@
 import { computed } from 'vue'
-import { posts } from '../posts.data'
+import { posts } from '../data/posts'
 
 export function useBlog() {
   const allTags = computed(() => {

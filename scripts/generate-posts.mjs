@@ -86,6 +86,6 @@ export interface Post {
 export const posts: Post[] = ${JSON.stringify(posts, null, 2)}
 `
 
-const outPath = path.resolve(process.cwd(), 'docs/.vitepress/theme/posts.data.ts')
+const outPath = path.resolve(process.cwd(), 'docs/.vitepress/theme/data/posts.ts')
 fs.writeFileSync(outPath, tsContent)
 console.log(`[generate-posts] Generated ${posts.length} posts -> posts.data.ts`)
