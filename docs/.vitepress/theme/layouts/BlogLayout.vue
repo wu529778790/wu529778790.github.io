@@ -183,8 +183,6 @@ const navSites = [
   position: sticky;
   top: 60px;
   padding: var(--space-6);
-  max-height: calc(100vh - 60px);
-  overflow-y: auto;
 }
 
 /* ── Sidebar Card ── */
