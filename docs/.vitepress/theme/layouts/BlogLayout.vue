@@ -14,6 +14,41 @@ const isHome = () => route.path === '/' || route.path === '/index.html' || route
 const totalPosts = posts.length
 const categories = [...new Set(posts.map(p => p.category))]
 const totalCategories = categories.length
+
+// 社交链接
+const socialLinks = [
+  {
+    name: 'Telegram',
+    url: 'https://t.me/shenzjd_com',
+    icon: 'telegram',
+  },
+  {
+    name: 'GitHub',
+    url: 'https://github.com/wu529778790',
+    icon: 'github',
+  },
+  {
+    name: 'X',
+    url: 'https://x.com/shenzujiudi',
+    icon: 'x',
+  },
+]
+
+// 我的网站
+const mySites = [
+  {
+    name: '个人导航',
+    url: 'https://navhub.shenzjd.com',
+    desc: '常用网站导航',
+    icon: 'compass',
+  },
+  {
+    name: '必应壁纸',
+    url: 'https://bing.shenzjd.com',
+    desc: '每日高清壁纸',
+    icon: 'image',
+  },
+]
 </script>
 
 <template>
@@ -45,19 +80,61 @@ const totalCategories = categories.length
               </div>
             </div>
 
-            <!-- Social Links -->
-            <div class="hero-links">
+            <!-- Social Icons -->
+            <div class="hero-social-row">
               <a
-                href="https://github.com/wu529778790"
+                v-for="social in socialLinks"
+                :key="social.name"
+                :href="social.url"
                 target="_blank"
                 rel="noopener"
-                class="hero-social"
-                aria-label="GitHub"
+                class="hero-social-icon"
+                :aria-label="social.name"
               >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <!-- Telegram -->
+                <svg v-if="social.icon === 'telegram'" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                </svg>
+                <!-- GitHub -->
+                <svg v-else-if="social.icon === 'github'" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
                 </svg>
-                <span>GitHub</span>
+                <!-- X / Twitter -->
+                <svg v-else-if="social.icon === 'x'" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </a>
+            </div>
+
+            <!-- My Sites -->
+            <div class="hero-sites">
+              <a
+                v-for="site in mySites"
+                :key="site.name"
+                :href="site.url"
+                target="_blank"
+                rel="noopener"
+                class="hero-site-card"
+              >
+                <!-- Compass icon -->
+                <svg v-if="site.icon === 'compass'" class="hero-site-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+                </svg>
+                <!-- Image icon -->
+                <svg v-else-if="site.icon === 'image'" class="hero-site-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="18" height="18" x="3" y="3" rx="2" ry="2"/>
+                  <circle cx="9" cy="9" r="2"/>
+                  <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
+                </svg>
+                <div class="hero-site-info">
+                  <span class="hero-site-name">{{ site.name }}</span>
+                  <span class="hero-site-desc">{{ site.desc }}</span>
+                </div>
+                <svg class="hero-site-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14"/>
+                  <path d="m12 5 7 7-7 7"/>
+                </svg>
               </a>
             </div>
           </div>
@@ -161,31 +238,96 @@ const totalCategories = categories.length
   background: var(--color-border);
 }
 
-/* ── Social Links ── */
-.hero-links {
+/* ── Social Icons ── */
+.hero-social-row {
   display: flex;
   justify-content: center;
   gap: var(--space-3);
+  margin-bottom: var(--space-6);
 }
 
-.hero-social {
-  display: inline-flex;
+.hero-social-icon {
+  display: flex;
   align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-2) var(--space-4);
-  border-radius: var(--radius-full);
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
   color: var(--color-text-2);
   background: var(--color-muted);
-  font-size: var(--text-sm);
-  font-weight: 500;
   transition: all var(--transition-fast);
   text-decoration: none;
 }
 
-.hero-social:hover {
+.hero-social-icon:hover {
   color: var(--color-accent);
   background: var(--color-accent-soft, rgba(37, 99, 235, 0.1));
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+}
+
+/* ── My Sites ── */
+.hero-sites {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.hero-site-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition: all var(--transition-base);
+  min-width: 200px;
+}
+
+.hero-site-card:hover {
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.hero-site-icon {
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.hero-site-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.hero-site-name {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-1);
+  line-height: 1.3;
+}
+
+.hero-site-desc {
+  font-size: var(--text-xs);
+  color: var(--color-text-3);
+  line-height: 1.3;
+}
+
+.hero-site-arrow {
+  color: var(--color-text-3);
+  flex-shrink: 0;
+  transition: all var(--transition-fast);
+}
+
+.hero-site-card:hover .hero-site-arrow {
+  color: var(--color-accent);
+  transform: translateX(2px);
 }
 
 /* ── Responsive ── */
@@ -208,6 +350,15 @@ const totalCategories = categories.length
 
   .hero-stat-num {
     font-size: var(--text-xl);
+  }
+
+  .hero-sites {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-site-card {
+    min-width: 0;
   }
 }
 </style>
