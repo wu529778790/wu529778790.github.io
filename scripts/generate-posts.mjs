@@ -60,6 +60,10 @@ function scanDir(dir) {
           .split('\n\n')[0]
           .trim()
           .substring(0, 150)
+        // Extract numeric prefix from filename for sorting
+        const numMatch = entry.name.match(/^(\d+)/)
+        const order = numMatch ? parseInt(numMatch[1]) : 999
+
         posts.push({
           title: fm.title,
           date: fm.date,
@@ -67,6 +71,7 @@ function scanDir(dir) {
           tags: Array.isArray(fm.tags) ? fm.tags.filter(t => t && t.trim()) : (fm.tags ? [fm.tags] : []),
           url,
           sticky: fm.sticky ? Number(fm.sticky) : 0,
+          order,
           excerpt: firstPara,
         })
       }
@@ -79,6 +84,8 @@ const posts = scanDir(docsDir)
 posts.sort((a, b) => {
   if (a.sticky && !b.sticky) return -1
   if (!a.sticky && b.sticky) return 1
+  // Sort by order (filename prefix), higher number = newer
+  if (a.order !== b.order) return a.order - b.order
   return new Date(b.date).getTime() - new Date(a.date).getTime()
 })
 
@@ -91,6 +98,7 @@ export interface Post {
   tags: string[]
   url: string
   sticky?: number
+  order: number
   excerpt?: string
 }
 
