@@ -2,6 +2,7 @@
 import DefaultTheme from 'vitepress/theme'
 import { useRoute } from 'vitepress'
 import PostList from '../components/PostList.vue'
+import GiscusComment from '../components/GiscusComment.vue'
 
 const { Layout } = DefaultTheme
 const route = useRoute()
@@ -15,6 +16,9 @@ const isHome = () => route.path === '/' || route.path === '/index.html' || route
         <h1 class="blog-title">博客</h1>
         <PostList />
       </div>
+    </template>
+    <template #doc-footer-before>
+      <GiscusComment v-if="!isHome()" />
     </template>
   </Layout>
 </template>
