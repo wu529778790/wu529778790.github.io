@@ -3,8 +3,8 @@
    神族九帝 Blog - Swiss Modernism 2.0
    ======================================== */
 
-/* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+/* Google Fonts - China CDN for faster loading */
+@import url('https://fonts.googleapis.cn/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 /* ── Design Tokens ── */
 :root {
@@ -221,6 +221,35 @@ a:hover {
 
 .vp-doc div[class*='language-'] {
   border-radius: var(--radius-md);
+}
+
+/* Code block horizontal scroll hint on mobile */
+@media (max-width: 768px) {
+  .vp-doc div[class*='language-'] {
+    position: relative;
+  }
+
+  .vp-doc div[class*='language-']::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 32px;
+    background: linear-gradient(to right, transparent, var(--color-surface));
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .vp-doc div[class*='language-']:not(.scrolled-right)::after {
+    opacity: 1;
+  }
+}
+
+/* Code copy button feedback */
+.vp-doc .lang {
+  user-select: none;
 }
 
 .vp-doc img {

@@ -60,12 +60,16 @@ const visiblePages = computed(() => {
         v-for="(post, index) in currentPosts"
         :key="post.url"
         class="post-card stagger-item"
-        :class="{ 'post-card--sticky': post.sticky }"
+        :class="{
+          'post-card--sticky': post.sticky,
+          'post-card--deprecated': post.deprecated,
+          'post-card--outdated': post.outdated && !post.deprecated,
+        }"
       >
         <a :href="post.url" class="post-card-link">
           <!-- Card Header -->
-          <div v-if="post.sticky" class="post-card-header">
-            <span class="post-sticky-badge">
+          <div v-if="post.sticky || post.deprecated || post.outdated" class="post-card-header">
+            <span v-if="post.sticky" class="post-sticky-badge">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 17v5"/>
                 <path d="M9 11l-4 4h14l-4-4"/>
@@ -73,6 +77,21 @@ const visiblePages = computed(() => {
                 <path d="M9.5 3.5L15 9 9.5 14.5"/>
               </svg>
               置顶
+            </span>
+            <span v-if="post.deprecated" class="post-deprecated-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
+                <line x1="12" x2="12" y1="8" y2="12"/>
+                <line x1="12" x2="12.01" y1="16" y2="16"/>
+              </svg>
+              已废弃
+            </span>
+            <span v-else-if="post.outdated" class="post-outdated-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+              内容可能过时
             </span>
           </div>
 
@@ -175,6 +194,15 @@ const visiblePages = computed(() => {
   border-left: 3px solid var(--color-accent);
 }
 
+.post-card--deprecated {
+  opacity: 0.7;
+  border-left: 3px solid var(--color-destructive);
+}
+
+.post-card--outdated {
+  border-left: 3px solid #F59E0B;
+}
+
 .post-card-link {
   display: flex;
   flex-direction: column;
@@ -192,16 +220,31 @@ const visiblePages = computed(() => {
   margin-bottom: var(--space-3);
 }
 
-.post-sticky-badge {
+.post-sticky-badge,
+.post-deprecated-badge,
+.post-outdated-badge {
   display: inline-flex;
   align-items: center;
   gap: 3px;
   padding: var(--space-1) var(--space-2);
   font-size: var(--text-xs);
   font-weight: 500;
+  border-radius: var(--radius-sm);
+}
+
+.post-sticky-badge {
   color: var(--color-accent);
   background: var(--color-accent-soft, rgba(37, 99, 235, 0.1));
-  border-radius: var(--radius-sm);
+}
+
+.post-deprecated-badge {
+  color: var(--color-destructive);
+  background: rgba(220, 38, 38, 0.1);
+}
+
+.post-outdated-badge {
+  color: #B45309;
+  background: rgba(245, 158, 11, 0.1);
 }
 
 /* ── Card Body ── */

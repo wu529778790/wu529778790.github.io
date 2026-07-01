@@ -76,6 +76,9 @@ function scanDir(dir) {
           url,
           sticky: fm.sticky ? Number(fm.sticky) : 0,
           excerpt: firstPara,
+          deprecated: fm.deprecated === 'true' || fm.deprecated === true,
+          outdated: fm.outdated === 'true' || fm.outdated === true,
+          updated: fm.updated || '',
         })
       }
     }
@@ -99,6 +102,9 @@ export interface Post {
   url: string
   sticky?: number
   excerpt?: string
+  deprecated?: boolean
+  outdated?: boolean
+  updated?: string
 }
 
 export const posts: Post[] = ${JSON.stringify(posts, null, 2)}

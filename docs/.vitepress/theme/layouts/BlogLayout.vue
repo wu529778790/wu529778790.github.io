@@ -1,13 +1,18 @@
 <script setup lang="ts">
 import DefaultTheme from 'vitepress/theme'
-import { useRoute } from 'vitepress'
+import { useRoute, useData } from 'vitepress'
 import { useBlog } from '../composables/useBlog'
 import PostList from '../components/PostList.vue'
 import GiscusComment from '../components/GiscusComment.vue'
 import WxAuthInit from '../components/WxAuthInit.vue'
+import ReadingProgress from '../components/ReadingProgress.vue'
+import MobileToc from '../components/MobileToc.vue'
+import ReadingHistory from '../components/ReadingHistory.vue'
+import ServiceWorkerRegister from '../components/ServiceWorkerRegister.vue'
 
 const { Layout } = DefaultTheme
 const route = useRoute()
+const { frontmatter } = useData()
 const { posts } = useBlog()
 const isHome = () => route.path === '/' || route.path === '/index.html' || route.path === '/index'
 
@@ -15,6 +20,17 @@ const isHome = () => route.path === '/' || route.path === '/index.html' || route
 const totalPosts = posts.length
 const categories = [...new Set(posts.map(p => p.category))]
 const totalCategories = categories.length
+
+// 分类数据（带图标和文章数）
+const categoryList = [
+  { name: 'AI 探索', slug: 'ai', icon: 'sparkles', link: '/09.AI/' },
+  { name: '面试题', slug: 'interview', icon: 'code', link: '/10.面试题/' },
+  { name: '学习笔记', slug: 'notes', icon: 'book', link: '/20.笔记/' },
+  { name: '服务器', slug: 'server', icon: 'server', link: '/31.服务器/' },
+].map(cat => ({
+  ...cat,
+  count: posts.filter(p => p.category === cat.name).length,
+}))
 
 // 社交链接
 const socialLinks = [
@@ -42,6 +58,49 @@ const navSites = [
       <div class="blog-home">
         <!-- Left: Post List -->
         <main class="blog-main">
+          <!-- Category Cards -->
+          <div class="category-cards">
+            <a
+              v-for="cat in categoryList"
+              :key="cat.slug"
+              :href="cat.link"
+              class="category-card"
+              :class="`category-card--${cat.slug}`"
+            >
+              <!-- Sparkles icon -->
+              <svg v-if="cat.icon === 'sparkles'" class="category-card-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+                <path d="M5 3v4"/>
+                <path d="M19 17v4"/>
+                <path d="M3 5h4"/>
+                <path d="M17 19h4"/>
+              </svg>
+              <!-- Code icon -->
+              <svg v-else-if="cat.icon === 'code'" class="category-card-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"/>
+                <polyline points="8 6 2 12 8 18"/>
+              </svg>
+              <!-- Book icon -->
+              <svg v-else-if="cat.icon === 'book'" class="category-card-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/>
+              </svg>
+              <!-- Server icon -->
+              <svg v-else-if="cat.icon === 'server'" class="category-card-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="8" x="2" y="2" rx="2" ry="2"/>
+                <rect width="20" height="8" x="2" y="14" rx="2" ry="2"/>
+                <line x1="6" x2="6.01" y1="6" y2="6"/>
+                <line x1="6" x2="6.01" y1="18" y2="18"/>
+              </svg>
+              <div class="category-card-info">
+                <span class="category-card-name">{{ cat.name }}</span>
+                <span class="category-card-count">{{ cat.count }} 篇</span>
+              </div>
+              <svg class="category-card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"/>
+                <path d="m12 5 7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
           <PostList />
         </main>
 
@@ -92,6 +151,9 @@ const navSites = [
                 </a>
               </div>
             </div>
+
+            <!-- Reading History Card -->
+            <ReadingHistory />
 
             <!-- Nav Sites Card -->
             <div class="sidebar-card sidebar-nav">
@@ -158,11 +220,43 @@ const navSites = [
       </div>
     </template>
 
+    <!-- Article deprecation warning -->
+    <template #doc-before>
+      <div v-if="!isHome() && (frontmatter.deprecated || frontmatter.outdated)" class="article-warning">
+        <div v-if="frontmatter.deprecated" class="article-warning__banner article-warning__banner--deprecated">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
+            <line x1="12" x2="12" y1="8" y2="12"/>
+            <line x1="12" x2="12.01" y1="16" y2="16"/>
+          </svg>
+          <div>
+            <strong>本文已废弃</strong>
+            <p v-if="frontmatter.updated" class="article-warning__meta">最后更新：{{ frontmatter.updated }}</p>
+            <p v-else class="article-warning__meta">本文内容已不再维护，可能已不适用于当前版本。</p>
+          </div>
+        </div>
+        <div v-else-if="frontmatter.outdated" class="article-warning__banner article-warning__banner--outdated">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+          <div>
+            <strong>内容可能已过时</strong>
+            <p v-if="frontmatter.updated" class="article-warning__meta">最后更新：{{ frontmatter.updated }}，部分内容可能已不适用于当前版本。</p>
+            <p v-else class="article-warning__meta">本文内容可能已过时，请结合最新官方文档参考使用。</p>
+          </div>
+        </div>
+      </div>
+    </template>
+
     <template #doc-footer-before>
       <GiscusComment v-if="!isHome()" />
     </template>
   </Layout>
   <WxAuthInit />
+  <ReadingProgress />
+  <MobileToc v-if="!isHome()" />
+  <ServiceWorkerRegister />
 </template>
 
 <style scoped>
@@ -178,6 +272,83 @@ const navSites = [
   flex: 1;
   min-width: 0;
   border-right: 1px solid var(--color-border);
+}
+
+/* ── Category Cards ── */
+.category-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+  padding: var(--space-5) var(--space-5) 0;
+}
+
+.category-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition: all var(--transition-base);
+}
+
+.category-card:hover {
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.category-card-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background: var(--color-accent-soft, rgba(37, 99, 235, 0.1));
+  color: var(--color-accent);
+}
+
+.category-card-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.category-card-name {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-1);
+}
+
+.category-card-count {
+  display: block;
+  font-size: var(--text-xs);
+  color: var(--color-text-3);
+}
+
+.category-card-arrow {
+  flex-shrink: 0;
+  color: var(--color-text-3);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: all var(--transition-fast);
+}
+
+.category-card:hover .category-card-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (max-width: 480px) {
+  .category-cards {
+    grid-template-columns: 1fr;
+    padding: var(--space-4) var(--space-4) 0;
+  }
 }
 
 /* ── Right: Sidebar ── */
@@ -322,6 +493,50 @@ const navSites = [
 .sidebar-nav-item:hover .sidebar-nav-arrow {
   opacity: 1;
   transform: translateX(2px);
+}
+
+/* ── Article Warning Banner ── */
+.article-warning {
+  padding: 0 var(--space-6);
+  margin-top: var(--space-4);
+}
+
+.article-warning__banner {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+}
+
+.article-warning__banner svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.article-warning__banner strong {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.article-warning__meta {
+  margin: 0;
+  font-size: var(--text-xs);
+  opacity: 0.85;
+}
+
+.article-warning__banner--deprecated {
+  background: rgba(220, 38, 38, 0.08);
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  color: var(--color-destructive);
+}
+
+.article-warning__banner--outdated {
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  color: #B45309;
 }
 
 /* ── Responsive ── */
