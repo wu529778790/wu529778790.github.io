@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useBlog } from '../composables/useBlog'
 
 const { posts } = useBlog()
 const PAGE_SIZE = 10
 const currentPage = ref(1)
+let observer: IntersectionObserver | null = null
 
 const totalPages = computed(() => Math.ceil(posts.length / PAGE_SIZE))
 const currentPosts = computed(() => {
@@ -33,6 +34,27 @@ function nextPage() {
   if (currentPage.value < totalPages.value) goToPage(currentPage.value + 1)
 }
 
+// Scroll reveal observer
+onMounted(() => {
+  if (typeof IntersectionObserver === 'undefined') return
+  observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible')
+          observer?.unobserve(entry.target)
+        }
+      })
+    },
+    { threshold: 0.05, rootMargin: '0px 0px -20px 0px' }
+  )
+  document.querySelectorAll('.scroll-reveal').forEach((el) => observer?.observe(el))
+})
+
+onUnmounted(() => {
+  observer?.disconnect()
+})
+
 const visiblePages = computed(() => {
   const total = totalPages.value
   const current = currentPage.value
@@ -59,7 +81,7 @@ const visiblePages = computed(() => {
       <article
         v-for="(post, index) in currentPosts"
         :key="post.url"
-        class="post-card stagger-item"
+        class="post-card scroll-reveal"
         :class="{
           'post-card--sticky': post.sticky,
           'post-card--deprecated': post.deprecated,
@@ -164,15 +186,16 @@ const visiblePages = computed(() => {
 
 <style scoped>
 .post-list {
-  padding: var(--space-6) var(--space-5);
+  padding: var(--space-5);
+  padding-right: var(--space-3);
 }
 
 /* ── Post Grid ── */
 .post-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-4);
-  margin-bottom: var(--space-8);
+  gap: var(--space-5);
+  margin-bottom: var(--space-5);
 }
 
 /* ── Post Card ── */
@@ -180,14 +203,16 @@ const visiblePages = computed(() => {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  transition: all var(--transition-base);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
   overflow: hidden;
 }
 
 .post-card:hover {
   border-color: var(--color-accent);
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
 }
 
 .post-card--sticky {
@@ -310,6 +335,11 @@ const visiblePages = computed(() => {
 .post-card:hover .post-read-more {
   opacity: 1;
   transform: translateX(0);
+}
+
+/* ── Card hover: image zoom if present ── */
+.post-card:hover .post-title {
+  color: var(--color-accent);
 }
 
 /* ── Pagination ── */

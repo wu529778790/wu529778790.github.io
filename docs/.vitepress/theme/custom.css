@@ -298,7 +298,7 @@ a:hover {
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -322,9 +322,20 @@ a:hover {
   }
 }
 
+@keyframes subtlePulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.15); }
+  50% { box-shadow: 0 0 0 8px rgba(37, 99, 235, 0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
 /* Stagger animation utility */
 .stagger-item {
-  animation: fadeInUp var(--transition-slow) ease-out both;
+  animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: opacity, transform;
 }
 
 .stagger-item:nth-child(1) { animation-delay: 0ms; }
@@ -337,3 +348,98 @@ a:hover {
 .stagger-item:nth-child(8) { animation-delay: 350ms; }
 .stagger-item:nth-child(9) { animation-delay: 400ms; }
 .stagger-item:nth-child(10) { animation-delay: 450ms; }
+
+/* Scroll-reveal animation (added by JS) */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Nav bar scroll state */
+.VPNavBar.nav-scrolled {
+  background: rgba(250, 250, 250, 0.85) !important;
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border-bottom-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+.dark .VPNavBar.nav-scrolled {
+  background: rgba(9, 9, 11, 0.85) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Author avatar subtle breathing glow */
+.sidebar-avatar {
+  animation: subtlePulse 3s ease-in-out infinite;
+}
+
+/* Smooth image zoom on hover for article images */
+.vp-doc img {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vp-doc img:hover {
+  transform: scale(1.02);
+}
+
+/* Code block copy button enhancement */
+.vp-doc div[class*='language-'] .copy {
+  transition: all 0.2s ease;
+}
+
+.vp-doc div[class*='language-'] .copy:hover {
+  transform: scale(1.1);
+}
+
+/* Link underline animation */
+.vp-doc a {
+  position: relative;
+}
+
+.vp-doc a::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vp-doc a:hover::after {
+  width: 100%;
+}
+
+/* Pagination button press feedback */
+.page-btn:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+/* Back to top button entrance */
+.back-to-top {
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reading progress bar glow */
+.reading-progress {
+  box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
+}
+
+/* Search button hover */
+.DocSearch-Button {
+  transition: all 0.2s ease !important;
+}
+
+.DocSearch-Button:hover {
+  box-shadow: var(--shadow-md) !important;
+  transform: translateY(-1px);
+}

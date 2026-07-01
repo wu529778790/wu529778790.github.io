@@ -90,7 +90,7 @@ export async function generateRssFeed(siteUrl, siteTitle, siteDesc) {
     <description>${escapeXml(siteDesc)}</description>
     <language>zh-CN</language>
     <lastBuildDate>${lastBuildDate}</lastBuildDate>
-    <atom:link href="${siteUrl}/feed.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
 ${items}
   </channel>
 </rss>

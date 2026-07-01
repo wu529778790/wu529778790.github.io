@@ -4,20 +4,11 @@ import { WxAuth } from 'wx-auth-sdk'
 import 'wx-auth-sdk/dist/style.css'
 
 onMounted(() => {
-  WxAuth.init({
-    // 开发环境设置为可选认证，避免强制弹窗
-    required: false,
-    siteId: 'localhost',
-    onVerified: (user) => {
-      console.log('认证成功', user)
-    },
-    onClose: () => {
-      console.log('用户关闭了认证弹窗')
-    },
-    onError: (error) => {
-      console.error('[WxAuth] 认证错误:', error)
-    }
-  })
+  // 本地开发环境跳过微信认证
+  if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') return
+
+  // v1.2.6: apiBase、siteId 全自动，仅需设置非强制认证
+  WxAuth.init({ required: false })
 })
 </script>
 

@@ -16,24 +16,34 @@ const { frontmatter } = useData()
 const { posts } = useBlog()
 const isHome = () => route.path === '/' || route.path === '/index.html' || route.path === '/index'
 
+// Nav bar blur on scroll
+if (typeof window !== 'undefined') {
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('.VPNavBar')
+    if (!nav) return
+    if (window.scrollY > 10) {
+      nav.classList.add('nav-scrolled')
+    } else {
+      nav.classList.remove('nav-scrolled')
+    }
+  }, { passive: true })
+}
+
 // 统计数据
 const totalPosts = posts.length
 const categories = [...new Set(posts.map(p => p.category))]
 const totalCategories = categories.length
 
-// 社交链接
+// 社交链接（作者卡片）
 const socialLinks = [
   { name: 'Telegram', url: 'https://t.me/shenzjd_com', icon: 'telegram' },
   { name: 'GitHub', url: 'https://github.com/wu529778790', icon: 'github' },
   { name: 'X', url: 'https://x.com/shenzujiudi', icon: 'x' },
 ]
 
-// 导航网站 - 社交平台
-const socialSites = [
-  { name: 'Telegram', url: 'https://t.me/shenzjd_com', desc: 'Telegram 频道', icon: 'telegram' },
-  { name: 'GitHub', url: 'https://github.com/wu529778790', desc: 'GitHub 主页', icon: 'github' },
-  { name: 'X (Twitter)', url: 'https://x.com/shenzujiudi', desc: 'X (Twitter)', icon: 'x' },
-]
+// Logo & 作者头像
+const authorAvatar = 'https://cdn.jsdmirror.com/gh/wu529778790/img.shenzjd.com@master/blog/imgx-20260701-180125-c1ub.webp'
+const siteLogo = authorAvatar
 
 // 导航网站 - 在线服务
 const serviceSites = [
@@ -51,6 +61,10 @@ const serviceSites = [
 
 <template>
   <Layout>
+    <template #nav-bar-title-before>
+      <img :src="siteLogo" alt="神族九帝" class="nav-logo" />
+    </template>
+
     <template v-if="isHome()" #page-top>
       <div class="blog-home">
         <!-- Left: Post List -->
@@ -63,24 +77,9 @@ const serviceSites = [
           <div class="sidebar-inner">
             <!-- Author Card -->
             <div class="sidebar-card sidebar-author">
+              <img :src="authorAvatar" alt="神族九帝" class="sidebar-avatar" />
               <h1 class="sidebar-title">神族九帝</h1>
-              <p class="sidebar-desc">前端技术博客 — 面试题 · 学习笔记 · AI 探索</p>
-
-              <!-- Stats -->
-              <div class="sidebar-stats">
-                <div class="sidebar-stat">
-                  <span class="sidebar-stat-num">{{ totalPosts }}</span>
-                  <span class="sidebar-stat-label">篇文章</span>
-                </div>
-                <div class="sidebar-stat">
-                  <span class="sidebar-stat-num">{{ totalCategories }}</span>
-                  <span class="sidebar-stat-label">个分类</span>
-                </div>
-                <div class="sidebar-stat">
-                  <span class="sidebar-stat-num">2015</span>
-                  <span class="sidebar-stat-label">年开始</span>
-                </div>
-              </div>
+              <p class="sidebar-desc">前端技术博客</p>
 
               <!-- Social Icons -->
               <div class="sidebar-social">
@@ -109,42 +108,8 @@ const serviceSites = [
             <!-- Reading History Card -->
             <ReadingHistory />
 
-            <!-- Social Platforms Card -->
-            <div class="sidebar-card sidebar-nav">
-              <div class="sidebar-nav-group-title">社交平台</div>
-              <div class="sidebar-nav-list">
-                <a
-                  v-for="site in socialSites"
-                  :key="site.name"
-                  :href="site.url"
-                  target="_blank"
-                  rel="noopener"
-                  class="sidebar-nav-item"
-                >
-                  <!-- Telegram -->
-                  <svg v-if="site.icon === 'telegram'" class="sidebar-nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-                  </svg>
-                  <!-- GitHub -->
-                  <svg v-else-if="site.icon === 'github'" class="sidebar-nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-                  </svg>
-                  <!-- X -->
-                  <svg v-else-if="site.icon === 'x'" class="sidebar-nav-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                  </svg>
-                  <span class="sidebar-nav-name">{{ site.name }}</span>
-                  <svg class="sidebar-nav-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M5 12h14"/>
-                    <path d="m12 5 7 7-7 7"/>
-                  </svg>
-                </a>
-              </div>
-            </div>
-
             <!-- Online Services Card -->
             <div class="sidebar-card sidebar-nav">
-              <div class="sidebar-nav-group-title">在线服务</div>
               <div class="sidebar-nav-list">
                 <a
                   v-for="site in serviceSites"
@@ -246,12 +211,33 @@ const serviceSites = [
     <template #doc-footer-before>
       <GiscusComment v-if="!isHome()" />
     </template>
+
+    <template #layout-bottom>
+      <footer class="blog-footer">
+        <div class="blog-footer-inner">
+          <span>© 2015–2026 神族九帝</span>
+          <span class="blog-footer-divider">·</span>
+          <a href="/feed.xml" target="_blank" class="blog-footer-link">RSS</a>
+          <span class="blog-footer-divider">·</span>
+          <a href="https://github.com/wu529778790/wu529778790.github.io" target="_blank" rel="noopener" class="blog-footer-link">GitHub</a>
+          <span class="blog-footer-divider">·</span>
+          <span>Built with VitePress</span>
+        </div>
+      </footer>
+    </template>
   </Layout>
   <WxAuthInit />
   <ReadingProgress />
   <MobileToc v-if="!isHome()" />
   <ServiceWorkerRegister />
 </template>
+
+<style>
+/* Global: hide VitePress default footer */
+.VPFooter {
+  display: none !important;
+}
+</style>
 
 <style scoped>
 .blog-home {
@@ -265,18 +251,18 @@ const serviceSites = [
 .blog-main {
   flex: 1;
   min-width: 0;
-  border-right: 1px solid var(--color-border);
 }
 
 
 /* ── Right: Sidebar ── */
 .blog-sidebar {
-  width: 300px;
+  width: 260px;
   flex-shrink: 0;
 }
 
 .sidebar-inner {
-  padding: var(--space-6);
+  padding: var(--space-5);
+  padding-left: var(--space-3);
 }
 
 /* ── Sidebar Card ── */
@@ -286,6 +272,12 @@ const serviceSites = [
   border-radius: var(--radius-lg);
   padding: var(--space-5);
   margin-bottom: var(--space-4);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sidebar-card:hover {
+  border-color: rgba(37, 99, 235, 0.15);
+  box-shadow: var(--shadow-sm);
 }
 
 /* ── Author Card ── */
@@ -293,61 +285,44 @@ const serviceSites = [
   text-align: center;
 }
 
+.sidebar-avatar {
+  display: block;
+  width: 88px;
+  height: 88px;
+  border-radius: var(--radius-full);
+  border: 3px solid var(--color-border);
+  margin: 0 auto var(--space-4);
+  object-fit: cover;
+  box-shadow: var(--shadow-md);
+}
+
 .sidebar-title {
   font-family: var(--font-heading);
-  font-size: var(--text-2xl);
+  font-size: var(--text-xl);
   font-weight: 700;
   color: var(--color-text-1);
-  margin: 0 0 var(--space-2);
+  margin: 0 0 var(--space-1);
   letter-spacing: -0.02em;
 }
 
 .sidebar-desc {
   font-size: var(--text-sm);
-  color: var(--color-text-2);
-  margin: 0 0 var(--space-4);
-  line-height: 1.5;
-}
-
-.sidebar-stats {
-  display: flex;
-  justify-content: center;
-  gap: var(--space-5);
-  margin-bottom: var(--space-4);
-}
-
-.sidebar-stat {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-}
-
-.sidebar-stat-num {
-  font-family: var(--font-heading);
-  font-size: var(--text-lg);
-  font-weight: 700;
-  color: var(--color-accent);
-  line-height: 1;
-}
-
-.sidebar-stat-label {
-  font-size: var(--text-xs);
   color: var(--color-text-3);
+  margin: 0 0 var(--space-5);
 }
 
 .sidebar-social {
   display: flex;
   justify-content: center;
-  gap: var(--space-2);
+  gap: var(--space-3);
 }
 
 .sidebar-social-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border-radius: var(--radius-md);
   color: var(--color-text-2);
   background: var(--color-muted);
@@ -358,7 +333,7 @@ const serviceSites = [
 .sidebar-social-icon:hover {
   color: var(--color-accent);
   background: var(--color-accent-soft, rgba(37, 99, 235, 0.1));
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
 /* ── Nav Card ── */
@@ -390,11 +365,12 @@ const serviceSites = [
   padding: var(--space-2) var(--space-2);
   border-radius: var(--radius-md);
   text-decoration: none;
-  transition: all var(--transition-fast);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .sidebar-nav-item:hover {
   background: var(--color-muted);
+  transform: translateX(3px);
 }
 
 .sidebar-nav-icon {
@@ -466,6 +442,64 @@ const serviceSites = [
   background: rgba(245, 158, 11, 0.08);
   border: 1px solid rgba(245, 158, 11, 0.2);
   color: #B45309;
+}
+
+/* ── Nav Logo ── */
+.nav-logo {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/* ── Blog Footer ── */
+.blog-footer {
+  padding: var(--space-5) var(--space-5);
+  text-align: center;
+}
+
+.blog-footer-inner {
+  font-size: var(--text-xs);
+  color: var(--color-text-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.blog-footer-divider {
+  opacity: 0.4;
+}
+
+.blog-footer-link {
+  color: var(--color-text-3);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.blog-footer-link:hover {
+  color: var(--color-accent);
+}
+
+
+/* Remove gap above footer */
+.VPContent {
+  padding-bottom: 0 !important;
+}
+
+.VPContent .container {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.VPContent .content-container {
+  margin-bottom: 0 !important;
+}
+
+.VPContent .content {
+  padding-bottom: 0 !important;
 }
 
 /* ── Responsive ── */

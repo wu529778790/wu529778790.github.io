@@ -37,9 +37,9 @@ export default defineConfig({
   },
 
   head: [
-    ['link', { rel: 'icon', href: '/favicon.ico' }],
+    ['link', { rel: 'icon', href: 'https://cdn.jsdmirror.com/gh/wu529778790/img.shenzjd.com@master/blog/imgx-20260701-180125-c1ub.webp' }],
     ['link', { rel: 'manifest', href: '/manifest.webmanifest' }],
-    ['link', { rel: 'apple-touch-icon', href: '/images/icons/apple-touch-icon.png' }],
+    ['link', { rel: 'apple-touch-icon', href: 'https://cdn.jsdmirror.com/gh/wu529778790/img.shenzjd.com@master/blog/imgx-20260701-180125-c1ub.webp' }],
     ['meta', { name: 'theme-color', content: '#2563EB' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'default' }],
@@ -54,7 +54,7 @@ export default defineConfig({
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
     ['meta', { name: 'twitter:site', content: '@shenzujiudi' }],
     // RSS 自动发现
-    ['link', { rel: 'alternate', type: 'application/rss+xml', title: `${SITE_TITLE} RSS`, href: `${SITE_URL}/feed.xml` }],
+    ['link', { rel: 'alternate', type: 'application/rss+xml', title: `${SITE_TITLE} RSS`, href: '/feed.xml' }],
   ],
 
   // 动态生成每页的 OG 标签
@@ -97,8 +97,8 @@ export default defineConfig({
       text: '在 GitHub 上编辑此页'
     },
     footer: {
-      copyright: '© 2015-present 神族九帝',
-      message: '<a href="/feed.xml" target="_blank">RSS 订阅</a>'
+      copyright: '',
+      message: ''
     }
   }
 })
