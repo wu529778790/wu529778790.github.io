@@ -17,6 +17,9 @@ docs/.vitepress/theme/data/
 # AI
 .claude
 
+# workbuddy (project memory / data)
+.workbuddy/
+
 # old vuepress (deprecated)
 docs/.vuepress/dist
 
