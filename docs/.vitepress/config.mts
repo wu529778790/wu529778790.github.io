@@ -2,6 +2,8 @@ import { defineConfig } from 'vitepress'
 import { generateSidebar, generateNav } from './sidebar.mjs'
 import { generateSitemap } from './sitemap.mjs'
 import { generateRssFeed } from './rss.mjs'
+import fs from 'node:fs'
+import path from 'node:path'
 
 // 自动生成顶部导航和侧边栏
 const autoNav = generateNav()
@@ -11,6 +13,38 @@ const autoSidebar = generateSidebar()
 const SITE_URL = 'https://blog.shenzjd.com'
 const SITE_TITLE = '神族九帝'
 const SITE_DESC = '前端技术博客 - 面试题、学习笔记、AI探索'
+
+// 从正文首段提取摘要，作为 OG/Twitter 描述的兜底（缺 description 字段时）
+function extractExcerpt(relativePath: string): string {
+  try {
+    const fp = path.resolve(process.cwd(), 'docs', relativePath)
+    const raw = fs.readFileSync(fp, 'utf-8')
+    const m = raw.match(/^---\s*\n[\s\S]*?\n---\n?/)
+    const body = m ? raw.slice(m[0].length) : raw
+    let inCode = false
+    for (const line of body.split('\n')) {
+      const t = line.trim()
+      if (t.startsWith('```')) { inCode = !inCode; continue }
+      if (inCode) continue
+      if (!t || t.startsWith('#') || t.startsWith('![') || t.startsWith('<') || /^>\s?/.test(t)) continue
+      if (/^[-*+]\s/.test(t) || /^\d+\.\s/.test(t) || /^>{3,}$/.test(t)) continue
+      if (/^[-*_]{3,}$/.test(t)) continue
+      if (/^\|/.test(t)) continue
+      if (t.startsWith(':::') || t.startsWith('{%')) continue
+      const desc = t
+        .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+        .replace(/<[^>]+>/g, '')
+        .replace(/https?:\/\/\S+/g, '')
+        .replace(/[*_`]/g, '')
+        .trim()
+      if (desc.length < 6) continue
+      return desc.length > 120 ? desc.slice(0, 120) + '…' : desc
+    }
+  } catch {
+    /* ignore */
+  }
+  return ''
+}
 
 export default defineConfig({
   title: SITE_TITLE,
@@ -62,7 +96,7 @@ export default defineConfig({
     const head: Record<string, string>[] = []
     const url = `${SITE_URL}${pageData.relativePath === 'index.md' ? '/' : '/' + pageData.relativePath.replace('.md', '.html')}`
     const title = pageData.frontmatter?.title || pageData.title || SITE_TITLE
-    const description = pageData.frontmatter?.description || pageData.description || SITE_DESC
+    const description = pageData.frontmatter?.description || pageData.description || extractExcerpt(pageData.relativePath) || SITE_DESC
 
     head.push(['meta', { property: 'og:title', content: title }])
     head.push(['meta', { property: 'og:description', content: description }])
@@ -97,8 +131,8 @@ export default defineConfig({
       text: '在 GitHub 上编辑此页'
     },
     footer: {
-      copyright: '',
-      message: ''
+      copyright: 'Copyright © 2026 神族九帝',
+      message: '基于 VitePress 构建 · 专注前端与 AI 实战'
     }
   }
 })
