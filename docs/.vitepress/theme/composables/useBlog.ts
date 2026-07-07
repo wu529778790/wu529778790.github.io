@@ -1,6 +1,6 @@
 import { posts, type Post } from '../data/posts'
 
-// Category mapping from directory names to display names
+// Category mapping from directory names to display names (fallback)
 const categoryMap: Record<string, string> = {
   '09.AI': 'AI 探索',
   '10.面试题': '面试题',
@@ -8,9 +8,13 @@ const categoryMap: Record<string, string> = {
   '31.服务器': '服务器',
 }
 
-// Extract category from URL path
-function extractCategory(url: string): string {
-  const match = url.match(/^\/([^/]+)\//)
+// Extract category: prefer front matter categories (last item = most specific), fallback to URL dir
+function extractCategory(post: Post): string {
+  if (post.categories && post.categories.length > 0) {
+    // Use the last (most specific) category from front matter
+    return post.categories[post.categories.length - 1]
+  }
+  const match = post.url.match(/^\/([^/]+)\//)
   if (match) {
     const dir = match[1]
     return categoryMap[dir] || dir.replace(/^\d+[\.\-]\s*/, '')
@@ -19,8 +23,8 @@ function extractCategory(url: string): string {
 }
 
 // Extract category slug for styling
-function extractCategorySlug(url: string): string {
-  const match = url.match(/^\/([^/]+)\//)
+function extractCategorySlug(post: Post): string {
+  const match = post.url.match(/^\/([^/]+)\//)
   if (match) {
     return match[1].replace(/^\d+[\.\-]\s*/, '').toLowerCase()
   }
@@ -35,8 +39,8 @@ export interface EnrichedPost extends Post {
 export function useBlog() {
   const enrichedPosts: EnrichedPost[] = posts.map((post) => ({
     ...post,
-    category: extractCategory(post.url),
-    categorySlug: extractCategorySlug(post.url),
+    category: extractCategory(post),
+    categorySlug: extractCategorySlug(post),
   }))
 
   return { posts: enrichedPosts }

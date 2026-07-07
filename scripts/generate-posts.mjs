@@ -69,6 +69,10 @@ function scanDir(dir) {
         // Extract numeric prefix from filename for sorting
         const numMatch = entry.name.match(/^(\d+)/)
         const order = numMatch ? parseInt(numMatch[1]) : -1
+        // Tags from front matter (array), filter out empty entries
+        const tags = Array.isArray(fm.tags) ? fm.tags.filter(Boolean) : []
+        // Categories from front matter (array), filter out empty entries
+        const categories = Array.isArray(fm.categories) ? fm.categories.filter(Boolean) : []
 
         posts.push({
           title: fm.title,
@@ -76,6 +80,8 @@ function scanDir(dir) {
           url,
           sticky: fm.sticky ? Number(fm.sticky) : 0,
           excerpt: firstPara,
+          tags,
+          categories,
           deprecated: fm.deprecated === 'true' || fm.deprecated === true,
           outdated: fm.outdated === 'true' || fm.outdated === true,
           updated: fm.updated || '',
@@ -102,6 +108,8 @@ export interface Post {
   url: string
   sticky?: number
   excerpt?: string
+  tags?: string[]
+  categories?: string[]
   deprecated?: boolean
   outdated?: boolean
   updated?: string

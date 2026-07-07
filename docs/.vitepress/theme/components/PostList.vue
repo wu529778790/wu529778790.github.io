@@ -4,6 +4,8 @@ import { useBlog } from '../composables/useBlog'
 
 const { posts } = useBlog()
 const PAGE_SIZE = 10
+const MAX_TAGS = 3
+const maxTags = MAX_TAGS
 const currentPage = ref(1)
 let observer: IntersectionObserver | null = null
 
@@ -120,6 +122,17 @@ const visiblePages = computed(() => {
           <!-- Card Body -->
           <h3 class="post-title">{{ post.title }}</h3>
           <p v-if="post.excerpt" class="post-excerpt">{{ post.excerpt }}</p>
+
+          <!-- Card Meta: category + tags -->
+          <div v-if="post.category || (post.tags && post.tags.length)" class="post-card-meta">
+            <span v-if="post.category" class="post-category">{{ post.category }}</span>
+            <span
+              v-for="tag in post.tags?.slice(0, maxTags)"
+              :key="tag"
+              class="post-tag"
+            >{{ tag }}</span>
+            <span v-if="post.tags && post.tags.length > maxTags" class="post-tag post-tag--more">+{{ post.tags.length - maxTags }}</span>
+          </div>
 
           <!-- Card Footer -->
           <div class="post-card-footer">
@@ -301,6 +314,44 @@ const visiblePages = computed(() => {
   -webkit-box-orient: vertical;
   overflow: hidden;
   flex: 1;
+}
+
+/* ── Card Meta (category + tags) ── */
+.post-card-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-3);
+}
+
+.post-category {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px var(--space-2);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  line-height: 1.5;
+  border-radius: var(--radius-sm);
+  color: var(--color-accent);
+  background: var(--color-accent-soft, rgba(99, 102, 241, 0.12));
+  white-space: nowrap;
+}
+
+.post-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px var(--space-2);
+  font-size: var(--text-xs);
+  line-height: 1.5;
+  border-radius: 999px;
+  color: var(--color-text-2);
+  background: var(--color-muted, rgba(0, 0, 0, 0.05));
+  white-space: nowrap;
+}
+
+.post-tag--more {
+  color: var(--color-text-3);
 }
 
 /* ── Card Footer ── */
