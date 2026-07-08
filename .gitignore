@@ -5,6 +5,7 @@ node_modules
 docs/.vitepress/dist
 docs/.vitepress/cache
 docs/.vitepress/theme/data/
+docs/public/pages/
 .vite-temp
 
 # OS

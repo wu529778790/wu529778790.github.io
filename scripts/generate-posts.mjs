@@ -78,6 +78,7 @@ function scanDir(dir) {
           title: fm.title,
           date: fm.date,
           url,
+          permalink: fm.permalink || '',
           sticky: fm.sticky ? Number(fm.sticky) : 0,
           excerpt: firstPara,
           tags,
@@ -115,7 +116,7 @@ export interface Post {
   updated?: string
 }
 
-export const posts: Post[] = ${JSON.stringify(posts, null, 2)}
+export const posts: Post[] = ${JSON.stringify(posts.map(({ permalink, ...rest }) => rest), null, 2)}
 `
 
 const outPath = path.resolve(process.cwd(), 'docs/.vitepress/theme/data/posts.ts')
@@ -125,3 +126,34 @@ if (!fs.existsSync(outDir)) {
 }
 fs.writeFileSync(outPath, tsContent)
 console.log(`[generate-posts] Generated ${posts.length} posts -> posts.data.ts`)
+
+// Generate permalink redirect files in docs/public/pages/
+const pagesPublicDir = path.resolve(process.cwd(), 'docs/public/pages')
+if (fs.existsSync(pagesPublicDir)) {
+  fs.rmSync(pagesPublicDir, { recursive: true })
+}
+
+const SITE_URL = 'https://blog.shenzjd.com'
+const redirects = posts.filter(p => p.permalink && p.permalink.startsWith('/pages/') && p.url)
+let redirectCount = 0
+for (const post of redirects) {
+  const hash = post.permalink.replace(/^\/pages\//, '').replace(/\/$/, '')
+  if (!hash) continue
+  const dir = path.join(pagesPublicDir, hash)
+  fs.mkdirSync(dir, { recursive: true })
+  const fullUrl = `${SITE_URL}${post.url}`
+  const html = `<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="refresh" content="0;url=${fullUrl}">
+<link rel="canonical" href="${fullUrl}">
+<script>location.replace("${fullUrl}")</script>
+</head>
+<body>Redirecting to <a href="${fullUrl}">${fullUrl}</a></body>
+</html>
+`
+  fs.writeFileSync(path.join(dir, 'index.html'), html)
+  redirectCount++
+}
+console.log(`[generate-posts] Generated ${redirectCount} permalink redirects -> docs/public/pages/`)
