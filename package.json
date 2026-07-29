@@ -15,9 +15,8 @@
     "wx-auth-sdk": "^1.2.6"
   },
   "overrides": {
-    "esbuild": "^0.25.0"
-  },
-  "comments": {
-    "vite vulns": "vitepress 1.6.4 pins vite ^5. Vite vulns (path traversal, fs.deny bypass) only affect dev server, not static production builds. Acceptable risk until vitepress upgrades."
+    "esbuild": "^0.25.0",
+    "vite": "6.4.3",
+    "postcss": "^8.5.24"
   }
 }
