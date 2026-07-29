@@ -47,26 +47,27 @@ jobs:
             ${{ env.IMAGE_NAME }}:${{ github.sha }}
           no-cache: true
 
-  deploy:
-    needs: build-and-push
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
-    steps:
-      - name: Deploy to server
-        uses: appleboy/ssh-action@v1
-        with:
-          host: ${{ secrets.DEPLOY_HOST }}
-          username: ${{ secrets.DEPLOY_USER }}
-          password: ${{ secrets.DEPLOY_PASSWORD }}
-          script: |
-            IMAGE="ghcr.io/$(echo '${{ github.repository }}' | tr '[:upper:]' '[:lower:]'):latest"
-            CONTAINER="${{ github.event.repository.name }}"
-            sudo docker pull "$IMAGE"
-            sudo docker stop "$CONTAINER" || true
-            sudo docker rm "$CONTAINER" || true
-            sudo docker run -d \
-              --name "$CONTAINER" \
-              --restart unless-stopped \
-              -p 6703:80 \
-              "$IMAGE"
-            sudo docker image prune -f
+  # ── 服务器部署暂时注释，改用 GitHub Pages（见 pages.yml） ──
+  # deploy:
+  #   needs: build-and-push
+  #   runs-on: ubuntu-latest
+  #   if: github.ref == 'refs/heads/master'
+  #   steps:
+  #     - name: Deploy to server
+  #       uses: appleboy/ssh-action@v1
+  #       with:
+  #         host: ${{ secrets.DEPLOY_HOST }}
+  #         username: ${{ secrets.DEPLOY_USER }}
+  #         password: ${{ secrets.DEPLOY_PASSWORD }}
+  #         script: |
+  #           IMAGE="ghcr.io/$(echo '${{ github.repository }}' | tr '[:upper:]' '[:lower:]'):latest"
+  #           CONTAINER="${{ github.event.repository.name }}"
+  #           sudo docker pull "$IMAGE"
+  #           sudo docker stop "$CONTAINER" || true
+  #           sudo docker rm "$CONTAINER" || true
+  #           sudo docker run -d \
+  #             --name "$CONTAINER" \
+  #             --restart unless-stopped \
+  #             -p 6703:80 \
+  #             "$IMAGE"
+  #           sudo docker image prune -f
