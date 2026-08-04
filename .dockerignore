@@ -1,0 +1,22 @@
+# 依赖（Docker 内 npm ci 重新安装）
+node_modules
+
+# VitePress 构建产物 / 缓存 / 临时目录
+docs/.vitepress/dist
+docs/.vitepress/cache
+docs/.vitepress/.temp
+
+# 生成脚本运行时产物（构建时重新生成）
+docs/public/pages
+
+# 本地日志与运行数据
+data
+*.log
+
+# 项目记忆（不进镜像）
+.workbuddy
+
+# 系统/IDE
+.DS_Store
+.vscode
+.idea
