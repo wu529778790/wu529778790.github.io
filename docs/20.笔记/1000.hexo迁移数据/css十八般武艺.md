@@ -13,6 +13,7 @@ sidebar: auto
 tags:
   -
 ---
+
 水平居中，垂直居中，单列布局，多列布局
 
 <!--more-->
@@ -57,8 +58,8 @@ flex 布局，对父元素设置 display：flex；align-items:center；
 
 常见的单列布局有两种：
 
-    * 一种是header、content、footer宽度都相同，期一般不会占满浏览器的最宽宽度，但当浏览器宽度缩小低于最大宽度时，宽度会自适应。
-    * 一种是header、footer宽度为浏览器宽度，但content以及header和footer里的内容却不会占满浏览器宽度。
+    - 一种是header、content、footer宽度都相同，期一般不会占满浏览器的最宽宽度，但当浏览器宽度缩小低于最大宽度时，宽度会自适应。
+    - 一种是header、footer宽度为浏览器宽度，但content以及header和footer里的内容却不会占满浏览器宽度。
 
 对于第一种，对 header、content、footer 统一设置 width 或 max-width，并通过 margin:auto 实现居中。
 

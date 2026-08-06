@@ -13,6 +13,7 @@ sidebar: auto
 tags:
   -
 ---
+
 # 网易转换 rem 分析
 
 首先网易的设计稿是基于 iPhone5 设计的也就是宽度 640px。（先不考虑 dpr 的问题下面会说）然后设置 1rem 等于 100px（ HTML font-size 为 100px），相当于 6.4rem = 100%宽度 = 设备的宽度。

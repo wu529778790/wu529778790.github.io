@@ -13,6 +13,7 @@ sidebar: auto
 tags:
   -
 ---
+
 近期公司需要针对分享流程进行优化，其中一点就是前端 H5 检测是否安装应用，来进行不同的判断（下载或直接跳转到 app 中）。原理很简单：创建一个 iframe 去打开 uri。如果打开 app 成功网页进入后台，再切换回来时间会超过 2.5s。利用时间去检测。下面来看具体实现过程：
 
 <!--more-->
@@ -160,7 +161,9 @@ _ 使用微链接必须做 encodeURIComponent 转义。 \* 链接地址在微链
 函数中调用的 BrowserInfo 是一个简单的客户端检测。具体如下：
 
     /**
-     * 客户端检测
+
+     - 客户端检测
+
      */
     export const BrowserInfo = function() {
       var json = {

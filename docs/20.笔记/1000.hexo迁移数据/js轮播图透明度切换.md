@@ -13,6 +13,7 @@ sidebar: auto
 tags: 
   - 
 ---
+
 title: js轮播图透明度切换
 date: 2016-04-25 10:22:16
 tags: js
@@ -28,7 +29,9 @@ js轮播图透明度切换（带上下页和底部圆点切换）
         <meta charset="UTF-8">
         <title>js轮播图透明度切换</title>
         <style type="text/css">
-            * {
+
+            - {
+
                 margin: 0;
                 padding: 0;
                 border: none;
@@ -115,7 +118,7 @@ js轮播图透明度切换（带上下页和底部圆点切换）
                 <li style="background: blueviolet;">5</li>
                 <li style="background: brown;">6</li>
                 <li style="background: orangered;">7</li>
-                <li style="background: palevioletred;">8</li>               
+                <li style="background: palevioletred;">8</li>
             </ul>
             <ul id="list2">
                 <li class="active"></li>
@@ -199,13 +202,6 @@ js轮播图透明度切换（带上下页和底部圆点切换）
                         move();
                     },2000);
                 }
-
-
-
-
-
-
-
 
     /*************************缓冲运动可封装留着以后备用^_^*************************/
                 function getStyleAttr(obj, attr){
