@@ -71,30 +71,27 @@ npm run preview    # 本地预览构建产物
 ---
 title: 文章标题
 date: 2026-08-06 12:00:00
-permalink: /pages/your-slug/
 categories:
   - AI
 tags:
   - Claude Code
 ---
 
-# 文章标题（正文第一个标题用 H1，与 title 保持一致）
-
 正文内容…
 ```
 
 ### 规范要点
 
-- **front matter 必填**：`title`、`date`、`permalink`、`categories`、`tags`
+- **front matter 必填**：`title`、`date`、`categories`、`tags`（`permalink` 仅旧文章需要，新文章不要写）
 - **categories 使用受控词表**，请从以下取值，不要自造同义词：`面试题 / 学习笔记 / JavaScript / CSS / Vue / Agent学习笔记 / Webpack / 思维导图 / 服务器 / 前端优化 / 项目 / 浏览器 / 手写系列 / Http / AI / 前端工程化 / 算法 / React / 设计模式 / HTML / Web3 / webGl / 重学node`
-- **正文首行建议为 `# 一级标题`**（与 `title` 一致），保证文章页有醒目的主标题
-- `permalink` 用于旧链接兼容，构建时会自动生成对应的 301 重定向页
+- **正文无需再写 `# 一级标题`**：文章页大标题由主题自动渲染（取自 front matter `title`），正文从内容直接开始写即可
+- 旧文章的 `permalink` 用于旧链接兼容，构建时会自动生成对应的 301 重定向页；**新文章不写 permalink**（URL 由文件路径决定）
 - 代码块尽量标注语言（` ```js ` 等），以获得语法高亮
 
 ### 构建时自动完成的事
 
 1. 扫描全部文章 → 生成 `posts.ts`（首页卡片数据，含摘要/标签/置顶）
-2. 按 `permalink` 生成 `/pages/xxx/` 301 重定向页
+2. 按已有 `permalink`（仅旧文章）生成 `/pages/xxx/` 301 重定向页
 3. 生成 `sitemap.xml` 与 `feed.xml`
 4. 为每页注入 OG / Twitter 卡片（无 `description` 字段时自动取正文首段）
 
