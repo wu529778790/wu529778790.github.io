@@ -2,8 +2,8 @@
   "name": "blog-vitepress",
   "version": "1.0.0",
   "scripts": {
-    "generate": "node scripts/generate-posts.mjs",
-    "dev": "npm run generate && vitepress dev docs",
+    "generate": "node scripts/auto-frontmatter.mjs && node scripts/generate-posts.mjs",
+    "dev": "npm run generate && node scripts/dev.mjs",
     "build": "npm run generate && vitepress build docs",
     "preview": "vitepress preview docs"
   },
