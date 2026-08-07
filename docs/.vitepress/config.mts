@@ -75,6 +75,7 @@ export default defineConfig({
     ['link', { rel: 'manifest', href: '/manifest.webmanifest' }],
     ['link', { rel: 'apple-touch-icon', href: 'https://cdn.jsdmirror.com/gh/wu529778790/img.shenzjd.com@master/blog/imgx-20260701-180125-c1ub.webp' }],
     ['meta', { name: 'theme-color', content: '#2563EB' }],
+    ['meta', { name: 'mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'default' }],
     ['meta', { name: 'author', content: '神族九帝' }],

@@ -25,7 +25,9 @@ self.addEventListener('activate', (event) => {
 // Fetch: stale-while-revalidate strategy
 self.addEventListener('fetch', (event) => {
   const { request } = event
+  // 只处理 http/https 请求，跳过 chrome-extension、devtools 等非标准 scheme
   if (request.method !== 'GET') return
+  if (!request.url.startsWith('http://') && !request.url.startsWith('https://')) return
 
   event.respondWith(
     caches.match(request).then((cached) => {
