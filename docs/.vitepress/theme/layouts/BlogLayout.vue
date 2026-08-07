@@ -179,8 +179,22 @@ const serviceSites = [
       </div>
     </template>
 
-    <!-- Article deprecation warning -->
+    <!-- 文章页大标题：来自 front matter title，正文无需再重复写 H1 -->
     <template #doc-before>
+      <div v-if="!isHome() && frontmatter.title" class="article-header">
+        <h1 class="article-title">{{ frontmatter.title }}</h1>
+        <div v-if="frontmatter.date" class="article-meta">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
+            <line x1="16" x2="16" y1="2" y2="6"/>
+            <line x1="8" x2="8" y1="2" y2="6"/>
+            <line x1="3" x2="21" y1="10" y2="10"/>
+          </svg>
+          <time :datetime="frontmatter.date">{{ frontmatter.date.slice(0, 10) }}</time>
+        </div>
+      </div>
+
+      <!-- Article deprecation warning -->
       <div v-if="!isHome() && (frontmatter.deprecated || frontmatter.outdated)" class="article-warning">
         <div v-if="frontmatter.deprecated" class="article-warning__banner article-warning__banner--deprecated">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -236,6 +250,11 @@ const serviceSites = [
 /* Global: hide VitePress default footer */
 .VPFooter {
   display: none !important;
+}
+
+/* 文章页顶部已渲染主题大标题（.article-header 存在）时，隐藏正文首个 H1，避免与文件名/标题重复 */
+.article-header ~ .main .vp-doc h1:first-of-type {
+  display: none;
 }
 </style>
 
@@ -398,6 +417,33 @@ const serviceSites = [
 .sidebar-nav-item:hover .sidebar-nav-arrow {
   opacity: 1;
   transform: translateX(2px);
+}
+
+/* ── Article Header (theme-rendered title) ── */
+.article-header {
+  padding: 0 var(--space-6);
+  margin-top: var(--space-4);
+}
+
+.article-title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: var(--color-text-1);
+  margin: 0 0 var(--space-3);
+}
+
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--text-sm);
+  color: var(--color-text-3);
+  padding-bottom: var(--space-4);
+  margin-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-border-light);
 }
 
 /* ── Article Warning Banner ── */
