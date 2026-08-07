@@ -421,7 +421,7 @@ const serviceSites = [
 
 /* ── Article Header (theme-rendered title) ── */
 .article-header {
-  padding: 0 var(--space-6);
+  padding: 0;
   margin-top: var(--space-4);
 }
 
@@ -448,7 +448,7 @@ const serviceSites = [
 
 /* ── Article Warning Banner ── */
 .article-warning {
-  padding: 0 var(--space-6);
+  padding: 0;
   margin-top: var(--space-4);
 }
 
