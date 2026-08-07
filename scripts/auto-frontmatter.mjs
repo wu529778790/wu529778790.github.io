@@ -10,9 +10,10 @@
  *   - 只补「缺失」的字段，绝不覆盖已存在的 title/date/permalink/categories/tags
  *   - title   ：优先取正文第一个 H1，否则用文件名（去数字前缀）
  *   - date    ：文件修改时间（新建即当前时间），格式 YYYY-MM-DD HH:mm:ss
- *   - permalink：/pages/<文件名slug>/
  *   - categories：按目录推断（10.Agent → Agent学习笔记 / 09.AI → AI / 20.笔记 → 学习笔记 等）
  *   - tags    ：从标题提取英文/数字词组，没有则留空
+ *   - 不生成 permalink：新文章没有旧 VuePress 链接需要兼容（permalink 仅用于给旧文章
+ *     生成 /pages/<hash>/ 跳转页），避免 public/pages 无限膨胀
  */
 import fs from 'node:fs'
 import path from 'node:path'
@@ -44,15 +45,6 @@ function inferTitle(content, filename) {
   return filename.replace(/\.md$/, '').replace(/^\d+\.\s*/, '').replace(/^\d+\./, '')
 }
 
-function slugify(filename) {
-  return filename
-    .replace(/\.md$/, '')
-    .replace(/^\d+\.\s*/, '')
-    .replace(/^\d+\./, '')
-    .replace(/[，。、；：？！,.;:!?()（）\[\]【】"'“”‘’《》<>]/g, '')
-    .replace(/\s+/g, '-')
-}
-
 function inferTags(title) {
   const en = title.match(/[A-Za-z][A-Za-z0-9._\-]*/g)
   return en ? [...new Set(en)] : []
@@ -69,8 +61,8 @@ function yamlSafe(value) {
   return /[:#"{}[\]]/.test(value) ? `"${value.replace(/"/g, '\\"')}"` : value
 }
 
-function buildHeader({ title, date, permalink, category, tags }) {
-  const lines = ['---', `title: ${yamlSafe(title)}`, `date: ${date}`, `permalink: ${permalink}`, 'categories:', `  - ${category}`]
+function buildHeader({ title, date, category, tags }) {
+  const lines = ['---', `title: ${yamlSafe(title)}`, `date: ${date}`, 'categories:', `  - ${category}`]
   if (tags.length) {
     lines.push('tags:')
     tags.forEach((t) => lines.push(`  - ${t}`))
@@ -100,7 +92,6 @@ function ensureFrontmatter(file) {
   if (content.charCodeAt(0) === 0xfeff) content = content.slice(1) // 兼容 BOM
   const title = inferTitle(content, filename)
   const date = fmtDate(fs.statSync(file).mtime)
-  const permalink = `/pages/${slugify(filename)}/`
   const category = inferCategory(rel)
   const tags = inferTags(title)
 
@@ -108,7 +99,8 @@ function ensureFrontmatter(file) {
   const hasFrontmatter = /^\s*---\s*\n/.test(content)
   if (!hasFrontmatter) {
     // 完全无 front matter（典型的新建文件）：插入完整 header
-    const header = buildHeader({ title, date, permalink, category, tags })
+    // 注意：不生成 permalink——新文章无旧链接需兼容，permalink 仅为旧 VuePress 文章生成跳转页
+    const header = buildHeader({ title, date, category, tags })
     fs.writeFileSync(file, header + '\n\n' + content)
     return true
   }
