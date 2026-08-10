@@ -48,7 +48,7 @@ function unlock() {
     <!-- 未解锁：只展示正文前几段（预览）+ 密码解锁区 -->
     <div v-if="frontmatter.password && !unlocked" class="pwd-locked">
       <div class="pwd-preview-wrap">
-        <div class="pwd-preview">
+        <div class="pwd-preview vp-doc">
           <Content />
         </div>
         <div class="pwd-fade"></div>
@@ -88,7 +88,9 @@ function unlock() {
 
     <!-- 已解锁：完整正文 -->
     <template v-else>
-      <Content />
+      <div class="vp-doc">
+        <Content />
+      </div>
     </template>
   </div>
 </template>
