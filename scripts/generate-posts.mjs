@@ -80,8 +80,8 @@ function scanDir(dir) {
           url,
           permalink: fm.permalink || '',
           sticky: fm.sticky ? Number(fm.sticky) : 0,
-          // 受密码保护页：摘要替换为锁提示，避免首页/列表外露正文首段
-          excerpt: fm.password ? '🔒 受密码保护' : firstPara,
+          // 受密码保护页也展示真实简介（只露前面一小段，正文仍由 PasswordLayout 控制预览）
+          excerpt: firstPara,
           locked: !!fm.password,
           tags,
           categories,
