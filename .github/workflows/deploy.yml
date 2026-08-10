@@ -1,8 +1,9 @@
 name: Build and Deploy
 
 on:
-  push:
-    branches: [master]
+  # ── 2026-08-10 暂时只发布 GitHub Pages（见 pages.yml），push 不再触发 Docker 构建 ──
+  # push:
+  #   branches: [master]
   workflow_dispatch:
 
 jobs:
