@@ -10,9 +10,14 @@ const error = ref(false)
 const unlocked = ref(false)
 const storageKey = () => 'blog-unlock:' + route.path // key 带路径：一篇解锁不影响其他篇
 
-// 挂载后再读 sessionStorage：SSR 阶段固定渲染锁定态，避免 hydration 不一致
+// 本地记住解锁状态：存的是密码本身，改密码后旧记录自动失效
+const isUnlocked = () =>
+  typeof window !== 'undefined' &&
+  localStorage.getItem(storageKey()) === frontmatter.value.password
+
+// 挂载后再读 localStorage：SSR 阶段固定渲染锁定态，避免 hydration 不一致
 onMounted(() => {
-  unlocked.value = sessionStorage.getItem(storageKey()) === '1'
+  unlocked.value = isUnlocked()
 })
 
 // 路由切换时重置状态
@@ -21,14 +26,13 @@ watch(
   () => {
     input.value = ''
     error.value = false
-    unlocked.value =
-      typeof window !== 'undefined' && sessionStorage.getItem(storageKey()) === '1'
+    unlocked.value = isUnlocked()
   }
 )
 
 function unlock() {
   if (input.value === frontmatter.value.password) {
-    sessionStorage.setItem(storageKey(), '1')
+    localStorage.setItem(storageKey(), frontmatter.value.password)
     unlocked.value = true
   } else {
     error.value = true
@@ -83,6 +87,7 @@ function unlock() {
           <button class="pwd-btn" @click="unlock">解锁</button>
         </div>
         <p v-if="error" class="pwd-error">密码错误，请重试</p>
+        <p class="pwd-remember-hint">解锁后本机会记住，下次进入无需重复输入</p>
       </div>
     </div>
 
@@ -202,6 +207,11 @@ function unlock() {
   color: #dc2626;
   font-size: 12px;
   margin: 10px 0 0;
+}
+.pwd-remember-hint {
+  margin: 10px 0 0;
+  font-size: 12px;
+  color: var(--color-text-3, #6b7280);
 }
 
 @media (max-width: 480px) {
