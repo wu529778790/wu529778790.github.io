@@ -4,6 +4,10 @@ import path from 'path'
 // 扫描 docs 目录
 const blogDir = path.resolve(process.cwd(), 'docs')
 
+// 展平到父目录的子目录名（不单独成 group，多用于临时/草稿类目录）
+// 解决：group 的缩进和普通 link 不一致，导致视觉上"和一级对齐"的问题
+const FLATTEN_DIRS = new Set(['drafts'])
+
 // 从 md 文件中提取标题
 function getTitleFromFile(filePath) {
   try {
@@ -84,6 +88,13 @@ function scanDir(dir, basePath = '') {
     // 检查目录下是否有 md 文件
     const hasMdFiles = hasMarkdownFiles(dirPath)
     if (!hasMdFiles) continue
+
+    // 展平目录：把临时/草稿类目录的 md 直接挂在当前层，不单独成 group
+    if (FLATTEN_DIRS.has(dirEntry.name)) {
+      const subItems = scanDir(dirPath, dirBasePath)
+      items.push(...subItems)
+      continue
+    }
 
     // 从目录的 index.md 获取标题
     const dirTitle = getTitleFromIndexFile(dirPath)
