@@ -8,12 +8,14 @@ const route = useRoute()
 const input = ref('')
 const error = ref(false)
 const unlocked = ref(false)
-const storageKey = () => 'blog-unlock:' + route.path // key 带路径：一篇解锁不影响其他篇
+// 以密码本身为 key：同一密码的所有文章共享解锁状态（同目录同密码只需解锁一次）
+const storageKey = () => 'blog-unlock:pwd:' + frontmatter.value.password
 
-// 本地记住解锁状态：存的是密码本身，改密码后旧记录自动失效
+// 本地记住解锁状态：key 含密码，改密码后 key 变化，旧记录自动失效
 const isUnlocked = () =>
   typeof window !== 'undefined' &&
-  localStorage.getItem(storageKey()) === frontmatter.value.password
+  !!frontmatter.value.password &&
+  localStorage.getItem(storageKey()) === '1'
 
 // 挂载后再读 localStorage：SSR 阶段固定渲染锁定态，避免 hydration 不一致
 onMounted(() => {
@@ -32,7 +34,7 @@ watch(
 
 function unlock() {
   if (input.value === frontmatter.value.password) {
-    localStorage.setItem(storageKey(), frontmatter.value.password)
+    localStorage.setItem(storageKey(), '1')
     unlocked.value = true
   } else {
     error.value = true
@@ -87,7 +89,7 @@ function unlock() {
           <button class="pwd-btn" @click="unlock">解锁</button>
         </div>
         <p v-if="error" class="pwd-error">密码错误，请重试</p>
-        <p class="pwd-remember-hint">解锁后本机会记住，下次进入无需重复输入</p>
+        <p class="pwd-remember-hint">解锁后本机会记住，同密码的其他文章也无需重复输入</p>
       </div>
     </div>
 
