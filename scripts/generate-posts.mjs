@@ -80,7 +80,9 @@ function scanDir(dir) {
           url,
           permalink: fm.permalink || '',
           sticky: fm.sticky ? Number(fm.sticky) : 0,
-          excerpt: firstPara,
+          // 受密码保护页：摘要替换为锁提示，避免首页/列表外露正文首段
+          excerpt: fm.password ? '🔒 受密码保护' : firstPara,
+          locked: !!fm.password,
           tags,
           categories,
           deprecated: fm.deprecated === 'true' || fm.deprecated === true,
@@ -109,6 +111,7 @@ export interface Post {
   url: string
   sticky?: number
   excerpt?: string
+  locked?: boolean
   tags?: string[]
   categories?: string[]
   deprecated?: boolean

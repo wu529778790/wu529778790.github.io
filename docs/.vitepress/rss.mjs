@@ -52,6 +52,7 @@ function scanPosts(dir) {
     } else if (entry.name.endsWith('.md') && entry.name !== 'index.md') {
       const content = fs.readFileSync(fullPath, 'utf-8')
       const fm = extractFrontmatter(content)
+      if (fm.password) continue // 受密码保护页不进 RSS
       if (fm.title && fm.date) {
         const url = fullPath
           .replace(docsDir, '')

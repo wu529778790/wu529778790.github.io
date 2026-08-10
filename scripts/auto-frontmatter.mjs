@@ -34,6 +34,13 @@ const CATEGORY_MAP = [
   ['31.服务器', '服务器'],
 ]
 
+// 受保护目录：路径前缀 → 密码（更具体的路径在前）。匹配到的 md 会自动注入
+// password / search: false / description，走前端锁屏布局（PasswordLayout）。
+// 留空数组 = 不批量加密，仅靠单篇文章 frontmatter 手写 password。
+const LOCKED_DIRS = [
+  // ['09.AI/100.Agent学习笔记', 'test123'],
+]
+
 function fmtDate(d) {
   const p = (n) => String(n).padStart(2, '0')
   return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}`
@@ -61,8 +68,13 @@ function yamlSafe(value) {
   return /[:#"{}[\]]/.test(value) ? `"${value.replace(/"/g, '\\"')}"` : value
 }
 
-function buildHeader({ title, date, category, tags }) {
+function buildHeader({ title, date, category, tags, lockPwd }) {
   const lines = ['---', `title: ${yamlSafe(title)}`, `date: ${date}`, 'categories:', `  - ${category}`]
+  if (lockPwd) {
+    lines.push(`password: '${lockPwd}'`)
+    lines.push('search: false')
+    lines.push('description: 受密码保护')
+  }
   if (tags.length) {
     lines.push('tags:')
     tags.forEach((t) => lines.push(`  - ${t}`))
@@ -94,23 +106,29 @@ function ensureFrontmatter(file) {
   const date = fmtDate(fs.statSync(file).mtime)
   const category = inferCategory(rel)
   const tags = inferTags(title)
+  const lockPwd = LOCKED_DIRS.find(([prefix]) => rel.replace(/\\/g, '/').includes(prefix))?.[1]
 
   // 宽松判断：文件开头只要出现 front matter 起始标记，就绝不插入第二个 header
   const hasFrontmatter = /^\s*---\s*\n/.test(content)
   if (!hasFrontmatter) {
     // 完全无 front matter（典型的新建文件）：插入完整 header
     // 注意：不生成 permalink——新文章无旧链接需兼容，permalink 仅为旧 VuePress 文章生成跳转页
-    const header = buildHeader({ title, date, category, tags })
+    const header = buildHeader({ title, date, category, tags, lockPwd })
     fs.writeFileSync(file, header + '\n\n' + content)
     return true
   }
 
-  // 已有 front matter：仅补 generate-posts 必需字段（title/date），
+  // 已有 front matter：仅补 generate-posts 必需字段（title/date）+ 目录锁密码，
   // 不覆盖已有值、不补 categories/tags/permalink，避免侵入旧文件
   const keys = parseFrontmatterKeys(content)
   const add = []
   if (!keys.includes('title')) add.push(`title: ${yamlSafe(title)}`)
   if (!keys.includes('date')) add.push(`date: ${date}`)
+  if (lockPwd) {
+    if (!keys.includes('password')) add.push(`password: '${lockPwd}'`)
+    if (!keys.includes('search')) add.push('search: false')
+    if (!keys.includes('description')) add.push('description: 受密码保护')
+  }
   if (!add.length) return false
 
   const m = content.match(/^---\s*\n[\s\S]*?\n---/)
