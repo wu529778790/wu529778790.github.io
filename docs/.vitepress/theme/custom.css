@@ -281,6 +281,15 @@ a:hover {
   margin-bottom: 4px;
 }
 
+/* 层级缩进修复：VitePress 默认 level-0 分组的子项不缩进，
+   导致「公众号 → drafts」这类二级分组和一级菜单贴左对齐。
+   给有标题的 level-0 分组（> .item 保证是分组而非隐式链接组）
+   补上与 level-1 相同的 16px 缩进，层级关系就出来了 */
+.VPSidebarItem.level-0 > .item + .items {
+  border-left: 1px solid var(--vp-c-divider);
+  padding-left: 16px;
+}
+
 /* ── Utility Classes ── */
 .visually-hidden {
   position: absolute;
