@@ -38,7 +38,7 @@ const CATEGORY_MAP = [
 // password / search: false / description，走前端锁屏布局（PasswordLayout）。
 // 留空数组 = 不批量加密，仅靠单篇文章 frontmatter 手写 password。
 const LOCKED_DIRS = [
-  // ['09.AI/100.Agent学习笔记', 'test123'],
+  ['09.AI/10.Agent', '神族九帝'],
 ]
 
 function fmtDate(d) {
@@ -71,6 +71,7 @@ function yamlSafe(value) {
 function buildHeader({ title, date, category, tags, lockPwd }) {
   const lines = ['---', `title: ${yamlSafe(title)}`, `date: ${date}`, 'categories:', `  - ${category}`]
   if (lockPwd) {
+    lines.push('layout: PasswordLayout')
     lines.push(`password: '${lockPwd}'`)
     lines.push('search: false')
     lines.push('description: 受密码保护')
@@ -125,15 +126,17 @@ function ensureFrontmatter(file) {
   if (!keys.includes('title')) add.push(`title: ${yamlSafe(title)}`)
   if (!keys.includes('date')) add.push(`date: ${date}`)
   if (lockPwd) {
+    if (!keys.includes('layout')) add.push('layout: PasswordLayout')
     if (!keys.includes('password')) add.push(`password: '${lockPwd}'`)
     if (!keys.includes('search')) add.push('search: false')
     if (!keys.includes('description')) add.push('description: 受密码保护')
   }
   if (!add.length) return false
 
-  const m = content.match(/^---\s*\n[\s\S]*?\n---/)
-  const headEnd = m[0].length // 结尾「---」位于文件开头，直接按长度定位
-  content = content.slice(0, headEnd - 3) + '\n' + add.join('\n') + content.slice(headEnd - 3)
+  const m = content.match(/^---\s*\n([\s\S]*?)\n---/)
+  if (!m) return false
+  const newHead = `---\n${m[1]}\n${add.join('\n')}\n---`
+  content = newHead + content.slice(m[0].length)
   fs.writeFileSync(file, content)
   return true
 }
