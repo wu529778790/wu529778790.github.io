@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { onMounted, ref, watch } from 'vue'
 import { useData, useRoute } from 'vitepress'
+import PageOutline from '../components/PageOutline.vue'
+import MobileToc from '../components/MobileToc.vue'
 
 const { frontmatter } = useData()
 const route = useRoute()
@@ -51,63 +53,90 @@ function unlock() {
       </div>
     </div>
 
-    <!-- 未解锁：只展示正文前几段（预览）+ 密码解锁区 -->
-    <div v-if="frontmatter.password && !unlocked" class="pwd-locked">
-      <div class="pwd-preview-wrap">
-        <div class="pwd-preview vp-doc">
-          <Content />
+    <div class="pwd-body">
+      <div class="pwd-content">
+        <!-- 未解锁：只展示正文前几段（预览）+ 密码解锁区 -->
+        <div v-if="frontmatter.password && !unlocked" class="pwd-locked">
+          <div class="pwd-preview-wrap">
+            <div class="pwd-preview vp-doc">
+              <Content />
+            </div>
+            <div class="pwd-fade"></div>
+          </div>
+
+          <div class="pwd-gate">
+            <svg
+              class="pwd-icon"
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+            <p class="pwd-hint">预览到此为止，输入密码解锁全文</p>
+            <div class="pwd-row">
+              <input
+                v-model="input"
+                type="password"
+                class="pwd-input"
+                :class="{ 'pwd-input--error': error }"
+                placeholder="输入密码"
+                autofocus
+                @keyup.enter="unlock"
+              />
+              <button class="pwd-btn" @click="unlock">解锁</button>
+            </div>
+            <p v-if="error" class="pwd-error">密码错误，请重试</p>
+            <p class="pwd-remember-hint">解锁后本机会记住，同密码的其他文章也无需重复输入</p>
+          </div>
         </div>
-        <div class="pwd-fade"></div>
+
+        <!-- 已解锁：完整正文 -->
+        <template v-else>
+          <div class="vp-doc">
+            <Content />
+          </div>
+        </template>
       </div>
 
-      <div class="pwd-gate">
-        <svg
-          class="pwd-icon"
-          width="22"
-          height="22"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-        </svg>
-        <p class="pwd-hint">预览到此为止，输入密码解锁全文</p>
-        <div class="pwd-row">
-          <input
-            v-model="input"
-            type="password"
-            class="pwd-input"
-            :class="{ 'pwd-input--error': error }"
-            placeholder="输入密码"
-            autofocus
-            @keyup.enter="unlock"
-          />
-          <button class="pwd-btn" @click="unlock">解锁</button>
-        </div>
-        <p v-if="error" class="pwd-error">密码错误，请重试</p>
-        <p class="pwd-remember-hint">解锁后本机会记住，同密码的其他文章也无需重复输入</p>
-      </div>
+      <PageOutline />
     </div>
 
-    <!-- 已解锁：完整正文 -->
-    <template v-else>
-      <div class="vp-doc">
-        <Content />
-      </div>
-    </template>
+    <MobileToc />
   </div>
 </template>
 
 <style scoped>
 .pwd-page {
-  max-width: 1100px;
+  max-width: 1180px;
   margin: 0 auto;
   padding: var(--space-5);
 }
+
+/* ── 双栏：左侧正文 + 右侧目录（1024px 以下折叠为单栏） ── */
+.pwd-body {
+  display: flex;
+  gap: var(--space-5, 24px);
+  align-items: flex-start;
+}
+
+.pwd-content {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (max-width: 1024px) {
+  .pwd-body {
+    display: block;
+  }
+}
+
 .article-header {
   padding: 0;
   margin-top: var(--space-4);

@@ -8,14 +8,26 @@ const activeId = ref('')
 const isOpen = ref(false)
 
 function extractHeadings() {
-  const doc = document.querySelector('.vp-doc .content-container .main')
-  if (!doc) return
-  const h2h3 = doc.querySelectorAll('h2, h3')
-  headings.value = Array.from(h2h3).map(h => ({
-    id: h.id,
-    text: h.textContent?.trim() || '',
-    level: parseInt(h.tagName[1]),
-  }))
+  // 兼容两种 layout：
+  // - BlogLayout 默认 layout：.VPDoc > .content-container > .main > .vp-doc
+  // - PasswordLayout：.pwd-page > .pwd-body > .vp-doc
+  // 扫描所有 .vp-doc 后合并去重
+  const roots = document.querySelectorAll('.vp-doc')
+  const found: { id: string; text: string; level: number }[] = []
+  const seen = new Set<string>()
+  for (const root of Array.from(roots)) {
+    const h2h3 = root.querySelectorAll<HTMLElement>('h2, h3')
+    for (const h of Array.from(h2h3)) {
+      if (!h.id || seen.has(h.id)) continue
+      seen.add(h.id)
+      found.push({
+        id: h.id,
+        text: h.textContent?.trim() || '',
+        level: parseInt(h.tagName[1], 10),
+      })
+    }
+  }
+  headings.value = found
 }
 
 function observeActive() {
