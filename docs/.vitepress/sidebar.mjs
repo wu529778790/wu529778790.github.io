@@ -69,10 +69,10 @@ function scanDir(dir, basePath = '') {
     const filePath = path.join(dir, file.name)
     // 从文件中获取标题
     const title = getTitleFromFile(filePath)
-    const name = title || cleanName(file.name.replace('.md', ''))
+    const name = title || cleanName(file.name.replace(/\.md$/, ''))
     items.push({
       text: name,
-      link: `${basePath}/${file.name.replace('.md', '')}`
+      link: `${basePath}/${file.name.replace(/\.md$/, '')}`
     })
   }
 
@@ -180,7 +180,7 @@ function findFirstMarkdown(dir) {
   // 先找文件
   for (const entry of entries) {
     if (entry.isFile() && entry.name.endsWith('.md') && entry.name !== 'index.md') {
-      return entry.name.replace('.md', '')
+      return entry.name.replace(/\.md$/, '')
     }
   }
 
