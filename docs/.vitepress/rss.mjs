@@ -75,13 +75,17 @@ export async function generateRssFeed(siteUrl, siteTitle, siteDesc) {
   posts.sort((a, b) => b.date.getTime() - a.date.getTime())
 
   const lastBuildDate = new Date().toUTCString()
-  const items = posts.slice(0, 50).map(p => `    <item>
+  const items = posts.slice(0, 50).map(p => {
+    // URL 也可能包含 & 等需转义字符（部分旧文章文件名里带 &），必须整体转义
+    const url = escapeXml(`${siteUrl}${p.url}`)
+    return `    <item>
       <title>${escapeXml(p.title)}</title>
-      <link>${siteUrl}${p.url}</link>
-      <guid isPermaLink="true">${siteUrl}${p.url}</guid>
+      <link>${url}</link>
+      <guid isPermaLink="true">${url}</guid>
       <pubDate>${p.date.toUTCString()}</pubDate>
       <description>${escapeXml(p.excerpt)}</description>
-    </item>`).join('\n')
+    </item>`
+  }).join('\n')
 
   const rss = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">

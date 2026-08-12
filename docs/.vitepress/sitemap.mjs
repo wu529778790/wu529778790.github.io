@@ -44,17 +44,30 @@ function scanPosts(dir) {
   return posts
 }
 
+// 转义 XML 特殊字符（部分旧文章文件名含 &，URL 必须转义否则 sitemap.xml 非法）
+function escapeXml(str) {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;')
+}
+
 export async function generateSitemap(siteUrl) {
   const posts = scanPosts(docsDir)
   posts.sort((a, b) => b.date.getTime() - a.date.getTime())
 
   const now = new Date().toISOString().split('T')[0]
-  const urls = posts.map(p => `  <url>
-    <loc>${siteUrl}${p.url}</loc>
+  const urls = posts.map(p => {
+    const loc = escapeXml(`${siteUrl}${p.url}`)
+    return `  <url>
+    <loc>${loc}</loc>
     <lastmod>${p.date.toISOString().split('T')[0]}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>`).join('\n')
+  </url>`
+  }).join('\n')
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
