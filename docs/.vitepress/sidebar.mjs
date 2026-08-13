@@ -44,60 +44,85 @@ function cleanName(name) {
   return name.replace(/^\d+[\.\-]\s*/, '')
 }
 
-// 扫描目录生成侧边栏
+// 数字感知的自然比较：2 < 10 < 100，且忽略 .md 后缀
+function naturalCompare(a, b) {
+  const keyA = String(a).replace(/\.md$/, '')
+  const keyB = String(b).replace(/\.md$/, '')
+  const ta = keyA.split(/(\d+)/).filter(Boolean)
+  const tb = keyB.split(/(\d+)/).filter(Boolean)
+  const len = Math.max(ta.length, tb.length)
+  for (let i = 0; i < len; i++) {
+    const x = ta[i]
+    const y = tb[i]
+    if (x === undefined) return -1
+    if (y === undefined) return 1
+    if (x !== y) {
+      const xn = /^\d+$/.test(x)
+      const yn = /^\d+$/.test(y)
+      if (xn && yn) {
+        const diff = parseInt(x, 10) - parseInt(y, 10)
+        if (diff !== 0) return diff
+      } else {
+        return x < y ? -1 : 1
+      }
+    }
+  }
+  return 0
+}
+
+// 扫描目录生成侧边栏（文件与目录合并，统一按名称自然排序）
 function scanDir(dir, basePath = '') {
   const items = []
   const entries = fs.readdirSync(dir, { withFileTypes: true })
 
-  // 先收集文件和目录
-  const files = []
-  const dirs = []
+  // 收集所有文件与目录，统一排序
+  const candidates = []
 
   for (const entry of entries) {
     if (entry.name.startsWith('.') || entry.name === 'node_modules') continue
     if (entry.name === 'index.md') continue
 
     if (entry.isFile() && entry.name.endsWith('.md')) {
-      files.push(entry)
+      candidates.push({ entry, type: 'file' })
     } else if (entry.isDirectory()) {
-      dirs.push(entry)
+      candidates.push({ entry, type: 'dir' })
     }
   }
 
-  // 添加文件
-  for (const file of files) {
-    const filePath = path.join(dir, file.name)
-    // 从文件中获取标题
-    const title = getTitleFromFile(filePath)
-    const name = title || cleanName(file.name.replace(/\.md$/, ''))
-    items.push({
-      text: name,
-      link: `${basePath}/${file.name.replace(/\.md$/, '')}`
-    })
-  }
+  candidates.sort((a, b) => naturalCompare(a.entry.name, b.entry.name))
 
-  // 添加目录（递归）
-  for (const dirEntry of dirs) {
-    const dirPath = path.join(dir, dirEntry.name)
-    const dirBasePath = `${basePath}/${dirEntry.name}`
-
-    // 检查目录下是否有 md 文件
-    const hasMdFiles = hasMarkdownFiles(dirPath)
-    if (!hasMdFiles) continue
-
-    // 从目录的 index.md 获取标题
-    const dirTitle = getTitleFromIndexFile(dirPath)
-    const dirName = dirTitle || cleanName(dirEntry.name)
-
-    // 生成子项
-    const subItems = scanDir(dirPath, dirBasePath)
-
-    if (subItems.length > 0) {
+  for (const { entry, type } of candidates) {
+    if (type === 'file') {
+      const filePath = path.join(dir, entry.name)
+      // 从文件中获取标题
+      const title = getTitleFromFile(filePath)
+      const name = title || cleanName(entry.name.replace(/\.md$/, ''))
       items.push({
-        text: dirName,
-        collapsed: true,
-        items: subItems
+        text: name,
+        link: `${basePath}/${entry.name.replace(/\.md$/, '')}`
       })
+    } else {
+      const dirPath = path.join(dir, entry.name)
+      const dirBasePath = `${basePath}/${entry.name}`
+
+      // 检查目录下是否有 md 文件
+      const hasMdFiles = hasMarkdownFiles(dirPath)
+      if (!hasMdFiles) continue
+
+      // 从目录的 index.md 获取标题
+      const dirTitle = getTitleFromIndexFile(dirPath)
+      const dirName = dirTitle || cleanName(entry.name)
+
+      // 生成子项
+      const subItems = scanDir(dirPath, dirBasePath)
+
+      if (subItems.length > 0) {
+        items.push({
+          text: dirName,
+          collapsed: true,
+          items: subItems
+        })
+      }
     }
   }
 
