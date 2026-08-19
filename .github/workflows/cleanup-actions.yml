@@ -1,0 +1,57 @@
+name: cleanup-actions-storage
+
+# 每天清一次 Actions cache 和旧 workflow run
+# 触发原因：wu529778790 账号的 0.5GB 免费配额老被 cache 撑爆
+# 删 cache + 删旧 run（连带 artifacts），保留最近 3 个 run 供回滚
+
+on:
+  schedule:
+    # 每天 UTC 16:00 = 北京时间 00:00
+    - cron: '0 16 * * *'
+  # 允许手动触发，紧急清理用
+  workflow_dispatch:
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete all Actions caches
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "==> Deleting Actions caches..."
+          deleted=0
+          while :; do
+            ids=$(gh api "repos/${{ github.repository }}/actions/caches?per_page=100" \
+              --jq '.actions_caches[].id')
+            [ -z "$ids" ] && break
+            for id in $ids; do
+              gh api -X DELETE "repos/${{ github.repository }}/actions/caches/$id" \
+                >/dev/null 2>&1 && deleted=$((deleted+1))
+            done
+            # 安全熔断，防止无限循环
+            [ $deleted -gt 500 ] && { echo "  safety break at 500"; break; }
+          done
+          echo "    deleted $deleted caches"
+
+      - name: Delete old workflow runs (keep latest 3)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "==> Deleting old workflow runs (keeping latest 3)..."
+          runs=$(gh api "repos/${{ github.repository }}/actions/runs?per_page=100" \
+            --jq '.workflow_runs[].id')
+          # 前 3 个是最新（API 已按时间倒序），删剩下的
+          deleted=0
+          echo "$runs" | tail -n +4 | while read -r id; do
+            [ -z "$id" ] && continue
+            if gh api -X DELETE "repos/${{ github.repository }}/actions/runs/$id" \
+              >/dev/null 2>&1; then
+              deleted=$((deleted+1))
+            fi
+          done
+          echo "    done"
