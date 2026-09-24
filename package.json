@@ -11,8 +11,7 @@
     "vitepress": "^1.6.4"
   },
   "dependencies": {
-    "giscus": "^1.6.0",
-    "wx-auth-sdk": "^1.2.9"
+    "giscus": "^1.6.0"
   },
   "overrides": {
     "esbuild": "^0.25.0",
